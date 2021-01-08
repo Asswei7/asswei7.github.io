@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Asswei&#39;s blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://asswei7.github.io/"/>
+  <updated>2020-07-08T03:16:46.000Z</updated>
+  <id>https://asswei7.github.io/</id>
+  
+  <author>
+    <name>孙书玮</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电脑选购</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E7%94%B5%E8%84%91%E9%80%89%E8%B4%AD/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E7%94%B5%E8%84%91%E9%80%89%E8%B4%AD/</id>
+    <published>2021-01-08T02:43:09.796Z</published>
+    <updated>2020-07-08T03:16:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><p>建议购入渠道：京东、天猫和官方店<br>不推荐：实体店、淘宝、苏宁易购、拼多多</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;注意事项：&quot;&gt;&lt;a href=&quot;#注意事项：&quot; class=&quot;headerlink&quot; title=&quot;注意事项：&quot;&gt;&lt;/a&gt;注意事项：&lt;/h3&gt;&lt;p&gt;建议购入渠道：京东、天猫和官方店&lt;br&gt;不推荐：实体店、淘宝、苏宁易购、拼多多&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>知识图谱</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</id>
+    <published>2021-01-08T02:43:09.796Z</published>
+    <updated>2020-10-28T11:52:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一讲：知识图谱概述"><a href="#第一讲：知识图谱概述" class="headerlink" title="第一讲：知识图谱概述"></a>第一讲：知识图谱概述</h1><h3 id="1-什么是知识图谱"><a href="#1-什么是知识图谱" class="headerlink" title="1. 什么是知识图谱"></a>1. 什么是知识图谱</h3><pre><code>2012年5月，谷歌发布新一代智能搜索功能，不仅返回网页文档，还返回一些结构化的数据。本质是基于图的语义网络，表示实体和实体之间的关系！**传统的搜索技术**：计算机并不理解关键词的语义1. 爬取网页建立倒排索引2. 基于倒排索引，搜索引擎首先找到包含关键词的网页3. 根据打分策略对网页排序并返回构建知识图谱的目的，是让机器具备认知能力，理解这个世界。FaceBook Social Graph</code></pre><h3 id="2-知识图谱研究的多个维度"><a href="#2-知识图谱研究的多个维度" class="headerlink" title="2. 知识图谱研究的多个维度"></a>2. 知识图谱研究的多个维度</h3><pre><code>    相关领域：    ****    RDF：resource description framework    描述实体、属性、值之间的关系。主谓宾三元组。    RDFs：    OWL    知识抽取：    目标：从海量的文本数据中通过信息抽取的方式获取知识       结构化数据：       半结构化数据：表格，html       纯文本数据</code></pre><h3 id="3-从人工智能和大数据的角度看知识图谱"><a href="#3-从人工智能和大数据的角度看知识图谱" class="headerlink" title="3. 从人工智能和大数据的角度看知识图谱"></a>3. 从人工智能和大数据的角度看知识图谱</h3><h3 id="4-知识图谱的项目应用"><a href="#4-知识图谱的项目应用" class="headerlink" title="4. 知识图谱的项目应用"></a>4. 知识图谱的项目应用</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;第一讲：知识图谱概述&quot;&gt;&lt;a href=&quot;#第一讲：知识图谱概述&quot; class=&quot;headerlink&quot; title=&quot;第一讲：知识图谱概述&quot;&gt;&lt;/a&gt;第一讲：知识图谱概述&lt;/h1&gt;&lt;h3 id=&quot;1-什么是知识图谱&quot;&gt;&lt;a href=&quot;#1-什么是知识图谱&quot; c
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>道家</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E9%81%93%E5%AE%B6/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E9%81%93%E5%AE%B6/</id>
+    <published>2021-01-08T02:43:09.796Z</published>
+    <updated>2020-06-12T03:22:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="哲学篇"><a href="#哲学篇" class="headerlink" title="哲学篇"></a>哲学篇</h1><h3 id="常道"><a href="#常道" class="headerlink" title="常道"></a>常道</h3><p>无所不在谓之道，自其所得谓之德。(道是普遍的原理，德是自己的行动。)<br>道可道，不知道的东西也可以去研究它，研究它的性质和意义。<br>就像根号2大家不知道它的精确解，但是可以知道它的性质。<br>有物混成，先天地生。吾不知其名，强字之曰道。<br>惚兮恍兮，其中有象，惚兮恍兮，其中有物。<br>韩非：道是万物之所然，万理之所稽。（规律的规律）</p><h3 id="有生于无"><a href="#有生于无" class="headerlink" title="有生于无"></a>有生于无</h3><p>无，名天地之始。有，名万物之母。<br>天下万物生于有，有生于无。<br>中国女排冠军，郎平指导是无，得冠军是有。杯子用的是无，房子修的是墙，住的是无。</p><h3 id="反者道之动"><a href="#反者道之动" class="headerlink" title="反者道之动"></a>反者道之动</h3><p>吾言甚易知，甚易行。天下莫能知，莫能行。（怨言）<br>老子认为是循环的，<br>将欲取之，必先予之。<br>车辆撞着翻栏杆行人，也要赔钱。其实是害了更多的行人。</p><h3 id="责人容易责己难"><a href="#责人容易责己难" class="headerlink" title="责人容易责己难"></a>责人容易责己难</h3><p>知 不知 上，不知 知 病。<br>我讲得不一定对，现在认为自己讲的是对的，未来肯定不对。<br>大成若缺，大家不要互相颠覆，就像世界杯现场看和在家直播。</p><h3 id="非有公是——换位思考"><a href="#非有公是——换位思考" class="headerlink" title="非有公是——换位思考"></a>非有公是——换位思考</h3><p>老子偏理论，没什么例子，但是只讲道理。庄子偏向事例，<br>天下非有公是也，而各是其所是。<br>太阳绕地球还是地球绕太阳。庄子变蝴蝶还是蝴蝶变庄子。<br>人长期泡水要生病，泥鳅离了水反而要干死。各有各的活法，因此需要换位思考，不要把你的是非强加于别人。</p><h3 id="道家与科学"><a href="#道家与科学" class="headerlink" title="道家与科学"></a>道家与科学</h3><p>科学：墨子。玄之又玄，众妙之门。<br>哥德尔不完备证明，是不是有限次增加后，能证明所有结论，答案是否定的。<br>故常无欲以观其妙，常有欲以观其徼(边界)。 有一利必有一害。<br>屠龙之技，比喻没有意义的技巧，伽利略造钟表，就是看教堂的摆动。<br>(1)道法自然，不信神仙。<br>(2)玄之又玄，清醒认识到人类认识规律的困难。<br>(3)无欲观其妙,有欲观其徼，对于理论研究和应用研究的定位有指导意义。</p><h3 id="无为而治"><a href="#无为而治" class="headerlink" title="无为而治"></a>无为而治</h3><p>太上不知有之，最好的管理是不知道有人在管理，太阳系是谁在管理？万有引力定律。<br>由规律自己来管理，大禹疏导水流。都江堰水利工程。<br>(1)鱼嘴分水提，外江泄洪排沙，内江引水灌溉。<br>(2)飞沙堰，进入内江的过量洪水和沙石排入外江<br>(3)宝瓶口，内江的水由此送入成都平原<br>表层水流向凹岸，即内江，底层水流向凸岸，即外江。<br>交通几乎不需要交警，体育比赛裁判只是辅助。<br>不是不管理，而是顺其自然，让规律去管理，</p><h3 id="圣人不死，大盗不止"><a href="#圣人不死，大盗不止" class="headerlink" title="圣人不死，大盗不止"></a>圣人不死，大盗不止</h3><p>对仁义道德的强烈批判，冷眼热心。<br>窃钩者诛，窃国者诸侯。一将功成万骨枯，产生乱的/大盗的根源，就是老想着去<br>建功立业，老想着去整别人。<br>大道废，有仁义。智慧出，有大伪。六亲不和，有孝慈。国家昏乱，有忠臣。<br>为什么需要仁义、忠臣、孝慈？是因为你乱套了，指明了原因，孔子讲的是解决的方法。<br>绝圣弃智，民利百倍。绝仁弃义，民复孝慈。绝巧弃利，盗贼无有。</p><p>儒家提倡仁义道德，劝说人民服从统治者。老子和庄子站在老百姓立场，指出产生大盗的根源是统治者对人民的压迫。</p><h3 id="上德不德"><a href="#上德不德" class="headerlink" title="上德不德"></a>上德不德</h3><p>上德不德，是以有德。按照规律来行动，就是德。道是普遍规律，德是行为。<br>与其相濡以沫，不如相忘于江湖。与其誉尧而非桀，不如两忘而化其道。<br>对于统治者无所谓，只要用道来约束人民就行。<br>德”不需要另外炒作，只要按照“道”做好事造福于人，有了效果，就是功德无量。做好事时只要想到如何有利于人，就是最高的道德，不需要另立标准来鉴定是不是道德。</p><h3 id="逍遥游"><a href="#逍遥游" class="headerlink" title="逍遥游"></a>逍遥游</h3><p>鲲鹏展翅九万里，翻动扶摇羊角。有待，自由依赖于约束，依赖于客观规律。</p><h3 id="为而不争"><a href="#为而不争" class="headerlink" title="为而不争"></a>为而不争</h3><p>真正努力的人都不争名，反而会做出成绩来。<br>夫唯不争，故天下莫能与之争。<br>干活时只想到怎样把活干好，某一天好处就突然降临了。那些争得头破血流的，都没得到。</p><h3 id="功成身退天之道"><a href="#功成身退天之道" class="headerlink" title="功成身退天之道"></a>功成身退天之道</h3><p>孙叔敖，给子孙留一块最差的土地，这样没人来掠夺。<br>人无千日好，花无百日红。<br>丘吉尔：打仗就是为了保卫人民把我选下去的权利。<br>老子的“反者道之动”揭示了物极必反、乐极生悲的道理。无数历史事实一再证实这一理论。功臣被杀主要不是由于国君的随心所欲，而是执政需要；范蠡张良曾国藩识时务，完美收官。</p><h3 id="鲁候养鸟"><a href="#鲁候养鸟" class="headerlink" title="鲁候养鸟"></a>鲁候养鸟</h3><p>尊重差异，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;哲学篇&quot;&gt;&lt;a href=&quot;#哲学篇&quot; class=&quot;headerlink&quot; title=&quot;哲学篇&quot;&gt;&lt;/a&gt;哲学篇&lt;/h1&gt;&lt;h3 id=&quot;常道&quot;&gt;&lt;a href=&quot;#常道&quot; class=&quot;headerlink&quot; title=&quot;常道&quot;&gt;&lt;/a&gt;常道&lt;/h3&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>口语控</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/</id>
+    <published>2021-01-08T02:43:09.780Z</published>
+    <updated>2020-10-28T11:52:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="The-meaning-of-swag"><a href="#The-meaning-of-swag" class="headerlink" title="The meaning of swag"></a>The meaning of swag</h3><ul><li>Hey mam. What’s poppin?  </li><li>Yo. what up dawg? Good to see you here.</li><li>Yes, are you here for the audition as well?</li><li>I mean, who isn’t. I’m all pumped up right now.</li><li>You have a great chance of winning among all these readers.</li><li>Come on bruh. Look at you. You got the swag, the talent and everything.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;The-meaning-of-swag&quot;&gt;&lt;a href=&quot;#The-meaning-of-swag&quot; class=&quot;headerlink&quot; title=&quot;The meaning of swag&quot;&gt;&lt;/a&gt;The meaning of swag&lt;/h3&gt;&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>唐诗三百首</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%94%90%E8%AF%97%E4%B8%89%E7%99%BE%E9%A6%96/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%94%90%E8%AF%97%E4%B8%89%E7%99%BE%E9%A6%96/</id>
+    <published>2021-01-08T02:43:09.780Z</published>
+    <updated>2020-11-12T07:47:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="唐诗三百首"><a href="#唐诗三百首" class="headerlink" title="唐诗三百首"></a>唐诗三百首</h3><p>孙洙，字临西，编选唐诗三百首。<br>近体诗：格律诗，即唐诗，绝句和律诗。<br>古体诗：格律限制较少的诗 ###<br>王勃字子安，神童，14岁参加科举，获得七品官，</p><p>武汉黄鹤楼、南昌滕王阁、岳阳岳阳楼，江南三大名楼</p><h1 id="关关雎鸠"><a href="#关关雎鸠" class="headerlink" title="关关雎鸠"></a>关关雎鸠</h1><h3 id="关关是什么？"><a href="#关关是什么？" class="headerlink" title="关关是什么？"></a>关关是什么？</h3><p>关关：拟声词，鸟的叫声。<br>因为古代的发音和现代不同，古音与鸟叫类似。 </p><h3 id="雎鸠是什么？"><a href="#雎鸠是什么？" class="headerlink" title="雎鸠是什么？"></a>雎鸠是什么？</h3><p>鱼鹰，捕鱼的鸟。 </p><h3 id="关雎隐喻什么"><a href="#关雎隐喻什么" class="headerlink" title="关雎隐喻什么"></a>关雎隐喻什么</h3><p>兴：欲言此物先言它物<br>鸟衔鱼图案隐喻：鱼籽很多，代表女性。鸟代表男性。 </p><h3 id="为什么第一首是这个"><a href="#为什么第一首是这个" class="headerlink" title="为什么第一首是这个"></a>为什么第一首是这个</h3><p>发乎于情，止乎于礼</p><h1 id="资治通鉴"><a href="#资治通鉴" class="headerlink" title="资治通鉴"></a>资治通鉴</h1><h3 id="三家分晋"><a href="#三家分晋" class="headerlink" title="三家分晋"></a>三家分晋</h3><p>周天子将大夫提升为诸侯，改变了祖制，是封建社会的开始。</p><h1 id="逍遥游"><a href="#逍遥游" class="headerlink" title="逍遥游"></a>逍遥游</h1><p>朝菌不知晦朔，蟪蛄不知春秋<br>且举世誉之而不加劝，举世非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。(就觉得不过如此罢了)</p><h1 id="鱼我所欲也"><a href="#鱼我所欲也" class="headerlink" title="鱼我所欲也"></a>鱼我所欲也</h1><p>万钟则不辩礼义而受之，万钟于我何加焉！为宫室之美，妻妾之奉，所识穷乏者得我与？<br>乡为身死而不受，今为宫室之美为之；乡为身死而不受，今为妻妾之奉为之；<br>乡为身死而不受，今为所识穷乏者得我而为之；是亦不可以已乎？此之谓失其本心。</p><h1 id="生于忧患死于安乐"><a href="#生于忧患死于安乐" class="headerlink" title="生于忧患死于安乐"></a>生于忧患死于安乐</h1><p>困于心，衡于虑，而后作。<br>借用悲剧哲学家尼采的话来说，是要求我们“去同时面对人类最大的<br>痛苦和最高的希望。”（《快乐的科学》）因为，痛苦与希望本来就同在。</p><h1 id="得道多助，失道寡助"><a href="#得道多助，失道寡助" class="headerlink" title="得道多助，失道寡助"></a>得道多助，失道寡助</h1><p>天时不如地利，地利不如人和。</p><p>三里之城，七里之郭，环而攻之而不胜。夫环而攻之，必有得天时者矣；<br>然而不胜者，是天时不如地利也。</p><p>城非不高也，池非不深也，兵革非不坚利也，米粟非不多也；委而去之，是地利不如人和也。</p><p>故曰：域民不以封疆之界，固国不以山溪之险，威天下不以兵革之利。<br>得道者多助，失道者寡助。寡助之至，亲戚畔之；多助之至，天下顺之。<br>以天下之所顺，攻亲戚之所畔，故君子有不战，战必胜矣。</p><h1 id="劝学"><a href="#劝学" class="headerlink" title="劝学"></a>劝学</h1><p>神莫大于化道，福莫长于无祸。<br>故君子居必择乡，游必就士，所以防邪辟而近中正也。</p><p>吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。<br>登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。<br>假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。</p><p>积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。<br>故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；<br>驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。<br>蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。<br>蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。</p><h1 id="阿旁宫赋"><a href="#阿旁宫赋" class="headerlink" title="阿旁宫赋"></a>阿旁宫赋</h1><p>奈何取之尽锱铢，用之如泥沙？使负栋之柱，多于南亩之农夫；<br>架梁之椽，多于机上之工女；钉头磷磷，多于在庾之粟粒；<br>瓦缝参差，多于周身之帛缕；<br>直栏横槛，多于九土之城郭；管弦呕哑，多于市人之言语。<br>戍卒叫，函谷举，楚人一炬，可怜焦土！<br>灭六国者六国也，非秦也。族秦者秦也，非天下也。<br>秦人不暇自哀，而后人哀之；后人哀之而不鉴之，亦使后人而复哀后人也。</p><h1 id="六国论"><a href="#六国论" class="headerlink" title="六国论"></a>六国论</h1><p>思厥先祖父，暴霜露，斩荆棘，以有尺寸之地。子孙视之不甚惜，举以予人，如弃草芥。<br>今日割五城，明日割十城，然后得一夕安寝。起视四境，而秦兵又至矣。<br>然则诸侯之地有限，暴秦之欲无厌，奉之弥繁，侵之愈急。<br>“以地事秦，犹抱薪救火，薪不尽，火不灭。”</p><p>靡不有初鲜克有终<br>茕茕白兔，东走西顾。衣不如新人不如故。<br>一生负气成今日，四海无人对夕阳。<br>功名半纸，风雪千山。<br>早知如此绊人心，何如当初莫相识。<br>人面不知何处去，桃花依旧笑春风。<br>欲买桂花同载酒，终不似，少年游。</p><p>我有所念人，隔在远远乡。<br>我有所念人，结在深深肠。</p><p>此去经年，应是良辰好景虚设。便纵有，千种风情，更与何人说。<br>而今识尽愁滋味，欲说还休，欲说还休，却道天凉好个秋。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;唐诗三百首&quot;&gt;&lt;a href=&quot;#唐诗三百首&quot; class=&quot;headerlink&quot; title=&quot;唐诗三百首&quot;&gt;&lt;/a&gt;唐诗三百首&lt;/h3&gt;&lt;p&gt;孙洙，字临西，编选唐诗三百首。&lt;br&gt;近体诗：格律诗，即唐诗，绝句和律诗。&lt;br&gt;古体诗：格律限制较少的诗 ###&lt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>注意力机制</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</id>
+    <published>2021-01-08T02:43:09.780Z</published>
+    <updated>2021-01-08T02:45:49.155Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简单介绍来"><a href="#简单介绍来" class="headerlink" title="简单介绍来"></a>简单介绍来</h3><p>transfomer的BERT模型。2017年底谷歌，attention is all you need，一种seq2seq的模型，<br>BERT是从transformer中衍生出来的预训练模型。</p><p>上游任务：训练一个预训练语言模型<br>下游任务：将模型应用到实际的任务，如情感分析，分类等</p><h1 id="transformer编码器（理论部分）"><a href="#transformer编码器（理论部分）" class="headerlink" title="transformer编码器（理论部分）"></a>transformer编码器（理论部分）</h1><h3 id="transformer模型的直觉，建立直观认识"><a href="#transformer模型的直觉，建立直观认识" class="headerlink" title="transformer模型的直觉，建立直观认识"></a>transformer模型的直觉，建立直观认识</h3><p>transf和LSTM的最大区别：LSTM相当于一个循环，一个一个字来，这个字过完LSTM模型，<br>才进行下一个字。transformer是并行的，所有字同时进行训练，加快了计算效率。<br>而利用position encoding来获取时间顺序。</p><p>输入到编码器得到一个hidden layer，然后传到解码器，得到结果。<br>我们有一张词汇表：<br>每一行代表一个字的数学向量，embedding_dimension。<br>共有vacab_size行。输入的X[batch_size,sequence length, embedding demension]</p><h3 id="positional-encoding-位置嵌入"><a href="#positional-encoding-位置嵌入" class="headerlink" title="positional encoding 位置嵌入"></a>positional encoding 位置嵌入</h3><p>没有迭代，全部喂入网络，所以需要位置嵌入得到顺序关系。</p><h3 id="self-attention-mechanism自注意力机制"><a href="#self-attention-mechanism自注意力机制" class="headerlink" title="self attention mechanism自注意力机制"></a>self attention mechanism自注意力机制</h3><h3 id="Layer-Normalization和残差连接"><a href="#Layer-Normalization和残差连接" class="headerlink" title="Layer Normalization和残差连接"></a>Layer Normalization和残差连接</h3><h3 id="transformer-encoder整体结构"><a href="#transformer-encoder整体结构" class="headerlink" title="transformer encoder整体结构"></a>transformer encoder整体结构</h3><h1 id="BERT的解读和实战应用"><a href="#BERT的解读和实战应用" class="headerlink" title="BERT的解读和实战应用"></a>BERT的解读和实战应用</h1><p>PyTorch动态图，方便调试。Tensorflow静态图，调试和建模都很麻烦。</p><h3 id="进一步理解位置编码"><a href="#进一步理解位置编码" class="headerlink" title="进一步理解位置编码"></a>进一步理解位置编码</h3><h3 id="语言模型的定义和BERT的解读"><a href="#语言模型的定义和BERT的解读" class="headerlink" title="语言模型的定义和BERT的解读"></a>语言模型的定义和BERT的解读</h3><p>Bidirectional Encoder Representation from Transformers双向transformer编码表达<br>编码器输出的隐藏层就是自然语言序列的数学表达。双向：又有之前的信息，又有之后的信息。</p><p>MASKED LM</p><h3 id="BERT训练之前的语料预处理"><a href="#BERT训练之前的语料预处理" class="headerlink" title="BERT训练之前的语料预处理"></a>BERT训练之前的语料预处理</h3><h3 id="BERT的预训练，训练参数"><a href="#BERT的预训练，训练参数" class="headerlink" title="BERT的预训练，训练参数"></a>BERT的预训练，训练参数</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;简单介绍来&quot;&gt;&lt;a href=&quot;#简单介绍来&quot; class=&quot;headerlink&quot; title=&quot;简单介绍来&quot;&gt;&lt;/a&gt;简单介绍来&lt;/h3&gt;&lt;p&gt;transfomer的BERT模型。2017年底谷歌，attention is all you need，一种seq
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>减肥</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%87%8F%E8%82%A5/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%87%8F%E8%82%A5/</id>
+    <published>2021-01-08T02:43:09.765Z</published>
+    <updated>2020-10-28T11:52:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="艺术史"><a href="#艺术史" class="headerlink" title="艺术史"></a>艺术史</h2><p>古希腊-&gt;中世纪-&gt;文艺复兴-&gt;巴洛克-&gt;新古典主义-&gt;浪漫主义-&gt;印象派-&gt;后印象派<br>-&gt;立体主义-&gt;野兽派-&gt;超现实主义-&gt;当代艺术</p><p>后印象派：高更、塞尚、梵高<br>作品的形式（画法）、内容（画什么）</p><h3 id="古希腊艺术"><a href="#古希腊艺术" class="headerlink" title="古希腊艺术"></a>古希腊艺术</h3><p>陶器、建筑、雕塑。几乎没有绘画，主要是雕塑。高贵、肃穆。</p><h3 id="中世纪艺术与文艺复兴"><a href="#中世纪艺术与文艺复兴" class="headerlink" title="中世纪艺术与文艺复兴"></a>中世纪艺术与文艺复兴</h3><p>形式：有无透视法。            空气透视：背景虚化，更突出人物。</p><p>思想：人文主义。</p><p>典型：拉斐尔，雅典学院。拉斐尔同时学习了达芬奇和米开朗琪罗的技巧，融于一身。<br>文艺复兴集大成者。<br>乔托-&gt;马萨乔-&gt;达芬奇-&gt;米开朗琪罗-&gt;拉斐尔<br>雅典学院：文艺复兴，基督教时代，只能描绘基督的事情。而这幅图画了阿波罗和雅典娜。</p><h3 id="文艺复兴到巴洛克艺术"><a href="#文艺复兴到巴洛克艺术" class="headerlink" title="文艺复兴到巴洛克艺术"></a>文艺复兴到巴洛克艺术</h3><p>古典美：均衡、理性、秩序<br><br>文艺复兴风格：静态、理性、秩序<br><br>巴洛克风格：动态、感性、节奏<br><br>代表人物：贝尼尼、卡瓦乔<br><br><strong>绘画</strong><br>构图：对角线构图（文艺复兴：三角形构图）<br><br>光影：明暗对比很强，像是舞台剧的一瞬间，比较夸张<br><strong>雕塑</strong><br>动态</p><p>伦勃朗：光影大师。三角光斑</p><h3 id="洛可可艺术"><a href="#洛可可艺术" class="headerlink" title="洛可可艺术"></a>洛可可艺术</h3><p>绘画内容更加开放，少儿不宜，香艳。<br><br>享乐。放纵、混乱</p><h3 id="新古典主义"><a href="#新古典主义" class="headerlink" title="新古典主义"></a>新古典主义</h3><p><strong>特点：</strong><br>向往古希腊艺术，哀而不伤、<br><br>克制、理性、秩序<br><br>线条细、轮廓清晰、构图稳定平衡<br><strong>与文艺复兴区别：</strong><br>文艺复兴多宗教，新古典主义多政治。<br><br><strong>典型画家及作品：</strong><br>路易大卫：苏格拉底之死、拿破仑加冕<br><br>安格尔：<br><strong>站姿：</strong><br>对偶倒立：一个支撑、一个松弛</p><h3 id="浪漫主义"><a href="#浪漫主义" class="headerlink" title="浪漫主义"></a>浪漫主义</h3><p>画得比较糙<br><strong>与古典主义区别：</strong><br>新古典主义：重写实，重基本功，多线条<br>浪漫主义：要好看，多色彩<br><strong>代表画家：</strong><br>德拉克罗瓦：自由引导人民</p><h3 id="印象派"><a href="#印象派" class="headerlink" title="印象派"></a>印象派</h3><p>画得不像但很美，写意。<br><strong>代表：</strong>雷诺阿，马奈</p><h3 id="后印象派"><a href="#后印象派" class="headerlink" title="后印象派"></a>后印象派</h3><p><strong>代表画家</strong>：梵高、高更、塞尚<br>梵高：模仿米勒、日本浮世绘。表现主义，<br>高更：原始主义<br>塞尚：现代主义之父，谁理解塞尚就理解立体主义。几何元素、双眼视觉。<br>将世界几何图形化。将两个角度看到的东西拼到一张画中。</p><h3 id="野兽派"><a href="#野兽派" class="headerlink" title="野兽派"></a>野兽派</h3><p>马蒂斯：色彩要鲜艳</p><h3 id="现代与当代"><a href="#现代与当代" class="headerlink" title="现代与当代"></a>现代与当代</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>中世纪艺术：画的不像</li><li>文艺复兴：透视法，画的像</li><li>巴洛克艺术：画得像+更丰富的光影与构图</li><li>新古典主义：画得像极了</li><li>浪漫主义：画得像但很糙<br><br>之前是古典艺术，之后是现代艺术。因为照相机被发明了，画画的功能性失去了。<br><br>从浪漫主义开始，注重色彩和光影</li><li>印象派：画得不像但很美</li><li>后印象派：画得不像，但有味道</li><li>立体主义：这是画？</li><li>野兽派：这是画？</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;艺术史&quot;&gt;&lt;a href=&quot;#艺术史&quot; class=&quot;headerlink&quot; title=&quot;艺术史&quot;&gt;&lt;/a&gt;艺术史&lt;/h2&gt;&lt;p&gt;古希腊-&amp;gt;中世纪-&amp;gt;文艺复兴-&amp;gt;巴洛克-&amp;gt;新古典主义-&amp;gt;浪漫主义-&amp;gt;印象派-&amp;gt;后印象派&lt;b
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>NLP</title>
+    <link href="https://asswei7.github.io/2021/01/08/NLP/"/>
+    <id>https://asswei7.github.io/2021/01/08/NLP/</id>
+    <published>2021-01-08T02:43:09.749Z</published>
+    <updated>2020-09-22T05:14:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>将文本表示为向量，以此进行分类<br>-逻辑回归<br>-贝叶斯</p><p>情感分析：<br>预测一条评论的情感是正面还是负面，<br>如何将一个文本用向量表示，所有单词都取出来构成一个向量，这句话出现这个词的<br>地方用1表示，否则为0.<br>在有标签的情况下，看这个单词在积极情况下出现次数，和在消极情况下出现次数。</p><h1 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h1><h3 id="1绪论"><a href="#1绪论" class="headerlink" title="1绪论"></a>1绪论</h3><h4 id="1-1-什么是编译"><a href="#1-1-什么是编译" class="headerlink" title="1.1 什么是编译"></a>1.1 什么是编译</h4><ul><li>机器语言</li><li>汇编语言:引入助记符，依赖于具体机器，编写效率较低</li><li>高级语言：更符合自然语言</li></ul><p>汇编语言到机器语言：汇编<br>高级语言到汇编、高级语言到机器语言：编译(源语言-目标语言)</p><p>源程序<br>预处理器：把存储在不同文件中源程序聚合在一起，并将宏转换为原始语句<br>编译器<br>汇编器<br>可重定位的机器代码：在内存中存放的起始位置不是固定的<br>链接器/加载器：修改可重定位地址，将修改后的指令和数据放到内存中适当位置<br>目标机器代码</p><h4 id="1-2-编译系统的结构"><a href="#1-2-编译系统的结构" class="headerlink" title="1.2 编译系统的结构"></a>1.2 编译系统的结构</h4><p>编译是一个翻译的过程，高级语言翻译到汇编或者机器语言<br>分析源语言，得到句子的语义，再生成目标语言句子<br>中间代码生成：一种桥梁，独立于各种语言之间<br>语义分析：划分句子成分()<br>语法分析：识别句子中各类短语(名词短语/动词短语)<br>词法分析：各个单词词性(名词/动词)</p><h4 id="1-3-词法分析"><a href="#1-3-词法分析" class="headerlink" title="1.3 词法分析"></a>1.3 词法分析</h4><h3 id="2程序设计语言及其文法"><a href="#2程序设计语言及其文法" class="headerlink" title="2程序设计语言及其文法"></a>2程序设计语言及其文法</h3><h3 id="3词法分析"><a href="#3词法分析" class="headerlink" title="3词法分析"></a>3词法分析</h3><h3 id="4语法分析"><a href="#4语法分析" class="headerlink" title="4语法分析"></a>4语法分析</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;将文本表示为向量，以此进行分类&lt;br&gt;-逻辑回归&lt;br&gt;-贝叶斯&lt;/p&gt;
+&lt;p&gt;情感分析：&lt;br&gt;预测一条评论的情感是正面还是负面，&lt;br&gt;如何将一个文本用向量表示，所有单词都取出来构成一个向量，这句话出现这个词的&lt;br&gt;地方用1表示，否则为0.&lt;br&gt;在有标签的情况下，看
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode</title>
+    <link href="https://asswei7.github.io/2021/01/08/LeetCode/"/>
+    <id>https://asswei7.github.io/2021/01/08/LeetCode/</id>
+    <published>2021-01-08T02:43:09.749Z</published>
+    <updated>2020-07-08T03:16:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="递归、分治、回溯"><a href="#递归、分治、回溯" class="headerlink" title="递归、分治、回溯"></a>递归、分治、回溯</h3><p>递归函数：先定义递归结束边界，然后写这一步要做什么操作，然后调用自身函数<br>回溯法：试探法，探索到某一步发现达不到目标就退回一步重新选择<br>        走不通就退回再走<br>找出路径上值的和大于30的所有路径，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;递归、分治、回溯&quot;&gt;&lt;a href=&quot;#递归、分治、回溯&quot; class=&quot;headerlink&quot; title=&quot;递归、分治、回溯&quot;&gt;&lt;/a&gt;递归、分治、回溯&lt;/h3&gt;&lt;p&gt;递归函数：先定义递归结束边界，然后写这一步要做什么操作，然后调用自身函数&lt;br&gt;回溯法：试探
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PAT</title>
+    <link href="https://asswei7.github.io/2021/01/08/PAT/"/>
+    <id>https://asswei7.github.io/2021/01/08/PAT/</id>
+    <published>2021-01-08T02:43:09.749Z</published>
+    <updated>2020-06-04T09:25:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="常见的评测结果"><a href="#常见的评测结果" class="headerlink" title="常见的评测结果"></a>常见的评测结果</h3><p>-AC:accept<br>-CE:compile error<br>-WA:wrong answer<br>-TLE:time limit exceeded<br>-RE:runtime error:数组越界，指针乱指，<br>-MLE:memory limit exceeded<br>-PE:presentation error </p><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>int:-2<em>10^9~2</em>10^9<br>long long:-9<em>10^18~9</em>10^18<br>char:-128~127<br>int占4Byte，10^9以内的数都可以int型<br>long long型赋值大于2^31的初值，需要在后面加上LL，否则编译出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long long bignum &#x3D; 123456789012345LL;</span><br></pre></td></tr></table></figure><br>浮点型用double存储，占64位，printf(“%f”,c);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define pi 3.14</span><br><span class="line">const double pi &#x3D; 3.14</span><br><span class="line">#define ADD(a,b) ((a)+(b))</span><br><span class="line">#define MAX(a,b) ((a)&gt;(b)?(a):(b))</span><br></pre></td></tr></table></figure><br>位运算符：<br>int型上限是2^31-1，所以INF可以设置为(1&lt;<31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高**但是一般更常用的是2^30-1，避免相加超过int，写成二进制是0x3fffffff<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int INF &#x3D; (1&lt;&lt;30)-1</span><br><span class="line">const int INF &#x3D; 0x3fffffff</span><br></pre></td></tr></table></figure><br>scanf(“%lld”,&amp;long);      printf(“%lld”,long);<br>scanf(“%lf”,&amp;db);           printf(“%f”,db);<br>scanf(“%s”,str);<br>scanf可以不加空格的原因，对于其他格式符的输入以空白符(空格、tab)作为结束标志<br>使用%s读入以空格和换行作为读入结束标志。</p><p>想要输出%和\在前面加上一个相应符号<br>printf(“%%”);<br>printf(“\“);<br>%md右对齐，补空格<br>%0md右对齐，补0</p><p>typedef给复杂的类型起一个别名<br>typedef long long LL;<br>LL a = 12134;<br>数学函数：<br>fabs(double x)<br>floor(double x) ceil(double x)<br>pow(double r,double p)  round(double x)</p><p>对数组中每一个元素赋相同的值，memset按字节赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">memset(a,0,sizeof(a))  &#x2F;&#x2F;只建议赋值为0或-1，赋值为其他的建议fill</span><br></pre></td></tr></table></figure><br>strlen(str) strcmp(s1,s2)返回负数，0，正数<br>strcmp(s1,s2)  把s2的值赋值给s1<br>strcat(s1,s2)  把字符数组2接到字符1后面</p><p>sscanf把字符数组str中的内容以%d形式写到n中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n; char str[10]&#x3D;&quot;233&quot;;</span><br><span class="line">sscanf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure><br>sprintf把n以%d的形式写到字符数组中（从右至左）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n&#x3D;233; char str[10];</span><br><span class="line">sprintf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure></p><p>如果自己重新定义了构造函数，则不能不经初始化就定义结构体变量，<br>可以手动再加上默认的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct studentInfo&#123;</span><br><span class="line">    int id;</span><br><span class="line">    char gender;</span><br><span class="line">    studentInfo()&#123;&#125;</span><br><span class="line">    studentInfo(int _id,char _gender)&#123;</span><br><span class="line">        id &#x3D; _id;</span><br><span class="line">        gender &#x3D; _gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">studentInfo(int _id,char _gender):id(_id),gender(_gender)&#123;&#125;</span><br></pre></td></tr></table></figure><br>补充<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">const double Pi &#x3D; acos(-1.0)</span><br><span class="line">#define Equ(a,b) ( (fabs((a)-(b)))&lt;(eps) )</span><br></pre></td></tr></table></figure><br>scanf函数的返回值为成功读入的参数的个数，读入失败时会返回-1，即EOF<br>while(scanf(“%s”,str) != EOF)<br>while(gets(str) != NULL)<br>当输入的a,b都为0时结束<br>while(scanf(“%d%d”,&amp;a,&amp;b),a||b)</p><p>判断闰年:是4的倍速但不是100倍数，或者是400的倍数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool isLeap(int year)&#123;</span><br><span class="line">    return (year%4&#x3D;&#x3D;0 &amp;&amp; year%100!&#x3D;0) || (year%400&#x3D;&#x3D;0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>进制转换<br>（1）将P进制数x转换为十进制数y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int transform2ten(int P,int x)&#123;</span><br><span class="line">    int y&#x3D;0,product&#x3D;1;</span><br><span class="line">    while(x!&#x3D;0)&#123;</span><br><span class="line">        y +&#x3D; (x%10) * product;  加上这个数乘权重</span><br><span class="line">        x&#x2F;&#x3D;10;                   去掉个位</span><br><span class="line">        product *&#x3D; P;            权重数</span><br><span class="line">    &#125;</span><br><span class="line">    return y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>(2)将十进制数y转换为Q进制数z<br>除基取余法，Q即为基，余数保存到地位中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int num&#x3D;0,z[40];</span><br><span class="line">do&#123;</span><br><span class="line">    z[num++] &#x3D; y%Q;</span><br><span class="line">    y&#x2F;&#x3D;Q;</span><br><span class="line">&#125;while(y!&#x3D;0);</span><br></pre></td></tr></table></figure><br>从z[num-1]到z[0]即转换完成。采用do-while是当y=0时，while会直接退出，<br>导致错误，应当是z[0]=0。</p><h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>首先从待排序中找到最小元素A[k]，与待排序第一个元素A[i]交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">    int k&#x3D;i;</span><br><span class="line">    for(int j&#x3D;i;j&lt;&#x3D;n;j++)&#123;</span><br><span class="line">        if(A[j]&lt;A[k])</span><br><span class="line">            k&#x3D;j;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;交换A[k]与A[i]</span><br><span class="line">    int temp &#x3D; A[i];</span><br><span class="line">    A[i]&#x3D;A[k];</span><br><span class="line">    A[k]&#x3D;temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>将未排序的第一个元素插入到已经排序好的合适的位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int A[maxn],n;   &#x2F;&#x2F;数组下标为1~n</span><br><span class="line">void insertSort()&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        int temp&#x3D;A[i],j&#x3D;i;</span><br><span class="line">        while(j&gt;1 &amp;&amp; temp&lt;A[j-1])&#123;</span><br><span class="line">            A[j] &#x3D; A[j-1];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        A[j] &#x3D; temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>先对两个进行排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;</span><br></pre></td></tr></table></figure></p><p>结构体排序，先按照分数排序，然后姓名字典序小的在前<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool cmp(Student a,Student b)&#123;</span><br><span class="line">    if(a.score!&#x3D;b.score) return a.score&gt;b.score;</span><br><span class="line">    else return strcmp(a.name,b.name)&lt;0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>结构体的排名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stu[0].r&#x3D;1;</span><br><span class="line">for(int i&#x3D;1;i&lt;n;i++)&#123;</span><br><span class="line">    if(stu[i].score &#x3D;&#x3D; stu[i-1].score)</span><br><span class="line">        stu[i].r &#x3D; stu[i-1].r;</span><br><span class="line">    else</span><br><span class="line">        stu[i].r &#x3D; i+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>将元素通过一个函数转换为整数，使得该整数可以尽量唯一地代表这个元素。<br>将字符串转换为一个整数，判断该整数位置是否有元素</p><p>分治可以采用递归的方法实现，也可以采用非递归方法实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int F(int n)&#123;</span><br><span class="line">    if(n&#x3D;&#x3D;0 || n&#x3D;&#x3D;1) return 1;</span><br><span class="line">    else return F(n-1)+F(n-2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h3><h3 id="区间贪心"><a href="#区间贪心" class="headerlink" title="区间贪心"></a>区间贪心</h3><p>区间不相交问题，</p><h3 id="快速幂，二分幂"><a href="#快速幂，二分幂" class="headerlink" title="快速幂，二分幂"></a>快速幂，二分幂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef long long LL;</span><br><span class="line">LL binaryPow(LL a, LL b,LL m)&#123;</span><br><span class="line">    if(b&#x3D;&#x3D;0) return 1;</span><br><span class="line">    if(b%2&#x3D;&#x3D;1) return a*binaryPow(a,b-1,m)%m;</span><br><span class="line">    else&#123;</span><br><span class="line">        LL mul &#x3D; binaryPow(a,b&#x2F;2,m);</span><br><span class="line">        return mul*mul%m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>vector<br>(1)push_back(1)<br>(2)pop_back()<br>(3)v.size()<br>(4)v.clear()<br>(5)v.insert(v.begin()+2, 8);<br>(6)v.erase(v.begin()+3)  删除v[4]<br>v.erase(v.begin()+1,v.begin()+4) 删除v[1],v[2],v[3]<br>v.erase(v.begin(),v.end()) 删除所有元素，v.end()是尾元素地址的下一个地址<br>Set内部自动有序且不含重复元素</p><p>map<br>同一个键，不同的值被后一个赋的值覆盖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mp[&#39;m&#39;] &#x3D; 20;</span><br><span class="line">mp[&#39;m&#39;] &#x3D; 30; &#x2F;&#x2F;20被覆盖</span><br></pre></td></tr></table></figure><br>it-&gt;first输出顺序按照键的大小</p><p>queue<br>q.push(i) 将i压入队列 q.pop()将队首元素弹出<br>q.front()  q.back() 获取队列队首和队尾元素<br>使用这两个操作前，先对队列判空</p><p>pair<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br><span class="line">添加map时自动添加了utiliy</span><br><span class="line">(1)pair&lt;string,int&gt;p</span><br><span class="line">   p &#x3D; make_pair(&quot;xixi&quot;,5);</span><br><span class="line">(2)pair&lt;string,int&gt;p1(&quot;xixi&quot;,5);</span><br><span class="line"></span><br><span class="line">map&lt;string,int&gt;mp;</span><br><span class="line">mp.insert(make_pair(&quot;haha&quot;,5));</span><br></pre></td></tr></table></figure><br>p1\&lt;\p2先比较p-&gt;first，</p><p>algorithm<br>max(),min()可以整数和浮点数，但是参数只能两个<br>abs()必须整数，浮点数取绝对值用math下的fabs()<br>swap()交换两个数的值<br>reverse()  对数组合字符串进行翻转<br>next_permutation()<br>    do{<br>        printf(“%d%d%d\n”,a[0],a[1],a[2]);<br>    }while(next_permutation(a,a+3));<br>fill()  fill(a,a+5,233);<br>lower_bound(first,last,val) 寻找第一个大于等于val值位置<br>upper_bound(first,last,val) 寻找第一个大于val值位置<br>    printf(“%d,%d\n”,lower_bound(a,a+10,3)-a,upper_bound(a,a+10,3)-a )</p><h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>清空：top=-1<br>size:top+1;</p><p>链表<br>1.malloc函数 stdlib.h  free(p)<br>int<em> p =(int</em>)malloc(sizeof(int));<br>node<em> p =(node</em>)malloc(sizeof(node));<br>2.new      delete(p)<br>int<em> p =new int;<br>node</em> p =new node;<br>静态链表</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;常见的评测结果&quot;&gt;&lt;a href=&quot;#常见的评测结果&quot; class=&quot;headerlink&quot; title=&quot;常见的评测结果&quot;&gt;&lt;/a&gt;常见的评测结果&lt;/h3&gt;&lt;p&gt;-AC:accept&lt;br&gt;-CE:compile error&lt;br&gt;-WA:wrong answe
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://asswei7.github.io/2021/01/08/hello-world/"/>
+    <id>https://asswei7.github.io/2021/01/08/hello-world/</id>
+    <published>2021-01-08T02:22:04.931Z</published>
+    <updated>2021-01-08T02:22:04.931Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>达尔文</title>
+    <link href="https://asswei7.github.io/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/"/>
+    <id>https://asswei7.github.io/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/</id>
+    <published>2020-04-16T02:27:34.000Z</published>
+    <updated>2020-07-08T03:16:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="计算机视觉能干什么"><a href="#计算机视觉能干什么" class="headerlink" title="计算机视觉能干什么"></a>计算机视觉能干什么</h1><p>人们希望它能模仿人类的视觉系统，作为人工智能的基石，从视频、图像中提取信息。<br>图像分类、目标检测、超像素、风格迁移、目标追踪、图像拼接、语义分割</p><h1 id="如何教计算机看懂一张图"><a href="#如何教计算机看懂一张图" class="headerlink" title="如何教计算机看懂一张图"></a>如何教计算机看懂一张图</h1><p>三个通道，灰度直方图，对比度低：灰度直方图比较集中。对比度高：直方图横轴分布很均匀。<br>也叫直方图均匀化</p><h1 id="图像去噪"><a href="#图像去噪" class="headerlink" title="图像去噪"></a>图像去噪</h1><p>滤波器(核)：将周围八个点取平均(取中值)，代替噪声点。</p><h1 id="全连接神经网络"><a href="#全连接神经网络" class="headerlink" title="全连接神经网络"></a>全连接神经网络</h1><h1 id="OLED与LCD"><a href="#OLED与LCD" class="headerlink" title="OLED与LCD"></a>OLED与LCD</h1><p>LCD的工作原理：每个像素点的显示，液晶层就类似百叶窗(液晶层+偏光片整体类似百叶窗)，最下面的背光层发射白光。<br>白光射穿具有颜色的彩色滤光层之后，就变成对应颜色的光线。<br>正极发送电压，穿透液晶层与负极构成回路，这个电压会驱使液晶层发生偏转，液晶层会遮挡住一部分光线。<br>这样只需要控制电压大小，就可以控制液晶层偏转角度，进而控制RGB子像素的亮度，从而混合出各种颜色。</p><p>OLED(Organic Light-Emitting Diode有机自发光二极管)：<br>没有液晶层和背光层，是一种特殊的发光二极管，通电就发亮，电压越大亮度越大。<br>每个像素都可以独立控制开关，没必要像LCD一样整个背光层都要亮起。</p><p>优点：</p><ol><li>可以做Always on display息屏提醒，手机锁屏时可以单独点亮部分像素点，以低亮度和低刷新率来显示时间和通知。<br>而LCD一开屏幕整个背光层都要打开，不可能以低功耗实现息屏提醒。</li><li>近乎无限的对比度。对比度是画面黑白明暗的亮度比值，LCD要显示纯黑色，理想下是液晶层全闭合，完全挡住发出的背光。<br>但是LCD的液晶屏不能完全闭合，所以不能看到纯黑。OLED直接断电就是纯黑。</li><li>没有漏光。屏幕面板需要装进手机或者显示器，屏幕和边框的衔接处，背光层的背光很容易漏出去。边框会出现光晕。</li><li>屏幕响应时间。显示动态画面，会出现残影。液晶屏的偏转速度决定了LCD的灰阶响应时间。<br>而且与温度有关，温度越低偏转越慢，导致LCD在低温下会出现明显的拖影现象。</li><li>厚度。OLED不需要液晶层和背光层，可以更加薄。并且可以弯折。</li></ol><p>手机屏幕除了屏幕本身还有控制IC和排线，COG就是直接把控制IC和排线放在屏幕正下方，导致有大下巴。<br>COF，把控制IC做到排线上，再把排线弯折到屏幕的背面。<br>COP，利用OLED把下巴弯没<br>缺点：</p><ol><li>寿命短。电压直接发在二极管上，有机物相对于无机物很容易老化。并且每个像素点独立，每个地方的老化程度不同，导致烧屏。<br>像素点老化不均匀导致的屏幕色差。</li><li>调光方式。DC，利用电压来改变灯的亮度。 PWM，调整开关的时间占比，一开一关，频闪导致伤眼。<br>OLED在电压过低时，屏幕会出现和抹布一样不均匀效果，不能采用DC调光。</li><li>实际分辨率达不到理论分辨率。RGBG排列，Pentilit排列。</li></ol><h1 id="机械硬盘-SMR瓦楞式堆叠硬盘"><a href="#机械硬盘-SMR瓦楞式堆叠硬盘" class="headerlink" title="机械硬盘 SMR瓦楞式堆叠硬盘"></a>机械硬盘 SMR瓦楞式堆叠硬盘</h1><p>自己不要拆机械硬盘，只要盘面落一粒灰，一转起来对盘面就是毁灭性打击。<br>结构：马达、磁盘、磁头臂、磁头<br>磁头悬浮在磁盘上几纳米，磁盘面上有很多的小格，小格内有小磁粒，磁头可以读取磁粒的极性，读出0和1.<br>写磁头可以改变磁粒的极性。 这就是最早的LMR水平式记录磁盘。<br>后来磁粒立起来，节省空间，PMR垂直式记录磁盘。(CMR)</p><p>先寻道，磁头放在指定磁道，再旋转等待指定扇区的到来。<br>但是写磁头的半径需要很大，再加上磁道之间需要距离，所以空间利用率仍不是很高。<br><img src="/SMR_CMR.png" alt="avatar"><br>存储空间大了，但是改写内容时很麻烦。<br>所以缓存很大，需要用来临时存放那些改写数据会影响到的数据。</p><h1 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h1><p>机械硬盘利用磁粒的极性来存储数据，所以机械硬盘也被称为磁盘。<br>固态硬盘存储的基本单元：浮栅晶体管。控制级、浮栅级，源级，漏级、P级。</p><h1 id="驱动程序"><a href="#驱动程序" class="headerlink" title="驱动程序"></a>驱动程序</h1><p>驱使硬件动起来的程序，介于硬件和系统之间的API接口，让系统知道这个硬件的存在，并且通过接口和这个硬件交互数据。</p><h1 id="CPU散片和盒装的区别"><a href="#CPU散片和盒装的区别" class="headerlink" title="CPU散片和盒装的区别"></a>CPU散片和盒装的区别</h1><p>OEM：原始设备制造商。卖给联想、戴尔、惠普的东西与零售的东西不同，不带有说明书、保修卡、包装盒，只有工包。</p><ol><li>来源不同。盒装作为零售商品。散装供给给OEM作为电脑原件原料的。但都是由Intel或者AMD生产的</li><li>保修政策不同。买散片要看店铺</li><li>每个CPU体制(性能)不完全相同。<br>但是CPU故障率低，几乎不用保修。</li></ol><p>#<br>CPU主频 = 外频 × 倍频<br>电脑里所有的电气信号必须要保证频率协调统一，主板晶振XO，<br>100MHz电脑平台的基础频率BCLK。跳大绳的口号。外频。<br>在保证和其他设备通讯的100MHz外频不变的情况下，让CPU在自己工作的时候的频率在此基础上翻倍</p><h1 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h1><p>显卡：绘制电脑图像。<br>关键参数：<br>-流处理器数量：画师个数，越多游戏帧数就越高<br>-显卡架构：老一代的麦克斯架构不如新的10代帕斯卡架构，最新的是图灵架构<br>-显卡频率：画画速度<br>-显存容量/位宽/显存频率：画的仓库大小/小车的运载量/小车往返速度<br>N卡：英伟达 GTX450、GTX1080TI,RTX2080TI<br>A卡：AMD RX580,RX VAGE 56</p><h1 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h1><p>先看CPU与主板能否匹配，芯片组和接口类型<br>1.选择合适的芯片组<br>2.内存插槽，建议4根<br>3.PCIE扩展插槽数量，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;计算机视觉能干什么&quot;&gt;&lt;a href=&quot;#计算机视觉能干什么&quot; class=&quot;headerlink&quot; title=&quot;计算机视觉能干什么&quot;&gt;&lt;/a&gt;计算机视觉能干什么&lt;/h1&gt;&lt;p&gt;人们希望它能模仿人类的视觉系统，作为人工智能的基石，从视频、图像中提取信息。&lt;br&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>卷积</title>
+    <link href="https://asswei7.github.io/2020/04/12/%E5%8D%B7%E7%A7%AF/"/>
+    <id>https://asswei7.github.io/2020/04/12/%E5%8D%B7%E7%A7%AF/</id>
+    <published>2020-04-12T02:07:05.000Z</published>
+    <updated>2020-05-03T15:27:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="傅里叶的变换哲学"><a href="#傅里叶的变换哲学" class="headerlink" title="傅里叶的变换哲学"></a>傅里叶的变换哲学</h1><p>泊松：用三角级数的和表达一些周期的函数<br>傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)<br>狄利克雷：给出了能拆的充分不必要的条件<br>采用三角级数表达是因为三角的微分和积分仍是三角函数。</p><h1 id="终成精神病的数学家-康托尔"><a href="#终成精神病的数学家-康托尔" class="headerlink" title="终成精神病的数学家(康托尔)"></a>终成精神病的数学家(康托尔)</h1><p>集合论的鼻祖：康托尔<br>父母希望学工科，自己想读数学。<br>伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。<br>康托尔：是等势的，个数一样多。<br>由此得出的结论：半径不同的同心圆，可以理解为包含了相等个数的点<br>他在柏林大学的导师克罗内克极力反对他的理论，最终在康托尔40岁的时候精神崩溃，得了躁郁症。</p><h1 id="存在：缸中之脑"><a href="#存在：缸中之脑" class="headerlink" title="存在：缸中之脑"></a>存在：缸中之脑</h1><p>哲学关注的问题和门口的保安关注的很相似：你是谁、你从哪里来、你到哪里去？<br>罗素：一切确切的知识属于科学，一切超出于确切知识以外的教条，属于神学，介于科学和神学之间的理论就是哲学。<br>普特南：把大脑放在营养液当中，通过电脑编程给大脑不同的刺激，让大脑感觉确实正在做类似的事情。<br>哥德尔不完全性定理：人类不可能创造一个公理系统来证明世界上所有的东西，却在论证中不产生矛盾。<br>如果想论证世界上所有的结论是真还是假，一定会产生矛盾。<br>用肉体的辛苦去换取思想的自由，而思想的更加的自由才是我们在这个世界存在的理由。</p><h1 id="根号2与第一次数学危机"><a href="#根号2与第一次数学危机" class="headerlink" title="根号2与第一次数学危机"></a>根号2与第一次数学危机</h1><p>实数分为有理数和无理数。<br><em>毕达哥拉斯</em>：政教合一的组织，万物皆数，通过整数和整数的比值(整数，有限小数，无限循环小数)来解释。<br><em>希帕索斯</em>： 发现了根号2，被沉入大海淹死了。 假设根号2等于a/b，a,b互质。$2=\frac{a^2}{b^2}$ $2b^2=a^2$ 所以a是偶数，且是4的倍数，所以B为偶数，与假设矛盾。<br><em>欧多克索斯</em>：他采用了一个十分巧妙的关于“两个量之比”的新说法，回避了√2是无理数的实质，而是用几何的方法处理不可公度比。这样做的结果就使几何的基础牢靠了，几何从全部数学中脱颖而出，同时欧几里得的《几何原本》也采用了这一说法，以致在以后的二千年中，几何变成了几乎是全部严密数学的基础。<br><em>戴德金</em>：怎样由已知的有理数，去定义这些无理数呢？戴德金想了一个办法：就用这个无理数前面的有理数，以及这个无理数后面的有理数。<br>这两段有理数，把我们要定义的无理数夹在中间，就形成了戴德金分割。</p><h1 id="一个聪明人的悲剧"><a href="#一个聪明人的悲剧" class="headerlink" title="一个聪明人的悲剧"></a>一个聪明人的悲剧</h1><p>恪聪明尽显于外，此子非保家之主也。聪明总是拿出来显摆。</p><h1 id="为密码加把盐"><a href="#为密码加把盐" class="headerlink" title="为密码加把盐"></a>为密码加把盐</h1><p>网站后台如何保存用户的密码？<br>服务器不存储明文密码，只存储密码变换后的数据，这样被盗也不知道原密码。<br>但是简单的变换，在巨量的数据下，很容易推导出变换公式。<br>算法要求：</p><ol><li>单向，很难通过密文来推导出明文，不可逆</li><li>强碰撞性，不同的明文要对应完全不同的密文<br>李维斯特，MD5，MessageDigest数据摘要算法。<br>问题：黑客可以做一张表，当原始数据较短时，可以在彩虹表里去查，每个八位数对应的MD5是什么。<br>所以此时需要给原始的密码自动加一点盐，md5(md5(password)+salt)<h1 id="相对论"><a href="#相对论" class="headerlink" title="相对论"></a>相对论</h1><em>我想知道的，上帝是如何创造这个世界的，我对这个或者那个现象、这个或者那个元素的能谱不感兴趣，我要知道的是他的思想，其他的都是细节。</em><br>牛顿经典时空观：时间和空间是相互独立的，时间在任何一个地方是均匀流逝的。<br>光，就是可见波段的一种电磁波。<br>狭义相对论基本假设：</li><li>世界上任意两个惯性系(匀速直线运动或静止系统)之间得到的物理定律是一样的。<br>但是不满足伽利略变换，在接近光速的情况下，要进行洛伦兹变换，速度不能直接相加。<br>得到的结论：时间会变慢、长度会收缩、质量会增加。<h1 id="欧拉公式在干什么"><a href="#欧拉公式在干什么" class="headerlink" title="欧拉公式在干什么"></a>欧拉公式在干什么</h1>$e^{ix}=\cos x+i\sin x$当x=\pi,$e^{i\pi}+1=0$</li></ol><h1 id="自动控制原理遛狗"><a href="#自动控制原理遛狗" class="headerlink" title="自动控制原理遛狗"></a>自动控制原理遛狗</h1><p>给定环节、比较器、控制器(大脑)、执行机构(绳子)、被控对象(狗)</p><h1 id="PID-proportional-integral-derivative-controller"><a href="#PID-proportional-integral-derivative-controller" class="headerlink" title="PID(proportional-integral-derivative controller)"></a>PID(proportional-integral-derivative controller)</h1><p>烧水到80°，从75到85可以接受，希望烧水烧得最快，一开始火开到最大，等待70°左右减少火。<br>P:偏差越大，控制的力度就越大。(弹簧)<br>I:系统没惯性，会存在静差。对历史的偏差进行累加(惯性，锅关了火温度还会上升)<br>D:(阻尼力)</p><h1 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h1><p>wavelet:wave表示波，let表示小。droplet水滴，leaflet小树叶，booklet小册子<br>傅里叶变换：将时间信号拆解为不同频率的正弦波相加。(需要假设时域信号的频率不随时间改变)<br>但是根据多普勒效应，大多数情况下，信号的频率会随着时间的变化而变化。<br>对于一个随时间变化而频率改变的信号做傅里叶变换，得到的波失去了时间特性。<br>这是因为正弦波的幅值与时间无关。<br>所以需要小波：一个长度比较短的波，只在一个时间范围内有值，其余时间内值为0.<br>将时域信号向不同位置、不同胖瘦的小波去表达，能反映频率和时间特性。</p><h1 id="泰勒公式有何用"><a href="#泰勒公式有何用" class="headerlink" title="泰勒公式有何用"></a>泰勒公式有何用</h1><p>如何计算sin36°？</p><h1 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h1><p>系统就是一个房间，输入f(t)，输出y(t)，系统的影响h(t)，系统的单位冲击响应<br>y(t)=f(t)*h(t)  Y(s) = F(s)H(s)<br>时域的卷到了复频域变成了乘积。单位冲击响应的拉普拉斯变换就是传递函数</p><h1 id="冲激函数冲出了什么"><a href="#冲激函数冲出了什么" class="headerlink" title="冲激函数冲出了什么"></a>冲激函数冲出了什么</h1><p>线性时不变系统：输入增大、输出随之增大(线性)，频率不随时间变化而变化(时不变)</p><h1 id="卷积："><a href="#卷积：" class="headerlink" title="卷积："></a>卷积：</h1><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}f(\tau)g(t-\tau)d\tau</script><p>傅里叶：将一个函数用无限多个正弦波的函数加和来表示<br>拉普拉斯：将一个函数部分衰减后用无限多个正弦波加和来表达<br>因为正弦波的积分和微分仍然是正弦波。<br>任意一个函数可以划得更简单一点：</p><script type="math/tex; mode=display">y(t)\approx \sum_{-\infty}^{+infty}许多线段</script><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}许多点</script><p>u(t)是0之前是0,0之后为1。$u(t)-u(t-t_0)$就是在0到t0的冲激<br>把f(t)拆成一段一段的，u(t)的导数就是冲激函数<br>相当于把函数敲碎。<br>那我们可以先用冲击函数δ(t)通过系统得到冲击响应h(t)。<br>然后我们把任何输入f(t)通过卷积表示为无穷多冲击函数的累加，即f(t)＝f(t)<em>δ(t)。(这里</em>表示卷积运算)<br>最后根据线性时不变系统的性质，可以得到响应y(t)＝f(t)*h(t)。<br>于是只要我们知道冲激响应，对于任何输入的响应也可以通过卷积运算得到。</p><h1 id="模拟是什么意思"><a href="#模拟是什么意思" class="headerlink" title="模拟是什么意思"></a>模拟是什么意思</h1><p>将一个物理量转换为另一个物理量。<br>通过电信号来模拟大自然的物理量（比如利用运算放大器，一段输入1.2V,一段1.5V，得到的结果即为乘积）</p><h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p>卷积：特征提取器，滤波器<br>神经网络：分类器</p><h1 id="Z变换"><a href="#Z变换" class="headerlink" title="Z变换"></a>Z变换</h1><p>Z变换分析的是离散系统，傅里叶和拉普拉斯是连续系统。<br>电脑只有高高低低的电平，是离散的。所以要将连续信号冲激成离散的冲激串。<br>即采样。  可以无损的敲碎。<br>对采样的信号进行拉普拉斯变换，得到的结果也是离散信号。</p><h1 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h1><p>估计器，通过各种各样的测量方法来最后加权平均来估计到一个结果。</p><h1 id="无功功率"><a href="#无功功率" class="headerlink" title="无功功率"></a>无功功率</h1><p>全连接：映射到高维。然后softmax进行分类。</p><h1 id="对抗生成网络：GAN"><a href="#对抗生成网络：GAN" class="headerlink" title="对抗生成网络：GAN"></a>对抗生成网络：GAN</h1><p>mnist 28×28<br>生成器G：一个随机的向量，通过生成器G，得到一个图像，28×28×1，得到一个假的数据。<br>判别器D：对生成的图像判别，得到1或者0.   </p><p>损失函数：一方面让判别器分辨能力更强，另一方面让生成器更真</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;傅里叶的变换哲学&quot;&gt;&lt;a href=&quot;#傅里叶的变换哲学&quot; class=&quot;headerlink&quot; title=&quot;傅里叶的变换哲学&quot;&gt;&lt;/a&gt;傅里叶的变换哲学&lt;/h1&gt;&lt;p&gt;泊松：用三角级数的和表达一些周期的函数&lt;br&gt;傅里叶：用三角级数的和表达非周期的函数(极大的
+      
+    
+    </summary>
+    
+    
+      <category term="珂学原理" scheme="https://asswei7.github.io/categories/%E7%8F%82%E5%AD%A6%E5%8E%9F%E7%90%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Legal_High</title>
+    <link href="https://asswei7.github.io/2020/04/12/Legal-High/"/>
+    <id>https://asswei7.github.io/2020/04/12/Legal-High/</id>
+    <published>2020-04-12T01:55:16.000Z</published>
+    <updated>2020-04-12T01:55:18.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>日本历史</title>
+    <link href="https://asswei7.github.io/2020/04/12/%E6%97%A5%E6%9C%AC%E5%8E%86%E5%8F%B2/"/>
+    <id>https://asswei7.github.io/2020/04/12/%E6%97%A5%E6%9C%AC%E5%8E%86%E5%8F%B2/</id>
+    <published>2020-04-12T01:54:24.000Z</published>
+    <updated>2020-04-18T02:44:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="新冠下的日本"><a href="#新冠下的日本" class="headerlink" title="新冠下的日本"></a>新冠下的日本</h1><h3 id="日本的策略"><a href="#日本的策略" class="headerlink" title="日本的策略"></a>日本的策略</h3><p>每一个文明都像是在不同环境中生存的生物，将一个民族看成一个大型生命体，民族的成员也就是每一个人<br>可以看做是这个大型生物的细胞，社会的分工就像是干细胞分化出不同的体细胞，相互合作维持整个生命体的稳定。<br>不同的环境让生物向不同的形态演化，所以生物之间是不同的，有不同的生存策略。<br>不同文明的外部环境的应对机制也是不同的，这是由特定民族所存在的自然环境所决定的。</p><p>织田信长-曹操，确定统一之势(尾张国大名)<br>丰臣秀吉-曹丕，完成全国统一<br>德川家康-司马懿，隐忍多年，最后爆发</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;新冠下的日本&quot;&gt;&lt;a href=&quot;#新冠下的日本&quot; class=&quot;headerlink&quot; title=&quot;新冠下的日本&quot;&gt;&lt;/a&gt;新冠下的日本&lt;/h1&gt;&lt;h3 id=&quot;日本的策略&quot;&gt;&lt;a href=&quot;#日本的策略&quot; class=&quot;headerlink&quot; title=
+      
+    
+    </summary>
+    
+    
+      <category term="思维实验室" scheme="https://asswei7.github.io/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="历史" scheme="https://asswei7.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十字军东征</title>
+    <link href="https://asswei7.github.io/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/"/>
+    <id>https://asswei7.github.io/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/</id>
+    <published>2020-04-03T10:00:08.000Z</published>
+    <updated>2020-04-18T02:33:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>第三次十字军东征：规模最大<br>神圣罗马帝国皇帝——红胡子腓特烈一世带兵10万<br>法国国王——腓力二世<br>英格兰国王狮心王——查理一世，英法联军2万<br>此时，伊斯兰领袖萨拉丁防守耶路撒冷。皇帝经过小亚细亚时候不幸落水淹死了，<br>他的部队也纷纷返回。12万军队变成了2万，狮心王成为领袖，十字军拿下阿卡，<br>十字军的唯一目的就是耶路撒冷，一直进军。<br>狮王弟弟有可能背叛他，理查德无奈回国。</p><p>萨拉丁死后260年，即1453年，拜占庭帝国已经衰落，它的强敌奥斯曼土耳其帝国打不下君士坦丁堡。<br>拜占庭国王立刻向西方世界求援，想让拜占庭的东正教和西方的天主教达成和解，<br>企图团结基督教的力量，让马霍梅特知难而退。<br>吗霍梅特让乌尔班制造大炮，10万人攻打君士坦丁堡，守军只有7千。<br>此时2千人的援军到达，鼓舞了士气。后来失败了，东罗马帝国覆灭。帕里奥洛格斯末代皇帝。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;第三次十字军东征：规模最大&lt;br&gt;神圣罗马帝国皇帝——红胡子腓特烈一世带兵10万&lt;br&gt;法国国王——腓力二世&lt;br&gt;英格兰国王狮心王——查理一世，英法联军2万&lt;br&gt;此时，伊斯兰领袖萨拉丁防守耶路撒冷。皇帝经过小亚细亚时候不幸落水淹死了，&lt;br&gt;他的部队也纷纷返回。12万军
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>以色列历史</title>
+    <link href="https://asswei7.github.io/2020/04/03/%E4%BB%A5%E8%89%B2%E5%88%97%E5%8E%86%E5%8F%B2/"/>
+    <id>https://asswei7.github.io/2020/04/03/%E4%BB%A5%E8%89%B2%E5%88%97%E5%8E%86%E5%8F%B2/</id>
+    <published>2020-04-03T09:58:05.000Z</published>
+    <updated>2020-04-03T10:56:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="犹太建国"><a href="#犹太建国" class="headerlink" title="犹太建国"></a>犹太建国</h1><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><p>1948年建国，是以色列民族建国的千年夙愿，也是中东无尽战乱的开始。</p><h3 id="灭国"><a href="#灭国" class="headerlink" title="灭国"></a>灭国</h3><p>公元70年，罗马攻占耶路撒冷，艰难的进攻使士兵兽性大发，进行屠城。犹太人大多成为奴隶。<br>罗马为了避免犹太人复辟，将其全部赶出巴勒斯坦，犹太人开始流亡。</p><h3 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h3><p>因为宗教信仰没有被别的民族所同化。流亡的生活没有坚实的土地基础，经商成了最主要的谋生手段。<br>并由于信仰，重视教育。 后来，资本取代土地，成为了最重要的生产要素。<br>犹太银行家兴起，但是政治权利真空。<br>二战之后，美国资本家大多为犹太人，各种犹太人返回巴勒斯坦，当地的阿拉伯人利益被侵犯。</p><h3 id="建国"><a href="#建国" class="headerlink" title="建国"></a>建国</h3><p>美国总统为了得到金主支持，与联合国在巴勒斯坦划分一块地给以色列。<br>当地的阿拉伯人被赶走。建国第二天，各个国家组成阿拉伯联盟向以色列宣战。</p><h1 id="中东战争"><a href="#中东战争" class="headerlink" title="中东战争"></a>中东战争</h1><p>当时联合国只规定了以色列的国土总面积，说具体边界与邻国协商，埋下了祸根。</p><h3 id="攻打以色列"><a href="#攻打以色列" class="headerlink" title="攻打以色列"></a>攻打以色列</h3><p>建国第二天，七个国家的联盟进攻。</p><h3 id="初期"><a href="#初期" class="headerlink" title="初期"></a>初期</h3><p>以色列全面溃败。但是各地的犹太人从世界各地来到以色列，为了国家而战。</p><h3 id="转折"><a href="#转折" class="headerlink" title="转折"></a>转折</h3><p>联合国呼吁大家停战四周，阿拉伯联盟居然同意了。(阿拉伯背后只有阿拉伯，以色列背后有犹太资本控制的半个世界)<br>犹太人大量购买重型装备，并补充士兵。</p><h3 id="停战结束"><a href="#停战结束" class="headerlink" title="停战结束"></a>停战结束</h3><p>以色列空军直接轰炸阿拉伯基地。战斗结束，犹太人所占面积已超过联合国划定，<br>犹太人继续开疆扩土，占领了巴勒斯坦总面积的80%，96万巴勒斯坦人被赶出家园，成为难民。</p><h3 id="埃及领袖纳赛尔"><a href="#埃及领袖纳赛尔" class="headerlink" title="埃及领袖纳赛尔"></a>埃及领袖纳赛尔</h3><p>将苏伊士运河收归国有，与英法进行斗争。1956年爆发战争，以色列与英法进攻埃及。<br>初期：以色列攻占西奈半岛占尽优势。<br>转折：纳赛尔堵住运河，使石油运不出去，英法和以色列收到世界指责。<br>结束：苏伊士归埃及所有。<br>纳赛尔自居阿拉伯领袖，准备再次灭亡以色列。</p><h1 id="继续战斗-1967"><a href="#继续战斗-1967" class="headerlink" title="继续战斗(1967)"></a>继续战斗(1967)</h1><p>纳赛尔推崇泛阿拉伯主义，激励阿拉伯人民反抗西方的控制和犹太人的复国。<br>阿拉伯联盟再次攻打以色列。以色列差点亡国。</p><h3 id="转折-1967年6月5日"><a href="#转折-1967年6月5日" class="headerlink" title="转折(1967年6月5日)"></a>转折(1967年6月5日)</h3><p>以色列空军除了12架全部出动，得益于情报工作，在埃及防空雷达换班间隙，飞跃边境、<br>直接轰炸埃及空军基地，机场跑道，埃及飞机无法升空。战争转折。<br>以色列全面胜利。</p><h3 id="纳赛尔不愿承认失败"><a href="#纳赛尔不愿承认失败" class="headerlink" title="纳赛尔不愿承认失败"></a>纳赛尔不愿承认失败</h3><p>欺骗民众和盟国，是阿拉伯地区颜面扫地的巨大耻辱。</p><h1 id="赎罪日战争-犹太人最重要节日"><a href="#赎罪日战争-犹太人最重要节日" class="headerlink" title="赎罪日战争(犹太人最重要节日)"></a>赎罪日战争(犹太人最重要节日)</h1><h3 id="膨胀的以色列"><a href="#膨胀的以色列" class="headerlink" title="膨胀的以色列"></a>膨胀的以色列</h3><p>以色列不愿归还攻占的西奈半岛与戈兰高地。</p><h3 id="埃及总统萨达特"><a href="#埃及总统萨达特" class="headerlink" title="埃及总统萨达特"></a>埃及总统萨达特</h3><p>埃及民众情绪低迷，想夺回领土，灭亡以色列。叙利亚也是如此。<br>1972年宣布埃及对以色列开战，以色列没有重视，过于自信。</p><h3 id="1973年10月6日赎罪日"><a href="#1973年10月6日赎罪日" class="headerlink" title="1973年10月6日赎罪日"></a>1973年10月6日赎罪日</h3><p>埃及空军突然袭击，强渡运河，攻占西奈半岛。<br>叙利亚攻击戈兰高地。以色列付出巨大代价</p><h3 id="转折-1"><a href="#转折-1" class="headerlink" title="转折"></a>转折</h3><p>阿拉伯停止进攻，巩固战线。以色列放弃防守埃及，全部进攻叙利亚戈兰高地。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;犹太建国&quot;&gt;&lt;a href=&quot;#犹太建国&quot; class=&quot;headerlink&quot; title=&quot;犹太建国&quot;&gt;&lt;/a&gt;犹太建国&lt;/h1&gt;&lt;h3 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h
+      
+    
+    </summary>
+    
+    
+      <category term="思维实验室" scheme="https://asswei7.github.io/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="历史" scheme="https://asswei7.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XuZhiQin</title>
+    <link href="https://asswei7.github.io/2020/04/03/XuZhiQin/"/>
+    <id>https://asswei7.github.io/2020/04/03/XuZhiQin/</id>
+    <published>2020-04-03T07:30:30.000Z</published>
+    <updated>2020-04-19T07:27:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Statics: Model-based<br>ML: Model-freed</p><h3 id="Statics-View"><a href="#Statics-View" class="headerlink" title="Statics View"></a>Statics View</h3><script type="math/tex; mode=display">f_\theta(x)=ax+b</script><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>最小二乘因子</p><ol><li>高斯-马尔科夫定理<br>$X \in R^{n \times d}$,  $Y \in R^{n \times 1}$</li></ol><h3 id="何时用统计"><a href="#何时用统计" class="headerlink" title="何时用统计"></a>何时用统计</h3><ol><li>预测X与Y的一种关系</li><li>具体知道参数满足的不同的分布规律。</li></ol><h3 id="ML-Views"><a href="#ML-Views" class="headerlink" title="ML Views"></a>ML Views</h3><p>当数据量很大时，不能通过这个方法来计算得到$\hat{\beta}$:</p><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>不需要模型，只有一个目标去学习参数。</p><script type="math/tex; mode=display">L_n = \frac{1}{n} \sum_{i=1}^n (ax_i+b-y_i)^2</script><p>利用梯度下降。<br>$h_i=ax_i+b$</p><script type="math/tex; mode=display">\frac{\partial L_n}{\partial a} = \frac{1}{n}\sum_{i=1}^n(h_i-y_i) \frac{\partial h_i}{\partial a} =\frac{1}{n}\sum_{i=1}^n(h_i-y_i)x_i</script><p>Gradient Desent</p><script type="math/tex; mode=display">a^{t+1} = a^t - \eta \frac{\partial L_n}{\partial a}</script><script type="math/tex; mode=display">b^{t+1} = b^t - \eta \frac{\partial L_n}{\partial b}</script><h1 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h1><ol><li>Supervised learning: learning with labels</li><li>Unsupervised learning: wio labels(聚类)</li><li>Reinforcement learning: learn to make optimal decision<h3 id="Loss-Funtion"><a href="#Loss-Funtion" class="headerlink" title="Loss Funtion"></a>Loss Funtion</h3>Empirical Risk Minimization(ERM)即为training loss</li></ol><h3 id="Two-layer-Neural-Network"><a href="#Two-layer-Neural-Network" class="headerlink" title="Two-layer Neural Network"></a>Two-layer Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) = \sum_{j=1}^m a_j\sigma(\omega_jx+b_j)</script><p>input_layer(not counted) hidden_layer output_layer<br><em>n</em> refers to nums of <em>Samples</em><br><em>m</em> refers to nums of <em>Neurals</em><br><em>为了增强模型的表达性，激活函数不能采用线性的，要使用非线性的</em><br>1989年证明一个隐藏层可以逼近任何一个函数。</p><h3 id="General-Deep-Neural-Network"><a href="#General-Deep-Neural-Network" class="headerlink" title="General Deep Neural Network"></a>General Deep Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) =  w^{[L-1]}\sigma( \cdots w^{[1]}\sigma(w^{[0]}x+b^{[0]})+b^{[1]}\cdot)+b^[L-1]</script><p>对于每一层节点：</p><script type="math/tex; mode=display">f_\theta^{[0]}(x) = x</script><script type="math/tex; mode=display">f_\theta^{[1]}(x) = \sigma(w^{[0]}x+b^{[0]})</script><script type="math/tex; mode=display">f_\theta^{[L]}(x) = \sigma(w^{[L-1]}f_\theta^{[L-1]}(x)+b^{[L-1]})</script><p>对于最后一层的输出：</p><script type="math/tex; mode=display">f_\theta(x) = f^{[L]}(x) = w^{[L-1]}f^{[L-1]}(x)+b^{[L-1]}</script><p>Training：SGD(Stochastic)<br>只使用一个batch数据进行训练</p><h3 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h3><ol><li>Approxicimation Error<br> consider no cost</li></ol><h1 id="Frequency-Principle"><a href="#Frequency-Principle" class="headerlink" title="Frequency Principle"></a>Frequency Principle</h1><p>模型复杂度会把噪声也考虑了进去，导致过拟合。<br>DNN：从低频开始训练，可以不训练到高频成分。(从轮廓到细节)<br>多项式拟合：高频成分也会模拟到,就会导致过拟合<br>万有逼近：Single hidden layer can fit any function<br>卡通图片：警察问路人在干嘛？回答在找赢不。你是在这丢的吗？不，我是在两个街区外丢的。为啥在这找？因为这里路灯比较亮。<br>有人以此讽刺深度学习，灯亮的地方就是低维的问题。<br>但是也可以回答说是为了分析出道路的结构，硬币有可能滑到哪里。</p><p>应用到高维函数，图片自变量是二维像素点，因变量是该点的灰度值。<br>输入维度是所有的像素点，输出维度是类别数目。<br>No free Lunch Theorem对于药物，不能只谈毒性不谈剂量<br>对于泛化，不能只谈算法不谈数据</p><p>深度学习提供了一种通用的学习框架，可用来表示世界、视觉和语言学信息。<br>语言模型：说一句话的概率的大小。问题在于：1.数据过于稀疏 2。参数空间太大<br>n-gram=1 下一个词出现的概率只依赖于它前面的一个词P(w2|w1)<br>n-gram=2 下一个词出现的概率依赖于它前面的两个词P(w3|w1,w2)<br>word2vector:</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Statics: Model-based&lt;br&gt;ML: Mo
+      
+    
+    </summary>
+    
+    
+    
+      <category term="机器学习" scheme="https://asswei7.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本福特定律</title>
+    <link href="https://asswei7.github.io/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/"/>
+    <id>https://asswei7.github.io/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/</id>
+    <published>2020-04-01T02:45:16.000Z</published>
+    <updated>2020-04-02T08:03:50.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="本福特定律"><a href="#本福特定律" class="headerlink" title="本福特定律"></a>本福特定律</h1><ol><li>自然的数据，杂乱无章，首位为1的概率为1/9？</li><li>1881年纽康，1938年，本福特<br>10进制中，首位为n的概率，<script type="math/tex; mode=display">P_n = log_10{\frac{n+1}{n}}</script>$P_1 = lg2 = 30.1%$<br>$P_2 = lg3/2 = 17.6%$<br>$P_9 = lg10/9 = 4.6%$</li><li>应用：非人为数据（不能选电话号码）跨度大（不能选择身高体重这种）<br>李永乐老师视频播放量，各个国家GDP，各个国家人口，国土面积<br>斐波那契数列，放射性元素的半衰期<br>研究财务报表是否造假，地区大选是否舞弊</li><li>证明<br>(1)数据的增长量正比于存量$\frac{\deta N}{N\deta t} = Constant $<br>(2)<script type="math/tex">N = N_0e^{ct}</script> <script type="math/tex">t = c^'lg\frac{N_2}{N_1}</script><br>(3)首数为1的时间 $t_1 = c^’lg\frac{20}{10} $</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;本福特定律&quot;&gt;&lt;a href=&quot;#本福特定律&quot; class=&quot;headerlink&quot; title=&quot;本福特定律&quot;&gt;&lt;/a&gt;本福特定律&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;自然的数据，杂乱无章，首位为1的概率为1/9？&lt;/li&gt;
+&lt;li&gt;1881年纽康，1938年，本福特&lt;b
+      
+    
+    </summary>
+    
+    
+      <category term="-李永乐老师" scheme="https://asswei7.github.io/categories/%E6%9D%8E%E6%B0%B8%E4%B9%90%E8%80%81%E5%B8%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人类的进化</title>
+    <link href="https://asswei7.github.io/2020/03/31/%E4%BA%BA%E7%B1%BB%E7%9A%84%E8%BF%9B%E5%8C%96/"/>
+    <id>https://asswei7.github.io/2020/03/31/%E4%BA%BA%E7%B1%BB%E7%9A%84%E8%BF%9B%E5%8C%96/</id>
+    <published>2020-03-31T14:14:49.000Z</published>
+    <updated>2020-04-02T03:26:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="自私的基因"><a href="#自私的基因" class="headerlink" title="自私的基因"></a>自私的基因</h1><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><p>想象未来的冬眠舱，如果被人关闭电源，会威胁到舱内人的生命安全。所以需要冬眠舱更加智能来守卫内部人的生命安全。<br>甚至发展成一个人工智能的看护程序，但当冬眠者结束冬眠需要废除该人工智能，或者维持冬眠者生命和<br>维持人工智能自我意识之间只能选其一。<br>人类就是一个冬眠舱，基因就是宿主。</p><h3 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h3><p>一个会自发地通过加速周围环境熵增来维持自己低熵的个体，由于抗拒自身的低熵并不能维持多久，所以生命还是会死亡。<br>但是生命还是会将自己所有的构造信息记录在以核苷酸构成的DNA分子之上。</p><h3 id="核心思想：基因是物种延续自己的工具"><a href="#核心思想：基因是物种延续自己的工具" class="headerlink" title="核心思想：基因是物种延续自己的工具"></a>核心思想：基因是物种延续自己的工具</h3><h3 id="难以解释的问题"><a href="#难以解释的问题" class="headerlink" title="难以解释的问题"></a>难以解释的问题</h3><p>DNA序列中有遗传效应的区域只占总量的10%，<br><em>说法一</em>：无效的DNA序列是进化过程中被淘汰的，不再编译的部分<br><em>支撑</em>：生物进化越大，无效的DNA占比就越大</p><h2 id="矛盾：最原始的单细胞生物同样拥有相当比例的无效DNA片段"><a href="#矛盾：最原始的单细胞生物同样拥有相当比例的无效DNA片段" class="headerlink" title="矛盾：最原始的单细胞生物同样拥有相当比例的无效DNA片段"></a><em>矛盾</em>：最原始的单细胞生物同样拥有相当比例的无效DNA片段</h2><p><em>说法二</em>：鸡是蛋繁衍自己的工具<br>人只是体内DNA为了复制自己所操纵的工具。<br>所以为什么DNA有那么多无效的片段？<br>因为它不是工具，而是使用工具的主人，生命才是工具。<br>就像对扳手而言，觉得人类有手能握住自己就行，不需要有腿。<br><em>支撑</em>：大多数生物在失去生育能力之后就会死掉，为了保护后代愿意牺牲自己的生命<br>都是以基因稳定复制为目的的进化结果</p><h3 id="控制的强约束和弱约束"><a href="#控制的强约束和弱约束" class="headerlink" title="控制的强约束和弱约束"></a>控制的强约束和弱约束</h3><p>基因为了能让自己更好的延续，需要人有一定的自主能力，自主意识。并引导人们去繁殖。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>哪种说法都不能说是对是错。就像地心说和日心说，只是选择的参考系不同而已。<br><strong>生命的意义就是为了基因复制而存在的工具？？？</strong></p><h1 id="被遗忘的牙齿"><a href="#被遗忘的牙齿" class="headerlink" title="被遗忘的牙齿"></a>被遗忘的牙齿</h1><p>大多数的哺乳动物最前端都是嘴，方便吃东西，方便防御和进攻。<br>人类的脸比较短平化。<br>原因：</p><ol><li>在地面比树上，要处理的信息的增多，支持直立行走的协调，脑容量需要增大，所以头是圆形</li><li>由于直立行走，颈椎力矩过长，不堪重负。<br>导致结果：</li><li>口腔的拥挤，智齿没有生长空间</li><li>牙齿之间拥挤，导致细菌容易滋生</li></ol><h2 id="———"><a href="#———" class="headerlink" title="———-"></a>———-</h2><h1 id="直立行走"><a href="#直立行走" class="headerlink" title="直立行走"></a>直立行走</h1><h3 id="导言-1"><a href="#导言-1" class="headerlink" title="导言"></a>导言</h3><p>最早的人类在非洲，最大的特征——直立行走。<br>化石中足弓的出现证明了人类直立行走，足弓可以缓震，否则百米短跑就会脑震荡。<br>同时，足弓的出现也使脚不适合抓握，不再灵活，不适合树上的生活。</p><h3 id="直立行走为了解放双手？"><a href="#直立行走为了解放双手？" class="headerlink" title="直立行走为了解放双手？"></a>直立行走为了解放双手？</h3><p>原因一：解放双手来使用工具？   ——人类直立行走比出现最原始的工具早了至少100万年。<br>也可以说是人类直立行走，解放了双手，才学会了使用工具。</p><h3 id="直立行走的地理因素"><a href="#直立行走的地理因素" class="headerlink" title="直立行走的地理因素"></a>直立行走的地理因素</h3><p>原因二：地理（东非大裂谷）<br>东部气候干燥，森林变成了草原，导致古人类没有树爬了，只能来到地上。<br>需要视线超过草丛才能提前逃跑，辨认方向。</p><h3 id="直立行走优势："><a href="#直立行走优势：" class="headerlink" title="直立行走优势："></a>直立行走优势：</h3><ol><li>视线超过草丛，提前做出行动</li><li>比爬着走节省能源，只是爬着的大约1/4<h2 id="直立行走的结果："><a href="#直立行走的结果：" class="headerlink" title="直立行走的结果："></a>直立行走的结果：</h2></li><li>足弓出现，缓震</li><li>下肢变得粗壮，骨盆变大以支撑上半身的重量</li><li>平衡感的需要促进了大脑的进化</li><li>没有皮毛？长途跋涉导致热量产生过多，毛发影响散热，并进化出了汗腺，方便散热</li><li>头顶的毛发，避免太阳直射<h3 id="关于进化："><a href="#关于进化：" class="headerlink" title="关于进化："></a>关于进化：</h3>进化来源于基因突变，99.9%对个体有害，变异的个体会侵害别的个体的生存机会，使其灭亡。<br>所以有记载的历史中人类几乎没有进化。<h2 id="为什么只有人类？"><a href="#为什么只有人类？" class="headerlink" title="为什么只有人类？"></a>为什么只有人类？</h2>人类拥有的长跑能力为什么没迫使食草猎物也往这方向进化？<br>基因频率：食草动物面对的主要威胁还是来自于短跑的动物，人类的威胁只是很小的一部分。<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2>树上时：为了采摘食物方便，古猿有了站立能力<br>地上时：为了身高优势，直立行走。<br>直立行走：额外获得了能量优势，使人们可以走得更远。形成了长跑能力。<br>不是用进废退：而是DNA序列中基因突变到这个方向的个体获得了生存繁衍的优势，得以在种群中壮大这个基因频率。</li></ol><h2 id="——"><a href="#——" class="headerlink" title="——"></a>——</h2><h1 id="大脑进化"><a href="#大脑进化" class="headerlink" title="大脑进化"></a>大脑进化</h1><h3 id="导言-2"><a href="#导言-2" class="headerlink" title="导言"></a>导言</h3><p>脑袋并非越大越好，大脑只是工具，超出标准的工具就是累赘。对能力消耗极大，消耗能量占25%，体积只占3%。<br>猎食者大多通过听觉和嗅觉配合视觉进行捕猎，而人类的听觉和嗅觉不够灵敏。只能直立行走。</p><h3 id="进化是一种被动的过程"><a href="#进化是一种被动的过程" class="headerlink" title="进化是一种被动的过程"></a>进化是一种被动的过程</h3><p>大脑容量小的不能适应生活而死亡，容量大的获得更多的生存空间和物质资料，从而壮大该基因频率。</p><h3 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h3><p>关于大脑变化，直立行走是根源，信息增加(视觉，直立行走的平衡)是压力，营养的改善是物质基础。<br>结果：</p><ol><li>头部逐渐变圆(体积更大)，肠道缩小</li><li>面部缩小以减轻颈椎压力</li><li>颈部变长且更加灵活、更加复杂，方便面部转向来接收信息</li></ol><h1 id="生育困境"><a href="#生育困境" class="headerlink" title="生育困境"></a>生育困境</h1><h3 id="隐患："><a href="#隐患：" class="headerlink" title="隐患："></a>隐患：</h3><ol><li>大腿压缩了女性的产道，大腿分开又会影响平衡和稳定</li><li>硕大的脑袋也是灾难<h3 id="策略："><a href="#策略：" class="headerlink" title="策略："></a>策略：</h3></li><li>产道演化出更强劲的收缩能力</li><li>把胎儿头骨可塑，一开始软一点</li><li>在胎儿脑袋还没太大就生出来（生出来再进行发育）<br>基因回报率：数量和质量。男人重数量，女人重质量。</li></ol><h1 id="致命生物"><a href="#致命生物" class="headerlink" title="致命生物"></a>致命生物</h1><h3 id="导言-3"><a href="#导言-3" class="headerlink" title="导言"></a>导言</h3><p>人有感情，有利他行为？？？<br>所有因基因突变而生，并能很快散布到种群中的生物性状，首先得有利于个体的生存与繁衍，<br>从而通过竞争在种群中扩大自己的基因频率。当然，如果一个种群中所有人都有利他基因，大家一同合作分工，<br>自然有利于种群的扩大和发展，但倘若有一个自私基因，必然能占据更多的生存资料，抢占他人生存资源，<br>利他基因必然被自私基因所取代。 <strong>演化的表象在种群，根源在个体。</strong></p><h3 id="如何理解人类的利他行为"><a href="#如何理解人类的利他行为" class="headerlink" title="如何理解人类的利他行为"></a>如何理解人类的利他行为</h3><p>由于基因回报率的关系，在亲属关系里利他行为如母爱孝敬，有利于基因的延续。<br>在家庭成员外，自私的行为可能被大家所共同反对。<br>利他也是为了让他人对自己表示感谢，否则不会开心。一味地付出或者一味地索取，都有违基因的生物学基础。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;自私的基因&quot;&gt;&lt;a href=&quot;#自私的基因&quot; class=&quot;headerlink&quot; title=&quot;自私的基因&quot;&gt;&lt;/a&gt;自私的基因&lt;/h1&gt;&lt;h3 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导
+      
+    
+    </summary>
+    
+    
+      <category term="-思维实验室" scheme="https://asswei7.github.io/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
+    
+    
+      <category term="进化论，生命科学" scheme="https://asswei7.github.io/tags/%E8%BF%9B%E5%8C%96%E8%AE%BA%EF%BC%8C%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6/"/>
+    
+  </entry>
+  
+</feed>

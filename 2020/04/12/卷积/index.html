@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"asswei7.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","Sidebar Display (only for Muse | Mist), available values":["post    expand on posts automatically. Default.","always  expand for all pages automatically."],"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="傅里叶的变换哲学泊松：用三角级数的和表达一些周期的函数傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)狄利克雷：给出了能拆的充分不必要的条件采用三角级数表达是因为三角的微分和积分仍是三角函数。 终成精神病的数学家(康托尔)集合论的鼻祖：康托尔父母希望学工科，自己想读数学。伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。康托尔：是等势的，个数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="卷积">
+<meta property="og:url" content="https://asswei7.github.io/2020/04/12/%E5%8D%B7%E7%A7%AF/index.html">
+<meta property="og:site_name" content="Asswei&#39;s blog">
+<meta property="og:description" content="傅里叶的变换哲学泊松：用三角级数的和表达一些周期的函数傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)狄利克雷：给出了能拆的充分不必要的条件采用三角级数表达是因为三角的微分和积分仍是三角函数。 终成精神病的数学家(康托尔)集合论的鼻祖：康托尔父母希望学工科，自己想读数学。伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。康托尔：是等势的，个数">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-12T02:07:05.000Z">
+<meta property="article:modified_time" content="2020-05-03T15:27:44.000Z">
+<meta property="article:author" content="孙书玮">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://asswei7.github.io/2020/04/12/%E5%8D%B7%E7%A7%AF/">
+                     
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>卷积 | Asswei's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Asswei's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asswei's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/12/%E5%8D%B7%E7%A7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          卷积
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-12 10:07:05" itemprop="dateCreated datePublished" datetime="2020-04-12T10:07:05+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-03 23:27:44" itemprop="dateModified" datetime="2020-05-03T23:27:44+08:00">2020-05-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%8F%82%E5%AD%A6%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">珂学原理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/%E5%8D%B7%E7%A7%AF/" class="post-meta-item leancloud_visitors" data-flag-title="卷积" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="傅里叶的变换哲学"><a href="#傅里叶的变换哲学" class="headerlink" title="傅里叶的变换哲学"></a>傅里叶的变换哲学</h1><p>泊松：用三角级数的和表达一些周期的函数<br>傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)<br>狄利克雷：给出了能拆的充分不必要的条件<br>采用三角级数表达是因为三角的微分和积分仍是三角函数。</p>
+<h1 id="终成精神病的数学家-康托尔"><a href="#终成精神病的数学家-康托尔" class="headerlink" title="终成精神病的数学家(康托尔)"></a>终成精神病的数学家(康托尔)</h1><p>集合论的鼻祖：康托尔<br>父母希望学工科，自己想读数学。<br>伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。<br>康托尔：是等势的，个数一样多。<br>由此得出的结论：半径不同的同心圆，可以理解为包含了相等个数的点<br>他在柏林大学的导师克罗内克极力反对他的理论，最终在康托尔40岁的时候精神崩溃，得了躁郁症。</p>
+<h1 id="存在：缸中之脑"><a href="#存在：缸中之脑" class="headerlink" title="存在：缸中之脑"></a>存在：缸中之脑</h1><p>哲学关注的问题和门口的保安关注的很相似：你是谁、你从哪里来、你到哪里去？<br>罗素：一切确切的知识属于科学，一切超出于确切知识以外的教条，属于神学，介于科学和神学之间的理论就是哲学。<br>普特南：把大脑放在营养液当中，通过电脑编程给大脑不同的刺激，让大脑感觉确实正在做类似的事情。<br>哥德尔不完全性定理：人类不可能创造一个公理系统来证明世界上所有的东西，却在论证中不产生矛盾。<br>如果想论证世界上所有的结论是真还是假，一定会产生矛盾。<br>用肉体的辛苦去换取思想的自由，而思想的更加的自由才是我们在这个世界存在的理由。</p>
+<h1 id="根号2与第一次数学危机"><a href="#根号2与第一次数学危机" class="headerlink" title="根号2与第一次数学危机"></a>根号2与第一次数学危机</h1><p>实数分为有理数和无理数。<br><em>毕达哥拉斯</em>：政教合一的组织，万物皆数，通过整数和整数的比值(整数，有限小数，无限循环小数)来解释。<br><em>希帕索斯</em>： 发现了根号2，被沉入大海淹死了。 假设根号2等于a/b，a,b互质。$2=\frac{a^2}{b^2}$ $2b^2=a^2$ 所以a是偶数，且是4的倍数，所以B为偶数，与假设矛盾。<br><em>欧多克索斯</em>：他采用了一个十分巧妙的关于“两个量之比”的新说法，回避了√2是无理数的实质，而是用几何的方法处理不可公度比。这样做的结果就使几何的基础牢靠了，几何从全部数学中脱颖而出，同时欧几里得的《几何原本》也采用了这一说法，以致在以后的二千年中，几何变成了几乎是全部严密数学的基础。<br><em>戴德金</em>：怎样由已知的有理数，去定义这些无理数呢？戴德金想了一个办法：就用这个无理数前面的有理数，以及这个无理数后面的有理数。<br>这两段有理数，把我们要定义的无理数夹在中间，就形成了戴德金分割。</p>
+<h1 id="一个聪明人的悲剧"><a href="#一个聪明人的悲剧" class="headerlink" title="一个聪明人的悲剧"></a>一个聪明人的悲剧</h1><p>恪聪明尽显于外，此子非保家之主也。聪明总是拿出来显摆。</p>
+<h1 id="为密码加把盐"><a href="#为密码加把盐" class="headerlink" title="为密码加把盐"></a>为密码加把盐</h1><p>网站后台如何保存用户的密码？<br>服务器不存储明文密码，只存储密码变换后的数据，这样被盗也不知道原密码。<br>但是简单的变换，在巨量的数据下，很容易推导出变换公式。<br>算法要求：</p>
+<ol>
+<li>单向，很难通过密文来推导出明文，不可逆</li>
+<li>强碰撞性，不同的明文要对应完全不同的密文<br>李维斯特，MD5，MessageDigest数据摘要算法。<br>问题：黑客可以做一张表，当原始数据较短时，可以在彩虹表里去查，每个八位数对应的MD5是什么。<br>所以此时需要给原始的密码自动加一点盐，md5(md5(password)+salt)<h1 id="相对论"><a href="#相对论" class="headerlink" title="相对论"></a>相对论</h1><em>我想知道的，上帝是如何创造这个世界的，我对这个或者那个现象、这个或者那个元素的能谱不感兴趣，我要知道的是他的思想，其他的都是细节。</em><br>牛顿经典时空观：时间和空间是相互独立的，时间在任何一个地方是均匀流逝的。<br>光，就是可见波段的一种电磁波。<br>狭义相对论基本假设：</li>
+<li>世界上任意两个惯性系(匀速直线运动或静止系统)之间得到的物理定律是一样的。<br>但是不满足伽利略变换，在接近光速的情况下，要进行洛伦兹变换，速度不能直接相加。<br>得到的结论：时间会变慢、长度会收缩、质量会增加。<h1 id="欧拉公式在干什么"><a href="#欧拉公式在干什么" class="headerlink" title="欧拉公式在干什么"></a>欧拉公式在干什么</h1>$e^{ix}=\cos x+i\sin x$当x=\pi,$e^{i\pi}+1=0$</li>
+</ol>
+<h1 id="自动控制原理遛狗"><a href="#自动控制原理遛狗" class="headerlink" title="自动控制原理遛狗"></a>自动控制原理遛狗</h1><p>给定环节、比较器、控制器(大脑)、执行机构(绳子)、被控对象(狗)</p>
+<h1 id="PID-proportional-integral-derivative-controller"><a href="#PID-proportional-integral-derivative-controller" class="headerlink" title="PID(proportional-integral-derivative controller)"></a>PID(proportional-integral-derivative controller)</h1><p>烧水到80°，从75到85可以接受，希望烧水烧得最快，一开始火开到最大，等待70°左右减少火。<br>P:偏差越大，控制的力度就越大。(弹簧)<br>I:系统没惯性，会存在静差。对历史的偏差进行累加(惯性，锅关了火温度还会上升)<br>D:(阻尼力)</p>
+<h1 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h1><p>wavelet:wave表示波，let表示小。droplet水滴，leaflet小树叶，booklet小册子<br>傅里叶变换：将时间信号拆解为不同频率的正弦波相加。(需要假设时域信号的频率不随时间改变)<br>但是根据多普勒效应，大多数情况下，信号的频率会随着时间的变化而变化。<br>对于一个随时间变化而频率改变的信号做傅里叶变换，得到的波失去了时间特性。<br>这是因为正弦波的幅值与时间无关。<br>所以需要小波：一个长度比较短的波，只在一个时间范围内有值，其余时间内值为0.<br>将时域信号向不同位置、不同胖瘦的小波去表达，能反映频率和时间特性。</p>
+<h1 id="泰勒公式有何用"><a href="#泰勒公式有何用" class="headerlink" title="泰勒公式有何用"></a>泰勒公式有何用</h1><p>如何计算sin36°？</p>
+<h1 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h1><p>系统就是一个房间，输入f(t)，输出y(t)，系统的影响h(t)，系统的单位冲击响应<br>y(t)=f(t)*h(t)  Y(s) = F(s)H(s)<br>时域的卷到了复频域变成了乘积。单位冲击响应的拉普拉斯变换就是传递函数</p>
+<h1 id="冲激函数冲出了什么"><a href="#冲激函数冲出了什么" class="headerlink" title="冲激函数冲出了什么"></a>冲激函数冲出了什么</h1><p>线性时不变系统：输入增大、输出随之增大(线性)，频率不随时间变化而变化(时不变)</p>
+<h1 id="卷积："><a href="#卷积：" class="headerlink" title="卷积："></a>卷积：</h1><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}f(\tau)g(t-\tau)d\tau</script><p>傅里叶：将一个函数用无限多个正弦波的函数加和来表示<br>拉普拉斯：将一个函数部分衰减后用无限多个正弦波加和来表达<br>因为正弦波的积分和微分仍然是正弦波。<br>任意一个函数可以划得更简单一点：</p>
+<script type="math/tex; mode=display">y(t)\approx \sum_{-\infty}^{+infty}许多线段</script><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}许多点</script><p>u(t)是0之前是0,0之后为1。$u(t)-u(t-t_0)$就是在0到t0的冲激<br>把f(t)拆成一段一段的，u(t)的导数就是冲激函数<br>相当于把函数敲碎。<br>那我们可以先用冲击函数δ(t)通过系统得到冲击响应h(t)。<br>然后我们把任何输入f(t)通过卷积表示为无穷多冲击函数的累加，即f(t)＝f(t)<em>δ(t)。(这里</em>表示卷积运算)<br>最后根据线性时不变系统的性质，可以得到响应y(t)＝f(t)*h(t)。<br>于是只要我们知道冲激响应，对于任何输入的响应也可以通过卷积运算得到。</p>
+<h1 id="模拟是什么意思"><a href="#模拟是什么意思" class="headerlink" title="模拟是什么意思"></a>模拟是什么意思</h1><p>将一个物理量转换为另一个物理量。<br>通过电信号来模拟大自然的物理量（比如利用运算放大器，一段输入1.2V,一段1.5V，得到的结果即为乘积）</p>
+<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p>卷积：特征提取器，滤波器<br>神经网络：分类器</p>
+<h1 id="Z变换"><a href="#Z变换" class="headerlink" title="Z变换"></a>Z变换</h1><p>Z变换分析的是离散系统，傅里叶和拉普拉斯是连续系统。<br>电脑只有高高低低的电平，是离散的。所以要将连续信号冲激成离散的冲激串。<br>即采样。  可以无损的敲碎。<br>对采样的信号进行拉普拉斯变换，得到的结果也是离散信号。</p>
+<h1 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h1><p>估计器，通过各种各样的测量方法来最后加权平均来估计到一个结果。</p>
+<h1 id="无功功率"><a href="#无功功率" class="headerlink" title="无功功率"></a>无功功率</h1><p>全连接：映射到高维。然后softmax进行分类。</p>
+<h1 id="对抗生成网络：GAN"><a href="#对抗生成网络：GAN" class="headerlink" title="对抗生成网络：GAN"></a>对抗生成网络：GAN</h1><p>mnist 28×28<br>生成器G：一个随机的向量，通过生成器G，得到一个图像，28×28×1，得到一个假的数据。<br>判别器D：对生成的图像判别，得到1或者0.   </p>
+<p>损失函数：一方面让判别器分辨能力更强，另一方面让生成器更真</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/12/Legal-High/" rel="prev" title="Legal_High">
+      <i class="fa fa-chevron-left"></i> Legal_High
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/" rel="next" title="达尔文">
+      达尔文 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#傅里叶的变换哲学"><span class="nav-number">1.</span> <span class="nav-text">傅里叶的变换哲学</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#终成精神病的数学家-康托尔"><span class="nav-number">2.</span> <span class="nav-text">终成精神病的数学家(康托尔)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#存在：缸中之脑"><span class="nav-number">3.</span> <span class="nav-text">存在：缸中之脑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根号2与第一次数学危机"><span class="nav-number">4.</span> <span class="nav-text">根号2与第一次数学危机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个聪明人的悲剧"><span class="nav-number">5.</span> <span class="nav-text">一个聪明人的悲剧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为密码加把盐"><span class="nav-number">6.</span> <span class="nav-text">为密码加把盐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相对论"><span class="nav-number">7.</span> <span class="nav-text">相对论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#欧拉公式在干什么"><span class="nav-number">8.</span> <span class="nav-text">欧拉公式在干什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动控制原理遛狗"><span class="nav-number">9.</span> <span class="nav-text">自动控制原理遛狗</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PID-proportional-integral-derivative-controller"><span class="nav-number">10.</span> <span class="nav-text">PID(proportional-integral-derivative controller)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小波变换"><span class="nav-number">11.</span> <span class="nav-text">小波变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#泰勒公式有何用"><span class="nav-number">12.</span> <span class="nav-text">泰勒公式有何用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传递函数"><span class="nav-number">13.</span> <span class="nav-text">传递函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#冲激函数冲出了什么"><span class="nav-number">14.</span> <span class="nav-text">冲激函数冲出了什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卷积："><span class="nav-number">15.</span> <span class="nav-text">卷积：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模拟是什么意思"><span class="nav-number">16.</span> <span class="nav-text">模拟是什么意思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卷积神经网络"><span class="nav-number">17.</span> <span class="nav-text">卷积神经网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Z变换"><span class="nav-number">18.</span> <span class="nav-text">Z变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卡尔曼滤波"><span class="nav-number">19.</span> <span class="nav-text">卡尔曼滤波</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无功功率"><span class="nav-number">20.</span> <span class="nav-text">无功功率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对抗生成网络：GAN"><span class="nav-number">21.</span> <span class="nav-text">对抗生成网络：GAN</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孙书玮"
+      src="/uploads/Champion_ka.png">
+  <p class="site-author-name" itemprop="name">孙书玮</p>
+  <div class="site-description" itemprop="description">篮球，计算机</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Asswei7" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Asswei7" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:374857303@qq.com" title="E-Mail → mailto:374857303@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孙书玮</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">NaN:aN</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"9nqY8UhYOlt212u1O1JhHnAj-gzGzoHsz","app_key":"gN45qG98T2l1CdnuIsXdiW2v","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

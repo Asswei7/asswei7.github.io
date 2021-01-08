@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"asswei7.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","Sidebar Display (only for Muse | Mist), available values":["post    expand on posts automatically. Default.","always  expand for all pages automatically."],"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="常见的评测结果-AC:accept-CE:compile error-WA:wrong answer-TLE:time limit exceeded-RE:runtime error:数组越界，指针乱指，-MLE:memory limit exceeded-PE:presentation error  基础知识int:-210^9~210^9long long:-910^18~910^18char">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT">
+<meta property="og:url" content="https://asswei7.github.io/2021/01/08/PAT/index.html">
+<meta property="og:site_name" content="Asswei&#39;s blog">
+<meta property="og:description" content="常见的评测结果-AC:accept-CE:compile error-WA:wrong answer-TLE:time limit exceeded-RE:runtime error:数组越界，指针乱指，-MLE:memory limit exceeded-PE:presentation error  基础知识int:-210^9~210^9long long:-910^18~910^18char">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-08T02:43:09.749Z">
+<meta property="article:modified_time" content="2020-06-04T09:25:52.000Z">
+<meta property="article:author" content="孙书玮">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://asswei7.github.io/2021/01/08/PAT/">
+                     
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>PAT | Asswei's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Asswei's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asswei's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/PAT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PAT
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-08 10:43:09" itemprop="dateCreated datePublished" datetime="2021-01-08T10:43:09+08:00">2021-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-06-04 17:25:52" itemprop="dateModified" datetime="2020-06-04T17:25:52+08:00">2020-06-04</time>
+              </span>
+
+          
+            <span id="/2021/01/08/PAT/" class="post-meta-item leancloud_visitors" data-flag-title="PAT" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>466</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="常见的评测结果"><a href="#常见的评测结果" class="headerlink" title="常见的评测结果"></a>常见的评测结果</h3><p>-AC:accept<br>-CE:compile error<br>-WA:wrong answer<br>-TLE:time limit exceeded<br>-RE:runtime error:数组越界，指针乱指，<br>-MLE:memory limit exceeded<br>-PE:presentation error </p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>int:-2<em>10^9~2</em>10^9<br>long long:-9<em>10^18~9</em>10^18<br>char:-128~127<br>int占4Byte，10^9以内的数都可以int型<br>long long型赋值大于2^31的初值，需要在后面加上LL，否则编译出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long long bignum &#x3D; 123456789012345LL;</span><br></pre></td></tr></table></figure><br>浮点型用double存储，占64位，printf(“%f”,c);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define pi 3.14</span><br><span class="line">const double pi &#x3D; 3.14</span><br><span class="line">#define ADD(a,b) ((a)+(b))</span><br><span class="line">#define MAX(a,b) ((a)&gt;(b)?(a):(b))</span><br></pre></td></tr></table></figure><br>位运算符：<br>int型上限是2^31-1，所以INF可以设置为(1&lt;<31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高**
+但是一般更常用的是2^30-1，避免相加超过int，写成二进制是0x3fffffff
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int INF &#x3D; (1&lt;&lt;30)-1</span><br><span class="line">const int INF &#x3D; 0x3fffffff</span><br></pre></td></tr></table></figure><br>scanf(“%lld”,&amp;long);      printf(“%lld”,long);<br>scanf(“%lf”,&amp;db);           printf(“%f”,db);<br>scanf(“%s”,str);<br>scanf可以不加空格的原因，对于其他格式符的输入以空白符(空格、tab)作为结束标志<br>使用%s读入以空格和换行作为读入结束标志。</p>
+<p>想要输出%和\在前面加上一个相应符号<br>printf(“%%”);<br>printf(“\“);<br>%md右对齐，补空格<br>%0md右对齐，补0</p>
+<p>typedef给复杂的类型起一个别名<br>typedef long long LL;<br>LL a = 12134;<br>数学函数：<br>fabs(double x)<br>floor(double x) ceil(double x)<br>pow(double r,double p)  round(double x)</p>
+<p>对数组中每一个元素赋相同的值，memset按字节赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">memset(a,0,sizeof(a))  &#x2F;&#x2F;只建议赋值为0或-1，赋值为其他的建议fill</span><br></pre></td></tr></table></figure><br>strlen(str) strcmp(s1,s2)返回负数，0，正数<br>strcmp(s1,s2)  把s2的值赋值给s1<br>strcat(s1,s2)  把字符数组2接到字符1后面</p>
+<p>sscanf把字符数组str中的内容以%d形式写到n中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n; char str[10]&#x3D;&quot;233&quot;;</span><br><span class="line">sscanf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure><br>sprintf把n以%d的形式写到字符数组中（从右至左）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n&#x3D;233; char str[10];</span><br><span class="line">sprintf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure></p>
+<p>如果自己重新定义了构造函数，则不能不经初始化就定义结构体变量，<br>可以手动再加上默认的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct studentInfo&#123;</span><br><span class="line">    int id;</span><br><span class="line">    char gender;</span><br><span class="line">    studentInfo()&#123;&#125;</span><br><span class="line">    studentInfo(int _id,char _gender)&#123;</span><br><span class="line">        id &#x3D; _id;</span><br><span class="line">        gender &#x3D; _gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">studentInfo(int _id,char _gender):id(_id),gender(_gender)&#123;&#125;</span><br></pre></td></tr></table></figure><br>补充<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">const double Pi &#x3D; acos(-1.0)</span><br><span class="line">#define Equ(a,b) ( (fabs((a)-(b)))&lt;(eps) )</span><br></pre></td></tr></table></figure><br>scanf函数的返回值为成功读入的参数的个数，读入失败时会返回-1，即EOF<br>while(scanf(“%s”,str) != EOF)<br>while(gets(str) != NULL)<br>当输入的a,b都为0时结束<br>while(scanf(“%d%d”,&amp;a,&amp;b),a||b)</p>
+<p>判断闰年:是4的倍速但不是100倍数，或者是400的倍数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool isLeap(int year)&#123;</span><br><span class="line">    return (year%4&#x3D;&#x3D;0 &amp;&amp; year%100!&#x3D;0) || (year%400&#x3D;&#x3D;0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>进制转换<br>（1）将P进制数x转换为十进制数y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int transform2ten(int P,int x)&#123;</span><br><span class="line">    int y&#x3D;0,product&#x3D;1;</span><br><span class="line">    while(x!&#x3D;0)&#123;</span><br><span class="line">        y +&#x3D; (x%10) * product;  加上这个数乘权重</span><br><span class="line">        x&#x2F;&#x3D;10;                   去掉个位</span><br><span class="line">        product *&#x3D; P;            权重数</span><br><span class="line">    &#125;</span><br><span class="line">    return y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>(2)将十进制数y转换为Q进制数z<br>除基取余法，Q即为基，余数保存到地位中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int num&#x3D;0,z[40];</span><br><span class="line">do&#123;</span><br><span class="line">    z[num++] &#x3D; y%Q;</span><br><span class="line">    y&#x2F;&#x3D;Q;</span><br><span class="line">&#125;while(y!&#x3D;0);</span><br></pre></td></tr></table></figure><br>从z[num-1]到z[0]即转换完成。采用do-while是当y=0时，while会直接退出，<br>导致错误，应当是z[0]=0。</p>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>首先从待排序中找到最小元素A[k]，与待排序第一个元素A[i]交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">    int k&#x3D;i;</span><br><span class="line">    for(int j&#x3D;i;j&lt;&#x3D;n;j++)&#123;</span><br><span class="line">        if(A[j]&lt;A[k])</span><br><span class="line">            k&#x3D;j;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;交换A[k]与A[i]</span><br><span class="line">    int temp &#x3D; A[i];</span><br><span class="line">    A[i]&#x3D;A[k];</span><br><span class="line">    A[k]&#x3D;temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>将未排序的第一个元素插入到已经排序好的合适的位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int A[maxn],n;   &#x2F;&#x2F;数组下标为1~n</span><br><span class="line">void insertSort()&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        int temp&#x3D;A[i],j&#x3D;i;</span><br><span class="line">        while(j&gt;1 &amp;&amp; temp&lt;A[j-1])&#123;</span><br><span class="line">            A[j] &#x3D; A[j-1];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        A[j] &#x3D; temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>先对两个进行排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;</span><br></pre></td></tr></table></figure></p>
+<p>结构体排序，先按照分数排序，然后姓名字典序小的在前<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool cmp(Student a,Student b)&#123;</span><br><span class="line">    if(a.score!&#x3D;b.score) return a.score&gt;b.score;</span><br><span class="line">    else return strcmp(a.name,b.name)&lt;0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>结构体的排名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stu[0].r&#x3D;1;</span><br><span class="line">for(int i&#x3D;1;i&lt;n;i++)&#123;</span><br><span class="line">    if(stu[i].score &#x3D;&#x3D; stu[i-1].score)</span><br><span class="line">        stu[i].r &#x3D; stu[i-1].r;</span><br><span class="line">    else</span><br><span class="line">        stu[i].r &#x3D; i+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>将元素通过一个函数转换为整数，使得该整数可以尽量唯一地代表这个元素。<br>将字符串转换为一个整数，判断该整数位置是否有元素</p>
+<p>分治可以采用递归的方法实现，也可以采用非递归方法实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int F(int n)&#123;</span><br><span class="line">    if(n&#x3D;&#x3D;0 || n&#x3D;&#x3D;1) return 1;</span><br><span class="line">    else return F(n-1)+F(n-2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h3><h3 id="区间贪心"><a href="#区间贪心" class="headerlink" title="区间贪心"></a>区间贪心</h3><p>区间不相交问题，</p>
+<h3 id="快速幂，二分幂"><a href="#快速幂，二分幂" class="headerlink" title="快速幂，二分幂"></a>快速幂，二分幂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef long long LL;</span><br><span class="line">LL binaryPow(LL a, LL b,LL m)&#123;</span><br><span class="line">    if(b&#x3D;&#x3D;0) return 1;</span><br><span class="line">    if(b%2&#x3D;&#x3D;1) return a*binaryPow(a,b-1,m)%m;</span><br><span class="line">    else&#123;</span><br><span class="line">        LL mul &#x3D; binaryPow(a,b&#x2F;2,m);</span><br><span class="line">        return mul*mul%m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>vector<br>(1)push_back(1)<br>(2)pop_back()<br>(3)v.size()<br>(4)v.clear()<br>(5)v.insert(v.begin()+2, 8);<br>(6)v.erase(v.begin()+3)  删除v[4]<br>v.erase(v.begin()+1,v.begin()+4) 删除v[1],v[2],v[3]<br>v.erase(v.begin(),v.end()) 删除所有元素，v.end()是尾元素地址的下一个地址<br>Set内部自动有序且不含重复元素</p>
+<p>map<br>同一个键，不同的值被后一个赋的值覆盖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mp[&#39;m&#39;] &#x3D; 20;</span><br><span class="line">mp[&#39;m&#39;] &#x3D; 30; &#x2F;&#x2F;20被覆盖</span><br></pre></td></tr></table></figure><br>it-&gt;first输出顺序按照键的大小</p>
+<p>queue<br>q.push(i) 将i压入队列 q.pop()将队首元素弹出<br>q.front()  q.back() 获取队列队首和队尾元素<br>使用这两个操作前，先对队列判空</p>
+<p>pair<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br><span class="line">添加map时自动添加了utiliy</span><br><span class="line">(1)pair&lt;string,int&gt;p</span><br><span class="line">   p &#x3D; make_pair(&quot;xixi&quot;,5);</span><br><span class="line">(2)pair&lt;string,int&gt;p1(&quot;xixi&quot;,5);</span><br><span class="line"></span><br><span class="line">map&lt;string,int&gt;mp;</span><br><span class="line">mp.insert(make_pair(&quot;haha&quot;,5));</span><br></pre></td></tr></table></figure><br>p1\&lt;\p2先比较p-&gt;first，</p>
+<p>algorithm<br>max(),min()可以整数和浮点数，但是参数只能两个<br>abs()必须整数，浮点数取绝对值用math下的fabs()<br>swap()交换两个数的值<br>reverse()  对数组合字符串进行翻转<br>next_permutation()<br>    do{<br>        printf(“%d%d%d\n”,a[0],a[1],a[2]);<br>    }while(next_permutation(a,a+3));<br>fill()  fill(a,a+5,233);<br>lower_bound(first,last,val) 寻找第一个大于等于val值位置<br>upper_bound(first,last,val) 寻找第一个大于val值位置<br>    printf(“%d,%d\n”,lower_bound(a,a+10,3)-a,upper_bound(a,a+10,3)-a )</p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>清空：top=-1<br>size:top+1;</p>
+<p>链表<br>1.malloc函数 stdlib.h  free(p)<br>int<em> p =(int</em>)malloc(sizeof(int));<br>node<em> p =(node</em>)malloc(sizeof(node));<br>2.new      delete(p)<br>int<em> p =new int;<br>node</em> p =new node;<br>静态链表</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/08/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/08/LeetCode/" rel="next" title="LeetCode">
+      LeetCode <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的评测结果"><span class="nav-number">1.</span> <span class="nav-text">常见的评测结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">2.</span> <span class="nav-text">基础知识</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择排序"><span class="nav-number"></span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">2.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列"><span class="nav-number">3.</span> <span class="nav-text">散列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全排列"><span class="nav-number">4.</span> <span class="nav-text">全排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区间贪心"><span class="nav-number">5.</span> <span class="nav-text">区间贪心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速幂，二分幂"><span class="nav-number">6.</span> <span class="nav-text">快速幂，二分幂</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈"><span class="nav-number"></span> <span class="nav-text">栈</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孙书玮"
+      src="/uploads/Champion_ka.png">
+  <p class="site-author-name" itemprop="name">孙书玮</p>
+  <div class="site-description" itemprop="description">篮球，计算机</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Asswei7" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Asswei7" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:374857303@qq.com" title="E-Mail → mailto:374857303@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孙书玮</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">NaN:aN</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"9nqY8UhYOlt212u1O1JhHnAj-gzGzoHsz","app_key":"gN45qG98T2l1CdnuIsXdiW2v","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
