@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asswei7.github.io/"/>
-  <updated>2021-01-08T05:21:12.693Z</updated>
+  <updated>2021-01-08T06:49:59.155Z</updated>
   <id>https://asswei7.github.io/</id>
   
   <author>
@@ -17,13 +17,80 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>另一角度看为什么初中辍学的人的成功</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/</id>
+    <published>2021-01-08T06:49:49.000Z</published>
+    <updated>2021-01-08T06:49:59.155Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="-技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>人工智能背后的人工</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%BA%E5%B7%A5/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%BA%E5%B7%A5/</id>
+    <published>2021-01-08T06:44:31.000Z</published>
+    <updated>2021-01-08T06:48:22.196Z</updated>
+    
+    <content type="html"><![CDATA[<p>人工智能需要数据。普遍大家可能只关注“大”数据中的这个“大”。人工智能确实需要大数据，甚至是海量数据；但人工智能还需要，或者叫更需要，高质量的数据。<p><br>获得高质量数据的一个有效方式，就是人为标记。<p><br>高质量的标注数据，足以决定一家人工智能公司的竞争力。前阵子大热的华裔科学家李飞飞，加盟了Google。她的一大成就是参与建立了ImageNet。这是由167个国家的48940名工作者，用两年时间，过了近十亿张图片以后，形成的一个拥有1500万张标注图片的数据集。这是多大的工作量？<p><br>可能，更重要的问题是，这到底是体力劳动还是智力劳动？嗯，反正我怎么看怎么都觉得，<strong>是人类在给机器打工。</strong></p><p>对于这种数据标注工作，简单的部分已经可以交给外包公司进行了。但是对于一些复杂的部分，或者还在探索的部分，还是需要“高级人员”自己动手来。一方面是对标注质量更放心，另一方面，可以一边标注一边实验结果，甚至要不断改进标注的方式。其实，标注数据只是人工智能领域底层的体力工作之一，只有从事人工智能领域的人才明白，看起来高大上的光环背后，是无尽的清洗数据和特征工程。其实一点也不高大上。</p><p>但是，或许，或许，所有的高大上的背后，都有着这样的辛酸。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;人工智能需要数据。普遍大家可能只关注“大”数据中的这个“大”。人工智能确实需要大数据，甚至是海量数据；但人工智能还需要，或者叫更需要，高质量的数据。&lt;p&gt;&lt;br&gt;获得高质量数据的一个有效方式，就是人为标记。&lt;p&gt;&lt;br&gt;高质量的标注数据，足以决定一家人工智能公司的竞争力。前
+      
+    
+    </summary>
+    
+    
+      <category term="-技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>对抗早亡的良药以及工作效率</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%AF%B9%E6%8A%97%E6%97%A9%E4%BA%A1%E7%9A%84%E8%89%AF%E8%8D%AF/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%AF%B9%E6%8A%97%E6%97%A9%E4%BA%A1%E7%9A%84%E8%89%AF%E8%8D%AF/</id>
+    <published>2021-01-08T05:27:15.000Z</published>
+    <updated>2021-01-08T06:42:54.703Z</updated>
+    
+    <content type="html"><![CDATA[<p>世界卫生组织（WHO）对猝死的定义是：平素身体健康或貌似健康的患者，在出乎意料的短时间内，因自然疾病而突然死亡。</p><p>医学上对猝死分为两类：心源性猝死和非心源性猝死。</p><p>所谓的非心源性猝死，可能是因为药物，短时间过度酗酒，过敏，或者中毒产生的猝死。这些离我们大多数人可能比较远，不经常发生。</p><p>大多数社会新闻突发的猝死事件，不管是前一阵子的高以翔，还是一些程序员突然在工作岗位或者回家的路上猝死，基本都是心源性猝死。</p><p>怎么预防心源性猝死。第一条就是避免频繁地熬夜导致睡眠不足。</p><p>很多学术研究都表明，健康的饮食和锻炼，实际上比任何昂贵的药物都有效。</p><p>但是，大多数临床医生面临一个困境：患者来到医院，如果医生只是建议患者健康饮食，并且坚持锻炼，很容易被患者误以为是不负责任。</p><p>有医生呼吁，政府与其补贴医药行业，不如直接补贴水果和蔬菜价格，鼓励民众购买。</p><p>社会学家为此还真做了研究，发现，对水果和蔬菜价格做 30% 的补贴，就能提高民众多摄入 26% 的水果和蔬菜。</p><hr><p>软件工程师的核心任务，就是写代码。如何提高代码质量，减少 bug，提高软件开发效率，是软件行业的老大难问题。为了解决这个问题，无数的技术方案或者工具被发明了出来。<br>编程范式的发明、函数式编程。<br>语言的新版本的新机制，大多时候都是为了减少bug。</p><p>每个软件工程师，不管是用什么范式，什么语言，什么版本，什么工具，怎么提前构架，设计，近乎都不可避免地，会写出 bug。</p><p>软件行业很多研究结果都表明：并没有明确的证据说明：使用了这些工具，软件工程中的 bug 就减少了。</p><p>国外技术专家 Hillel Wayne 有一个观点，让我拍案叫绝。</p><p>他的核心思想很简单。既然代码都是人写的，那么 bug 也就是人写的。所以，除了改善工具以外，可能，另外一个非常重要的，被很多人忽视的方式是：改善写代码的人。<br>睡眠，工作时长，工作压力。</p><p>毕竟，作为管理者，管理的是人。所有的工作，都是人做出来的。</p><p>管理者的管理方案，至少要让团队能够感受到：人，是重要的。</p><p>因为：人，真的是最重要的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;世界卫生组织（WHO）对猝死的定义是：平素身体健康或貌似健康的患者，在出乎意料的短时间内，因自然疾病而突然死亡。&lt;/p&gt;
+&lt;p&gt;医学上对猝死分为两类：心源性猝死和非心源性猝死。&lt;/p&gt;
+&lt;p&gt;所谓的非心源性猝死，可能是因为药物，短时间过度酗酒，过敏，或者中毒产生的猝死。这些
+      
+    
+    </summary>
+    
+    
+      <category term="-技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>最喜欢的格言</title>
     <link href="https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/"/>
     <id>https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/</id>
     <published>2021-01-08T05:02:40.000Z</published>
-    <updated>2021-01-08T05:21:12.693Z</updated>
+    <updated>2021-01-08T05:25:56.071Z</updated>
     
-    <content type="html"><![CDATA[<p>真正的大师，永远怀着一颗学徒的心。<br></p><blockquote><p>A true master, is an eternal student.</p></blockquote><p>数学家奥斯卡：</p><blockquote><p>给时光以生命，而不是给生命以时光。<p><br>To the time to life, rather than to life in time.<p><br>使人成熟的不是岁月，而是经历。</p></blockquote><p>海明威：</p><blockquote><p>The world is a fine place and worth fighting for.<br><br>电影《七宗罪》引用了这句话，并加上一句：<br>“I agree with the second part.”</p></blockquote><p>罗曼罗兰：</p><blockquote><p>There is only one heroism in the world: to see the world as it is and to love it.<br>世界也许并不美好，生活的真相也许是残酷，但我们还是要奋斗。</p></blockquote><p>一个人的奶奶说：</p><blockquote><p>Some bugger will always have a faster car, a flashier house, a glitzier watch - but you were the only kids that ever had me for a nana。<br><br>那些物质的东西，其实并不宝贵。真正宝贵的，是你见到的人，遇到的事儿，拥有的经历和感悟。这些才让你成为你，值得你珍视一生。</p></blockquote><p>有点像火蓝刀锋里：</p><blockquote><p>If you keep doing what you’ve always done, you’ll keep getting what you always got.<br><br>龙柏川说他的老班长说：如果你想要得到你从未得到过的东西，你就要去做你从未做过的事。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>真正的大师，永远怀着一颗学徒的心。<br></p><blockquote><p>A true master, is an eternal student.</p></blockquote><p>数学家奥斯卡：</p><blockquote><p>给时光以生命，而不是给生命以时光。<p><br>To the time to life, rather than to life in time.<p><br>使人成熟的不是岁月，而是经历。</p></blockquote><p>海明威：</p><blockquote><p>The world is a fine place and worth fighting for.<br><br>电影《七宗罪》引用了这句话，并加上一句：<br>“I agree with the second part.”</p></blockquote><p>罗曼罗兰：</p><blockquote><p>There is only one heroism in the world: to see the world as it is and to love it.<br>世界也许并不美好，生活的真相也许是残酷，但我们还是要奋斗。</p></blockquote><p>一个人的奶奶说：</p><blockquote><p>Some bugger will always have a faster car, a flashier house, a glitzier watch - but you were the only kids that ever had me for a nana。<br><br>那些物质的东西，其实并不宝贵。真正宝贵的，是你见到的人，遇到的事儿，拥有的经历和感悟。这些才让你成为你，值得你珍视一生。</p></blockquote><p>有点像火蓝刀锋里：</p><blockquote><p>If you keep doing what you’ve always done, you’ll keep getting what you always got.<br><br>龙柏川说他的老班长说：如果你想要得到你从未得到过的东西，你就要去做你从未做过的事。</p></blockquote><hr><p>以下是贺炜，央视的足球解说员，我都很喜欢：</p><blockquote><p>一件看似不经意的小事，往往就是命运的转折，一次看似普通的再见，其实就是永别。<p><br>人的一生中最光辉的一天，并非是功成名就的那天，而是从悲壮与绝望中产生对人生的挑战，以勇敢迈向意志的那天<br>                                    —福楼拜。<p><br>生活可能不像你想象得那么好，但是也不会像你想象得那么糟，人的脆弱和坚强都超乎了自己的想象，有时候脆弱的一句话就能泪流满面，有时候你发现自己咬着牙已经走了很长的路。<p></p><p>爱本身并没有错，爱谁都是自由，爱强者更是人类的天性。不过因为自己所爱的事物的强大就幻想自己也强大了，甚至觉得爱其他事物的人都已经被踩在脚下了，这就是病态，一种弱智的病态。<p></p><p>真正的成熟并不是去追求完美，而是直面自己的缺憾。<p><br>向上攀爬的那条路不是比站在顶峰更让人热血澎湃吗。<p><br>爱一件事物不是爱它的成败，而是爱它的全部。<p></p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -400,78 +467,6 @@
     
     
       <category term="历史" scheme="https://asswei7.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>十字军东征</title>
-    <link href="https://asswei7.github.io/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/"/>
-    <id>https://asswei7.github.io/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/</id>
-    <published>2020-04-03T10:00:08.000Z</published>
-    <updated>2020-04-18T02:33:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>第三次十字军东征：规模最大<br>神圣罗马帝国皇帝——红胡子腓特烈一世带兵10万<br>法国国王——腓力二世<br>英格兰国王狮心王——查理一世，英法联军2万<br>此时，伊斯兰领袖萨拉丁防守耶路撒冷。皇帝经过小亚细亚时候不幸落水淹死了，<br>他的部队也纷纷返回。12万军队变成了2万，狮心王成为领袖，十字军拿下阿卡，<br>十字军的唯一目的就是耶路撒冷，一直进军。<br>狮王弟弟有可能背叛他，理查德无奈回国。</p><p>萨拉丁死后260年，即1453年，拜占庭帝国已经衰落，它的强敌奥斯曼土耳其帝国打不下君士坦丁堡。<br>拜占庭国王立刻向西方世界求援，想让拜占庭的东正教和西方的天主教达成和解，<br>企图团结基督教的力量，让马霍梅特知难而退。<br>吗霍梅特让乌尔班制造大炮，10万人攻打君士坦丁堡，守军只有7千。<br>此时2千人的援军到达，鼓舞了士气。后来失败了，东罗马帝国覆灭。帕里奥洛格斯末代皇帝。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;第三次十字军东征：规模最大&lt;br&gt;神圣罗马帝国皇帝——红胡子腓特烈一世带兵10万&lt;br&gt;法国国王——腓力二世&lt;br&gt;英格兰国王狮心王——查理一世，英法联军2万&lt;br&gt;此时，伊斯兰领袖萨拉丁防守耶路撒冷。皇帝经过小亚细亚时候不幸落水淹死了，&lt;br&gt;他的部队也纷纷返回。12万军
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>以色列历史</title>
-    <link href="https://asswei7.github.io/2020/04/03/%E4%BB%A5%E8%89%B2%E5%88%97%E5%8E%86%E5%8F%B2/"/>
-    <id>https://asswei7.github.io/2020/04/03/%E4%BB%A5%E8%89%B2%E5%88%97%E5%8E%86%E5%8F%B2/</id>
-    <published>2020-04-03T09:58:05.000Z</published>
-    <updated>2020-04-03T10:56:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="犹太建国"><a href="#犹太建国" class="headerlink" title="犹太建国"></a>犹太建国</h1><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><p>1948年建国，是以色列民族建国的千年夙愿，也是中东无尽战乱的开始。</p><h3 id="灭国"><a href="#灭国" class="headerlink" title="灭国"></a>灭国</h3><p>公元70年，罗马攻占耶路撒冷，艰难的进攻使士兵兽性大发，进行屠城。犹太人大多成为奴隶。<br>罗马为了避免犹太人复辟，将其全部赶出巴勒斯坦，犹太人开始流亡。</p><h3 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h3><p>因为宗教信仰没有被别的民族所同化。流亡的生活没有坚实的土地基础，经商成了最主要的谋生手段。<br>并由于信仰，重视教育。 后来，资本取代土地，成为了最重要的生产要素。<br>犹太银行家兴起，但是政治权利真空。<br>二战之后，美国资本家大多为犹太人，各种犹太人返回巴勒斯坦，当地的阿拉伯人利益被侵犯。</p><h3 id="建国"><a href="#建国" class="headerlink" title="建国"></a>建国</h3><p>美国总统为了得到金主支持，与联合国在巴勒斯坦划分一块地给以色列。<br>当地的阿拉伯人被赶走。建国第二天，各个国家组成阿拉伯联盟向以色列宣战。</p><h1 id="中东战争"><a href="#中东战争" class="headerlink" title="中东战争"></a>中东战争</h1><p>当时联合国只规定了以色列的国土总面积，说具体边界与邻国协商，埋下了祸根。</p><h3 id="攻打以色列"><a href="#攻打以色列" class="headerlink" title="攻打以色列"></a>攻打以色列</h3><p>建国第二天，七个国家的联盟进攻。</p><h3 id="初期"><a href="#初期" class="headerlink" title="初期"></a>初期</h3><p>以色列全面溃败。但是各地的犹太人从世界各地来到以色列，为了国家而战。</p><h3 id="转折"><a href="#转折" class="headerlink" title="转折"></a>转折</h3><p>联合国呼吁大家停战四周，阿拉伯联盟居然同意了。(阿拉伯背后只有阿拉伯，以色列背后有犹太资本控制的半个世界)<br>犹太人大量购买重型装备，并补充士兵。</p><h3 id="停战结束"><a href="#停战结束" class="headerlink" title="停战结束"></a>停战结束</h3><p>以色列空军直接轰炸阿拉伯基地。战斗结束，犹太人所占面积已超过联合国划定，<br>犹太人继续开疆扩土，占领了巴勒斯坦总面积的80%，96万巴勒斯坦人被赶出家园，成为难民。</p><h3 id="埃及领袖纳赛尔"><a href="#埃及领袖纳赛尔" class="headerlink" title="埃及领袖纳赛尔"></a>埃及领袖纳赛尔</h3><p>将苏伊士运河收归国有，与英法进行斗争。1956年爆发战争，以色列与英法进攻埃及。<br>初期：以色列攻占西奈半岛占尽优势。<br>转折：纳赛尔堵住运河，使石油运不出去，英法和以色列收到世界指责。<br>结束：苏伊士归埃及所有。<br>纳赛尔自居阿拉伯领袖，准备再次灭亡以色列。</p><h1 id="继续战斗-1967"><a href="#继续战斗-1967" class="headerlink" title="继续战斗(1967)"></a>继续战斗(1967)</h1><p>纳赛尔推崇泛阿拉伯主义，激励阿拉伯人民反抗西方的控制和犹太人的复国。<br>阿拉伯联盟再次攻打以色列。以色列差点亡国。</p><h3 id="转折-1967年6月5日"><a href="#转折-1967年6月5日" class="headerlink" title="转折(1967年6月5日)"></a>转折(1967年6月5日)</h3><p>以色列空军除了12架全部出动，得益于情报工作，在埃及防空雷达换班间隙，飞跃边境、<br>直接轰炸埃及空军基地，机场跑道，埃及飞机无法升空。战争转折。<br>以色列全面胜利。</p><h3 id="纳赛尔不愿承认失败"><a href="#纳赛尔不愿承认失败" class="headerlink" title="纳赛尔不愿承认失败"></a>纳赛尔不愿承认失败</h3><p>欺骗民众和盟国，是阿拉伯地区颜面扫地的巨大耻辱。</p><h1 id="赎罪日战争-犹太人最重要节日"><a href="#赎罪日战争-犹太人最重要节日" class="headerlink" title="赎罪日战争(犹太人最重要节日)"></a>赎罪日战争(犹太人最重要节日)</h1><h3 id="膨胀的以色列"><a href="#膨胀的以色列" class="headerlink" title="膨胀的以色列"></a>膨胀的以色列</h3><p>以色列不愿归还攻占的西奈半岛与戈兰高地。</p><h3 id="埃及总统萨达特"><a href="#埃及总统萨达特" class="headerlink" title="埃及总统萨达特"></a>埃及总统萨达特</h3><p>埃及民众情绪低迷，想夺回领土，灭亡以色列。叙利亚也是如此。<br>1972年宣布埃及对以色列开战，以色列没有重视，过于自信。</p><h3 id="1973年10月6日赎罪日"><a href="#1973年10月6日赎罪日" class="headerlink" title="1973年10月6日赎罪日"></a>1973年10月6日赎罪日</h3><p>埃及空军突然袭击，强渡运河，攻占西奈半岛。<br>叙利亚攻击戈兰高地。以色列付出巨大代价</p><h3 id="转折-1"><a href="#转折-1" class="headerlink" title="转折"></a>转折</h3><p>阿拉伯停止进攻，巩固战线。以色列放弃防守埃及，全部进攻叙利亚戈兰高地。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;犹太建国&quot;&gt;&lt;a href=&quot;#犹太建国&quot; class=&quot;headerlink&quot; title=&quot;犹太建国&quot;&gt;&lt;/a&gt;犹太建国&lt;/h1&gt;&lt;h3 id=&quot;导言&quot;&gt;&lt;a href=&quot;#导言&quot; class=&quot;headerlink&quot; title=&quot;导言&quot;&gt;&lt;/a&gt;导言&lt;/h
-      
-    
-    </summary>
-    
-    
-      <category term="思维实验室" scheme="https://asswei7.github.io/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
-    
-    
-      <category term="历史" scheme="https://asswei7.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XuZhiQin</title>
-    <link href="https://asswei7.github.io/2020/04/03/XuZhiQin/"/>
-    <id>https://asswei7.github.io/2020/04/03/XuZhiQin/</id>
-    <published>2020-04-03T07:30:30.000Z</published>
-    <updated>2020-04-19T07:27:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Statics: Model-based<br>ML: Model-freed</p><h3 id="Statics-View"><a href="#Statics-View" class="headerlink" title="Statics View"></a>Statics View</h3><script type="math/tex; mode=display">f_\theta(x)=ax+b</script><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>最小二乘因子</p><ol><li>高斯-马尔科夫定理<br>$X \in R^{n \times d}$,  $Y \in R^{n \times 1}$</li></ol><h3 id="何时用统计"><a href="#何时用统计" class="headerlink" title="何时用统计"></a>何时用统计</h3><ol><li>预测X与Y的一种关系</li><li>具体知道参数满足的不同的分布规律。</li></ol><h3 id="ML-Views"><a href="#ML-Views" class="headerlink" title="ML Views"></a>ML Views</h3><p>当数据量很大时，不能通过这个方法来计算得到$\hat{\beta}$:</p><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>不需要模型，只有一个目标去学习参数。</p><script type="math/tex; mode=display">L_n = \frac{1}{n} \sum_{i=1}^n (ax_i+b-y_i)^2</script><p>利用梯度下降。<br>$h_i=ax_i+b$</p><script type="math/tex; mode=display">\frac{\partial L_n}{\partial a} = \frac{1}{n}\sum_{i=1}^n(h_i-y_i) \frac{\partial h_i}{\partial a} =\frac{1}{n}\sum_{i=1}^n(h_i-y_i)x_i</script><p>Gradient Desent</p><script type="math/tex; mode=display">a^{t+1} = a^t - \eta \frac{\partial L_n}{\partial a}</script><script type="math/tex; mode=display">b^{t+1} = b^t - \eta \frac{\partial L_n}{\partial b}</script><h1 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h1><ol><li>Supervised learning: learning with labels</li><li>Unsupervised learning: wio labels(聚类)</li><li>Reinforcement learning: learn to make optimal decision<h3 id="Loss-Funtion"><a href="#Loss-Funtion" class="headerlink" title="Loss Funtion"></a>Loss Funtion</h3>Empirical Risk Minimization(ERM)即为training loss</li></ol><h3 id="Two-layer-Neural-Network"><a href="#Two-layer-Neural-Network" class="headerlink" title="Two-layer Neural Network"></a>Two-layer Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) = \sum_{j=1}^m a_j\sigma(\omega_jx+b_j)</script><p>input_layer(not counted) hidden_layer output_layer<br><em>n</em> refers to nums of <em>Samples</em><br><em>m</em> refers to nums of <em>Neurals</em><br><em>为了增强模型的表达性，激活函数不能采用线性的，要使用非线性的</em><br>1989年证明一个隐藏层可以逼近任何一个函数。</p><h3 id="General-Deep-Neural-Network"><a href="#General-Deep-Neural-Network" class="headerlink" title="General Deep Neural Network"></a>General Deep Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) =  w^{[L-1]}\sigma( \cdots w^{[1]}\sigma(w^{[0]}x+b^{[0]})+b^{[1]}\cdot)+b^[L-1]</script><p>对于每一层节点：</p><script type="math/tex; mode=display">f_\theta^{[0]}(x) = x</script><script type="math/tex; mode=display">f_\theta^{[1]}(x) = \sigma(w^{[0]}x+b^{[0]})</script><script type="math/tex; mode=display">f_\theta^{[L]}(x) = \sigma(w^{[L-1]}f_\theta^{[L-1]}(x)+b^{[L-1]})</script><p>对于最后一层的输出：</p><script type="math/tex; mode=display">f_\theta(x) = f^{[L]}(x) = w^{[L-1]}f^{[L-1]}(x)+b^{[L-1]}</script><p>Training：SGD(Stochastic)<br>只使用一个batch数据进行训练</p><h3 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h3><ol><li>Approxicimation Error<br> consider no cost</li></ol><h1 id="Frequency-Principle"><a href="#Frequency-Principle" class="headerlink" title="Frequency Principle"></a>Frequency Principle</h1><p>模型复杂度会把噪声也考虑了进去，导致过拟合。<br>DNN：从低频开始训练，可以不训练到高频成分。(从轮廓到细节)<br>多项式拟合：高频成分也会模拟到,就会导致过拟合<br>万有逼近：Single hidden layer can fit any function<br>卡通图片：警察问路人在干嘛？回答在找赢不。你是在这丢的吗？不，我是在两个街区外丢的。为啥在这找？因为这里路灯比较亮。<br>有人以此讽刺深度学习，灯亮的地方就是低维的问题。<br>但是也可以回答说是为了分析出道路的结构，硬币有可能滑到哪里。</p><p>应用到高维函数，图片自变量是二维像素点，因变量是该点的灰度值。<br>输入维度是所有的像素点，输出维度是类别数目。<br>No free Lunch Theorem对于药物，不能只谈毒性不谈剂量<br>对于泛化，不能只谈算法不谈数据</p><p>深度学习提供了一种通用的学习框架，可用来表示世界、视觉和语言学信息。<br>语言模型：说一句话的概率的大小。问题在于：1.数据过于稀疏 2。参数空间太大<br>n-gram=1 下一个词出现的概率只依赖于它前面的一个词P(w2|w1)<br>n-gram=2 下一个词出现的概率依赖于它前面的两个词P(w3|w1,w2)<br>word2vector:</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Statics: Model-based&lt;br&gt;ML: Mo
-      
-    
-    </summary>
-    
-    
-    
-      <category term="机器学习" scheme="https://asswei7.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
