@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asswei7.github.io/"/>
-  <updated>2021-01-08T05:01:42.765Z</updated>
+  <updated>2021-01-08T05:21:12.693Z</updated>
   <id>https://asswei7.github.io/</id>
   
   <author>
@@ -17,13 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>最喜欢的格言</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/</id>
+    <published>2021-01-08T05:02:40.000Z</published>
+    <updated>2021-01-08T05:21:12.693Z</updated>
+    
+    <content type="html"><![CDATA[<p>真正的大师，永远怀着一颗学徒的心。<br></p><blockquote><p>A true master, is an eternal student.</p></blockquote><p>数学家奥斯卡：</p><blockquote><p>给时光以生命，而不是给生命以时光。<p><br>To the time to life, rather than to life in time.<p><br>使人成熟的不是岁月，而是经历。</p></blockquote><p>海明威：</p><blockquote><p>The world is a fine place and worth fighting for.<br><br>电影《七宗罪》引用了这句话，并加上一句：<br>“I agree with the second part.”</p></blockquote><p>罗曼罗兰：</p><blockquote><p>There is only one heroism in the world: to see the world as it is and to love it.<br>世界也许并不美好，生活的真相也许是残酷，但我们还是要奋斗。</p></blockquote><p>一个人的奶奶说：</p><blockquote><p>Some bugger will always have a faster car, a flashier house, a glitzier watch - but you were the only kids that ever had me for a nana。<br><br>那些物质的东西，其实并不宝贵。真正宝贵的，是你见到的人，遇到的事儿，拥有的经历和感悟。这些才让你成为你，值得你珍视一生。</p></blockquote><p>有点像火蓝刀锋里：</p><blockquote><p>If you keep doing what you’ve always done, you’ll keep getting what you always got.<br><br>龙柏川说他的老班长说：如果你想要得到你从未得到过的东西，你就要去做你从未做过的事。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;真正的大师，永远怀着一颗学徒的心。&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A true master, is an eternal student.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;数学家奥斯卡：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给时光以生命，而
+      
+    
+    </summary>
+    
+    
+      <category term="-技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>努力就会成功？</title>
     <link href="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/"/>
     <id>https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/</id>
     <published>2021-01-08T02:59:03.000Z</published>
-    <updated>2021-01-08T05:01:42.765Z</updated>
+    <updated>2021-01-08T05:08:49.527Z</updated>
     
-    <content type="html"><![CDATA[<p>本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？</p><h4 id="一个具体的实例说明加班可能适得其反"><a href="#一个具体的实例说明加班可能适得其反" class="headerlink" title="一个具体的实例说明加班可能适得其反"></a>一个具体的实例说明加班可能适得其反</h4><p>直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1000多个bug。你没看错，是一千多个。</p><p>最后，这个项目用了 1 年多的时间来返工。本来一个 6-8 个月的项目，团队被打了鸡血，想在3个月内完成，最终却花了近两年的时间来返工。</p><p>要知道，我以前在外国公司工作，外国老板看到团队在长时间加班，会感到焦虑的。<font color= blue>因为加班，通常代表着有不好的事情正在发生。</font></p><p>所以对此，我是有点看不懂的。看不懂的是，为什么这么一群聪明的人，放着明亮宽敞的办公桌不用，硬要挤在一个又窄又小又吵又热的小空间里工作，而且要这么透支地写那么重要的很关键的系统级代码？</p><font color=blue>这就好像，一架在一个小作坊里被人加班加点赶工出来的飞机，谁敢坐啊？</font>难道他们真的以为，有足够多的钱，足够多的人，然后拼命加班，就能打败对手吗？#### 在低级事情上努力也许是对学习高级知识的逃避“努力就会成功”，“加班就会有成就”，“勤劳就会致富”……<font color= blue>因为这类人基本上都是能力有限，不知道怎么提升自己的人，当他们看到只要拼命使力就可以成功的观点时，他们就会有共鸣，就会感动。不用学习那些晦涩难懂的高级知识，不用掌握和练习那些高级技能，自己只需要在低级的事情上拼命和努力，加更多的班和干更多的活，自己就会像电影中的那些小人物一样，总有一天会成功的。</font><p>因为，他们混淆了行动与进展，忙碌与多产。他们以为能靠蛮力可以弥补思维上的惰性，靠拼命可以弥补能力上的不足。喜欢或认同这句话的人，基本是能力上有问题的人。这类人适合做劳动密集型的事。不信你可以试试看，当一件事的难度超过一定程度的时候，那些聪明的人会找到更省力的方法；而能力上有问题的人，还是在那儿使蛮力。</p><h4 id="应该怎么做？work-hrad-gt-work-smart"><a href="#应该怎么做？work-hrad-gt-work-smart" class="headerlink" title="应该怎么做？work-hrad -&gt; work-smart"></a>应该怎么做？work-hrad -&gt; work-smart</h4><p>再回想一下，我以前在职场上的很多关键点，不是因为我加班了，而是因为在某些关键问题上，我跳出来解决了其它人都解决不了的问题。<br>我也有失败的时候，而我失败的时候，总是因为我搞不定事，即便是加班拼命努力也无济于事。是的，我的职业生涯的成长，最根本的不是你有多努力，有多勤奋，而是你能搞定很多人搞不定的事。<br>你不信，你可以看看你们公司那些不用加班，就算什么也不干，公司也要花钱养的技术人员。他们的成功，一定不是努力和加班加出来的。<font color=blue>你会发现这些人拼的不是谁干的多，而是谁解决的问题更难。</font></p><p>我加班 996 的时候，从来都不是我成长最快的时候；而我和一群牛人在解决难题的时候，才是我成长最快的时候。<br>关键不在于谁写的代码多，关键在于我们解决了什么样的问题。<br>在这样的一个时代，你要做的，不是通过加班和拼命来跪着挣钱，而是通过技能，来躺着挣钱。</p>]]></content>
+    <content type="html"><![CDATA[<p>本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？</p><h4 id="一个具体的实例说明加班可能适得其反"><a href="#一个具体的实例说明加班可能适得其反" class="headerlink" title="一个具体的实例说明加班可能适得其反"></a>一个具体的实例说明加班可能适得其反</h4><p>直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1000多个bug。你没看错，是一千多个。</p><p>最后，这个项目用了 1 年多的时间来返工。本来一个 6-8 个月的项目，团队被打了鸡血，想在3个月内完成，最终却花了近两年的时间来返工。</p><p>要知道，我以前在外国公司工作，外国老板看到团队在长时间加班，会感到焦虑的。<font color= blue>因为加班，通常代表着有不好的事情正在发生。</font></p><p>所以对此，我是有点看不懂的。看不懂的是，为什么这么一群聪明的人，放着明亮宽敞的办公桌不用，硬要挤在一个又窄又小又吵又热的小空间里工作，而且要这么透支地写那么重要的很关键的系统级代码？</p><font color=blue>这就好像，一架在一个小作坊里被人加班加点赶工出来的飞机，谁敢坐啊？</font>难道他们真的以为，有足够多的钱，足够多的人，然后拼命加班，就能打败对手吗？#### 在低级事情上努力也许是对学习高级知识的逃避“努力就会成功”，“加班就会有成就”，“勤劳就会致富”……<font color= blue>因为这类人基本上都是能力有限，不知道怎么提升自己的人，当他们看到只要拼命使力就可以成功的观点时，他们就会有共鸣，就会感动。不用学习那些晦涩难懂的高级知识，不用掌握和练习那些高级技能，自己只需要在低级的事情上拼命和努力，加更多的班和干更多的活，自己就会像电影中的那些小人物一样，总有一天会成功的。</font><p>因为，他们混淆了行动与进展，忙碌与多产。他们以为能靠蛮力可以弥补思维上的惰性，靠拼命可以弥补能力上的不足。喜欢或认同这句话的人，基本是能力上有问题的人。这类人适合做劳动密集型的事。不信你可以试试看，当一件事的难度超过一定程度的时候，那些聪明的人会找到更省力的方法；而能力上有问题的人，还是在那儿使蛮力。</p><h4 id="应该怎么做？work-hrad-gt-work-smart"><a href="#应该怎么做？work-hrad-gt-work-smart" class="headerlink" title="应该怎么做？work-hrad -&gt; work-smart"></a>应该怎么做？work-hrad -&gt; work-smart</h4><p>再回想一下，我以前在职场上的很多关键点，不是因为我加班了，而是因为在某些关键问题上，我跳出来解决了其它人都解决不了的问题。<br>我也有失败的时候，而我失败的时候，总是因为我搞不定事，即便是加班拼命努力也无济于事。是的，我的职业生涯的成长，最根本的不是你有多努力，有多勤奋，而是你能搞定很多人搞不定的事。<br>你不信，你可以看看你们公司那些不用加班，就算什么也不干，公司也要花钱养的技术人员。他们的成功，一定不是努力和加班加出来的。<font color=blue>你会发现这些人拼的不是谁干的多，而是谁解决的问题更难。</font></p><p>我加班 996 的时候，从来都不是我成长最快的时候；而我和一群牛人在解决难题的时候，才是我成长最快的时候。<br>关键不在于谁写的代码多，关键在于我们解决了什么样的问题。<br>在这样的一个时代，你要做的，不是通过加班和拼命来跪着挣钱，而是通过技能，来躺着挣钱。</p><h4 id="自己的一些想法"><a href="#自己的一些想法" class="headerlink" title="自己的一些想法"></a>自己的一些想法</h4><p>这让我想到高中时期经常用到的一个作文素材，核心是“金字塔绝对不是由奴隶建造的”，因为受压迫的奴隶不可能做出这种巧夺天工的建筑，最后也由考古学家证实，建造金字塔的是身份地位较高的平民和劳工，绝非奴隶！</p><p>许多作曲家和作家都曾说过，自己灵感迸发的时刻大多不是在工作时那种高强度的状态下，而是在洗澡淋浴时、和朋友闲谈时。</p><p>LegalHigh中动画导演的那一集让我印象一直十分深刻，导演的坚毅的台词。</p>]]></content>
     
     <summary type="html">
     
@@ -442,32 +472,6 @@
     
     
       <category term="机器学习" scheme="https://asswei7.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>本福特定律</title>
-    <link href="https://asswei7.github.io/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/"/>
-    <id>https://asswei7.github.io/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/</id>
-    <published>2020-04-01T02:45:16.000Z</published>
-    <updated>2020-04-02T08:03:50.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="本福特定律"><a href="#本福特定律" class="headerlink" title="本福特定律"></a>本福特定律</h1><ol><li>自然的数据，杂乱无章，首位为1的概率为1/9？</li><li>1881年纽康，1938年，本福特<br>10进制中，首位为n的概率，<script type="math/tex; mode=display">P_n = log_10{\frac{n+1}{n}}</script>$P_1 = lg2 = 30.1%$<br>$P_2 = lg3/2 = 17.6%$<br>$P_9 = lg10/9 = 4.6%$</li><li>应用：非人为数据（不能选电话号码）跨度大（不能选择身高体重这种）<br>李永乐老师视频播放量，各个国家GDP，各个国家人口，国土面积<br>斐波那契数列，放射性元素的半衰期<br>研究财务报表是否造假，地区大选是否舞弊</li><li>证明<br>(1)数据的增长量正比于存量$\frac{\deta N}{N\deta t} = Constant $<br>(2)<script type="math/tex">N = N_0e^{ct}</script> <script type="math/tex">t = c^'lg\frac{N_2}{N_1}</script><br>(3)首数为1的时间 $t_1 = c^’lg\frac{20}{10} $</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;本福特定律&quot;&gt;&lt;a href=&quot;#本福特定律&quot; class=&quot;headerlink&quot; title=&quot;本福特定律&quot;&gt;&lt;/a&gt;本福特定律&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;自然的数据，杂乱无章，首位为1的概率为1/9？&lt;/li&gt;
-&lt;li&gt;1881年纽康，1938年，本福特&lt;b
-      
-    
-    </summary>
-    
-    
-      <category term="-李永乐老师" scheme="https://asswei7.github.io/categories/%E6%9D%8E%E6%B0%B8%E4%B9%90%E8%80%81%E5%B8%88/"/>
-    
     
   </entry>
   
