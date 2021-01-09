@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/Champion_ka.png">
@@ -179,7 +179,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">计网传输层</a>
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/" class="post-title-link" itemprop="url">计网网络层</a>
         </h2>
 
         <div class="post-meta">
@@ -190,7 +190,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-09 13:53:39 / Modified: 14:16:57" itemprop="dateCreated datePublished" datetime="2021-01-09T13:53:39+08:00">2021-01-09</time>
+              <time title="Created: 2021-01-09 22:02:40 / Modified: 23:15:32" itemprop="dateCreated datePublished" datetime="2021-01-09T22:02:40+08:00">2021-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +203,7 @@
             </span>
 
           
-            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网传输层" title="Views">
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网网络层" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -215,7 +215,204 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>542</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>网络层的传输单位是数据报。</p>
+<ol>
+<li>路由选择和分组转发</li>
+<li>异构网络互联（不同的设备都可以正常连接）</li>
+<li>拥塞控制</li>
+</ol>
+<p>数据报和分组的关系：数据报是一段比较长的数据，将它进行切割成一段段之后就得到分组<br><br>功能一就是让数据在路由器之间走最佳的路径<br><br>开环控制就是在拥塞之前就提前设计解决<br><br>闭环控制就是在拥塞时自动调整解决问题</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">层次</th>
+<th style="text-align:center">传输单元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">报文</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">报文段</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">IP数据报/分组</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">帧</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center">比特流</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-数据交换方式"><a href="#2-数据交换方式" class="headerlink" title="2. 数据交换方式"></a>2. 数据交换方式</h2><p>为什么要进行数据交换？因为每个节点之间都拉网线太麻烦了也不实际，所以通过大量交换设备互联进行数据交换</p>
+<h3 id="2-1-电路交换"><a href="#2-1-电路交换" class="headerlink" title="2.1 电路交换"></a>2.1 电路交换</h3><p>类似于打电话</p>
+<h3 id="2-2-报文交换"><a href="#2-2-报文交换" class="headerlink" title="2.2 报文交换"></a>2.2 报文交换</h3><ol>
+<li>源先根据报文加上ip地址，物理地址等，通过物理层发送</li>
+<li>交换机收到报文之后，先进行存储，等待链路空闲之后进行转发，但是转发的路径不是固定的，是比较随机的</li>
+<li>最后通过许多交换机最终到达目的地</li>
+</ol>
+<h3 id="2-3-分组交换"><a href="#2-3-分组交换" class="headerlink" title="2.3 分组交换"></a>2.3 分组交换</h3><p>分组交换和报文交换基本相同，就是将报文切割之后再进行发送</p>
+<p>缺点：</p>
+<ol>
+<li>有存储转发时延</li>
+<li>需要传输额外的信息量</li>
+<li>乱序到达目的主机时，要对其重新排序<h3 id="2-4-分组交换和报文交换计算量对比"><a href="#2-4-分组交换和报文交换计算量对比" class="headerlink" title="2.4 分组交换和报文交换计算量对比"></a>2.4 分组交换和报文交换计算量对比</h3>报文交换：一共三段，每段都需要10000bit/1000bps=10s，三段就是3x10=30s</li>
+</ol>
+<p>分组交换：可以分为两段，一个是第一个数据开始发到最后一个数据从源发出，一段是最后一个数据到达目的地。第一段总时间是10000bit/1000bps=10s，第二段总时间是（10/1000）*2=0.02s，所以总时间是10.02s。</p>
+<p>理解一下，这里就是报文交换的时候，由于报文没有分割，所以即使先到的数据也不能先发走，只能等到最后一段报文全部到了之后才能一起走，相对于分组交换明显拖慢了前面数据的速度，所以导致报文交换明显慢于分组交换<br><img src="计算.png" alt="avatar"></p>
+<h4 id="2-4-1-分组传输的两种方式-数据报和虚电路"><a href="#2-4-1-分组传输的两种方式-数据报和虚电路" class="headerlink" title="2.4.1 分组传输的两种方式-数据报和虚电路"></a>2.4.1 分组传输的两种方式-数据报和虚电路</h4><p><img src="概述.png" alt="avatar"><br><img src="表格.png" alt="avatar"><br><img src="数据报.png" alt="avatar"><br><img src="虚电路.png" alt="avatar"></p>
+<h2 id="3-路由算法和路由协议"><a href="#3-路由算法和路由协议" class="headerlink" title="3. 路由算法和路由协议"></a>3. 路由算法和路由协议</h2><p><img src="路由算法.png" alt="avatar"><br>AS就是多个路由器之间构成的单独的小圈子，圈子内使用自己的协议，圈子和圈子之间用的是BGP协议<br><img src="层次路由.png" alt="avatar"></p>
+<h3 id="3-1-RIP协议和距离向量算法"><a href="#3-1-RIP协议和距离向量算法" class="headerlink" title="3.1 RIP协议和距离向量算法"></a>3.1 RIP协议和距离向量算法</h3><h4 id="3-1-1-RIP协议概述"><a href="#3-1-1-RIP协议概述" class="headerlink" title="3.1.1 RIP协议概述"></a>3.1.1 RIP协议概述</h4><p>最大优点是简单，只适用于小型互联网。<br><img src="RIP概述.png" alt="avatar"></p>
+<h4 id="3-1-2-如何建立路由表"><a href="#3-1-2-如何建立路由表" class="headerlink" title="3.1.2 如何建立路由表"></a>3.1.2 如何建立路由表</h4><p><img src="RIP路由表.png" alt="avatar"></p>
+<font color="red">应用层协议，时延UDP传输数据。</font>
+
+<p>好消息传得快，坏消息传得慢。</p>
+<h4 id="3-1-3-距离向量算法"><a href="#3-1-3-距离向量算法" class="headerlink" title="3.1.3 距离向量算法"></a>3.1.3 距离向量算法</h4><p>为什么改地址？因为图中是从x得到的信息<br><br>为什么距离固定+1？因为路由器只从相邻路由器之间获取RIP报文，举例只会是1<br><br>为什么下一跳是x就要替换？因为网络环境不断变化，可能这次某个节点挂掉，所以保持最新的<br><br>为什么下一跳不是x时有更新和不处理两种手段？因为这样可以提高效率，比原来快就换，比原来慢就保留原来的，也可以理解</p>
+<p><img src="距离向量.png" alt="avatar"><br><img src="练习.png" alt="avatar"></p>
+<h3 id="3-2-OSPF协议和链路状态算法"><a href="#3-2-OSPF协议和链路状态算法" class="headerlink" title="3.2 OSPF协议和链路状态算法"></a>3.2 OSPF协议和链路状态算法</h3><h4 id="3-2-1-OSPF概述"><a href="#3-2-1-OSPF概述" class="headerlink" title="3.2.1 OSPF概述"></a>3.2.1 OSPF概述</h4><p><img src="OSPF概述.png" alt="avatar"><br>适用于互联网规模大时使用。不存在坏消息慢，收敛速度很快。</p>
+<p>为什么OSPF收敛速度快？因为它只是刷新一下链路状态，得知其是否连通，不需要和RIP一样进行对照，而是直接通过Dijilstra算法来自己算出路径</p>
+<h3 id="3-3-BGP协议"><a href="#3-3-BGP协议" class="headerlink" title="3.3 BGP协议"></a>3.3 BGP协议</h3><h4 id="3-3-1-BGP协议概述"><a href="#3-3-1-BGP协议概述" class="headerlink" title="3.3.1 BGP协议概述"></a>3.3.1 BGP协议概述</h4><p><img src="BGP简介.png" alt="avatar"></p>
+<h4 id="3-3-2-BGP交换信息过程"><a href="#3-3-2-BGP交换信息过程" class="headerlink" title="3.3.2 BGP交换信息过程"></a>3.3.2 BGP交换信息过程</h4><p><img src="BGP交换信息.png" alt="avatar"><br><img src="BGP交换信息2.png" alt="avatar"></p>
+<h4 id="3-3-3-BGP报文格式"><a href="#3-3-3-BGP报文格式" class="headerlink" title="3.3.3 BGP报文格式"></a>3.3.3 BGP报文格式</h4><p><img src="报文格式.png" alt="avatar"></p>
+<h4 id="3-3-4-BGP协议特点"><a href="#3-3-4-BGP协议特点" class="headerlink" title="3.3.4 BGP协议特点"></a>3.3.4 BGP协议特点</h4><p><img src="协议特点.png" alt="avatar"></p>
+<h4 id="3-3-5-BGP四种报文"><a href="#3-3-5-BGP四种报文" class="headerlink" title="3.3.5 BGP四种报文"></a>3.3.5 BGP四种报文</h4><p><img src="四种报文.png" alt="avatar"></p>
+<h3 id="3-4-四种路由协议的比较"><a href="#3-4-四种路由协议的比较" class="headerlink" title="3.4 四种路由协议的比较"></a>3.4 四种路由协议的比较</h3><p><img src="路由协议比较.png" alt="avatar"><br>RIP：通过广播UDP交换信息</p>
+<p>OSPF：交换的信息量很大，报文长度尽量短，直接使用IP</p>
+<p>BGP：需要在不同AS之间交换信息，网络环境复杂，需要保证可靠传输，所以使用TCP。</p>
+<h2 id="4-IP数据报"><a href="#4-IP数据报" class="headerlink" title="4. IP数据报"></a>4. IP数据报</h2><h3 id="4-1-IP数据报格式"><a href="#4-1-IP数据报格式" class="headerlink" title="4.1 IP数据报格式"></a>4.1 IP数据报格式</h3><p><img src="IP数据报格式.png" alt="avatar"><br><img src="IP数据报格式2.png" alt="avatar"><br>计算偏移量时记住是以0开始的就行，以每一篇最开始的除以8得到的数值就是偏移量<br>MF和DF的定义见上图<br><img src="IP数据报分片.png" alt="avatar"></p>
+<h2 id="5-IP地址"><a href="#5-IP地址" class="headerlink" title="5. IP地址"></a>5. IP地址</h2><h4 id="5-1-2-特殊IP地址"><a href="#5-1-2-特殊IP地址" class="headerlink" title="5.1.2 特殊IP地址"></a>5.1.2 特殊IP地址</h4><p><img src="IP地址分类.png" alt="avatar"></p>
+<h4 id="5-1-1-私有IP地址"><a href="#5-1-1-私有IP地址" class="headerlink" title="5.1.1 私有IP地址"></a>5.1.1 私有IP地址</h4><p><img src="私有IP.png" alt="avatar"><br>为什么A类最大是126.xxx.xxx.xxx？<br>因为网络号最开始第一位是0，一共八位，所以二进制表示位0xxxxxxx，最大就是2^7-1=127，但是因为127.xxx.xxx.xxx是特殊ip地址，所以将其去掉</p>
+<p>为什么B类最大是191.255.xxx.xxx？<br>因为网络号最开始第一位是10，一共八位，所以二进制表示位10xxxxxx，最大就是10111111=191，最小就是10000000=128，无特殊ip地址</p>
+<p>为什么C类最大是223.255.xxx.xxx？<br>因为网络号最开始第一位是110，一共八位，所以二进制表示位110xxxxx，最大就是11011111=223，最小就是10000000=192，无特殊ip地址</p>
+<p><img src="IP地址分类.png" alt="avatar"></p>
+<h3 id="5-2-网络地址转换NAT"><a href="#5-2-网络地址转换NAT" class="headerlink" title="5.2 网络地址转换NAT"></a>5.2 网络地址转换NAT</h3><p>连接内网和外网，就是找个代理的用它的ip地址与外面收发数据</p>
+<p>NAT需要构建NAT转换表，既要存广域网（WAN，外网）也要存局域网（LAN，内网）的ip地址和端口<br>号<br><img src="NAT.png" alt="avatar"></p>
+<h3 id="5-3-子网划分和子网掩码"><a href="#5-3-子网划分和子网掩码" class="headerlink" title="5.3 子网划分和子网掩码"></a>5.3 子网划分和子网掩码</h3><h4 id="5-3-1-为什么需要子网划分？"><a href="#5-3-1-为什么需要子网划分？" class="headerlink" title="5.3.1 为什么需要子网划分？"></a>5.3.1 为什么需要子网划分？</h4><p>总结一下，就是ip不够用，所以需要额外整个子网扩展ip</p>
+<p>为什么子网好能全0或者全1：因为CIDR编址（可见下一段）<br><br>为什么主机号不能全0或者全1：因为全0代表本网络，全1代表广播分组</p>
+<h4 id="5-3-2-子网掩码"><a href="#5-3-2-子网掩码" class="headerlink" title="5.3.2 子网掩码"></a>5.3.2 子网掩码</h4><p>这道题可以看出来，即使子网掩码不同，相同ip地址对应的子网ip地址也可能相同<br><br>但是子网掩码不同，划分的子网数目不同<br><br>为什么划分的子网数目不同？或者说怎么算划分的子网位数目？<br><br>以255.255.192.0为例，255是11111111即八个1,192是11000000即2个1，一共是82+2=18个1，一共有32位地址，所以剩余有32-18=14位<br><br>以255.255.224.0为例，255是11111111即八个1,224是11100000即3个1，一共是82+3=19个1，一共有32位地址，所以剩余有32-19=13位<br><img src="练习1.png" alt="avatar"><br>这道题先将255.255.252.0计算出一共有8+8+6=22位网络号位<br><br>所以就有32-22=10位主机号位<br><br>将180.80.77.55解析，可以知道在77部分某部分开始会用来表示主机号位<br><br>77的二进制是0100 1101，因为一共有22位网络号位，所以010011 （此处分开） 01，从这个01开始是主机号位。<br><br>所以用来表示子网ip地址的应该是180.80.76（010011 00）.xxx PS注意76括号内后两位二进制00<br><br>但是本体是发布广播地址，所以主机号全部都要是1<br><br>所以应该是180.80.79（010011 11）.255（11111111）注意79括号内后两位二进制11<br><img src="练习2.png" alt="avatar"></p>
+<ol>
+<li>这里特定主机路由就是指找特定的处理这里这个ip地址的路由</li>
+<li>默认路由会将这个数据报发给另一个路由，直至找到对应的路由，或者TTL耗尽被丢弃<br><img src="转发2.png" alt="avatar"></li>
+</ol>
+<h3 id="5-4-无分类编址CIDR"><a href="#5-4-无分类编址CIDR" class="headerlink" title="5.4 无分类编址CIDR"></a>5.4 无分类编址CIDR</h3><p><img src="CIDR1.png" alt="avatar"><br>使用CIDR可以聚合网络.<br>如图，通过缩短前缀，R1和R2就可以合并在206.1.0.0/16的子网下.<br>但是这样转发表之中就会有多个匹配结果，所以我们使用最长前缀匹配<br><img src="CIDR2.png" alt="avatar"><br>最长前缀匹配就是在计算后符合同一子网的时候，选前缀越长的<br>这道题选B</p>
+<p><img src="CIDR3.png" alt="avatar"><br>因为本网络是192.168.5.0/24，就是192.168.5.（0000 0000）/24，将248写成二进制是11111 000，有五个1，所以前五位都可以作为子网的编号，剩下的三位就是用来分配子网内剩余的地址了，因为不能全0或者全1，所以还要减2<br><img src="CIDR4.png" alt="avatar"></p>
+<h3 id="5-5-ARP协议"><a href="#5-5-ARP协议" class="headerlink" title="5.5 ARP协议"></a>5.5 ARP协议</h3><p><img src="ARP1.png" alt="avatar"><br><img src="ARP2.png" alt="avatar"></p>
+<h3 id="5-6-DHCP协议"><a href="#5-6-DHCP协议" class="headerlink" title="5.6 DHCP协议"></a>5.6 DHCP协议</h3><p><img src="DHCP.png" alt="avatar"></p>
+<h3 id="5-7-ICMP协议"><a href="#5-7-ICMP协议" class="headerlink" title="5.7 ICMP协议"></a>5.7 ICMP协议</h3><p>ICMP，IGMP处于网络层和传输层之间，就是为了更好地转发ip数据报和提高交互成功的几率</p>
+<h4 id="5-7-1-ICMP差错报文"><a href="#5-7-1-ICMP差错报文" class="headerlink" title="5.7.1 ICMP差错报文"></a>5.7.1 ICMP差错报文</h4><p><img src="差错报文.png" alt="avatar"><br><img src="不错.png" alt="avatar"></p>
+<h4 id="5-7-2-ICMP询问报文"><a href="#5-7-2-ICMP询问报文" class="headerlink" title="5.7.2 ICMP询问报文"></a>5.7.2 ICMP询问报文</h4><p>后两种是掩码地址请求和回答报文，路由器询问和通告报文，这两个已经废弃不再使用<br><img src="询问报文.png" alt="avatar"></p>
+<h4 id="5-7-3-ICMP应用"><a href="#5-7-3-ICMP应用" class="headerlink" title="5.7.3 ICMP应用"></a>5.7.3 ICMP应用</h4><p>1.ping命令：测试两个主机之间连通性，使用了ICMP回送请求和回答报文</p>
+<p>2.traceroute命令：跟踪一个分组从原点到终点的路径，使用了ICMP时间超过差错报告报文</p>
+<h2 id="6-IPv6"><a href="#6-IPv6" class="headerlink" title="6. IPv6"></a>6. IPv6</h2><p>就是IPV4地址用完了，从根本上增加ip地址数目，之前讲的NAT和CIDR也只是在IPV4的基础上扩展了IPV4地址数目，治标不治本<br><img src="IPv6地址.png" alt="avatar"></p>
+<p><img src="数据报格式.png" alt="avatar"><br><img src="46差别.png" alt="avatar"><br><img src="46过渡.png" alt="avatar"><br>如果是ipv6的数据报到了ipv4，就用ipv4重新封装，把ipv6数据报前面加上ipv4伪装成ipv4数据报继续传输，直至到了ipv6路由再解开ipv4伪装</p>
+<h2 id="7-IP组播"><a href="#7-IP组播" class="headerlink" title="7. IP组播"></a>7. IP组播</h2><p>单播只能一对一，广播必须一对全部，组播就可以是一对全部中的一部分</p>
+<h2 id="8-移动IP"><a href="#8-移动IP" class="headerlink" title="8. 移动IP"></a>8. 移动IP</h2><p>移动IP不等于动态IP（DHCP获得的）</p>
+<p>移动IP的可以让用户因为地理原因等等，即使不在内网也可以访问内网的东西</p>
+<h3 id="8-1-移动IP的相关术语"><a href="#8-1-移动IP的相关术语" class="headerlink" title="8.1 移动IP的相关术语"></a>8.1 移动IP的相关术语</h3><p><img src="移动IP术语.png" alt="avatar"></p>
+<h3 id="8-2-移动IP的通信过程"><a href="#8-2-移动IP的通信过程" class="headerlink" title="8.2 移动IP的通信过程"></a>8.2 移动IP的通信过程</h3><p><img src="通信过程1.png" alt="avatar"><br><img src="通信过程2.png" alt="avatar"></p>
+<h2 id="9-网络层设备-路由器"><a href="#9-网络层设备-路由器" class="headerlink" title="9. 网络层设备-路由器"></a>9. 网络层设备-路由器</h2><h3 id="9-1-路由器构造"><a href="#9-1-路由器构造" class="headerlink" title="9.1 路由器构造"></a>9.1 路由器构造</h3><p><img src="构造.png" alt="avatar"></p>
+<h3 id="9-2-输入和输出端口构造"><a href="#9-2-输入和输出端口构造" class="headerlink" title="9.2 输入和输出端口构造"></a>9.2 输入和输出端口构造</h3><p><img src="输入端口.png" alt="avatar"><br><img src="输出端口.png" alt="avatar"></p>
+<h3 id="9-3-三种设备比较"><a href="#9-3-三种设备比较" class="headerlink" title="9.3 三种设备比较"></a>9.3 三种设备比较</h3><p><img src="比较.png" alt="avatar"></p>
+<h3 id="9-4-路由表和转发表"><a href="#9-4-路由表和转发表" class="headerlink" title="9.4 路由表和转发表"></a>9.4 路由表和转发表</h3><p><img src="转发.png" alt="avatar"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-title-link" itemprop="url">计网数据链路层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-09 21:59:51 / Modified: 22:03:00" itemprop="dateCreated datePublished" datetime="2021-01-09T21:59:51+08:00">2021-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网数据链路层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -223,6 +420,373 @@
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/" class="post-title-link" itemprop="url">计网应用层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-09 21:38:11 / Modified: 21:57:49" itemprop="dateCreated datePublished" datetime="2021-01-09T21:38:11+08:00">2021-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网应用层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>应用层的功能：</p>
+<ol>
+<li>文件传输   FTP</li>
+<li>电子邮件   SMTP，POP3</li>
+<li>虚拟终端   HTTP</li>
+<li>查询服务和远程作业登录  DNS</li>
+</ol>
+<h2 id="2-域名系统协议DNS"><a href="#2-域名系统协议DNS" class="headerlink" title="2. 域名系统协议DNS"></a>2. 域名系统协议DNS</h2><p>域名就是www.xxx.com，当然这是最简单的一种<br><br>.com之后还可以有东西，称之为根<br><br>域名从左向右，级别逐渐增高<br></p>
+<h3 id="2-1-域名服务器"><a href="#2-1-域名服务器" class="headerlink" title="2.1 域名服务器"></a>2.1 域名服务器</h3><p>DNS服务器有很多台，根据层次结构分为三层，根域名服务器，顶级域名服务器，权限域名服务器<br>本地域名服务器不算层次结构，特点是里主机比较近，当主机和另一台比较近的主机通信时，就不用走哪些更高级的服务器了</p>
+<p>根域名服务器并不是一个域名只有一台，而是一个域名对应多台域名服务器，全世界一共有13个这样的域名，分别是a.rootservers.net，b.rootservers.net，c.rootservers.net，~m.rootservers.net</p>
+<p>在权限域名服务器中，虽然看似abc.com比y.abc.com少了一位，但是他们的地位仍是对等的，对应的两台权限域名服务器</p>
+<h3 id="2-2-域名解析过程"><a href="#2-2-域名解析过程" class="headerlink" title="2.2 域名解析过程"></a>2.2 域名解析过程</h3><p><img src="域名解析.png" alt="avatar"></p>
+<h4 id="2-2-1-递归查询"><a href="#2-2-1-递归查询" class="headerlink" title="2.2.1 递归查询"></a>2.2.1 递归查询</h4><p>主机先是想本地域名服务器发送请求，如果查不到的话，<br><br><strong>本地域名服务器</strong>向根域名服务器发送请求（找别人），如果还是查不到的话，<br><br><strong>根域名服务器</strong>向顶级域名服务器发送请求（找别人），如果还是查不到的话，<br><br><br><strong>顶级域名服务器</strong>向权限域名服务器发送请求（找别人）<br><br>可以看到每一次向下一个查询的服务器都变了，不是主机一个个去问，而是服务器自己一个个问下去</p>
+<h4 id="2-2-2-迭代查询"><a href="#2-2-2-迭代查询" class="headerlink" title="2.2.2 迭代查询"></a>2.2.2 迭代查询</h4><p>主机先是想本地域名服务器发送请求，如果查不到的话，<br><br>本地域名服务器就让主机去向根域名服务器发送请求（主机去找，本地域名给目标根域名服务器的IP地址），如果还是查不到的话，<br><br>根域名域名服务器让主机去向对应的顶级域名服务器发送请求（主机去找，根域名给目标顶级域名服务器的IP地址），如果还是查不到的话，<br><br>顶级域名服务器让主机去向权限域名服务器发送请求（主机去找，顶级域名给目标权限域名服务器的IP地址）<br><br>可以看到这里是主机一个个挨个问的地址</p>
+<h4 id="2-2-2-高速缓存"><a href="#2-2-2-高速缓存" class="headerlink" title="2.2.2 高速缓存"></a>2.2.2 高速缓存</h4><p>为了减少多次查询同一个域名的资源浪费，本地域名服务器会存储最近使用的ip地址解析，下次再访问同一个域名就不需要这么多查询步骤了。同时这个高速缓存主机本身也有存储</p>
+<p>同时本地域名服务器还可以对顶级域名服务器，权限域名服务器的地址进行缓存，下一次即使是不知道的ip地址，查询也可以更快</p>
+<p>高速缓存为了保持正确性，需要定时更新</p>
+<h2 id="3-文件传输协议（FTP-TFTP）"><a href="#3-文件传输协议（FTP-TFTP）" class="headerlink" title="3. 文件传输协议（FTP,TFTP）"></a>3. 文件传输协议（FTP,TFTP）</h2><p>TFTP是一个轻量的，比较容易实现的，面对小文件的，<br>UDP的文件传输协议<br>这里我们重点是FTP协议</p>
+<h3 id="3-1-FTP内容"><a href="#3-1-FTP内容" class="headerlink" title="3.1 FTP内容"></a>3.1 FTP内容</h3><p>FTP基于C/S的协议<br><br>基于TCP协议<br><br>为什么有匿名登陆：对于一些公共服务器来说，增加验证阶段就是增加资源开销，减少验证阶段就可以节省资源来更好地服务</p>
+<p>主进程和从属进程的区别：主进程是打开端口，让外部发送的数据可以进来，并且将这些数据逐个分配各从属进程。从属进程则是单独为这些数据服务</p>
+<p>这里客户端和服务器端先建立TCP连接，端口是21，称为<strong>控制连接</strong></p>
+<p><strong>主动建立</strong>连接是指<strong>服务器端</strong>主动发送请求和客户端进行连接，此时端口号固定是20</p>
+<p>被动连接是指客户端发送请求和服务器端建立数据传送连接，此时端口号是不确定，有两者协商得到</p>
+<p>数据传输完成之后，数据连接断开，控制连接继续保持，直至两边发送断开请求<br><img src="FTP.png" alt="avatar"></p>
+<h2 id="4-电子邮件"><a href="#4-电子邮件" class="headerlink" title="4. 电子邮件"></a>4. 电子邮件</h2><p>SMTP：TCP连接，端口号25<br><img src="电子邮件.png" alt="avatar"></p>
+<h2 id="5-万维网和HTTP"><a href="#5-万维网和HTTP" class="headerlink" title="5. 万维网和HTTP"></a>5. 万维网和HTTP</h2><p>URL用来标识整个互联网当中的某一个资源（文字，视屏，音频等）的位置</p>
+<p>HTTP用来将这些资源传送给用户</p>
+<p>服务器通过TCP 80端口来监听HTTP请求</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/" class="post-title-link" itemprop="url">计网物理层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-09 20:57:07 / Modified: 21:37:13" itemprop="dateCreated datePublished" datetime="2021-01-09T20:57:07+08:00">2021-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网物理层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><p><img src="基本概念.png" alt="avatar"></p>
+<h2 id="2-数据通信基本知识"><a href="#2-数据通信基本知识" class="headerlink" title="2. 数据通信基本知识"></a>2. 数据通信基本知识</h2><h3 id="2-1-一个数据通信例子"><a href="#2-1-一个数据通信例子" class="headerlink" title="2.1 一个数据通信例子"></a>2.1 一个数据通信例子</h3><p><img src="例子.png" alt="avatar"></p>
+<h3 id="2-2-相关术语"><a href="#2-2-相关术语" class="headerlink" title="2.2 相关术语"></a>2.2 相关术语</h3><p><img src="术语.png" alt="avatar"></p>
+<h3 id="2-3-三种通信方式"><a href="#2-3-三种通信方式" class="headerlink" title="2.3 三种通信方式"></a>2.3 三种通信方式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">定义</th>
+<th style="text-align:center">需要信道数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">单工</td>
+<td style="text-align:center">一个发一个收</td>
+<td style="text-align:center">一条</td>
+</tr>
+<tr>
+<td style="text-align:center">半双工</td>
+<td style="text-align:center">两边都可以发或收，但同一时间只能进行一个</td>
+<td style="text-align:center">两条</td>
+</tr>
+<tr>
+<td style="text-align:center">全双工</td>
+<td style="text-align:center">都可以同时收发数据</td>
+<td style="text-align:center">两条</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-4-数据传输方式"><a href="#2-4-数据传输方式" class="headerlink" title="2.4 数据传输方式"></a>2.4 数据传输方式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">传输方式</th>
+<th style="text-align:center">特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">串行</td>
+<td style="text-align:center">速度慢，省钱，适合远距离</td>
+</tr>
+<tr>
+<td style="text-align:center">并行</td>
+<td style="text-align:center">速度快，耗钱，适合近距离</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-5-码元"><a href="#2-5-码元" class="headerlink" title="2.5 码元"></a>2.5 码元</h3><p>一个码元可以携带多个比特信息</p>
+<h3 id="2-6-波特Baud"><a href="#2-6-波特Baud" class="headerlink" title="2.6 波特Baud"></a>2.6 波特Baud</h3><p>一秒可以传输多少码元</p>
+<h3 id="2-7-速率"><a href="#2-7-速率" class="headerlink" title="2.7 速率"></a>2.7 速率</h3><p>信息传输速率：b/s<br><br>码元传输速率：波特</p>
+<p>码元可以理解为携带几个比特的信息，码元所带比特数=log2M(码元进制数)<br><br>信息传输速率（网速）=码元传输速率x码元所带信息量（多少比特）</p>
+<h3 id="2-8-带宽"><a href="#2-8-带宽" class="headerlink" title="2.8 带宽"></a>2.8 带宽</h3><p>最高数据率</p>
+<h3 id="2-9-奈奎斯特准则"><a href="#2-9-奈奎斯特准则" class="headerlink" title="2.9 奈奎斯特准则"></a>2.9 奈奎斯特准则</h3><p>在信道带宽是W Hz的情况下，码元传输速率上限是2W Baud。</p>
+<p>而数据传输速率=码元速率*码元携带比特量</p>
+<p>所以极限数据传输率=2Wlog2M</p>
+<h3 id="2-10-香农公式"><a href="#2-10-香农公式" class="headerlink" title="2.10 香农公式"></a>2.10 香农公式</h3><p>信噪比(dB) = 10log10(S/N)</p>
+<p>极限数据传输速率 = Wlog2(1+S/N)</p>
+<p>信道的<strong>带宽</strong>或者<strong>信噪比</strong>越大，极限数据传输速率就越高。</p>
+<h3 id="2-11-基带信号和带宽信号"><a href="#2-11-基带信号和带宽信号" class="headerlink" title="2.11 基带信号和带宽信号"></a>2.11 基带信号和带宽信号</h3><p>基带信号：计算机输出的0，1数字信号，未经处理。距离近时使用。<br><br>带宽信号：将基带信号调制后形成的较高频段的模拟信号。距离远时使用</p>
+<h3 id="2-12-编码"><a href="#2-12-编码" class="headerlink" title="2.12 编码"></a>2.12 编码</h3><p>将数据转化为数字信号。</p>
+<p>模拟数据通过PCM编码器转化为数字信号。</p>
+<p>曼彻斯特编码：单极性编码的缺点是没有办法区分此时是没有信号，还是有信号，但是信号是0.<br>这种编码方式是bit中间有信号，低-高跳转表示0，高-低跳转表示1，一个时钟周期只可以表示一个bit，并且必须通过两次采样才能得到一个bit。它能携带时钟信号，而且能区分此时是没有信号还是信号为0.</p>
+<p>差分曼彻斯特编码：抗干扰能力比曼彻斯特编码更强。bit与bit之间有信号跳变，表示下一个bit为0，bit与bit之间没有信号跳变，表示下一个bit为1。<br><img src="曼彻斯特.png" alt="avatar"></p>
+<h3 id="2-13-调制"><a href="#2-13-调制" class="headerlink" title="2.13 调制"></a>2.13 调制</h3><p>不论模拟和数字数据，通过调制器转换为模拟信号。<br><br>调频，调幅，调相<br><img src="调制.png" alt="avatar"></p>
+<h2 id="3-物理层传输介质"><a href="#3-物理层传输介质" class="headerlink" title="3. 物理层传输介质"></a>3. 物理层传输介质</h2><p>导向性介质：铜线/光纤<br><br>非导向性介质：空气</p>
+<h3 id="3-1-导向性传输介质"><a href="#3-1-导向性传输介质" class="headerlink" title="3.1 导向性传输介质"></a>3.1 导向性传输介质</h3><h4 id="3-1-1-双绞线"><a href="#3-1-1-双绞线" class="headerlink" title="3.1.1 双绞线"></a>3.1.1 双绞线</h4><p>根据有无屏蔽层分为<strong>屏蔽双绞线（STP）和无屏蔽双绞线（UTP）</strong><br><img src="双绞线.png" alt="avatar"></p>
+<h4 id="3-1-2-同轴电缆"><a href="#3-1-2-同轴电缆" class="headerlink" title="3.1.2 同轴电缆"></a>3.1.2 同轴电缆</h4><p><img src="同轴电缆.png" alt="avatar"></p>
+<h4 id="3-1-3-光纤"><a href="#3-1-3-光纤" class="headerlink" title="3.1.3 光纤"></a>3.1.3 光纤</h4><p><img src="光纤.png" alt="avatar"><br>根据入射角的不同，分为单模光纤和多模光纤。<br><img src="单模.png" alt="avatar"></p>
+<h3 id="3-2-非导向性介质"><a href="#3-2-非导向性介质" class="headerlink" title="3.2 非导向性介质"></a>3.2 非导向性介质</h3><p><img src="非导向.png" alt="avatar"></p>
+<h2 id="4-物理层设备"><a href="#4-物理层设备" class="headerlink" title="4. 物理层设备"></a>4. 物理层设备</h2><h3 id="4-1-中继器"><a href="#4-1-中继器" class="headerlink" title="4.1 中继器"></a>4.1 中继器</h3><p>5是指不能超过5个网段<br><br>4是指在这些网段中的物理层网络设备（中继器，集线器）最多不超过4个<br><br>3是指这些网段中最多只有三个网段挂有计算机<br><br><img src="中继器.png" alt="avatar"></p>
+<h3 id="4-2-集线器"><a href="#4-2-集线器" class="headerlink" title="4.2 集线器"></a>4.2 集线器</h3><p>集线器是个大的冲突域，同时只能有<strong>两个设备进行通讯</strong>，只会传输信号，没有智能。<br><img src="集线器.png" alt="avatar"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">计网传输层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-09 13:53:39 / Modified: 20:56:38" itemprop="dateCreated datePublished" datetime="2021-01-09T13:53:39+08:00">2021-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网传输层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -273,6 +837,48 @@
 <h3 id="2-2-UDP首部格式"><a href="#2-2-UDP首部格式" class="headerlink" title="2.2 UDP首部格式"></a>2.2 UDP首部格式</h3><p><img src="UDP首部.png" alt="avatar"></p>
 <h4 id="2-2-1-UDP的校验位"><a href="#2-2-1-UDP的校验位" class="headerlink" title="2.2.1 UDP的校验位"></a>2.2.1 UDP的校验位</h4><p>伪首部只有在计算校验和时才出现，不向上递交也不向下传送<br><br>封装UDP报文的IP数据报首部协议字段是17<br><br>UDP长度：UDP首部８B　＋　数据部分长度</p>
 <p><img src="校验.png" alt="avatar"></p>
+<h4 id="2-2-2-UDP校验方式"><a href="#2-2-2-UDP校验方式" class="headerlink" title="2.2.2 UDP校验方式"></a>2.2.2 UDP校验方式</h4><p>在发送端：<strong>伪首部+首部+数据</strong>采用二进制反码求和，将结果填入检验和字段，<br>然后去掉伪首部发送</p>
+<h2 id="3-TCP协议"><a href="#3-TCP协议" class="headerlink" title="3. TCP协议"></a>3. TCP协议</h2><h3 id="3-1-TCP协议特点"><a href="#3-1-TCP协议特点" class="headerlink" title="3.1 TCP协议特点"></a>3.1 TCP协议特点</h3><p>TCP必须建立连接后才能进行数据交换，</p>
+<p>TCP提供可靠交付的服务，可靠有序，不丢不重。<br><br>全双工通信：有发送缓存和接收缓存</p>
+<p>面向字节流：把应用程序交下来的数据看成是一串<strong>无结构的字节流</strong></p>
+<h3 id="3-2-TCP报文的首部"><a href="#3-2-TCP报文的首部" class="headerlink" title="3.2 TCP报文的首部"></a>3.2 TCP报文的首部</h3><p><img src="TCP首部.png" alt="avatar"><br><strong>序号：</strong>序号的单位是字节，即每一个字节都按照顺序编号。这个字段表示本报文段发送数据的第一个字节的序号。</p>
+<p><strong>确认号：</strong>期望收到的对方下一个报文段的第一个数据字节的序号。若确认号是N，则前N-1的数据都已经正确接收。</p>
+<p><strong>数据偏移：</strong>即首部长度，以4B为单位。TCP有20B的固定首部</p>
+<h4 id="3-2-1-TCP首部的控制位"><a href="#3-2-1-TCP首部的控制位" class="headerlink" title="3.2.1 TCP首部的控制位"></a>3.2.1 TCP首部的控制位</h4><p>ACK：ACK=1时表示确认号有效，在连接建立后所有报文段都要置1.<br>三次握手时，除了第一次，其余ACK都为1.</p>
+<p>SYN：同步位，表示是在进行请求连接或者接收连接。握手的前两次SYN位置1.</p>
+<h3 id="3-3-TCP连接管理"><a href="#3-3-TCP连接管理" class="headerlink" title="3.3 TCP连接管理"></a>3.3 TCP连接管理</h3><h4 id="3-3-1-TCP三次握手"><a href="#3-3-1-TCP三次握手" class="headerlink" title="3.3.1 TCP三次握手"></a>3.3.1 TCP三次握手</h4><p>第一段的意思是<br><br>SYN=1：(A)要建立连接了！<br><br>seq=x（随机）：因为还没有数据，所以写什么都无所谓</p>
+<p>第二段的意思是<br><br>SYN=1：我(B)同意你(A)建立连接！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=y（随机）：因为还没有数据，所以写什么都无所谓<br><br>ack=x+1：之前发送方(A)说发送的是第x位数据（虽然发送方是瞎说的），所以我(B)要的是x+1位数据</p>
+<p>第三段的意思是<br><br>SYN=0：SYN只有在建立连接时才为1，其他时候均设为0<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=x+1：我(A)发送的报文段的第一个字节就是x+1<br><br>ack=y+1：之前接收方(B)说发送的是第y位数据（虽然接收方是瞎说的），所以我(A)要的是y+1位数据</p>
+<p>注意一下，TCP是双向的，所以不存在绝对不变的发送方接收方，这里的两台主机都同时是发送方和接收方<br><img src="三次握手.png" alt="avatar"></p>
+<h4 id="3-3-2-SYN洪泛攻击"><a href="#3-3-2-SYN洪泛攻击" class="headerlink" title="3.3.2 SYN洪泛攻击"></a>3.3.2 SYN洪泛攻击</h4><p>攻击者发送SYN请求建立连接，服务器返回ACK时，攻击者不予以确认，这个TCP连接就处于挂起状态。服务器没收到确认，会重复发送ACK给攻击者，浪费其资源。</p>
+<h4 id="3-3-3-TCP四次挥手"><a href="#3-3-3-TCP四次挥手" class="headerlink" title="3.3.3 TCP四次挥手"></a>3.3.3 TCP四次挥手</h4><p>第一段的意思是<br><br>FIN=1：(A)要释放连接了！<br><br>seq=u：发了好多数据，这里只是用u指代一下，这里u是有确定值的</p>
+<p>第二段的意思是<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=v：发了好多数据，这里只是用v指代一下，这里v是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（尽管此时A已经决定释放连接了）</p>
+<p>第三段的意思是<br><br>FIN=1：(B)要释放连接了！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=w：发了好多数据，这里只是用w指代一下，这里w是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（因为A直接不发数据了，所以第二段第三段的ack都是u+1）</p>
+<p>第四段的意思是<br>ACK=1：连接建立了，之后的ACK必须都置为1<br>seq=u+1：之前发的数据时第u位数据，B也要第u+1位数据，所以我发第u+1位数据<br>ack=w+1：之前发送方(B)说发送的是第w位数据，所以我(A)要的是w+1位数据</p>
+<p>为什么需要等待计时2MSL？<br><br>因为这样可以保证B可以收到A的终止报文段进而进入关闭状态<br><br>比如说如果A的第四段报文丢失，那么等待一个MSL之后B就会重传第三段报文，花费小于1MSL之后A就会再收到第三段报文，之后就可以再次向B发送第四段报文提示B关闭连接<br><img src="四次挥手.png" alt="avatar"></p>
+<h3 id="3-4-TCP的可靠传输"><a href="#3-4-TCP的可靠传输" class="headerlink" title="3.4 TCP的可靠传输"></a>3.4 TCP的可靠传输</h3><p>UDP这种本身不可靠的依赖于应用层去解决。</p>
+<p>可靠：保证接收方进程从缓冲区读取的字节流与发送方发出的字节流完全一样。</p>
+<p>TCP实现可靠传输的机制：</p>
+<ol>
+<li>校验  2. 序号  3. 确认  4. 重传</li>
+</ol>
+<p>累计确认机制：从第一个丢失的字节开始请求丢失的报文段。<br>如图中456丢失，78到达，但仍然请求发送的数据序号是4</p>
+<p>冗余ACK：发送方收到三个对于报文段1的冗余ACK，就重传报文段2.</p>
+<h3 id="3-5-TCP流量控制"><a href="#3-5-TCP流量控制" class="headerlink" title="3.5 TCP流量控制"></a>3.5 TCP流量控制</h3><p>简单来说就是接收方可以动态的发送信息告诉发送方发送窗口的大小。</p>
+<p>接收方接受不过来了就让发送方发送窗口小点，这样发送方发送的速率就慢下来了，接收方就有时间处理它的数据了</p>
+<p>接受方处理完了也可以发送请求让发送方发送窗口大点，这样发送方发送的速率就快起来了，接收方就可以处理更多数据而不是空闲等着收数据了。</p>
+<p>例外情况：B不允许A发送数据了，过一段时间后，B处理完数据想要恢复窗口大小但发送的有ｒｗｎｄ大小的数据报丢了。对于A，之前B回复的发送窗口为0，而B也在等待A的回复。</p>
+<p>计时器设置：当A收到B的接收窗口为０，开启计时器，设置的时间到后，发送一个探测报文段，接收方收到探测报文段后给出现在的窗口值。</p>
+<h3 id="3-6-TCP拥塞控制"><a href="#3-6-TCP拥塞控制" class="headerlink" title="3.6 TCP拥塞控制"></a>3.6 TCP拥塞控制</h3><p><strong>流量控制是对单独一个来说，拥塞控制是对于一群</strong>，防止过多的数据注入网络当中。</p>
+<h4 id="3-6-1-基础假定"><a href="#3-6-1-基础假定" class="headerlink" title="3.6.1 基础假定"></a>3.6.1 基础假定</h4><ol>
+<li>数据单方向传送，而另一个方向只传送确认</li>
+<li>接收方总是具有足够大的缓存空间，因而发送窗口大小取决于拥塞程度</li>
+</ol>
+<p>发送窗口= min{接收窗口，拥塞窗口}</p>
+<p>接收窗口：<strong>接收方</strong>根据接收缓存设置的值，并告知给发送方，反映接收方容量<br><br>拥塞窗口：<strong>发送方</strong>自己估算的网络拥塞程度设置的窗口值</p>
+<h4 id="3-6-2-慢开始和拥塞避免"><a href="#3-6-2-慢开始和拥塞避免" class="headerlink" title="3.6.2 慢开始和拥塞避免"></a>3.6.2 慢开始和拥塞避免</h4><p>开始指数形式增长，到达阈值后线性增长。<br><br>到达拥塞状态后，阈值降为原来的一半，拥塞窗口设置为1.<br><img src="慢开始和拥塞避免.png" alt="avatar"></p>
+<h4 id="3-6-3-快重传和快恢复"><a href="#3-6-3-快重传和快恢复" class="headerlink" title="3.6.3 快重传和快恢复"></a>3.6.3 快重传和快恢复</h4><p>在收到连续的ack确认之后执行，这里的ack就是冗余ack，冗余ack的特点是如果多次对某一段请求的数据没有被收到，达到一定数目之后就会立即执行重传。</p>
+<p>此时传输数据报降到原来的一半，而不是降到1.<br><img src="快重传.png" alt="avatar"></p>
 
       
     </div>
@@ -292,7 +898,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/Champion_ka.png">
@@ -306,7 +912,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">计网概述</a>
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">计网概述</a>
         </h2>
 
         <div class="post-meta">
@@ -330,7 +936,7 @@
             </span>
 
           
-            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-meta-item leancloud_visitors" data-flag-title="计网概述" title="Views">
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-meta-item leancloud_visitors" data-flag-title="计网概述" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -842,420 +1448,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/" class="post-title-link" itemprop="url">另一角度看为什么初中辍学的人的成功</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 14:49:49 / Modified: 15:29:23" itemprop="dateCreated datePublished" datetime="2021-01-08T14:49:49+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/" class="post-meta-item leancloud_visitors" data-flag-title="另一角度看为什么初中辍学的人的成功" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>639</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>“我估计，99.9999% 的人，都因为各种各样的原因，不会行动的。真正下定决心，行动起来，认真去做这件事儿，其实是一个门槛呀！”</p>
-<p>是的。门槛不是能力，不是技巧，不是经验。仅仅是勇气，魄力，和决心！</p>
-<p>如果更进一步去看，我们为什么不会行动？很简单，做任何事情都是有所谓的机会成本的。把时间投入进来做这件事情，就无法做别的事情了。</p>
-<p>做这样一件事，确实有可能赚更多的钱，但关键这只是有可能呀。这就是风险了。真正实施的时候，我们不可能只关注成功的可能性，不关注失败的可能性呀。</p>
-<p>你看，当我们看到事情的风险和机会成本的时候，就都觉得或许不值当了。</p>
-<p>在我看来，这能解释社会中的很多现象。比如很多赚钱的“老板”，明明小时候学习成绩都不如那些“优秀的打工人”，怎么最后反而赚了大钱？</p>
-<p>一个很重要的原因是，他们敢于去行动，愿意承担风险。他们早就不向着“打工人”的方向前进了，而直接朝更优解——老板的方向前进了。</p>
-<p>但是，换一个角度想，他们之中很多人，之所以直接朝着老板的方向前进，其实是被逼的。因为对于他们来说，“当一名优秀的打工人”这个局部最优解，根本不在他们的选择里。</p>
-<p>从这个角度看，其实他们并没有承担太大风险。所谓光脚的不怕穿鞋的。对他们来说，想办法去当个老板，机会成本是很低的。做个小生意，当个小老板，就是他们的“局部最优解”！但有的人越做越大，做成了比“打工人”更优的解！</p>
-<p>但并不是所有人都能拿到这个更优的解呀。毕竟有风险嘛。幸存者偏差，又让我们忽视了那些失败的人，只看到了成功的案例，而且是极其成功的案例。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%BA%E5%B7%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%BA%E5%B7%A5/" class="post-title-link" itemprop="url">人工智能背后的人工</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 14:44:31 / Modified: 15:29:01" itemprop="dateCreated datePublished" datetime="2021-01-08T14:44:31+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E8%83%8C%E5%90%8E%E7%9A%84%E4%BA%BA%E5%B7%A5/" class="post-meta-item leancloud_visitors" data-flag-title="人工智能背后的人工" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>503</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>人工智能需要数据。普遍大家可能只关注“大”数据中的这个“大”。人工智能确实需要大数据，甚至是海量数据；但人工智能还需要，或者叫更需要，高质量的数据。<p><br>获得高质量数据的一个有效方式，就是人为标记。<p><br>高质量的标注数据，足以决定一家人工智能公司的竞争力。前阵子大热的华裔科学家李飞飞，加盟了Google。她的一大成就是参与建立了ImageNet。这是由167个国家的48940名工作者，用两年时间，过了近十亿张图片以后，形成的一个拥有1500万张标注图片的数据集。这是多大的工作量？<p><br>可能，更重要的问题是，这到底是体力劳动还是智力劳动？嗯，反正我怎么看怎么都觉得，<strong>是人类在给机器打工。</strong></p>
-<p>对于这种数据标注工作，简单的部分已经可以交给外包公司进行了。但是对于一些复杂的部分，或者还在探索的部分，还是需要“高级人员”自己动手来。一方面是对标注质量更放心，另一方面，可以一边标注一边实验结果，甚至要不断改进标注的方式。其实，标注数据只是人工智能领域底层的体力工作之一，只有从事人工智能领域的人才明白，看起来高大上的光环背后，是无尽的清洗数据和特征工程。其实一点也不高大上。</p>
-<p>但是，或许，或许，所有的高大上的背后，都有着这样的辛酸。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%AF%B9%E6%8A%97%E6%97%A9%E4%BA%A1%E7%9A%84%E8%89%AF%E8%8D%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E5%AF%B9%E6%8A%97%E6%97%A9%E4%BA%A1%E7%9A%84%E8%89%AF%E8%8D%AF/" class="post-title-link" itemprop="url">对抗早亡的良药以及工作效率</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 13:27:15 / Modified: 15:29:32" itemprop="dateCreated datePublished" datetime="2021-01-08T13:27:15+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E5%AF%B9%E6%8A%97%E6%97%A9%E4%BA%A1%E7%9A%84%E8%89%AF%E8%8D%AF/" class="post-meta-item leancloud_visitors" data-flag-title="对抗早亡的良药以及工作效率" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>827</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>世界卫生组织（WHO）对猝死的定义是：平素身体健康或貌似健康的患者，在出乎意料的短时间内，因自然疾病而突然死亡。</p>
-<p>医学上对猝死分为两类：心源性猝死和非心源性猝死。</p>
-<p>所谓的非心源性猝死，可能是因为药物，短时间过度酗酒，过敏，或者中毒产生的猝死。这些离我们大多数人可能比较远，不经常发生。</p>
-<p>大多数社会新闻突发的猝死事件，不管是前一阵子的高以翔，还是一些程序员突然在工作岗位或者回家的路上猝死，基本都是心源性猝死。</p>
-<p>怎么预防心源性猝死。第一条就是避免频繁地熬夜导致睡眠不足。</p>
-<p>很多学术研究都表明，健康的饮食和锻炼，实际上比任何昂贵的药物都有效。</p>
-<p>但是，大多数临床医生面临一个困境：患者来到医院，如果医生只是建议患者健康饮食，并且坚持锻炼，很容易被患者误以为是不负责任。</p>
-<p>有医生呼吁，政府与其补贴医药行业，不如直接补贴水果和蔬菜价格，鼓励民众购买。</p>
-<p>社会学家为此还真做了研究，发现，对水果和蔬菜价格做 30% 的补贴，就能提高民众多摄入 26% 的水果和蔬菜。</p>
-<hr>
-<p>软件工程师的核心任务，就是写代码。如何提高代码质量，减少 bug，提高软件开发效率，是软件行业的老大难问题。为了解决这个问题，无数的技术方案或者工具被发明了出来。<br>编程范式的发明、函数式编程。<br>语言的新版本的新机制，大多时候都是为了减少bug。</p>
-<p>每个软件工程师，不管是用什么范式，什么语言，什么版本，什么工具，怎么提前构架，设计，近乎都不可避免地，会写出 bug。</p>
-<p>软件行业很多研究结果都表明：并没有明确的证据说明：使用了这些工具，软件工程中的 bug 就减少了。</p>
-<p>国外技术专家 Hillel Wayne 有一个观点，让我拍案叫绝。</p>
-<p>他的核心思想很简单。既然代码都是人写的，那么 bug 也就是人写的。所以，除了改善工具以外，可能，另外一个非常重要的，被很多人忽视的方式是：改善写代码的人。<br>睡眠，工作时长，工作压力。</p>
-<p>毕竟，作为管理者，管理的是人。所有的工作，都是人做出来的。</p>
-<p>管理者的管理方案，至少要让团队能够感受到：人，是重要的。</p>
-<p>因为：人，真的是最重要的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/" class="post-title-link" itemprop="url">最喜欢的格言</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 13:02:40 / Modified: 15:29:37" itemprop="dateCreated datePublished" datetime="2021-01-08T13:02:40+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/" class="post-meta-item leancloud_visitors" data-flag-title="最喜欢的格言" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>958</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>真正的大师，永远怀着一颗学徒的心。<br></p>
-<blockquote>
-<p>A true master, is an eternal student.</p>
-</blockquote>
-<p>数学家奥斯卡：</p>
-<blockquote>
-<p>给时光以生命，而不是给生命以时光。<p><br>To the time to life, rather than to life in time.<p><br>使人成熟的不是岁月，而是经历。</p>
-</blockquote>
-<p>海明威：</p>
-<blockquote>
-<p>The world is a fine place and worth fighting for.<br><br>电影《七宗罪》引用了这句话，并加上一句：<br>“I agree with the second part.”</p>
-</blockquote>
-<p>罗曼罗兰：</p>
-<blockquote>
-<p>There is only one heroism in the world: to see the world as it is and to love it.<br>世界也许并不美好，生活的真相也许是残酷，但我们还是要奋斗。</p>
-</blockquote>
-<p>一个人的奶奶说：</p>
-<blockquote>
-<p>Some bugger will always have a faster car, a flashier house, a glitzier watch - but you were the only kids that ever had me for a nana。<br><br>那些物质的东西，其实并不宝贵。真正宝贵的，是你见到的人，遇到的事儿，拥有的经历和感悟。这些才让你成为你，值得你珍视一生。</p>
-</blockquote>
-<p>有点像火蓝刀锋里：</p>
-<blockquote>
-<p>If you keep doing what you’ve always done, you’ll keep getting what you always got.<br><br>龙柏川说他的老班长说：如果你想要得到你从未得到过的东西，你就要去做你从未做过的事。</p>
-</blockquote>
-<hr>
-<p>以下是贺炜，央视的足球解说员，我都很喜欢：</p>
-<blockquote>
-<p>一件看似不经意的小事，往往就是命运的转折，一次看似普通的再见，其实就是永别。<p><br>人的一生中最光辉的一天，并非是功成名就的那天，而是从悲壮与绝望中产生对人生的挑战，以勇敢迈向意志的那天<br>                                    —福楼拜。<p><br>生活可能不像你想象得那么好，但是也不会像你想象得那么糟，人的脆弱和坚强都超乎了自己的想象，有时候脆弱的一句话就能泪流满面，有时候你发现自己咬着牙已经走了很长的路。<p></p>
-<p>爱本身并没有错，爱谁都是自由，爱强者更是人类的天性。不过因为自己所爱的事物的强大就幻想自己也强大了，甚至觉得爱其他事物的人都已经被踩在脚下了，这就是病态，一种弱智的病态。<p></p>
-<p>真正的成熟并不是去追求完美，而是直面自己的缺憾。<p><br>向上攀爬的那条路不是比站在顶峰更让人热血澎湃吗。<p><br>爱一件事物不是爱它的成败，而是爱它的全部。<p></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1328,7 +1520,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

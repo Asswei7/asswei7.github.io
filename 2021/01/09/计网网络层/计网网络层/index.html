@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"asswei7.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","Sidebar Display (only for Muse | Mist), available values":["post    expand on posts automatically. Default.","always  expand for all pages automatically."],"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. 概述网络层的传输单位是数据报。  路由选择和分组转发 异构网络互联（不同的设备都可以正常连接） 拥塞控制  数据报和分组的关系：数据报是一段比较长的数据，将它进行切割成一段段之后就得到分组功能一就是让数据在路由器之间走最佳的路径开环控制就是在拥塞之前就提前设计解决闭环控制就是在拥塞时自动调整解决问题     层次 传输单元     应用层 报文   传输层 报文段   网络层 IP数据报&#x2F;分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计网网络层">
+<meta property="og:url" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/index.html">
+<meta property="og:site_name" content="Asswei&#39;s blog">
+<meta property="og:description" content="1. 概述网络层的传输单位是数据报。  路由选择和分组转发 异构网络互联（不同的设备都可以正常连接） 拥塞控制  数据报和分组的关系：数据报是一段比较长的数据，将它进行切割成一段段之后就得到分组功能一就是让数据在路由器之间走最佳的路径开环控制就是在拥塞之前就提前设计解决闭环控制就是在拥塞时自动调整解决问题     层次 传输单元     应用层 报文   传输层 报文段   网络层 IP数据报&#x2F;分">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%AE%97.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%A6%82%E8%BF%B0.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%A1%A8%E6%A0%BC.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%95%B0%E6%8D%AE%E6%8A%A5.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%99%9A%E7%94%B5%E8%B7%AF.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E5%B1%82%E6%AC%A1%E8%B7%AF%E7%94%B1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/RIP%E6%A6%82%E8%BF%B0.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/RIP%E8%B7%AF%E7%94%B1%E8%A1%A8.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%B7%9D%E7%A6%BB%E5%90%91%E9%87%8F.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%BB%83%E4%B9%A0.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/OSPF%E6%A6%82%E8%BF%B0.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/BGP%E7%AE%80%E4%BB%8B.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/BGP%E4%BA%A4%E6%8D%A2%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/BGP%E4%BA%A4%E6%8D%A2%E4%BF%A1%E6%81%AF2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E5%8D%8F%E8%AE%AE%E7%89%B9%E7%82%B9.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E5%9B%9B%E7%A7%8D%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%E6%AF%94%E8%BE%83.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/IP%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%88%86%E7%89%87.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/IP%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%A7%81%E6%9C%89IP.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/IP%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/NAT.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%BB%83%E4%B9%A01.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%BB%83%E4%B9%A02.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%BD%AC%E5%8F%912.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/CIDR1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/CIDR2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/CIDR3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/CIDR4.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/ARP1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/ARP2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/DHCP.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E4%B8%8D%E9%94%99.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%95%B0%E6%8D%AE%E6%8A%A5%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/46%E5%B7%AE%E5%88%AB.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/46%E8%BF%87%E6%B8%A1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E7%A7%BB%E5%8A%A8IP%E6%9C%AF%E8%AF%AD.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%9E%84%E9%80%A0.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%BE%93%E5%85%A5%E7%AB%AF%E5%8F%A3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%BE%93%E5%87%BA%E7%AB%AF%E5%8F%A3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%AF%94%E8%BE%83.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%BD%AC%E5%8F%91.png">
+<meta property="article:published_time" content="2021-01-09T14:02:40.000Z">
+<meta property="article:modified_time" content="2021-01-09T15:15:32.161Z">
+<meta property="article:author" content="孙书玮">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%AE%97.png">
+
+<link rel="canonical" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/">
+                     
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>计网网络层 | Asswei's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Asswei's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asswei's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计网网络层
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-09 22:02:40 / Modified: 23:15:32" itemprop="dateCreated datePublished" datetime="2021-01-09T22:02:40+08:00">2021-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网网络层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><p>网络层的传输单位是数据报。</p>
+<ol>
+<li>路由选择和分组转发</li>
+<li>异构网络互联（不同的设备都可以正常连接）</li>
+<li>拥塞控制</li>
+</ol>
+<p>数据报和分组的关系：数据报是一段比较长的数据，将它进行切割成一段段之后就得到分组<br><br>功能一就是让数据在路由器之间走最佳的路径<br><br>开环控制就是在拥塞之前就提前设计解决<br><br>闭环控制就是在拥塞时自动调整解决问题</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">层次</th>
+<th style="text-align:center">传输单元</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用层</td>
+<td style="text-align:center">报文</td>
+</tr>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">报文段</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">IP数据报/分组</td>
+</tr>
+<tr>
+<td style="text-align:center">数据链路层</td>
+<td style="text-align:center">帧</td>
+</tr>
+<tr>
+<td style="text-align:center">物理层</td>
+<td style="text-align:center">比特流</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-数据交换方式"><a href="#2-数据交换方式" class="headerlink" title="2. 数据交换方式"></a>2. 数据交换方式</h2><p>为什么要进行数据交换？因为每个节点之间都拉网线太麻烦了也不实际，所以通过大量交换设备互联进行数据交换</p>
+<h3 id="2-1-电路交换"><a href="#2-1-电路交换" class="headerlink" title="2.1 电路交换"></a>2.1 电路交换</h3><p>类似于打电话</p>
+<h3 id="2-2-报文交换"><a href="#2-2-报文交换" class="headerlink" title="2.2 报文交换"></a>2.2 报文交换</h3><ol>
+<li>源先根据报文加上ip地址，物理地址等，通过物理层发送</li>
+<li>交换机收到报文之后，先进行存储，等待链路空闲之后进行转发，但是转发的路径不是固定的，是比较随机的</li>
+<li>最后通过许多交换机最终到达目的地</li>
+</ol>
+<h3 id="2-3-分组交换"><a href="#2-3-分组交换" class="headerlink" title="2.3 分组交换"></a>2.3 分组交换</h3><p>分组交换和报文交换基本相同，就是将报文切割之后再进行发送</p>
+<p>缺点：</p>
+<ol>
+<li>有存储转发时延</li>
+<li>需要传输额外的信息量</li>
+<li>乱序到达目的主机时，要对其重新排序<h3 id="2-4-分组交换和报文交换计算量对比"><a href="#2-4-分组交换和报文交换计算量对比" class="headerlink" title="2.4 分组交换和报文交换计算量对比"></a>2.4 分组交换和报文交换计算量对比</h3>报文交换：一共三段，每段都需要10000bit/1000bps=10s，三段就是3x10=30s</li>
+</ol>
+<p>分组交换：可以分为两段，一个是第一个数据开始发到最后一个数据从源发出，一段是最后一个数据到达目的地。第一段总时间是10000bit/1000bps=10s，第二段总时间是（10/1000）*2=0.02s，所以总时间是10.02s。</p>
+<p>理解一下，这里就是报文交换的时候，由于报文没有分割，所以即使先到的数据也不能先发走，只能等到最后一段报文全部到了之后才能一起走，相对于分组交换明显拖慢了前面数据的速度，所以导致报文交换明显慢于分组交换<br><img src="计算.png" alt="avatar"></p>
+<h4 id="2-4-1-分组传输的两种方式-数据报和虚电路"><a href="#2-4-1-分组传输的两种方式-数据报和虚电路" class="headerlink" title="2.4.1 分组传输的两种方式-数据报和虚电路"></a>2.4.1 分组传输的两种方式-数据报和虚电路</h4><p><img src="概述.png" alt="avatar"><br><img src="表格.png" alt="avatar"><br><img src="数据报.png" alt="avatar"><br><img src="虚电路.png" alt="avatar"></p>
+<h2 id="3-路由算法和路由协议"><a href="#3-路由算法和路由协议" class="headerlink" title="3. 路由算法和路由协议"></a>3. 路由算法和路由协议</h2><p><img src="路由算法.png" alt="avatar"><br>AS就是多个路由器之间构成的单独的小圈子，圈子内使用自己的协议，圈子和圈子之间用的是BGP协议<br><img src="层次路由.png" alt="avatar"></p>
+<h3 id="3-1-RIP协议和距离向量算法"><a href="#3-1-RIP协议和距离向量算法" class="headerlink" title="3.1 RIP协议和距离向量算法"></a>3.1 RIP协议和距离向量算法</h3><h4 id="3-1-1-RIP协议概述"><a href="#3-1-1-RIP协议概述" class="headerlink" title="3.1.1 RIP协议概述"></a>3.1.1 RIP协议概述</h4><p>最大优点是简单，只适用于小型互联网。<br><img src="RIP概述.png" alt="avatar"></p>
+<h4 id="3-1-2-如何建立路由表"><a href="#3-1-2-如何建立路由表" class="headerlink" title="3.1.2 如何建立路由表"></a>3.1.2 如何建立路由表</h4><p><img src="RIP路由表.png" alt="avatar"></p>
+<font color="red">应用层协议，时延UDP传输数据。</font>
+
+<p>好消息传得快，坏消息传得慢。</p>
+<h4 id="3-1-3-距离向量算法"><a href="#3-1-3-距离向量算法" class="headerlink" title="3.1.3 距离向量算法"></a>3.1.3 距离向量算法</h4><p>为什么改地址？因为图中是从x得到的信息<br><br>为什么距离固定+1？因为路由器只从相邻路由器之间获取RIP报文，举例只会是1<br><br>为什么下一跳是x就要替换？因为网络环境不断变化，可能这次某个节点挂掉，所以保持最新的<br><br>为什么下一跳不是x时有更新和不处理两种手段？因为这样可以提高效率，比原来快就换，比原来慢就保留原来的，也可以理解</p>
+<p><img src="距离向量.png" alt="avatar"><br><img src="练习.png" alt="avatar"></p>
+<h3 id="3-2-OSPF协议和链路状态算法"><a href="#3-2-OSPF协议和链路状态算法" class="headerlink" title="3.2 OSPF协议和链路状态算法"></a>3.2 OSPF协议和链路状态算法</h3><h4 id="3-2-1-OSPF概述"><a href="#3-2-1-OSPF概述" class="headerlink" title="3.2.1 OSPF概述"></a>3.2.1 OSPF概述</h4><p><img src="OSPF概述.png" alt="avatar"><br>适用于互联网规模大时使用。不存在坏消息慢，收敛速度很快。</p>
+<p>为什么OSPF收敛速度快？因为它只是刷新一下链路状态，得知其是否连通，不需要和RIP一样进行对照，而是直接通过Dijilstra算法来自己算出路径</p>
+<h3 id="3-3-BGP协议"><a href="#3-3-BGP协议" class="headerlink" title="3.3 BGP协议"></a>3.3 BGP协议</h3><h4 id="3-3-1-BGP协议概述"><a href="#3-3-1-BGP协议概述" class="headerlink" title="3.3.1 BGP协议概述"></a>3.3.1 BGP协议概述</h4><p><img src="BGP简介.png" alt="avatar"></p>
+<h4 id="3-3-2-BGP交换信息过程"><a href="#3-3-2-BGP交换信息过程" class="headerlink" title="3.3.2 BGP交换信息过程"></a>3.3.2 BGP交换信息过程</h4><p><img src="BGP交换信息.png" alt="avatar"><br><img src="BGP交换信息2.png" alt="avatar"></p>
+<h4 id="3-3-3-BGP报文格式"><a href="#3-3-3-BGP报文格式" class="headerlink" title="3.3.3 BGP报文格式"></a>3.3.3 BGP报文格式</h4><p><img src="报文格式.png" alt="avatar"></p>
+<h4 id="3-3-4-BGP协议特点"><a href="#3-3-4-BGP协议特点" class="headerlink" title="3.3.4 BGP协议特点"></a>3.3.4 BGP协议特点</h4><p><img src="协议特点.png" alt="avatar"></p>
+<h4 id="3-3-5-BGP四种报文"><a href="#3-3-5-BGP四种报文" class="headerlink" title="3.3.5 BGP四种报文"></a>3.3.5 BGP四种报文</h4><p><img src="四种报文.png" alt="avatar"></p>
+<h3 id="3-4-四种路由协议的比较"><a href="#3-4-四种路由协议的比较" class="headerlink" title="3.4 四种路由协议的比较"></a>3.4 四种路由协议的比较</h3><p><img src="路由协议比较.png" alt="avatar"><br>RIP：通过广播UDP交换信息</p>
+<p>OSPF：交换的信息量很大，报文长度尽量短，直接使用IP</p>
+<p>BGP：需要在不同AS之间交换信息，网络环境复杂，需要保证可靠传输，所以使用TCP。</p>
+<h2 id="4-IP数据报"><a href="#4-IP数据报" class="headerlink" title="4. IP数据报"></a>4. IP数据报</h2><h3 id="4-1-IP数据报格式"><a href="#4-1-IP数据报格式" class="headerlink" title="4.1 IP数据报格式"></a>4.1 IP数据报格式</h3><p><img src="IP数据报格式.png" alt="avatar"><br><img src="IP数据报格式2.png" alt="avatar"><br>计算偏移量时记住是以0开始的就行，以每一篇最开始的除以8得到的数值就是偏移量<br>MF和DF的定义见上图<br><img src="IP数据报分片.png" alt="avatar"></p>
+<h2 id="5-IP地址"><a href="#5-IP地址" class="headerlink" title="5. IP地址"></a>5. IP地址</h2><h4 id="5-1-2-特殊IP地址"><a href="#5-1-2-特殊IP地址" class="headerlink" title="5.1.2 特殊IP地址"></a>5.1.2 特殊IP地址</h4><p><img src="IP地址分类.png" alt="avatar"></p>
+<h4 id="5-1-1-私有IP地址"><a href="#5-1-1-私有IP地址" class="headerlink" title="5.1.1 私有IP地址"></a>5.1.1 私有IP地址</h4><p><img src="私有IP.png" alt="avatar"><br>为什么A类最大是126.xxx.xxx.xxx？<br>因为网络号最开始第一位是0，一共八位，所以二进制表示位0xxxxxxx，最大就是2^7-1=127，但是因为127.xxx.xxx.xxx是特殊ip地址，所以将其去掉</p>
+<p>为什么B类最大是191.255.xxx.xxx？<br>因为网络号最开始第一位是10，一共八位，所以二进制表示位10xxxxxx，最大就是10111111=191，最小就是10000000=128，无特殊ip地址</p>
+<p>为什么C类最大是223.255.xxx.xxx？<br>因为网络号最开始第一位是110，一共八位，所以二进制表示位110xxxxx，最大就是11011111=223，最小就是10000000=192，无特殊ip地址</p>
+<p><img src="IP地址分类.png" alt="avatar"></p>
+<h3 id="5-2-网络地址转换NAT"><a href="#5-2-网络地址转换NAT" class="headerlink" title="5.2 网络地址转换NAT"></a>5.2 网络地址转换NAT</h3><p>连接内网和外网，就是找个代理的用它的ip地址与外面收发数据</p>
+<p>NAT需要构建NAT转换表，既要存广域网（WAN，外网）也要存局域网（LAN，内网）的ip地址和端口<br>号<br><img src="NAT.png" alt="avatar"></p>
+<h3 id="5-3-子网划分和子网掩码"><a href="#5-3-子网划分和子网掩码" class="headerlink" title="5.3 子网划分和子网掩码"></a>5.3 子网划分和子网掩码</h3><h4 id="5-3-1-为什么需要子网划分？"><a href="#5-3-1-为什么需要子网划分？" class="headerlink" title="5.3.1 为什么需要子网划分？"></a>5.3.1 为什么需要子网划分？</h4><p>总结一下，就是ip不够用，所以需要额外整个子网扩展ip</p>
+<p>为什么子网好能全0或者全1：因为CIDR编址（可见下一段）<br><br>为什么主机号不能全0或者全1：因为全0代表本网络，全1代表广播分组</p>
+<h4 id="5-3-2-子网掩码"><a href="#5-3-2-子网掩码" class="headerlink" title="5.3.2 子网掩码"></a>5.3.2 子网掩码</h4><p>这道题可以看出来，即使子网掩码不同，相同ip地址对应的子网ip地址也可能相同<br><br>但是子网掩码不同，划分的子网数目不同<br><br>为什么划分的子网数目不同？或者说怎么算划分的子网位数目？<br><br>以255.255.192.0为例，255是11111111即八个1,192是11000000即2个1，一共是82+2=18个1，一共有32位地址，所以剩余有32-18=14位<br><br>以255.255.224.0为例，255是11111111即八个1,224是11100000即3个1，一共是82+3=19个1，一共有32位地址，所以剩余有32-19=13位<br><img src="练习1.png" alt="avatar"><br>这道题先将255.255.252.0计算出一共有8+8+6=22位网络号位<br><br>所以就有32-22=10位主机号位<br><br>将180.80.77.55解析，可以知道在77部分某部分开始会用来表示主机号位<br><br>77的二进制是0100 1101，因为一共有22位网络号位，所以010011 （此处分开） 01，从这个01开始是主机号位。<br><br>所以用来表示子网ip地址的应该是180.80.76（010011 00）.xxx PS注意76括号内后两位二进制00<br><br>但是本体是发布广播地址，所以主机号全部都要是1<br><br>所以应该是180.80.79（010011 11）.255（11111111）注意79括号内后两位二进制11<br><img src="练习2.png" alt="avatar"></p>
+<ol>
+<li>这里特定主机路由就是指找特定的处理这里这个ip地址的路由</li>
+<li>默认路由会将这个数据报发给另一个路由，直至找到对应的路由，或者TTL耗尽被丢弃<br><img src="转发2.png" alt="avatar"></li>
+</ol>
+<h3 id="5-4-无分类编址CIDR"><a href="#5-4-无分类编址CIDR" class="headerlink" title="5.4 无分类编址CIDR"></a>5.4 无分类编址CIDR</h3><p><img src="CIDR1.png" alt="avatar"><br>使用CIDR可以聚合网络.<br>如图，通过缩短前缀，R1和R2就可以合并在206.1.0.0/16的子网下.<br>但是这样转发表之中就会有多个匹配结果，所以我们使用最长前缀匹配<br><img src="CIDR2.png" alt="avatar"><br>最长前缀匹配就是在计算后符合同一子网的时候，选前缀越长的<br>这道题选B</p>
+<p><img src="CIDR3.png" alt="avatar"><br>因为本网络是192.168.5.0/24，就是192.168.5.（0000 0000）/24，将248写成二进制是11111 000，有五个1，所以前五位都可以作为子网的编号，剩下的三位就是用来分配子网内剩余的地址了，因为不能全0或者全1，所以还要减2<br><img src="CIDR4.png" alt="avatar"></p>
+<h3 id="5-5-ARP协议"><a href="#5-5-ARP协议" class="headerlink" title="5.5 ARP协议"></a>5.5 ARP协议</h3><p><img src="ARP1.png" alt="avatar"><br><img src="ARP2.png" alt="avatar"></p>
+<h3 id="5-6-DHCP协议"><a href="#5-6-DHCP协议" class="headerlink" title="5.6 DHCP协议"></a>5.6 DHCP协议</h3><p><img src="DHCP.png" alt="avatar"></p>
+<h3 id="5-7-ICMP协议"><a href="#5-7-ICMP协议" class="headerlink" title="5.7 ICMP协议"></a>5.7 ICMP协议</h3><p>ICMP，IGMP处于网络层和传输层之间，就是为了更好地转发ip数据报和提高交互成功的几率</p>
+<h4 id="5-7-1-ICMP差错报文"><a href="#5-7-1-ICMP差错报文" class="headerlink" title="5.7.1 ICMP差错报文"></a>5.7.1 ICMP差错报文</h4><p><img src="差错报文.png" alt="avatar"><br><img src="不错.png" alt="avatar"></p>
+<h4 id="5-7-2-ICMP询问报文"><a href="#5-7-2-ICMP询问报文" class="headerlink" title="5.7.2 ICMP询问报文"></a>5.7.2 ICMP询问报文</h4><p>后两种是掩码地址请求和回答报文，路由器询问和通告报文，这两个已经废弃不再使用<br><img src="询问报文.png" alt="avatar"></p>
+<h4 id="5-7-3-ICMP应用"><a href="#5-7-3-ICMP应用" class="headerlink" title="5.7.3 ICMP应用"></a>5.7.3 ICMP应用</h4><p>1.ping命令：测试两个主机之间连通性，使用了ICMP回送请求和回答报文</p>
+<p>2.traceroute命令：跟踪一个分组从原点到终点的路径，使用了ICMP时间超过差错报告报文</p>
+<h2 id="6-IPv6"><a href="#6-IPv6" class="headerlink" title="6. IPv6"></a>6. IPv6</h2><p>就是IPV4地址用完了，从根本上增加ip地址数目，之前讲的NAT和CIDR也只是在IPV4的基础上扩展了IPV4地址数目，治标不治本<br><img src="IPv6地址.png" alt="avatar"></p>
+<p><img src="数据报格式.png" alt="avatar"><br><img src="46差别.png" alt="avatar"><br><img src="46过渡.png" alt="avatar"><br>如果是ipv6的数据报到了ipv4，就用ipv4重新封装，把ipv6数据报前面加上ipv4伪装成ipv4数据报继续传输，直至到了ipv6路由再解开ipv4伪装</p>
+<h2 id="7-IP组播"><a href="#7-IP组播" class="headerlink" title="7. IP组播"></a>7. IP组播</h2><p>单播只能一对一，广播必须一对全部，组播就可以是一对全部中的一部分</p>
+<h2 id="8-移动IP"><a href="#8-移动IP" class="headerlink" title="8. 移动IP"></a>8. 移动IP</h2><p>移动IP不等于动态IP（DHCP获得的）</p>
+<p>移动IP的可以让用户因为地理原因等等，即使不在内网也可以访问内网的东西</p>
+<h3 id="8-1-移动IP的相关术语"><a href="#8-1-移动IP的相关术语" class="headerlink" title="8.1 移动IP的相关术语"></a>8.1 移动IP的相关术语</h3><p><img src="移动IP术语.png" alt="avatar"></p>
+<h3 id="8-2-移动IP的通信过程"><a href="#8-2-移动IP的通信过程" class="headerlink" title="8.2 移动IP的通信过程"></a>8.2 移动IP的通信过程</h3><p><img src="通信过程1.png" alt="avatar"><br><img src="通信过程2.png" alt="avatar"></p>
+<h2 id="9-网络层设备-路由器"><a href="#9-网络层设备-路由器" class="headerlink" title="9. 网络层设备-路由器"></a>9. 网络层设备-路由器</h2><h3 id="9-1-路由器构造"><a href="#9-1-路由器构造" class="headerlink" title="9.1 路由器构造"></a>9.1 路由器构造</h3><p><img src="构造.png" alt="avatar"></p>
+<h3 id="9-2-输入和输出端口构造"><a href="#9-2-输入和输出端口构造" class="headerlink" title="9.2 输入和输出端口构造"></a>9.2 输入和输出端口构造</h3><p><img src="输入端口.png" alt="avatar"><br><img src="输出端口.png" alt="avatar"></p>
+<h3 id="9-3-三种设备比较"><a href="#9-3-三种设备比较" class="headerlink" title="9.3 三种设备比较"></a>9.3 三种设备比较</h3><p><img src="比较.png" alt="avatar"></p>
+<h3 id="9-4-路由表和转发表"><a href="#9-4-路由表和转发表" class="headerlink" title="9.4 路由表和转发表"></a>9.4 路由表和转发表</h3><p><img src="转发.png" alt="avatar"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" rel="prev" title="计网数据链路层">
+      <i class="fa fa-chevron-left"></i> 计网数据链路层
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概述"><span class="nav-number">1.</span> <span class="nav-text">1. 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据交换方式"><span class="nav-number">2.</span> <span class="nav-text">2. 数据交换方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-电路交换"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 电路交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-报文交换"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 报文交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-分组交换"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 分组交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-分组交换和报文交换计算量对比"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 分组交换和报文交换计算量对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1-分组传输的两种方式-数据报和虚电路"><span class="nav-number">2.4.1.</span> <span class="nav-text">2.4.1 分组传输的两种方式-数据报和虚电路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-路由算法和路由协议"><span class="nav-number">3.</span> <span class="nav-text">3. 路由算法和路由协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-RIP协议和距离向量算法"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 RIP协议和距离向量算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-RIP协议概述"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 RIP协议概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-如何建立路由表"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 如何建立路由表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3-距离向量算法"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.1.3 距离向量算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-OSPF协议和链路状态算法"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 OSPF协议和链路状态算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-OSPF概述"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 OSPF概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-BGP协议"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 BGP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-BGP协议概述"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 BGP协议概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-BGP交换信息过程"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 BGP交换信息过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-BGP报文格式"><span class="nav-number">3.3.3.</span> <span class="nav-text">3.3.3 BGP报文格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-4-BGP协议特点"><span class="nav-number">3.3.4.</span> <span class="nav-text">3.3.4 BGP协议特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-5-BGP四种报文"><span class="nav-number">3.3.5.</span> <span class="nav-text">3.3.5 BGP四种报文</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-四种路由协议的比较"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 四种路由协议的比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-IP数据报"><span class="nav-number">4.</span> <span class="nav-text">4. IP数据报</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-IP数据报格式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 IP数据报格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-IP地址"><span class="nav-number">5.</span> <span class="nav-text">5. IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-特殊IP地址"><span class="nav-number">5.0.1.</span> <span class="nav-text">5.1.2 特殊IP地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-私有IP地址"><span class="nav-number">5.0.2.</span> <span class="nav-text">5.1.1 私有IP地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-网络地址转换NAT"><span class="nav-number">5.1.</span> <span class="nav-text">5.2 网络地址转换NAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-子网划分和子网掩码"><span class="nav-number">5.2.</span> <span class="nav-text">5.3 子网划分和子网掩码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-为什么需要子网划分？"><span class="nav-number">5.2.1.</span> <span class="nav-text">5.3.1 为什么需要子网划分？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-子网掩码"><span class="nav-number">5.2.2.</span> <span class="nav-text">5.3.2 子网掩码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-无分类编址CIDR"><span class="nav-number">5.3.</span> <span class="nav-text">5.4 无分类编址CIDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-ARP协议"><span class="nav-number">5.4.</span> <span class="nav-text">5.5 ARP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-DHCP协议"><span class="nav-number">5.5.</span> <span class="nav-text">5.6 DHCP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-ICMP协议"><span class="nav-number">5.6.</span> <span class="nav-text">5.7 ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-1-ICMP差错报文"><span class="nav-number">5.6.1.</span> <span class="nav-text">5.7.1 ICMP差错报文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-2-ICMP询问报文"><span class="nav-number">5.6.2.</span> <span class="nav-text">5.7.2 ICMP询问报文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7-3-ICMP应用"><span class="nav-number">5.6.3.</span> <span class="nav-text">5.7.3 ICMP应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-IPv6"><span class="nav-number">6.</span> <span class="nav-text">6. IPv6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-IP组播"><span class="nav-number">7.</span> <span class="nav-text">7. IP组播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-移动IP"><span class="nav-number">8.</span> <span class="nav-text">8. 移动IP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-移动IP的相关术语"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 移动IP的相关术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-移动IP的通信过程"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 移动IP的通信过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-网络层设备-路由器"><span class="nav-number">9.</span> <span class="nav-text">9. 网络层设备-路由器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-路由器构造"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 路由器构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-输入和输出端口构造"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 输入和输出端口构造</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-三种设备比较"><span class="nav-number">9.3.</span> <span class="nav-text">9.3 三种设备比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-4-路由表和转发表"><span class="nav-number">9.4.</span> <span class="nav-text">9.4 路由表和转发表</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孙书玮"
+      src="/uploads/Champion_ka.png">
+  <p class="site-author-name" itemprop="name">孙书玮</p>
+  <div class="site-description" itemprop="description">篮球，计算机</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Asswei7" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Asswei7" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:374857303@qq.com" title="E-Mail → mailto:374857303@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孙书玮</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">NaN:aN</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"9nqY8UhYOlt212u1O1JhHnAj-gzGzoHsz","app_key":"gN45qG98T2l1CdnuIsXdiW2v","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

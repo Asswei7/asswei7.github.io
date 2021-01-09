@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"asswei7.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","Sidebar Display (only for Muse | Mist), available values":["post    expand on posts automatically. Default.","always  expand for all pages automatically."],"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？ 一个具体的实例说明加班可能适得其反直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1">
+  <meta name="description" content="篮球，计算机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="努力就会成功？">
-<meta property="og:url" content="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/index.html">
+<meta property="og:title" content="计网数据链路层">
+<meta property="og:url" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
 <meta property="og:site_name" content="Asswei&#39;s blog">
-<meta property="og:description" content="本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？ 一个具体的实例说明加班可能适得其反直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1">
+<meta property="og:description" content="篮球，计算机">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-08T02:59:03.000Z">
-<meta property="article:modified_time" content="2021-01-08T07:29:16.387Z">
+<meta property="article:published_time" content="2021-01-09T13:59:51.000Z">
+<meta property="article:modified_time" content="2021-01-09T14:03:00.854Z">
 <meta property="article:author" content="孙书玮">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/">
+<link rel="canonical" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
                      
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>努力就会成功？ | Asswei's blog</title>
+  <title>计网数据链路层 | Asswei's blog</title>
   
 
 
@@ -167,7 +167,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/Champion_ka.png">
@@ -180,7 +180,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          努力就会成功？
+          计网数据链路层
         </h1>
 
         <div class="post-meta">
@@ -191,7 +191,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-01-08 10:59:03 / Modified: 15:29:16" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
+              <time title="Created: 2021-01-09 21:59:51 / Modified: 22:03:00" itemprop="dateCreated datePublished" datetime="2021-01-09T21:59:51+08:00">2021-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,12 +199,12 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="努力就会成功？" title="Views">
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网数据链路层" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -216,7 +216,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -235,26 +235,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？</p>
-<h4 id="一个具体的实例说明加班可能适得其反"><a href="#一个具体的实例说明加班可能适得其反" class="headerlink" title="一个具体的实例说明加班可能适得其反"></a>一个具体的实例说明加班可能适得其反</h4><p>直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1000多个bug。你没看错，是一千多个。</p>
-<p>最后，这个项目用了 1 年多的时间来返工。本来一个 6-8 个月的项目，团队被打了鸡血，想在3个月内完成，最终却花了近两年的时间来返工。</p>
-<p>要知道，我以前在外国公司工作，外国老板看到团队在长时间加班，会感到焦虑的。<font color= blue>因为加班，通常代表着有不好的事情正在发生。</font></p>
-<p>所以对此，我是有点看不懂的。看不懂的是，为什么这么一群聪明的人，放着明亮宽敞的办公桌不用，硬要挤在一个又窄又小又吵又热的小空间里工作，而且要这么透支地写那么重要的很关键的系统级代码？</p>
-<font color=blue>这就好像，一架在一个小作坊里被人加班加点赶工出来的飞机，谁敢坐啊？</font>难道他们真的以为，有足够多的钱，足够多的人，然后拼命加班，就能打败对手吗？
-
-
-#### 在低级事情上努力也许是对学习高级知识的逃避
-
-“努力就会成功”，“加班就会有成就”，“勤劳就会致富”……
-<font color= blue>因为这类人基本上都是能力有限，不知道怎么提升自己的人，当他们看到只要拼命使力就可以成功的观点时，他们就会有共鸣，就会感动。不用学习那些晦涩难懂的高级知识，不用掌握和练习那些高级技能，自己只需要在低级的事情上拼命和努力，加更多的班和干更多的活，自己就会像电影中的那些小人物一样，总有一天会成功的。</font>
-
-<p>因为，他们混淆了行动与进展，忙碌与多产。他们以为能靠蛮力可以弥补思维上的惰性，靠拼命可以弥补能力上的不足。喜欢或认同这句话的人，基本是能力上有问题的人。这类人适合做劳动密集型的事。不信你可以试试看，当一件事的难度超过一定程度的时候，那些聪明的人会找到更省力的方法；而能力上有问题的人，还是在那儿使蛮力。</p>
-<h4 id="应该怎么做？work-hrad-gt-work-smart"><a href="#应该怎么做？work-hrad-gt-work-smart" class="headerlink" title="应该怎么做？work-hrad -&gt; work-smart"></a>应该怎么做？work-hrad -&gt; work-smart</h4><p>再回想一下，我以前在职场上的很多关键点，不是因为我加班了，而是因为在某些关键问题上，我跳出来解决了其它人都解决不了的问题。<br>我也有失败的时候，而我失败的时候，总是因为我搞不定事，即便是加班拼命努力也无济于事。是的，我的职业生涯的成长，最根本的不是你有多努力，有多勤奋，而是你能搞定很多人搞不定的事。<br>你不信，你可以看看你们公司那些不用加班，就算什么也不干，公司也要花钱养的技术人员。他们的成功，一定不是努力和加班加出来的。<font color=blue>你会发现这些人拼的不是谁干的多，而是谁解决的问题更难。</font></p>
-<p>我加班 996 的时候，从来都不是我成长最快的时候；而我和一群牛人在解决难题的时候，才是我成长最快的时候。<br>关键不在于谁写的代码多，关键在于我们解决了什么样的问题。<br>在这样的一个时代，你要做的，不是通过加班和拼命来跪着挣钱，而是通过技能，来躺着挣钱。</p>
-<h4 id="自己的一些想法"><a href="#自己的一些想法" class="headerlink" title="自己的一些想法"></a>自己的一些想法</h4><p>这让我想到高中时期经常用到的一个作文素材，核心是“金字塔绝对不是由奴隶建造的”，因为受压迫的奴隶不可能做出这种巧夺天工的建筑，最后也由考古学家证实，建造金字塔的是身份地位较高的平民和劳工，绝非奴隶！</p>
-<p>许多作曲家和作家都曾说过，自己灵感迸发的时刻大多不是在工作时那种高强度的状态下，而是在洗澡淋浴时、和朋友闲谈时。</p>
-<p>LegalHigh中动画导演的那一集让我印象一直十分深刻，导演的坚毅的台词。</p>
-
+        
     </div>
 
     
@@ -269,12 +250,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/08/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/" rel="prev" title="计网应用层">
+      <i class="fa fa-chevron-left"></i> 计网应用层
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" rel="next" title="注意力机制">
-      注意力机制 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/" rel="next" title="计网网络层">
+      计网网络层 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -335,7 +316,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一个具体的实例说明加班可能适得其反"><span class="nav-number">1.</span> <span class="nav-text">一个具体的实例说明加班可能适得其反</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应该怎么做？work-hrad-gt-work-smart"><span class="nav-number">2.</span> <span class="nav-text">应该怎么做？work-hrad -&gt; work-smart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自己的一些想法"><span class="nav-number">3.</span> <span class="nav-text">自己的一些想法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
