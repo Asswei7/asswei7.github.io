@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asswei7.github.io/"/>
-  <updated>2021-01-09T05:49:52.429Z</updated>
+  <updated>2021-01-09T06:16:57.582Z</updated>
   <id>https://asswei7.github.io/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>计网传输层</title>
+    <link href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
+    <id>https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/</id>
+    <published>2021-01-09T05:53:39.000Z</published>
+    <updated>2021-01-09T06:16:57.582Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><h3 id="1-1-传输层的意义"><a href="#1-1-传输层的意义" class="headerlink" title="1.1 传输层的意义"></a>1.1 传输层的意义</h3><p>网络层可以把数据从一个主机传送到另一个主机，但是没有和进程建立联系。<br><br>传输层就是将进程和收到的数据联系到一起，使数据能够为应用服务<br><br>所以说传输层是主机才有的层次</p><h3 id="1-2-TCP和UDP"><a href="#1-2-TCP和UDP" class="headerlink" title="1.2 TCP和UDP"></a>1.2 TCP和UDP</h3><p>TCP：可靠、面向连接、时延大、适用于大文件<br><br>拥塞控制、流量控制、连接建立<br><br>UDP:不可靠，无连接、时延小、适用于小文件。收到UDP报文后不需要给出任何确认</p><h3 id="1-3-复用和分用"><a href="#1-3-复用和分用" class="headerlink" title="1.3 复用和分用"></a>1.3 复用和分用</h3><p>复用：应用层的所有应用进程都可以通过传输层再传到网络层<br><br>分用：传输层 从网络层收到数据后交付给指明的应用进程<br><br></p><div class="table-container"><table><thead><tr><th style="text-align:center">应用程序</th><th style="text-align:center">端口号</th></tr></thead><tbody><tr><td style="text-align:center">FTP</td><td style="text-align:center">21</td></tr><tr><td style="text-align:center">TELNET</td><td style="text-align:center">23</td></tr><tr><td style="text-align:center">SMTP</td><td style="text-align:center">25</td></tr><tr><td style="text-align:center">DNS</td><td style="text-align:center">53</td></tr><tr><td style="text-align:center">HTTP</td><td style="text-align:center">80</td></tr></tbody></table></div><h2 id="2-UDP协议"><a href="#2-UDP协议" class="headerlink" title="2. UDP协议"></a>2. UDP协议</h2><h3 id="2-1-UDP概述"><a href="#2-1-UDP概述" class="headerlink" title="2.1 UDP概述"></a>2.1 UDP概述</h3><p>UDP一次发送一个完整报文不会分片，所以需要应用层传输过来的数据不要太大，否则网络层分片任务就很重，但是也不能太小，不然效率较低<br><br>应用层给UDP多长的报文，UDP就照样发送，即一次发送一个完整的报文。<br><br>UDP适合一些实时应用，因为实时应用延迟要求高，需要立即响应<br><br><br>UDP只在IP数据报服务之上增加了复用分用和差错检测功能。<br><strong>面向报文</strong></p><h3 id="2-2-UDP首部格式"><a href="#2-2-UDP首部格式" class="headerlink" title="2.2 UDP首部格式"></a>2.2 UDP首部格式</h3><p><img src="UDP首部.png" alt="avatar"></p><h4 id="2-2-1-UDP的校验位"><a href="#2-2-1-UDP的校验位" class="headerlink" title="2.2.1 UDP的校验位"></a>2.2.1 UDP的校验位</h4><p>伪首部只有在计算校验和时才出现，不向上递交也不向下传送<br><br>封装UDP报文的IP数据报首部协议字段是17<br><br>UDP长度：UDP首部８B　＋　数据部分长度</p><p><img src="校验.png" alt="avatar"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1. 概述&lt;/h2&gt;&lt;h3 id=&quot;1-1-传输层的意义&quot;&gt;&lt;a href=&quot;#1-1-传输层的意义&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://asswei7.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>计网概述</title>
     <link href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/"/>
     <id>https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/</id>
     <published>2021-01-09T05:29:28.000Z</published>
-    <updated>2021-01-09T05:49:52.429Z</updated>
+    <updated>2021-01-09T06:00:20.316Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-速率相关性能指标"><a href="#1-速率相关性能指标" class="headerlink" title="1. 速率相关性能指标"></a>1. 速率相关性能指标</h2><h3 id="1-1-速率"><a href="#1-1-速率" class="headerlink" title="1.1 速率"></a>1.1 速率</h3><p>定义：连接在计算机网络上的主机在数字信道上传送数据位数的速率<br><br>单位:b/s,Kb/s,Mb/s,Tb/s，<br><br>如果用字节表示，则是B/s,KB/s,MB/s,TB/s<br><br>1Byte=8Bit</p><h3 id="1-2-带宽"><a href="#1-2-带宽" class="headerlink" title="1.2 带宽"></a>1.2 带宽</h3><p>在计算机网络中，指的是网络设备所支持的最高速度，单位同速率，是<strong>理想条件下最高速率</strong></p><h3 id="1-3-吞吐量"><a href="#1-3-吞吐量" class="headerlink" title="1.3 吞吐量"></a>1.3 吞吐量</h3><p>单位时间内通过某个网络的数据总量</p><h2 id="2-时延的相关指标"><a href="#2-时延的相关指标" class="headerlink" title="2. 时延的相关指标"></a>2. 时延的相关指标</h2><h3 id="2-1-四个类别"><a href="#2-1-四个类别" class="headerlink" title="2.1 四个类别"></a>2.1 四个类别</h3><div class="table-container"><table><thead><tr><th style="text-align:center">名称</th><th style="text-align:center">描述</th><th style="text-align:center">计算</th></tr></thead><tbody><tr><td style="text-align:center">发送时延</td><td style="text-align:center">数据从主机到信道上所用的时间</td><td style="text-align:center">发送的数据长度/发送速率</td></tr><tr><td style="text-align:center">传播时延</td><td style="text-align:center">数据在信道上传播所花费的时间</td><td style="text-align:center">信道长度/电磁波在信道上传播的速率</td></tr><tr><td style="text-align:center">排队时延</td><td style="text-align:center">数据在路由器前等待处理的时间</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">处理时延</td><td style="text-align:center">数据在路由器上处理的时间</td></tr></tbody></table></div><p>使用高速链路(提高网速)，只能减小发送时延，无法减少其他三个时延<br><br>传播的速度是固定的：电磁波速度。</p><h3 id="2-2-时延带宽积"><a href="#2-2-时延带宽积" class="headerlink" title="2.2 时延带宽积"></a>2.2 时延带宽积</h3><p>公式：时延带宽积 = 传播时延x带宽<br><br>含义：链路上有多少比特的数据</p><h3 id="2-3-往返时延RTT"><a href="#2-3-往返时延RTT" class="headerlink" title="2.3 往返时延RTT"></a>2.3 往返时延RTT</h3><p>RTT= 传播时延*2 + 处理时间</p><h2 id="3-分层结构"><a href="#3-分层结构" class="headerlink" title="3. 分层结构"></a>3. 分层结构</h2><h3 id="3-1-认识分层结构"><a href="#3-1-认识分层结构" class="headerlink" title="3.1 认识分层结构"></a>3.1 认识分层结构</h3><p><img src="/net_image/分层结构.png" alt="avatar"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-速率相关性能指标"><a href="#1-速率相关性能指标" class="headerlink" title="1. 速率相关性能指标"></a>1. 速率相关性能指标</h2><h3 id="1-1-速率"><a href="#1-1-速率" class="headerlink" title="1.1 速率"></a>1.1 速率</h3><p>定义：连接在计算机网络上的主机在数字信道上传送数据位数的速率<br><br>单位:b/s,Kb/s,Mb/s,Tb/s，<br><br>如果用字节表示，则是B/s,KB/s,MB/s,TB/s<br><br>1Byte=8Bit</p><h3 id="1-2-带宽"><a href="#1-2-带宽" class="headerlink" title="1.2 带宽"></a>1.2 带宽</h3><p>在计算机网络中，指的是网络设备所支持的最高速度，单位同速率，是<strong>理想条件下最高速率</strong></p><h3 id="1-3-吞吐量"><a href="#1-3-吞吐量" class="headerlink" title="1.3 吞吐量"></a>1.3 吞吐量</h3><p>单位时间内通过某个网络的数据总量</p><h2 id="2-时延的相关指标"><a href="#2-时延的相关指标" class="headerlink" title="2. 时延的相关指标"></a>2. 时延的相关指标</h2><h3 id="2-1-四个类别"><a href="#2-1-四个类别" class="headerlink" title="2.1 四个类别"></a>2.1 四个类别</h3><div class="table-container"><table><thead><tr><th style="text-align:center">名称</th><th style="text-align:center">描述</th><th style="text-align:center">计算</th></tr></thead><tbody><tr><td style="text-align:center">发送时延</td><td style="text-align:center">数据从主机到信道上所用的时间</td><td style="text-align:center">发送的数据长度/发送速率</td></tr><tr><td style="text-align:center">传播时延</td><td style="text-align:center">数据在信道上传播所花费的时间</td><td style="text-align:center">信道长度/电磁波在信道上传播的速率</td></tr><tr><td style="text-align:center">排队时延</td><td style="text-align:center">数据在路由器前等待处理的时间</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">处理时延</td><td style="text-align:center">数据在路由器上处理的时间</td></tr></tbody></table></div><p>使用高速链路(提高网速)，只能减小发送时延，无法减少其他三个时延<br><br>传播的速度是固定的：电磁波速度。</p><h3 id="2-2-时延带宽积"><a href="#2-2-时延带宽积" class="headerlink" title="2.2 时延带宽积"></a>2.2 时延带宽积</h3><p>公式：时延带宽积 = 传播时延x带宽<br><br>含义：链路上有多少比特的数据</p><h3 id="2-3-往返时延RTT"><a href="#2-3-往返时延RTT" class="headerlink" title="2.3 往返时延RTT"></a>2.3 往返时延RTT</h3><p>RTT= 传播时延*2 + 处理时间</p><h2 id="3-分层结构"><a href="#3-分层结构" class="headerlink" title="3. 分层结构"></a>3. 分层结构</h2><h3 id="3-1-认识分层结构"><a href="#3-1-认识分层结构" class="headerlink" title="3.1 认识分层结构"></a>3.1 认识分层结构</h3><p><img src="分层结构.png" alt="avatar"></p>]]></content>
     
     <summary type="html">
     
@@ -485,32 +509,6 @@
     
     
       <category term="历史" scheme="https://asswei7.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>XuZhiQin</title>
-    <link href="https://asswei7.github.io/2020/04/03/XuZhiQin/"/>
-    <id>https://asswei7.github.io/2020/04/03/XuZhiQin/</id>
-    <published>2020-04-03T07:30:30.000Z</published>
-    <updated>2021-01-08T07:25:46.767Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Statics: Model-based<br>ML: Model-freed</p><h3 id="Statics-View"><a href="#Statics-View" class="headerlink" title="Statics View"></a>Statics View</h3><script type="math/tex; mode=display">f_\theta(x)=ax+b</script><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>最小二乘因子</p><ol><li>高斯-马尔科夫定理<br>$X \in R^{n \times d}$,  $Y \in R^{n \times 1}$</li></ol><h3 id="何时用统计"><a href="#何时用统计" class="headerlink" title="何时用统计"></a>何时用统计</h3><ol><li>预测X与Y的一种关系</li><li>具体知道参数满足的不同的分布规律。</li></ol><h3 id="ML-Views"><a href="#ML-Views" class="headerlink" title="ML Views"></a>ML Views</h3><p>当数据量很大时，不能通过这个方法来计算得到$\hat{\beta}$:</p><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>不需要模型，只有一个目标去学习参数。</p><script type="math/tex; mode=display">L_n = \frac{1}{n} \sum_{i=1}^n (ax_i+b-y_i)^2</script><p>利用梯度下降。<br>$h_i=ax_i+b$</p><script type="math/tex; mode=display">\frac{\partial L_n}{\partial a} = \frac{1}{n}\sum_{i=1}^n(h_i-y_i) \frac{\partial h_i}{\partial a} =\frac{1}{n}\sum_{i=1}^n(h_i-y_i)x_i</script><p>Gradient Desent</p><script type="math/tex; mode=display">a^{t+1} = a^t - \eta \frac{\partial L_n}{\partial a}</script><script type="math/tex; mode=display">b^{t+1} = b^t - \eta \frac{\partial L_n}{\partial b}</script><h1 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h1><ol><li>Supervised learning: learning with labels</li><li>Unsupervised learning: wio labels(聚类)</li><li>Reinforcement learning: learn to make optimal decision<h3 id="Loss-Funtion"><a href="#Loss-Funtion" class="headerlink" title="Loss Funtion"></a>Loss Funtion</h3>Empirical Risk Minimization(ERM)即为training loss</li></ol><h3 id="Two-layer-Neural-Network"><a href="#Two-layer-Neural-Network" class="headerlink" title="Two-layer Neural Network"></a>Two-layer Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) = \sum_{j=1}^m a_j\sigma(\omega_jx+b_j)</script><p>input_layer(not counted) hidden_layer output_layer<br><em>n</em> refers to nums of <em>Samples</em><br><em>m</em> refers to nums of <em>Neurals</em><br><em>为了增强模型的表达性，激活函数不能采用线性的，要使用非线性的</em><br>1989年证明一个隐藏层可以逼近任何一个函数。</p><h3 id="General-Deep-Neural-Network"><a href="#General-Deep-Neural-Network" class="headerlink" title="General Deep Neural Network"></a>General Deep Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) =  w^{[L-1]}\sigma( \cdots w^{[1]}\sigma(w^{[0]}x+b^{[0]})+b^{[1]}\cdot)+b^[L-1]</script><p>对于每一层节点：</p><script type="math/tex; mode=display">f_\theta^{[0]}(x) = x</script><script type="math/tex; mode=display">f_\theta^{[1]}(x) = \sigma(w^{[0]}x+b^{[0]})</script><script type="math/tex; mode=display">f_\theta^{[L]}(x) = \sigma(w^{[L-1]}f_\theta^{[L-1]}(x)+b^{[L-1]})</script><p>对于最后一层的输出：</p><script type="math/tex; mode=display">f_\theta(x) = f^{[L]}(x) = w^{[L-1]}f^{[L-1]}(x)+b^{[L-1]}</script><p>Training：SGD(Stochastic)<br>只使用一个batch数据进行训练</p><h3 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h3><ol><li>Approxicimation Error<br> consider no cost</li></ol><h1 id="Frequency-Principle"><a href="#Frequency-Principle" class="headerlink" title="Frequency Principle"></a>Frequency Principle</h1><p>模型复杂度会把噪声也考虑了进去，导致过拟合。<br>DNN：从低频开始训练，可以不训练到高频成分。(从轮廓到细节)<br>多项式拟合：高频成分也会模拟到,就会导致过拟合<br>万有逼近：Single hidden layer can fit any function<br>卡通图片：警察问路人在干嘛？回答在找赢不。你是在这丢的吗？不，我是在两个街区外丢的。为啥在这找？因为这里路灯比较亮。<br>有人以此讽刺深度学习，灯亮的地方就是低维的问题。<br>但是也可以回答说是为了分析出道路的结构，硬币有可能滑到哪里。</p><p>应用到高维函数，图片自变量是二维像素点，因变量是该点的灰度值。<br>输入维度是所有的像素点，输出维度是类别数目。<br>No free Lunch Theorem对于药物，不能只谈毒性不谈剂量<br>对于泛化，不能只谈算法不谈数据</p><p>深度学习提供了一种通用的学习框架，可用来表示世界、视觉和语言学信息。<br>语言模型：说一句话的概率的大小。问题在于：1.数据过于稀疏 2。参数空间太大<br>n-gram=1 下一个词出现的概率只依赖于它前面的一个词P(w2|w1)<br>n-gram=2 下一个词出现的概率依赖于它前面的两个词P(w3|w1,w2)<br>word2vector:</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;Statics: Model-based&lt;br&gt;ML: Mo
-      
-    
-    </summary>
-    
-    
-      <category term="编程相关" scheme="https://asswei7.github.io/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/"/>
-    
-    
-      <category term="机器学习" scheme="https://asswei7.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

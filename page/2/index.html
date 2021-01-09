@@ -165,6 +165,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">注意力机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-08 10:59:03 / Modified: 15:29:50" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="注意力机制" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>782</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简单介绍来"><a href="#简单介绍来" class="headerlink" title="简单介绍来"></a>简单介绍来</h3><p>transfomer的BERT模型。2017年底谷歌，attention is all you need，一种seq2seq的模型，<br>BERT是从transformer中衍生出来的预训练模型。</p>
+<p>上游任务：训练一个预训练语言模型<br>下游任务：将模型应用到实际的任务，如情感分析，分类等</p>
+<h1 id="transformer编码器（理论部分）"><a href="#transformer编码器（理论部分）" class="headerlink" title="transformer编码器（理论部分）"></a>transformer编码器（理论部分）</h1><h3 id="transformer模型的直觉，建立直观认识"><a href="#transformer模型的直觉，建立直观认识" class="headerlink" title="transformer模型的直觉，建立直观认识"></a>transformer模型的直觉，建立直观认识</h3><p>transf和LSTM的最大区别：LSTM相当于一个循环，一个一个字来，这个字过完LSTM模型，<br>才进行下一个字。transformer是并行的，所有字同时进行训练，加快了计算效率。<br>而利用position encoding来获取时间顺序。</p>
+<p>输入到编码器得到一个hidden layer，然后传到解码器，得到结果。<br>我们有一张词汇表：<br>每一行代表一个字的数学向量，embedding_dimension。<br>共有vacab_size行。输入的X[batch_size,sequence length, embedding demension]</p>
+<h3 id="positional-encoding-位置嵌入"><a href="#positional-encoding-位置嵌入" class="headerlink" title="positional encoding 位置嵌入"></a>positional encoding 位置嵌入</h3><p>没有迭代，全部喂入网络，所以需要位置嵌入得到顺序关系。</p>
+<h3 id="self-attention-mechanism自注意力机制"><a href="#self-attention-mechanism自注意力机制" class="headerlink" title="self attention mechanism自注意力机制"></a>self attention mechanism自注意力机制</h3><h3 id="Layer-Normalization和残差连接"><a href="#Layer-Normalization和残差连接" class="headerlink" title="Layer Normalization和残差连接"></a>Layer Normalization和残差连接</h3><h3 id="transformer-encoder整体结构"><a href="#transformer-encoder整体结构" class="headerlink" title="transformer encoder整体结构"></a>transformer encoder整体结构</h3><h1 id="BERT的解读和实战应用"><a href="#BERT的解读和实战应用" class="headerlink" title="BERT的解读和实战应用"></a>BERT的解读和实战应用</h1><p>PyTorch动态图，方便调试。Tensorflow静态图，调试和建模都很麻烦。</p>
+<h3 id="进一步理解位置编码"><a href="#进一步理解位置编码" class="headerlink" title="进一步理解位置编码"></a>进一步理解位置编码</h3><h3 id="语言模型的定义和BERT的解读"><a href="#语言模型的定义和BERT的解读" class="headerlink" title="语言模型的定义和BERT的解读"></a>语言模型的定义和BERT的解读</h3><p>Bidirectional Encoder Representation from Transformers双向transformer编码表达<br>编码器输出的隐藏层就是自然语言序列的数学表达。双向：又有之前的信息，又有之后的信息。</p>
+<p>MASKED LM</p>
+<h3 id="BERT训练之前的语料预处理"><a href="#BERT训练之前的语料预处理" class="headerlink" title="BERT训练之前的语料预处理"></a>BERT训练之前的语料预处理</h3><h3 id="BERT的预训练，训练参数"><a href="#BERT的预训练，训练参数" class="headerlink" title="BERT的预训练，训练参数"></a>BERT的预训练，训练参数</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1146,129 +1242,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/03/XuZhiQin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/03/XuZhiQin/" class="post-title-link" itemprop="url">XuZhiQin</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-03 15:30:30" itemprop="dateCreated datePublished" datetime="2020-04-03T15:30:30+08:00">2020-04-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 15:25:46" itemprop="dateModified" datetime="2021-01-08T15:25:46+08:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">编程相关</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/03/XuZhiQin/" class="post-meta-item leancloud_visitors" data-flag-title="XuZhiQin" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Statics: Model-based<br>ML: Model-freed</p>
-<h3 id="Statics-View"><a href="#Statics-View" class="headerlink" title="Statics View"></a>Statics View</h3><script type="math/tex; mode=display">f_\theta(x)=ax+b</script><script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>最小二乘因子</p>
-<ol>
-<li>高斯-马尔科夫定理<br>$X \in R^{n \times d}$,  $Y \in R^{n \times 1}$</li>
-</ol>
-<h3 id="何时用统计"><a href="#何时用统计" class="headerlink" title="何时用统计"></a>何时用统计</h3><ol>
-<li>预测X与Y的一种关系</li>
-<li>具体知道参数满足的不同的分布规律。</li>
-</ol>
-<h3 id="ML-Views"><a href="#ML-Views" class="headerlink" title="ML Views"></a>ML Views</h3><p>当数据量很大时，不能通过这个方法来计算得到$\hat{\beta}$:</p>
-<script type="math/tex; mode=display">\hat{\beta}=(X^TX)^{-1}X^TY</script><p>不需要模型，只有一个目标去学习参数。</p>
-<script type="math/tex; mode=display">L_n = \frac{1}{n} \sum_{i=1}^n (ax_i+b-y_i)^2</script><p>利用梯度下降。<br>$h_i=ax_i+b$</p>
-<script type="math/tex; mode=display">\frac{\partial L_n}{\partial a} = \frac{1}{n}\sum_{i=1}^n(h_i-y_i) \frac{\partial h_i}{\partial a}
- =\frac{1}{n}\sum_{i=1}^n(h_i-y_i)x_i</script><p>Gradient Desent</p>
-<script type="math/tex; mode=display">a^{t+1} = a^t - \eta \frac{\partial L_n}{\partial a}</script><script type="math/tex; mode=display">b^{t+1} = b^t - \eta \frac{\partial L_n}{\partial b}</script><h1 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h1><ol>
-<li>Supervised learning: learning with labels</li>
-<li>Unsupervised learning: wio labels(聚类)</li>
-<li>Reinforcement learning: learn to make optimal decision<h3 id="Loss-Funtion"><a href="#Loss-Funtion" class="headerlink" title="Loss Funtion"></a>Loss Funtion</h3>Empirical Risk Minimization(ERM)即为training loss</li>
-</ol>
-<h3 id="Two-layer-Neural-Network"><a href="#Two-layer-Neural-Network" class="headerlink" title="Two-layer Neural Network"></a>Two-layer Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) = \sum_{j=1}^m a_j\sigma(\omega_jx+b_j)</script><p>input_layer(not counted) hidden_layer output_layer<br><em>n</em> refers to nums of <em>Samples</em><br><em>m</em> refers to nums of <em>Neurals</em><br><em>为了增强模型的表达性，激活函数不能采用线性的，要使用非线性的</em><br>1989年证明一个隐藏层可以逼近任何一个函数。</p>
-<h3 id="General-Deep-Neural-Network"><a href="#General-Deep-Neural-Network" class="headerlink" title="General Deep Neural Network"></a>General Deep Neural Network</h3><script type="math/tex; mode=display">f_\theta(x) =  w^{[L-1]}\sigma( \cdots w^{[1]}\sigma(w^{[0]}x+b^{[0]})+b^{[1]}\cdot)+b^[L-1]</script><p>对于每一层节点：</p>
-<script type="math/tex; mode=display">f_\theta^{[0]}(x) = x</script><script type="math/tex; mode=display">f_\theta^{[1]}(x) = \sigma(w^{[0]}x+b^{[0]})</script><script type="math/tex; mode=display">f_\theta^{[L]}(x) = \sigma(w^{[L-1]}f_\theta^{[L-1]}(x)+b^{[L-1]})</script><p>对于最后一层的输出：</p>
-<script type="math/tex; mode=display">f_\theta(x) = f^{[L]}(x) = w^{[L-1]}f^{[L-1]}(x)+b^{[L-1]}</script><p>Training：SGD(Stochastic)<br>只使用一个batch数据进行训练</p>
-<h3 id="Error-Analysis"><a href="#Error-Analysis" class="headerlink" title="Error Analysis"></a>Error Analysis</h3><ol>
-<li>Approxicimation Error<br> consider no cost</li>
-</ol>
-<h1 id="Frequency-Principle"><a href="#Frequency-Principle" class="headerlink" title="Frequency Principle"></a>Frequency Principle</h1><p>模型复杂度会把噪声也考虑了进去，导致过拟合。<br>DNN：从低频开始训练，可以不训练到高频成分。(从轮廓到细节)<br>多项式拟合：高频成分也会模拟到,就会导致过拟合<br>万有逼近：Single hidden layer can fit any function<br>卡通图片：警察问路人在干嘛？回答在找赢不。你是在这丢的吗？不，我是在两个街区外丢的。为啥在这找？因为这里路灯比较亮。<br>有人以此讽刺深度学习，灯亮的地方就是低维的问题。<br>但是也可以回答说是为了分析出道路的结构，硬币有可能滑到哪里。</p>
-<p>应用到高维函数，图片自变量是二维像素点，因变量是该点的灰度值。<br>输入维度是所有的像素点，输出维度是类别数目。<br>No free Lunch Theorem对于药物，不能只谈毒性不谈剂量<br>对于泛化，不能只谈算法不谈数据</p>
-<p>深度学习提供了一种通用的学习框架，可用来表示世界、视觉和语言学信息。<br>语言模型：说一句话的概率的大小。问题在于：1.数据过于稀疏 2。参数空间太大<br>n-gram=1 下一个词出现的概率只依赖于它前面的一个词P(w2|w1)<br>n-gram=2 下一个词出现的概率依赖于它前面的两个词P(w3|w1,w2)<br>word2vector:</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1341,7 +1314,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
