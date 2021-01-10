@@ -242,9 +242,7 @@
 
       
         <h3 id="常见的评测结果"><a href="#常见的评测结果" class="headerlink" title="常见的评测结果"></a>常见的评测结果</h3><p>-AC:accept<br>-CE:compile error<br>-WA:wrong answer<br>-TLE:time limit exceeded<br>-RE:runtime error:数组越界，指针乱指，<br>-MLE:memory limit exceeded<br>-PE:presentation error </p>
-<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>int:-2<em>10^9~2</em>10^9<br>long long:-9<em>10^18~9</em>10^18<br>char:-128~127<br>int占4Byte，10^9以内的数都可以int型<br>long long型赋值大于2^31的初值，需要在后面加上LL，否则编译出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long long bignum &#x3D; 123456789012345LL;</span><br></pre></td></tr></table></figure><br>浮点型用double存储，占64位，printf(“%f”,c);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define pi 3.14</span><br><span class="line">const double pi &#x3D; 3.14</span><br><span class="line">#define ADD(a,b) ((a)+(b))</span><br><span class="line">#define MAX(a,b) ((a)&gt;(b)?(a):(b))</span><br></pre></td></tr></table></figure><br>位运算符：<br>int型上限是2^31-1，所以INF可以设置为(1&lt;<31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高**
-但是一般更常用的是2^30-1，避免相加超过int，写成二进制是0x3fffffff
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int INF &#x3D; (1&lt;&lt;30)-1</span><br><span class="line">const int INF &#x3D; 0x3fffffff</span><br></pre></td></tr></table></figure><br>scanf(“%lld”,&amp;long);      printf(“%lld”,long);<br>scanf(“%lf”,&amp;db);           printf(“%f”,db);<br>scanf(“%s”,str);<br>scanf可以不加空格的原因，对于其他格式符的输入以空白符(空格、tab)作为结束标志<br>使用%s读入以空格和换行作为读入结束标志。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>int:-2<em>10^9~2</em>10^9<br>long long:-9<em>10^18~9</em>10^18<br>char:-128~127<br>int占4Byte，10^9以内的数都可以int型<br>long long型赋值大于2^31的初值，需要在后面加上LL，否则编译出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long long bignum &#x3D; 123456789012345LL;</span><br></pre></td></tr></table></figure><br>浮点型用double存储，占64位，printf(“%f”,c);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define pi 3.14</span><br><span class="line">const double pi &#x3D; 3.14</span><br><span class="line">#define ADD(a,b) ((a)+(b))</span><br><span class="line">#define MAX(a,b) ((a)&gt;(b)?(a):(b))</span><br></pre></td></tr></table></figure><br>位运算符：<br>int型上限是2^31-1，所以INF可以设置为(1&lt;<31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高** 但是一般更常用的是2^30-1，避免相加超过int，写成二进制是0x3fffffff <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int INF &#x3D; (1&lt;&lt;30)-1</span><br><span class="line">const int INF &#x3D; 0x3fffffff</span><br></pre></td></tr></table><br>scanf(“%lld”,&amp;long);      printf(“%lld”,long);<br>scanf(“%lf”,&amp;db);           printf(“%f”,db);<br>scanf(“%s”,str);<br>scanf可以不加空格的原因，对于其他格式符的输入以空白符(空格、tab)作为结束标志<br>使用%s读入以空格和换行作为读入结束标志。</31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高**></p>
 <p>想要输出%和\在前面加上一个相应符号<br>printf(“%%”);<br>printf(“\“);<br>%md右对齐，补空格<br>%0md右对齐，补0</p>
 <p>typedef给复杂的类型起一个别名<br>typedef long long LL;<br>LL a = 12134;<br>数学函数：<br>fabs(double x)<br>floor(double x) ceil(double x)<br>pow(double r,double p)  round(double x)</p>
 <p>对数组中每一个元素赋相同的值，memset按字节赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">memset(a,0,sizeof(a))  &#x2F;&#x2F;只建议赋值为0或-1，赋值为其他的建议fill</span><br></pre></td></tr></table></figure><br>strlen(str) strcmp(s1,s2)返回负数，0，正数<br>strcmp(s1,s2)  把s2的值赋值给s1<br>strcat(s1,s2)  把字符数组2接到字符1后面</p>
@@ -282,12 +280,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/" rel="prev" title="卷积">
-      <i class="fa fa-chevron-left"></i> 卷积
+    <a href="/2020/04/12/%E6%97%A5%E6%9C%AC%E5%8E%86%E5%8F%B2/" rel="prev" title="日本历史">
+      <i class="fa fa-chevron-left"></i> 日本历史
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/" rel="next" title="电脑知识">
-      电脑知识 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/" rel="next" title="卷积">
+      卷积 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -421,12 +419,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">34k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">31 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

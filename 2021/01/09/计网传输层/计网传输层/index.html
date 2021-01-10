@@ -279,14 +279,14 @@
 </table>
 </div>
 <h2 id="2-UDP协议"><a href="#2-UDP协议" class="headerlink" title="2. UDP协议"></a>2. UDP协议</h2><h3 id="2-1-UDP概述"><a href="#2-1-UDP概述" class="headerlink" title="2.1 UDP概述"></a>2.1 UDP概述</h3><p>UDP一次发送一个完整报文不会分片，所以需要应用层传输过来的数据不要太大，否则网络层分片任务就很重，但是也不能太小，不然效率较低<br><br>应用层给UDP多长的报文，UDP就照样发送，即一次发送一个完整的报文。<br><br>UDP适合一些实时应用，因为实时应用延迟要求高，需要立即响应<br><br><br>UDP只在IP数据报服务之上增加了复用分用和差错检测功能。<br><strong>面向报文</strong></p>
-<h3 id="2-2-UDP首部格式"><a href="#2-2-UDP首部格式" class="headerlink" title="2.2 UDP首部格式"></a>2.2 UDP首部格式</h3><p><img src="UDP首部.png" alt="avatar"></p>
+<h3 id="2-2-UDP首部格式"><a href="#2-2-UDP首部格式" class="headerlink" title="2.2 UDP首部格式"></a>2.2 UDP首部格式</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/UDP首部.png" alt="avatar"></p>
 <h4 id="2-2-1-UDP的校验位"><a href="#2-2-1-UDP的校验位" class="headerlink" title="2.2.1 UDP的校验位"></a>2.2.1 UDP的校验位</h4><p>伪首部只有在计算校验和时才出现，不向上递交也不向下传送<br><br>封装UDP报文的IP数据报首部协议字段是17<br><br>UDP长度：UDP首部８B　＋　数据部分长度</p>
-<p><img src="校验.png" alt="avatar"></p>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/校验.png" alt="avatar"></p>
 <h4 id="2-2-2-UDP校验方式"><a href="#2-2-2-UDP校验方式" class="headerlink" title="2.2.2 UDP校验方式"></a>2.2.2 UDP校验方式</h4><p>在发送端：<strong>伪首部+首部+数据</strong>采用二进制反码求和，将结果填入检验和字段，<br>然后去掉伪首部发送</p>
 <h2 id="3-TCP协议"><a href="#3-TCP协议" class="headerlink" title="3. TCP协议"></a>3. TCP协议</h2><h3 id="3-1-TCP协议特点"><a href="#3-1-TCP协议特点" class="headerlink" title="3.1 TCP协议特点"></a>3.1 TCP协议特点</h3><p>TCP必须建立连接后才能进行数据交换，</p>
 <p>TCP提供可靠交付的服务，可靠有序，不丢不重。<br><br>全双工通信：有发送缓存和接收缓存</p>
 <p>面向字节流：把应用程序交下来的数据看成是一串<strong>无结构的字节流</strong></p>
-<h3 id="3-2-TCP报文的首部"><a href="#3-2-TCP报文的首部" class="headerlink" title="3.2 TCP报文的首部"></a>3.2 TCP报文的首部</h3><p><img src="TCP首部.png" alt="avatar"><br><strong>序号：</strong>序号的单位是字节，即每一个字节都按照顺序编号。这个字段表示本报文段发送数据的第一个字节的序号。</p>
+<h3 id="3-2-TCP报文的首部"><a href="#3-2-TCP报文的首部" class="headerlink" title="3.2 TCP报文的首部"></a>3.2 TCP报文的首部</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/TCP首部.png" alt="avatar"><br><strong>序号：</strong>序号的单位是字节，即每一个字节都按照顺序编号。这个字段表示本报文段发送数据的第一个字节的序号。</p>
 <p><strong>确认号：</strong>期望收到的对方下一个报文段的第一个数据字节的序号。若确认号是N，则前N-1的数据都已经正确接收。</p>
 <p><strong>数据偏移：</strong>即首部长度，以4B为单位。TCP有20B的固定首部</p>
 <h4 id="3-2-1-TCP首部的控制位"><a href="#3-2-1-TCP首部的控制位" class="headerlink" title="3.2.1 TCP首部的控制位"></a>3.2.1 TCP首部的控制位</h4><p>ACK：ACK=1时表示确认号有效，在连接建立后所有报文段都要置1.<br>三次握手时，除了第一次，其余ACK都为1.</p>
@@ -294,13 +294,13 @@
 <h3 id="3-3-TCP连接管理"><a href="#3-3-TCP连接管理" class="headerlink" title="3.3 TCP连接管理"></a>3.3 TCP连接管理</h3><h4 id="3-3-1-TCP三次握手"><a href="#3-3-1-TCP三次握手" class="headerlink" title="3.3.1 TCP三次握手"></a>3.3.1 TCP三次握手</h4><p>第一段的意思是<br><br>SYN=1：(A)要建立连接了！<br><br>seq=x（随机）：因为还没有数据，所以写什么都无所谓</p>
 <p>第二段的意思是<br><br>SYN=1：我(B)同意你(A)建立连接！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=y（随机）：因为还没有数据，所以写什么都无所谓<br><br>ack=x+1：之前发送方(A)说发送的是第x位数据（虽然发送方是瞎说的），所以我(B)要的是x+1位数据</p>
 <p>第三段的意思是<br><br>SYN=0：SYN只有在建立连接时才为1，其他时候均设为0<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=x+1：我(A)发送的报文段的第一个字节就是x+1<br><br>ack=y+1：之前接收方(B)说发送的是第y位数据（虽然接收方是瞎说的），所以我(A)要的是y+1位数据</p>
-<p>注意一下，TCP是双向的，所以不存在绝对不变的发送方接收方，这里的两台主机都同时是发送方和接收方<br><img src="三次握手.png" alt="avatar"></p>
+<p>注意一下，TCP是双向的，所以不存在绝对不变的发送方接收方，这里的两台主机都同时是发送方和接收方<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/三次握手.png" alt="avatar"></p>
 <h4 id="3-3-2-SYN洪泛攻击"><a href="#3-3-2-SYN洪泛攻击" class="headerlink" title="3.3.2 SYN洪泛攻击"></a>3.3.2 SYN洪泛攻击</h4><p>攻击者发送SYN请求建立连接，服务器返回ACK时，攻击者不予以确认，这个TCP连接就处于挂起状态。服务器没收到确认，会重复发送ACK给攻击者，浪费其资源。</p>
 <h4 id="3-3-3-TCP四次挥手"><a href="#3-3-3-TCP四次挥手" class="headerlink" title="3.3.3 TCP四次挥手"></a>3.3.3 TCP四次挥手</h4><p>第一段的意思是<br><br>FIN=1：(A)要释放连接了！<br><br>seq=u：发了好多数据，这里只是用u指代一下，这里u是有确定值的</p>
 <p>第二段的意思是<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=v：发了好多数据，这里只是用v指代一下，这里v是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（尽管此时A已经决定释放连接了）</p>
 <p>第三段的意思是<br><br>FIN=1：(B)要释放连接了！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=w：发了好多数据，这里只是用w指代一下，这里w是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（因为A直接不发数据了，所以第二段第三段的ack都是u+1）</p>
 <p>第四段的意思是<br>ACK=1：连接建立了，之后的ACK必须都置为1<br>seq=u+1：之前发的数据时第u位数据，B也要第u+1位数据，所以我发第u+1位数据<br>ack=w+1：之前发送方(B)说发送的是第w位数据，所以我(A)要的是w+1位数据</p>
-<p>为什么需要等待计时2MSL？<br><br>因为这样可以保证B可以收到A的终止报文段进而进入关闭状态<br><br>比如说如果A的第四段报文丢失，那么等待一个MSL之后B就会重传第三段报文，花费小于1MSL之后A就会再收到第三段报文，之后就可以再次向B发送第四段报文提示B关闭连接<br><img src="四次挥手.png" alt="avatar"></p>
+<p>为什么需要等待计时2MSL？<br><br>因为这样可以保证B可以收到A的终止报文段进而进入关闭状态<br><br>比如说如果A的第四段报文丢失，那么等待一个MSL之后B就会重传第三段报文，花费小于1MSL之后A就会再收到第三段报文，之后就可以再次向B发送第四段报文提示B关闭连接<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/四次挥手.png" alt="avatar"></p>
 <h3 id="3-4-TCP的可靠传输"><a href="#3-4-TCP的可靠传输" class="headerlink" title="3.4 TCP的可靠传输"></a>3.4 TCP的可靠传输</h3><p>UDP这种本身不可靠的依赖于应用层去解决。</p>
 <p>可靠：保证接收方进程从缓冲区读取的字节流与发送方发出的字节流完全一样。</p>
 <p>TCP实现可靠传输的机制：</p>
@@ -321,9 +321,9 @@
 </ol>
 <p>发送窗口= min{接收窗口，拥塞窗口}</p>
 <p>接收窗口：<strong>接收方</strong>根据接收缓存设置的值，并告知给发送方，反映接收方容量<br><br>拥塞窗口：<strong>发送方</strong>自己估算的网络拥塞程度设置的窗口值</p>
-<h4 id="3-6-2-慢开始和拥塞避免"><a href="#3-6-2-慢开始和拥塞避免" class="headerlink" title="3.6.2 慢开始和拥塞避免"></a>3.6.2 慢开始和拥塞避免</h4><p>开始指数形式增长，到达阈值后线性增长。<br><br>到达拥塞状态后，阈值降为原来的一半，拥塞窗口设置为1.<br><img src="慢开始和拥塞避免.png" alt="avatar"></p>
+<h4 id="3-6-2-慢开始和拥塞避免"><a href="#3-6-2-慢开始和拥塞避免" class="headerlink" title="3.6.2 慢开始和拥塞避免"></a>3.6.2 慢开始和拥塞避免</h4><p>开始指数形式增长，到达阈值后线性增长。<br><br>到达拥塞状态后，阈值降为原来的一半，拥塞窗口设置为1.<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/慢开始和拥塞避免.png" alt="avatar"></p>
 <h4 id="3-6-3-快重传和快恢复"><a href="#3-6-3-快重传和快恢复" class="headerlink" title="3.6.3 快重传和快恢复"></a>3.6.3 快重传和快恢复</h4><p>在收到连续的ack确认之后执行，这里的ack就是冗余ack，冗余ack的特点是如果多次对某一段请求的数据没有被收到，达到一定数目之后就会立即执行重传。</p>
-<p>此时传输数据报降到原来的一半，而不是降到1.<br><img src="快重传.png" alt="avatar"></p>
+<p>此时传输数据报降到原来的一半，而不是降到1.<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/快重传.png" alt="avatar"></p>
 
     </div>
 
@@ -478,12 +478,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">34k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">31 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

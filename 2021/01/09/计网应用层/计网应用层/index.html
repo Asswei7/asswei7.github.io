@@ -250,7 +250,7 @@
 <h3 id="2-1-域名服务器"><a href="#2-1-域名服务器" class="headerlink" title="2.1 域名服务器"></a>2.1 域名服务器</h3><p>DNS服务器有很多台，根据层次结构分为三层，根域名服务器，顶级域名服务器，权限域名服务器<br>本地域名服务器不算层次结构，特点是里主机比较近，当主机和另一台比较近的主机通信时，就不用走哪些更高级的服务器了</p>
 <p>根域名服务器并不是一个域名只有一台，而是一个域名对应多台域名服务器，全世界一共有13个这样的域名，分别是a.rootservers.net，b.rootservers.net，c.rootservers.net，~m.rootservers.net</p>
 <p>在权限域名服务器中，虽然看似abc.com比y.abc.com少了一位，但是他们的地位仍是对等的，对应的两台权限域名服务器</p>
-<h3 id="2-2-域名解析过程"><a href="#2-2-域名解析过程" class="headerlink" title="2.2 域名解析过程"></a>2.2 域名解析过程</h3><p><img src="域名解析.png" alt="avatar"></p>
+<h3 id="2-2-域名解析过程"><a href="#2-2-域名解析过程" class="headerlink" title="2.2 域名解析过程"></a>2.2 域名解析过程</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/域名解析.png" alt="avatar"></p>
 <h4 id="2-2-1-递归查询"><a href="#2-2-1-递归查询" class="headerlink" title="2.2.1 递归查询"></a>2.2.1 递归查询</h4><p>主机先是想本地域名服务器发送请求，如果查不到的话，<br><br><strong>本地域名服务器</strong>向根域名服务器发送请求（找别人），如果还是查不到的话，<br><br><strong>根域名服务器</strong>向顶级域名服务器发送请求（找别人），如果还是查不到的话，<br><br><br><strong>顶级域名服务器</strong>向权限域名服务器发送请求（找别人）<br><br>可以看到每一次向下一个查询的服务器都变了，不是主机一个个去问，而是服务器自己一个个问下去</p>
 <h4 id="2-2-2-迭代查询"><a href="#2-2-2-迭代查询" class="headerlink" title="2.2.2 迭代查询"></a>2.2.2 迭代查询</h4><p>主机先是想本地域名服务器发送请求，如果查不到的话，<br><br>本地域名服务器就让主机去向根域名服务器发送请求（主机去找，本地域名给目标根域名服务器的IP地址），如果还是查不到的话，<br><br>根域名域名服务器让主机去向对应的顶级域名服务器发送请求（主机去找，根域名给目标顶级域名服务器的IP地址），如果还是查不到的话，<br><br>顶级域名服务器让主机去向权限域名服务器发送请求（主机去找，顶级域名给目标权限域名服务器的IP地址）<br><br>可以看到这里是主机一个个挨个问的地址</p>
 <h4 id="2-2-2-高速缓存"><a href="#2-2-2-高速缓存" class="headerlink" title="2.2.2 高速缓存"></a>2.2.2 高速缓存</h4><p>为了减少多次查询同一个域名的资源浪费，本地域名服务器会存储最近使用的ip地址解析，下次再访问同一个域名就不需要这么多查询步骤了。同时这个高速缓存主机本身也有存储</p>
@@ -262,8 +262,8 @@
 <p>这里客户端和服务器端先建立TCP连接，端口是21，称为<strong>控制连接</strong></p>
 <p><strong>主动建立</strong>连接是指<strong>服务器端</strong>主动发送请求和客户端进行连接，此时端口号固定是20</p>
 <p>被动连接是指客户端发送请求和服务器端建立数据传送连接，此时端口号是不确定，有两者协商得到</p>
-<p>数据传输完成之后，数据连接断开，控制连接继续保持，直至两边发送断开请求<br><img src="FTP.png" alt="avatar"></p>
-<h2 id="4-电子邮件"><a href="#4-电子邮件" class="headerlink" title="4. 电子邮件"></a>4. 电子邮件</h2><p>SMTP：TCP连接，端口号25<br><img src="电子邮件.png" alt="avatar"></p>
+<p>数据传输完成之后，数据连接断开，控制连接继续保持，直至两边发送断开请求<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/FTP.png" alt="avatar"></p>
+<h2 id="4-电子邮件"><a href="#4-电子邮件" class="headerlink" title="4. 电子邮件"></a>4. 电子邮件</h2><p>SMTP：TCP连接，端口号25<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/%E8%AE%A1%E7%BD%91%E5%BA%94%E7%94%A8%E5%B1%82/电子邮件.png" alt="avatar"></p>
 <h2 id="5-万维网和HTTP"><a href="#5-万维网和HTTP" class="headerlink" title="5. 万维网和HTTP"></a>5. 万维网和HTTP</h2><p>URL用来标识整个互联网当中的某一个资源（文字，视屏，音频等）的位置</p>
 <p>HTTP用来将这些资源传送给用户</p>
 <p>服务器通过TCP 80端口来监听HTTP请求</p>
@@ -421,12 +421,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">NaNm</span>
+    <span title="Symbols count total">34k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">NaN:aN</span>
+    <span title="Reading time total">31 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
