@@ -92,7 +92,7 @@
     <link href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/"/>
     <id>https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/</id>
     <published>2021-01-09T12:57:07.000Z</published>
-    <updated>2021-01-10T01:53:57.868Z</updated>
+    <updated>2021-01-10T06:56:08.732Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><h2 id="2-数据通信基本知识"><a href="#2-数据通信基本知识" class="headerlink" title="2. 数据通信基本知识"></a>2. 数据通信基本知识</h2><h3 id="2-1-一个数据通信例子"><a href="#2-1-一个数据通信例子" class="headerlink" title="2.1 一个数据通信例子"></a>2.1 一个数据通信例子</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/例子.png" alt="avatar"></p><h3 id="2-2-相关术语"><a href="#2-2-相关术语" class="headerlink" title="2.2 相关术语"></a>2.2 相关术语</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/术语.png" alt="avatar"></p><h3 id="2-3-三种通信方式"><a href="#2-3-三种通信方式" class="headerlink" title="2.3 三种通信方式"></a>2.3 三种通信方式</h3><div class="table-container"><table><thead><tr><th style="text-align:center">名称</th><th style="text-align:center">定义</th><th style="text-align:center">需要信道数</th></tr></thead><tbody><tr><td style="text-align:center">单工</td><td style="text-align:center">一个发一个收</td><td style="text-align:center">一条</td></tr><tr><td style="text-align:center">半双工</td><td style="text-align:center">两边都可以发或收，但同一时间只能进行一个</td><td style="text-align:center">两条</td></tr><tr><td style="text-align:center">全双工</td><td style="text-align:center">都可以同时收发数据</td><td style="text-align:center">两条</td></tr></tbody></table></div><h3 id="2-4-数据传输方式"><a href="#2-4-数据传输方式" class="headerlink" title="2.4 数据传输方式"></a>2.4 数据传输方式</h3><div class="table-container"><table><thead><tr><th style="text-align:center">传输方式</th><th style="text-align:center">特点</th></tr></thead><tbody><tr><td style="text-align:center">串行</td><td style="text-align:center">速度慢，省钱，适合远距离</td></tr><tr><td style="text-align:center">并行</td><td style="text-align:center">速度快，耗钱，适合近距离</td></tr></tbody></table></div><h3 id="2-5-码元"><a href="#2-5-码元" class="headerlink" title="2.5 码元"></a>2.5 码元</h3><p>一个码元可以携带多个比特信息</p><h3 id="2-6-波特Baud"><a href="#2-6-波特Baud" class="headerlink" title="2.6 波特Baud"></a>2.6 波特Baud</h3><p>一秒可以传输多少码元</p><h3 id="2-7-速率"><a href="#2-7-速率" class="headerlink" title="2.7 速率"></a>2.7 速率</h3><p>信息传输速率：b/s<br><br>码元传输速率：波特</p><p>码元可以理解为携带几个比特的信息，码元所带比特数=log2M(码元进制数)<br><br>信息传输速率（网速）=码元传输速率x码元所带信息量（多少比特）</p><h3 id="2-8-带宽"><a href="#2-8-带宽" class="headerlink" title="2.8 带宽"></a>2.8 带宽</h3><p>最高数据率</p><h3 id="2-9-奈奎斯特准则"><a href="#2-9-奈奎斯特准则" class="headerlink" title="2.9 奈奎斯特准则"></a>2.9 奈奎斯特准则</h3><p>在信道带宽是W Hz的情况下，码元传输速率上限是2W Baud。</p><p>而数据传输速率=码元速率*码元携带比特量</p><p>所以极限数据传输率=2Wlog2M</p><h3 id="2-10-香农公式"><a href="#2-10-香农公式" class="headerlink" title="2.10 香农公式"></a>2.10 香农公式</h3><p>信噪比(dB) = 10log10(S/N)</p><p>极限数据传输速率 = Wlog2(1+S/N)</p><p>信道的<strong>带宽</strong>或者<strong>信噪比</strong>越大，极限数据传输速率就越高。</p><h3 id="2-11-基带信号和带宽信号"><a href="#2-11-基带信号和带宽信号" class="headerlink" title="2.11 基带信号和带宽信号"></a>2.11 基带信号和带宽信号</h3><p>基带信号：计算机输出的0，1数字信号，未经处理。距离近时使用。<br><br>带宽信号：将基带信号调制后形成的较高频段的模拟信号。距离远时使用</p><h3 id="2-12-编码"><a href="#2-12-编码" class="headerlink" title="2.12 编码"></a>2.12 编码</h3><p>将数据转化为数字信号。</p><p>模拟数据通过PCM编码器转化为数字信号。</p><p>曼彻斯特编码：单极性编码的缺点是没有办法区分此时是没有信号，还是有信号，但是信号是0.<br>这种编码方式是bit中间有信号，低-高跳转表示0，高-低跳转表示1，一个时钟周期只可以表示一个bit，并且必须通过两次采样才能得到一个bit。它能携带时钟信号，而且能区分此时是没有信号还是信号为0.</p><p>差分曼彻斯特编码：抗干扰能力比曼彻斯特编码更强。bit与bit之间有信号跳变，表示下一个bit为0，bit与bit之间没有信号跳变，表示下一个bit为1。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/曼彻斯特.png" alt="avatar"></p><h3 id="2-13-调制"><a href="#2-13-调制" class="headerlink" title="2.13 调制"></a>2.13 调制</h3><p>不论模拟和数字数据，通过调制器转换为模拟信号。<br><br>调频，调幅，调相<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/调制.png" alt="avatar"></p><h2 id="3-物理层传输介质"><a href="#3-物理层传输介质" class="headerlink" title="3. 物理层传输介质"></a>3. 物理层传输介质</h2><p>导向性介质：铜线/光纤<br><br>非导向性介质：空气</p><h3 id="3-1-导向性传输介质"><a href="#3-1-导向性传输介质" class="headerlink" title="3.1 导向性传输介质"></a>3.1 导向性传输介质</h3><h4 id="3-1-1-双绞线"><a href="#3-1-1-双绞线" class="headerlink" title="3.1.1 双绞线"></a>3.1.1 双绞线</h4><p>根据有无屏蔽层分为<strong>屏蔽双绞线（STP）和无屏蔽双绞线（UTP）</strong><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/双绞线.png" alt="avatar"></p><h4 id="3-1-2-同轴电缆"><a href="#3-1-2-同轴电缆" class="headerlink" title="3.1.2 同轴电缆"></a>3.1.2 同轴电缆</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/同轴电缆.png" alt="avatar"></p><h4 id="3-1-3-光纤"><a href="#3-1-3-光纤" class="headerlink" title="3.1.3 光纤"></a>3.1.3 光纤</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/光纤.png" alt="avatar"><br>根据入射角的不同，分为单模光纤和多模光纤。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/单模.png" alt="avatar"></p><h3 id="3-2-非导向性介质"><a href="#3-2-非导向性介质" class="headerlink" title="3.2 非导向性介质"></a>3.2 非导向性介质</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/非导向.png" alt="avatar"></p><h2 id="4-物理层设备"><a href="#4-物理层设备" class="headerlink" title="4. 物理层设备"></a>4. 物理层设备</h2><h3 id="4-1-中继器"><a href="#4-1-中继器" class="headerlink" title="4.1 中继器"></a>4.1 中继器</h3><p>5是指不能超过5个网段<br><br>4是指在这些网段中的物理层网络设备（中继器，集线器）最多不超过4个<br><br>3是指这些网段中最多只有三个网段挂有计算机<br><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/中继器.png" alt="avatar"></p><h3 id="4-2-集线器"><a href="#4-2-集线器" class="headerlink" title="4.2 集线器"></a>4.2 集线器</h3><p>集线器是个大的冲突域，同时只能有<strong>两个设备进行通讯</strong>，只会传输信号，没有智能。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/集线器.png" alt="avatar"></p>]]></content>
     
@@ -161,26 +161,27 @@
   </entry>
   
   <entry>
-    <title>swag meaning</title>
-    <link href="https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/"/>
-    <id>https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/</id>
+    <title>在惊讶中学习- 慢增长</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/</id>
     <published>2021-01-08T06:57:32.000Z</published>
-    <updated>2021-01-08T07:29:20.353Z</updated>
+    <updated>2021-01-08T07:29:29.968Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="The-meaning-of-swag"><a href="#The-meaning-of-swag" class="headerlink" title="The meaning of swag"></a>The meaning of swag</h3><ul><li>Hey mam. What’s poppin?  </li><li>Yo. what up dawg? Good to see you here.</li><li>Yes, are you here for the audition as well?</li><li>I mean, who isn’t. I’m all pumped up right now.</li><li>You have a great chance of winning among all these readers.</li><li>Come on bruh. Look at you. You got the swag, the talent and everything.</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>在大选前，我曾看过一篇文章，用非常翔实的数据，做了一个数学模型，最终预测川普获胜。当时我觉得整体分析过程挺不错，收藏了那篇文章。</p><p>如今，我想回头去看看那篇文章中的模型，哪些分析结果与实际不符，竟然发现作者把自己的文章给删除了 </p><p>太可惜了。算法预测失败是很正常的呀！关键是复盘，总结，让大家看到问题出在哪里，这也是学习，甚至是更重要的学习呀。</p><blockquote><p>People learn when they’re surprised.</p></blockquote><p>为什么现在的教科书中让人提不起兴趣？</p><blockquote><p>astonishing facts were presented without astonishment.</p></blockquote><hr><p>过去追求快，结果却很慢。真的慢下来，才发现：慢就是快。<br>结合我自身来说，很多时候为了赶进度，两倍速囫囵吞枣地看视频，有了一个大概的认识，但当我关上视频时，刚才看的什么也就完全忘得一干二净了。只有当真正静下心来看，能与别的东西连结起来，才是真正的收获。</p><p>研究生刚创业的时候，一腔热血，觉得自己要学习乔布斯，改变世界。Change the World。</p><p>后来，来了美国，和一个 Google 的同学聊天，启发很大。其实，我们不需要改变世界，对这个世界产生一点影响，就够了。所谓的 Make an Impact。</p><p>但是现在，我的观念又变了。我觉得，产生一点影响都是奢求。现在，我喜欢的说法，是产生一点涟漪。Make a Ripple。</p><p>你看，我是不是越来越没追求？</p><p>但我却觉得，我越来越进步了。因为，不再年少轻狂，理解了梦想和现实的分界。</p><p>慢慢来，哪怕产生一点涟漪，或许才是实现梦想的开始。</p><p>再不济，涟漪虽浅，但也证明，我在这里。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;The-meaning-of-swag&quot;&gt;&lt;a href=&quot;#The-meaning-of-swag&quot; class=&quot;headerlink&quot; title=&quot;The meaning of swag&quot;&gt;&lt;/a&gt;The meaning of swag&lt;/h3&gt;&lt;ul&gt;
-
+        &lt;p&gt;在大选前，我曾看过一篇文章，用非常翔实的数据，做了一个数学模型，最终预测川普获胜。当时我觉得整体分析过程挺不错，收藏了那篇文章。&lt;/p&gt;
+&lt;p&gt;如今，我想回头去看看那篇文章中的模型，哪些分析结果与实际不符，竟然发现作者把自己的文章给删除了 &lt;/p&gt;
+&lt;p&gt;太可惜了。算法预测
       
     
     </summary>
     
     
-      <category term="社科知识" scheme="https://asswei7.github.io/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/"/>
+      <category term="技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
@@ -210,27 +211,26 @@
   </entry>
   
   <entry>
-    <title>在惊讶中学习- 慢增长</title>
-    <link href="https://asswei7.github.io/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://asswei7.github.io/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/</id>
+    <title>swag meaning</title>
+    <link href="https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/"/>
+    <id>https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/</id>
     <published>2021-01-08T06:57:32.000Z</published>
-    <updated>2021-01-08T07:29:29.968Z</updated>
+    <updated>2021-01-08T07:29:20.353Z</updated>
     
-    <content type="html"><![CDATA[<p>在大选前，我曾看过一篇文章，用非常翔实的数据，做了一个数学模型，最终预测川普获胜。当时我觉得整体分析过程挺不错，收藏了那篇文章。</p><p>如今，我想回头去看看那篇文章中的模型，哪些分析结果与实际不符，竟然发现作者把自己的文章给删除了 </p><p>太可惜了。算法预测失败是很正常的呀！关键是复盘，总结，让大家看到问题出在哪里，这也是学习，甚至是更重要的学习呀。</p><blockquote><p>People learn when they’re surprised.</p></blockquote><p>为什么现在的教科书中让人提不起兴趣？</p><blockquote><p>astonishing facts were presented without astonishment.</p></blockquote><hr><p>过去追求快，结果却很慢。真的慢下来，才发现：慢就是快。<br>结合我自身来说，很多时候为了赶进度，两倍速囫囵吞枣地看视频，有了一个大概的认识，但当我关上视频时，刚才看的什么也就完全忘得一干二净了。只有当真正静下心来看，能与别的东西连结起来，才是真正的收获。</p><p>研究生刚创业的时候，一腔热血，觉得自己要学习乔布斯，改变世界。Change the World。</p><p>后来，来了美国，和一个 Google 的同学聊天，启发很大。其实，我们不需要改变世界，对这个世界产生一点影响，就够了。所谓的 Make an Impact。</p><p>但是现在，我的观念又变了。我觉得，产生一点影响都是奢求。现在，我喜欢的说法，是产生一点涟漪。Make a Ripple。</p><p>你看，我是不是越来越没追求？</p><p>但我却觉得，我越来越进步了。因为，不再年少轻狂，理解了梦想和现实的分界。</p><p>慢慢来，哪怕产生一点涟漪，或许才是实现梦想的开始。</p><p>再不济，涟漪虽浅，但也证明，我在这里。</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="The-meaning-of-swag"><a href="#The-meaning-of-swag" class="headerlink" title="The meaning of swag"></a>The meaning of swag</h3><ul><li>Hey mam. What’s poppin?  </li><li>Yo. what up dawg? Good to see you here.</li><li>Yes, are you here for the audition as well?</li><li>I mean, who isn’t. I’m all pumped up right now.</li><li>You have a great chance of winning among all these readers.</li><li>Come on bruh. Look at you. You got the swag, the talent and everything.</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;在大选前，我曾看过一篇文章，用非常翔实的数据，做了一个数学模型，最终预测川普获胜。当时我觉得整体分析过程挺不错，收藏了那篇文章。&lt;/p&gt;
-&lt;p&gt;如今，我想回头去看看那篇文章中的模型，哪些分析结果与实际不符，竟然发现作者把自己的文章给删除了 &lt;/p&gt;
-&lt;p&gt;太可惜了。算法预测
+        &lt;h3 id=&quot;The-meaning-of-swag&quot;&gt;&lt;a href=&quot;#The-meaning-of-swag&quot; class=&quot;headerlink&quot; title=&quot;The meaning of swag&quot;&gt;&lt;/a&gt;The meaning of swag&lt;/h3&gt;&lt;ul&gt;
+
       
     
     </summary>
     
     
-      <category term="技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
+      <category term="社科知识" scheme="https://asswei7.github.io/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/"/>
     
     
   </entry>
@@ -462,30 +462,6 @@
   </entry>
   
   <entry>
-    <title>卷积</title>
-    <link href="https://asswei7.github.io/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/"/>
-    <id>https://asswei7.github.io/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/</id>
-    <published>2020-04-12T02:07:05.000Z</published>
-    <updated>2021-01-08T07:33:50.847Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="傅里叶的变换哲学"><a href="#傅里叶的变换哲学" class="headerlink" title="傅里叶的变换哲学"></a>傅里叶的变换哲学</h1><p>泊松：用三角级数的和表达一些周期的函数<br>傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)<br>狄利克雷：给出了能拆的充分不必要的条件<br>采用三角级数表达是因为三角的微分和积分仍是三角函数。</p><h1 id="终成精神病的数学家-康托尔"><a href="#终成精神病的数学家-康托尔" class="headerlink" title="终成精神病的数学家(康托尔)"></a>终成精神病的数学家(康托尔)</h1><p>集合论的鼻祖：康托尔<br>父母希望学工科，自己想读数学。<br>伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。<br>康托尔：是等势的，个数一样多。<br>由此得出的结论：半径不同的同心圆，可以理解为包含了相等个数的点<br>他在柏林大学的导师克罗内克极力反对他的理论，最终在康托尔40岁的时候精神崩溃，得了躁郁症。</p><h1 id="存在：缸中之脑"><a href="#存在：缸中之脑" class="headerlink" title="存在：缸中之脑"></a>存在：缸中之脑</h1><p>哲学关注的问题和门口的保安关注的很相似：你是谁、你从哪里来、你到哪里去？<br>罗素：一切确切的知识属于科学，一切超出于确切知识以外的教条，属于神学，介于科学和神学之间的理论就是哲学。<br>普特南：把大脑放在营养液当中，通过电脑编程给大脑不同的刺激，让大脑感觉确实正在做类似的事情。<br>哥德尔不完全性定理：人类不可能创造一个公理系统来证明世界上所有的东西，却在论证中不产生矛盾。<br>如果想论证世界上所有的结论是真还是假，一定会产生矛盾。<br>用肉体的辛苦去换取思想的自由，而思想的更加的自由才是我们在这个世界存在的理由。</p><h1 id="根号2与第一次数学危机"><a href="#根号2与第一次数学危机" class="headerlink" title="根号2与第一次数学危机"></a>根号2与第一次数学危机</h1><p>实数分为有理数和无理数。<br><em>毕达哥拉斯</em>：政教合一的组织，万物皆数，通过整数和整数的比值(整数，有限小数，无限循环小数)来解释。<br><em>希帕索斯</em>： 发现了根号2，被沉入大海淹死了。 假设根号2等于a/b，a,b互质。$2=\frac{a^2}{b^2}$ $2b^2=a^2$ 所以a是偶数，且是4的倍数，所以B为偶数，与假设矛盾。<br><em>欧多克索斯</em>：他采用了一个十分巧妙的关于“两个量之比”的新说法，回避了√2是无理数的实质，而是用几何的方法处理不可公度比。这样做的结果就使几何的基础牢靠了，几何从全部数学中脱颖而出，同时欧几里得的《几何原本》也采用了这一说法，以致在以后的二千年中，几何变成了几乎是全部严密数学的基础。<br><em>戴德金</em>：怎样由已知的有理数，去定义这些无理数呢？戴德金想了一个办法：就用这个无理数前面的有理数，以及这个无理数后面的有理数。<br>这两段有理数，把我们要定义的无理数夹在中间，就形成了戴德金分割。</p><h1 id="一个聪明人的悲剧"><a href="#一个聪明人的悲剧" class="headerlink" title="一个聪明人的悲剧"></a>一个聪明人的悲剧</h1><p>恪聪明尽显于外，此子非保家之主也。聪明总是拿出来显摆。</p><h1 id="为密码加把盐"><a href="#为密码加把盐" class="headerlink" title="为密码加把盐"></a>为密码加把盐</h1><p>网站后台如何保存用户的密码？<br>服务器不存储明文密码，只存储密码变换后的数据，这样被盗也不知道原密码。<br>但是简单的变换，在巨量的数据下，很容易推导出变换公式。<br>算法要求：</p><ol><li>单向，很难通过密文来推导出明文，不可逆</li><li>强碰撞性，不同的明文要对应完全不同的密文<br>李维斯特，MD5，MessageDigest数据摘要算法。<br>问题：黑客可以做一张表，当原始数据较短时，可以在彩虹表里去查，每个八位数对应的MD5是什么。<br>所以此时需要给原始的密码自动加一点盐，md5(md5(password)+salt)<h1 id="相对论"><a href="#相对论" class="headerlink" title="相对论"></a>相对论</h1><em>我想知道的，上帝是如何创造这个世界的，我对这个或者那个现象、这个或者那个元素的能谱不感兴趣，我要知道的是他的思想，其他的都是细节。</em><br>牛顿经典时空观：时间和空间是相互独立的，时间在任何一个地方是均匀流逝的。<br>光，就是可见波段的一种电磁波。<br>狭义相对论基本假设：</li><li>世界上任意两个惯性系(匀速直线运动或静止系统)之间得到的物理定律是一样的。<br>但是不满足伽利略变换，在接近光速的情况下，要进行洛伦兹变换，速度不能直接相加。<br>得到的结论：时间会变慢、长度会收缩、质量会增加。<h1 id="欧拉公式在干什么"><a href="#欧拉公式在干什么" class="headerlink" title="欧拉公式在干什么"></a>欧拉公式在干什么</h1>$e^{ix}=\cos x+i\sin x$当x=\pi,$e^{i\pi}+1=0$</li></ol><h1 id="自动控制原理遛狗"><a href="#自动控制原理遛狗" class="headerlink" title="自动控制原理遛狗"></a>自动控制原理遛狗</h1><p>给定环节、比较器、控制器(大脑)、执行机构(绳子)、被控对象(狗)</p><h1 id="PID-proportional-integral-derivative-controller"><a href="#PID-proportional-integral-derivative-controller" class="headerlink" title="PID(proportional-integral-derivative controller)"></a>PID(proportional-integral-derivative controller)</h1><p>烧水到80°，从75到85可以接受，希望烧水烧得最快，一开始火开到最大，等待70°左右减少火。<br>P:偏差越大，控制的力度就越大。(弹簧)<br>I:系统没惯性，会存在静差。对历史的偏差进行累加(惯性，锅关了火温度还会上升)<br>D:(阻尼力)</p><h1 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h1><p>wavelet:wave表示波，let表示小。droplet水滴，leaflet小树叶，booklet小册子<br>傅里叶变换：将时间信号拆解为不同频率的正弦波相加。(需要假设时域信号的频率不随时间改变)<br>但是根据多普勒效应，大多数情况下，信号的频率会随着时间的变化而变化。<br>对于一个随时间变化而频率改变的信号做傅里叶变换，得到的波失去了时间特性。<br>这是因为正弦波的幅值与时间无关。<br>所以需要小波：一个长度比较短的波，只在一个时间范围内有值，其余时间内值为0.<br>将时域信号向不同位置、不同胖瘦的小波去表达，能反映频率和时间特性。</p><h1 id="泰勒公式有何用"><a href="#泰勒公式有何用" class="headerlink" title="泰勒公式有何用"></a>泰勒公式有何用</h1><p>如何计算sin36°？</p><h1 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h1><p>系统就是一个房间，输入f(t)，输出y(t)，系统的影响h(t)，系统的单位冲击响应<br>y(t)=f(t)*h(t)  Y(s) = F(s)H(s)<br>时域的卷到了复频域变成了乘积。单位冲击响应的拉普拉斯变换就是传递函数</p><h1 id="冲激函数冲出了什么"><a href="#冲激函数冲出了什么" class="headerlink" title="冲激函数冲出了什么"></a>冲激函数冲出了什么</h1><p>线性时不变系统：输入增大、输出随之增大(线性)，频率不随时间变化而变化(时不变)</p><h1 id="卷积："><a href="#卷积：" class="headerlink" title="卷积："></a>卷积：</h1><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}f(\tau)g(t-\tau)d\tau</script><p>傅里叶：将一个函数用无限多个正弦波的函数加和来表示<br>拉普拉斯：将一个函数部分衰减后用无限多个正弦波加和来表达<br>因为正弦波的积分和微分仍然是正弦波。<br>任意一个函数可以划得更简单一点：</p><script type="math/tex; mode=display">y(t)\approx \sum_{-\infty}^{+infty}许多线段</script><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}许多点</script><p>u(t)是0之前是0,0之后为1。$u(t)-u(t-t_0)$就是在0到t0的冲激<br>把f(t)拆成一段一段的，u(t)的导数就是冲激函数<br>相当于把函数敲碎。<br>那我们可以先用冲击函数δ(t)通过系统得到冲击响应h(t)。<br>然后我们把任何输入f(t)通过卷积表示为无穷多冲击函数的累加，即f(t)＝f(t)<em>δ(t)。(这里</em>表示卷积运算)<br>最后根据线性时不变系统的性质，可以得到响应y(t)＝f(t)*h(t)。<br>于是只要我们知道冲激响应，对于任何输入的响应也可以通过卷积运算得到。</p><h1 id="模拟是什么意思"><a href="#模拟是什么意思" class="headerlink" title="模拟是什么意思"></a>模拟是什么意思</h1><p>将一个物理量转换为另一个物理量。<br>通过电信号来模拟大自然的物理量（比如利用运算放大器，一段输入1.2V,一段1.5V，得到的结果即为乘积）</p><h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p>卷积：特征提取器，滤波器<br>神经网络：分类器</p><h1 id="Z变换"><a href="#Z变换" class="headerlink" title="Z变换"></a>Z变换</h1><p>Z变换分析的是离散系统，傅里叶和拉普拉斯是连续系统。<br>电脑只有高高低低的电平，是离散的。所以要将连续信号冲激成离散的冲激串。<br>即采样。  可以无损的敲碎。<br>对采样的信号进行拉普拉斯变换，得到的结果也是离散信号。</p><h1 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h1><p>估计器，通过各种各样的测量方法来最后加权平均来估计到一个结果。</p><h1 id="无功功率"><a href="#无功功率" class="headerlink" title="无功功率"></a>无功功率</h1><p>全连接：映射到高维。然后softmax进行分类。</p><h1 id="对抗生成网络：GAN"><a href="#对抗生成网络：GAN" class="headerlink" title="对抗生成网络：GAN"></a>对抗生成网络：GAN</h1><p>mnist 28×28<br>生成器G：一个随机的向量，通过生成器G，得到一个图像，28×28×1，得到一个假的数据。<br>判别器D：对生成的图像判别，得到1或者0.   </p><p>损失函数：一方面让判别器分辨能力更强，另一方面让生成器更真</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;傅里叶的变换哲学&quot;&gt;&lt;a href=&quot;#傅里叶的变换哲学&quot; class=&quot;headerlink&quot; title=&quot;傅里叶的变换哲学&quot;&gt;&lt;/a&gt;傅里叶的变换哲学&lt;/h1&gt;&lt;p&gt;泊松：用三角级数的和表达一些周期的函数&lt;br&gt;傅里叶：用三角级数的和表达非周期的函数(极大的
-      
-    
-    </summary>
-    
-    
-      <category term="社科知识" scheme="https://asswei7.github.io/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>OJ基础</title>
     <link href="https://asswei7.github.io/2020/04/12/PAT/"/>
     <id>https://asswei7.github.io/2020/04/12/PAT/</id>
@@ -505,6 +481,30 @@
     
     
       <category term="编程相关" scheme="https://asswei7.github.io/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>卷积</title>
+    <link href="https://asswei7.github.io/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/"/>
+    <id>https://asswei7.github.io/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/</id>
+    <published>2020-04-12T02:07:05.000Z</published>
+    <updated>2021-01-08T07:33:50.847Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="傅里叶的变换哲学"><a href="#傅里叶的变换哲学" class="headerlink" title="傅里叶的变换哲学"></a>傅里叶的变换哲学</h1><p>泊松：用三角级数的和表达一些周期的函数<br>傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)<br>狄利克雷：给出了能拆的充分不必要的条件<br>采用三角级数表达是因为三角的微分和积分仍是三角函数。</p><h1 id="终成精神病的数学家-康托尔"><a href="#终成精神病的数学家-康托尔" class="headerlink" title="终成精神病的数学家(康托尔)"></a>终成精神病的数学家(康托尔)</h1><p>集合论的鼻祖：康托尔<br>父母希望学工科，自己想读数学。<br>伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。<br>康托尔：是等势的，个数一样多。<br>由此得出的结论：半径不同的同心圆，可以理解为包含了相等个数的点<br>他在柏林大学的导师克罗内克极力反对他的理论，最终在康托尔40岁的时候精神崩溃，得了躁郁症。</p><h1 id="存在：缸中之脑"><a href="#存在：缸中之脑" class="headerlink" title="存在：缸中之脑"></a>存在：缸中之脑</h1><p>哲学关注的问题和门口的保安关注的很相似：你是谁、你从哪里来、你到哪里去？<br>罗素：一切确切的知识属于科学，一切超出于确切知识以外的教条，属于神学，介于科学和神学之间的理论就是哲学。<br>普特南：把大脑放在营养液当中，通过电脑编程给大脑不同的刺激，让大脑感觉确实正在做类似的事情。<br>哥德尔不完全性定理：人类不可能创造一个公理系统来证明世界上所有的东西，却在论证中不产生矛盾。<br>如果想论证世界上所有的结论是真还是假，一定会产生矛盾。<br>用肉体的辛苦去换取思想的自由，而思想的更加的自由才是我们在这个世界存在的理由。</p><h1 id="根号2与第一次数学危机"><a href="#根号2与第一次数学危机" class="headerlink" title="根号2与第一次数学危机"></a>根号2与第一次数学危机</h1><p>实数分为有理数和无理数。<br><em>毕达哥拉斯</em>：政教合一的组织，万物皆数，通过整数和整数的比值(整数，有限小数，无限循环小数)来解释。<br><em>希帕索斯</em>： 发现了根号2，被沉入大海淹死了。 假设根号2等于a/b，a,b互质。$2=\frac{a^2}{b^2}$ $2b^2=a^2$ 所以a是偶数，且是4的倍数，所以B为偶数，与假设矛盾。<br><em>欧多克索斯</em>：他采用了一个十分巧妙的关于“两个量之比”的新说法，回避了√2是无理数的实质，而是用几何的方法处理不可公度比。这样做的结果就使几何的基础牢靠了，几何从全部数学中脱颖而出，同时欧几里得的《几何原本》也采用了这一说法，以致在以后的二千年中，几何变成了几乎是全部严密数学的基础。<br><em>戴德金</em>：怎样由已知的有理数，去定义这些无理数呢？戴德金想了一个办法：就用这个无理数前面的有理数，以及这个无理数后面的有理数。<br>这两段有理数，把我们要定义的无理数夹在中间，就形成了戴德金分割。</p><h1 id="一个聪明人的悲剧"><a href="#一个聪明人的悲剧" class="headerlink" title="一个聪明人的悲剧"></a>一个聪明人的悲剧</h1><p>恪聪明尽显于外，此子非保家之主也。聪明总是拿出来显摆。</p><h1 id="为密码加把盐"><a href="#为密码加把盐" class="headerlink" title="为密码加把盐"></a>为密码加把盐</h1><p>网站后台如何保存用户的密码？<br>服务器不存储明文密码，只存储密码变换后的数据，这样被盗也不知道原密码。<br>但是简单的变换，在巨量的数据下，很容易推导出变换公式。<br>算法要求：</p><ol><li>单向，很难通过密文来推导出明文，不可逆</li><li>强碰撞性，不同的明文要对应完全不同的密文<br>李维斯特，MD5，MessageDigest数据摘要算法。<br>问题：黑客可以做一张表，当原始数据较短时，可以在彩虹表里去查，每个八位数对应的MD5是什么。<br>所以此时需要给原始的密码自动加一点盐，md5(md5(password)+salt)<h1 id="相对论"><a href="#相对论" class="headerlink" title="相对论"></a>相对论</h1><em>我想知道的，上帝是如何创造这个世界的，我对这个或者那个现象、这个或者那个元素的能谱不感兴趣，我要知道的是他的思想，其他的都是细节。</em><br>牛顿经典时空观：时间和空间是相互独立的，时间在任何一个地方是均匀流逝的。<br>光，就是可见波段的一种电磁波。<br>狭义相对论基本假设：</li><li>世界上任意两个惯性系(匀速直线运动或静止系统)之间得到的物理定律是一样的。<br>但是不满足伽利略变换，在接近光速的情况下，要进行洛伦兹变换，速度不能直接相加。<br>得到的结论：时间会变慢、长度会收缩、质量会增加。<h1 id="欧拉公式在干什么"><a href="#欧拉公式在干什么" class="headerlink" title="欧拉公式在干什么"></a>欧拉公式在干什么</h1>$e^{ix}=\cos x+i\sin x$当x=\pi,$e^{i\pi}+1=0$</li></ol><h1 id="自动控制原理遛狗"><a href="#自动控制原理遛狗" class="headerlink" title="自动控制原理遛狗"></a>自动控制原理遛狗</h1><p>给定环节、比较器、控制器(大脑)、执行机构(绳子)、被控对象(狗)</p><h1 id="PID-proportional-integral-derivative-controller"><a href="#PID-proportional-integral-derivative-controller" class="headerlink" title="PID(proportional-integral-derivative controller)"></a>PID(proportional-integral-derivative controller)</h1><p>烧水到80°，从75到85可以接受，希望烧水烧得最快，一开始火开到最大，等待70°左右减少火。<br>P:偏差越大，控制的力度就越大。(弹簧)<br>I:系统没惯性，会存在静差。对历史的偏差进行累加(惯性，锅关了火温度还会上升)<br>D:(阻尼力)</p><h1 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h1><p>wavelet:wave表示波，let表示小。droplet水滴，leaflet小树叶，booklet小册子<br>傅里叶变换：将时间信号拆解为不同频率的正弦波相加。(需要假设时域信号的频率不随时间改变)<br>但是根据多普勒效应，大多数情况下，信号的频率会随着时间的变化而变化。<br>对于一个随时间变化而频率改变的信号做傅里叶变换，得到的波失去了时间特性。<br>这是因为正弦波的幅值与时间无关。<br>所以需要小波：一个长度比较短的波，只在一个时间范围内有值，其余时间内值为0.<br>将时域信号向不同位置、不同胖瘦的小波去表达，能反映频率和时间特性。</p><h1 id="泰勒公式有何用"><a href="#泰勒公式有何用" class="headerlink" title="泰勒公式有何用"></a>泰勒公式有何用</h1><p>如何计算sin36°？</p><h1 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h1><p>系统就是一个房间，输入f(t)，输出y(t)，系统的影响h(t)，系统的单位冲击响应<br>y(t)=f(t)*h(t)  Y(s) = F(s)H(s)<br>时域的卷到了复频域变成了乘积。单位冲击响应的拉普拉斯变换就是传递函数</p><h1 id="冲激函数冲出了什么"><a href="#冲激函数冲出了什么" class="headerlink" title="冲激函数冲出了什么"></a>冲激函数冲出了什么</h1><p>线性时不变系统：输入增大、输出随之增大(线性)，频率不随时间变化而变化(时不变)</p><h1 id="卷积："><a href="#卷积：" class="headerlink" title="卷积："></a>卷积：</h1><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}f(\tau)g(t-\tau)d\tau</script><p>傅里叶：将一个函数用无限多个正弦波的函数加和来表示<br>拉普拉斯：将一个函数部分衰减后用无限多个正弦波加和来表达<br>因为正弦波的积分和微分仍然是正弦波。<br>任意一个函数可以划得更简单一点：</p><script type="math/tex; mode=display">y(t)\approx \sum_{-\infty}^{+infty}许多线段</script><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}许多点</script><p>u(t)是0之前是0,0之后为1。$u(t)-u(t-t_0)$就是在0到t0的冲激<br>把f(t)拆成一段一段的，u(t)的导数就是冲激函数<br>相当于把函数敲碎。<br>那我们可以先用冲击函数δ(t)通过系统得到冲击响应h(t)。<br>然后我们把任何输入f(t)通过卷积表示为无穷多冲击函数的累加，即f(t)＝f(t)<em>δ(t)。(这里</em>表示卷积运算)<br>最后根据线性时不变系统的性质，可以得到响应y(t)＝f(t)*h(t)。<br>于是只要我们知道冲激响应，对于任何输入的响应也可以通过卷积运算得到。</p><h1 id="模拟是什么意思"><a href="#模拟是什么意思" class="headerlink" title="模拟是什么意思"></a>模拟是什么意思</h1><p>将一个物理量转换为另一个物理量。<br>通过电信号来模拟大自然的物理量（比如利用运算放大器，一段输入1.2V,一段1.5V，得到的结果即为乘积）</p><h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p>卷积：特征提取器，滤波器<br>神经网络：分类器</p><h1 id="Z变换"><a href="#Z变换" class="headerlink" title="Z变换"></a>Z变换</h1><p>Z变换分析的是离散系统，傅里叶和拉普拉斯是连续系统。<br>电脑只有高高低低的电平，是离散的。所以要将连续信号冲激成离散的冲激串。<br>即采样。  可以无损的敲碎。<br>对采样的信号进行拉普拉斯变换，得到的结果也是离散信号。</p><h1 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h1><p>估计器，通过各种各样的测量方法来最后加权平均来估计到一个结果。</p><h1 id="无功功率"><a href="#无功功率" class="headerlink" title="无功功率"></a>无功功率</h1><p>全连接：映射到高维。然后softmax进行分类。</p><h1 id="对抗生成网络：GAN"><a href="#对抗生成网络：GAN" class="headerlink" title="对抗生成网络：GAN"></a>对抗生成网络：GAN</h1><p>mnist 28×28<br>生成器G：一个随机的向量，通过生成器G，得到一个图像，28×28×1，得到一个假的数据。<br>判别器D：对生成的图像判别，得到1或者0.   </p><p>损失函数：一方面让判别器分辨能力更强，另一方面让生成器更真</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;傅里叶的变换哲学&quot;&gt;&lt;a href=&quot;#傅里叶的变换哲学&quot; class=&quot;headerlink&quot; title=&quot;傅里叶的变换哲学&quot;&gt;&lt;/a&gt;傅里叶的变换哲学&lt;/h1&gt;&lt;p&gt;泊松：用三角级数的和表达一些周期的函数&lt;br&gt;傅里叶：用三角级数的和表达非周期的函数(极大的
+      
+    
+    </summary>
+    
+    
+      <category term="社科知识" scheme="https://asswei7.github.io/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/"/>
     
     
   </entry>
