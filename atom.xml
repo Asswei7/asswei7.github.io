@@ -366,19 +366,20 @@
   </entry>
   
   <entry>
-    <title>注意力机制</title>
+    <title>技术发展历程</title>
     <link href="https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/"/>
     <id>https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</id>
     <published>2021-01-08T02:59:03.000Z</published>
-    <updated>2021-01-08T07:29:50.266Z</updated>
+    <updated>2021-01-09T16:04:36.681Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="简单介绍来"><a href="#简单介绍来" class="headerlink" title="简单介绍来"></a>简单介绍来</h3><p>transfomer的BERT模型。2017年底谷歌，attention is all you need，一种seq2seq的模型，<br>BERT是从transformer中衍生出来的预训练模型。</p><p>上游任务：训练一个预训练语言模型<br>下游任务：将模型应用到实际的任务，如情感分析，分类等</p><h1 id="transformer编码器（理论部分）"><a href="#transformer编码器（理论部分）" class="headerlink" title="transformer编码器（理论部分）"></a>transformer编码器（理论部分）</h1><h3 id="transformer模型的直觉，建立直观认识"><a href="#transformer模型的直觉，建立直观认识" class="headerlink" title="transformer模型的直觉，建立直观认识"></a>transformer模型的直觉，建立直观认识</h3><p>transf和LSTM的最大区别：LSTM相当于一个循环，一个一个字来，这个字过完LSTM模型，<br>才进行下一个字。transformer是并行的，所有字同时进行训练，加快了计算效率。<br>而利用position encoding来获取时间顺序。</p><p>输入到编码器得到一个hidden layer，然后传到解码器，得到结果。<br>我们有一张词汇表：<br>每一行代表一个字的数学向量，embedding_dimension。<br>共有vacab_size行。输入的X[batch_size,sequence length, embedding demension]</p><h3 id="positional-encoding-位置嵌入"><a href="#positional-encoding-位置嵌入" class="headerlink" title="positional encoding 位置嵌入"></a>positional encoding 位置嵌入</h3><p>没有迭代，全部喂入网络，所以需要位置嵌入得到顺序关系。</p><h3 id="self-attention-mechanism自注意力机制"><a href="#self-attention-mechanism自注意力机制" class="headerlink" title="self attention mechanism自注意力机制"></a>self attention mechanism自注意力机制</h3><h3 id="Layer-Normalization和残差连接"><a href="#Layer-Normalization和残差连接" class="headerlink" title="Layer Normalization和残差连接"></a>Layer Normalization和残差连接</h3><h3 id="transformer-encoder整体结构"><a href="#transformer-encoder整体结构" class="headerlink" title="transformer encoder整体结构"></a>transformer encoder整体结构</h3><h1 id="BERT的解读和实战应用"><a href="#BERT的解读和实战应用" class="headerlink" title="BERT的解读和实战应用"></a>BERT的解读和实战应用</h1><p>PyTorch动态图，方便调试。Tensorflow静态图，调试和建模都很麻烦。</p><h3 id="进一步理解位置编码"><a href="#进一步理解位置编码" class="headerlink" title="进一步理解位置编码"></a>进一步理解位置编码</h3><h3 id="语言模型的定义和BERT的解读"><a href="#语言模型的定义和BERT的解读" class="headerlink" title="语言模型的定义和BERT的解读"></a>语言模型的定义和BERT的解读</h3><p>Bidirectional Encoder Representation from Transformers双向transformer编码表达<br>编码器输出的隐藏层就是自然语言序列的数学表达。双向：又有之前的信息，又有之后的信息。</p><p>MASKED LM</p><h3 id="BERT训练之前的语料预处理"><a href="#BERT训练之前的语料预处理" class="headerlink" title="BERT训练之前的语料预处理"></a>BERT训练之前的语料预处理</h3><h3 id="BERT的预训练，训练参数"><a href="#BERT的预训练，训练参数" class="headerlink" title="BERT的预训练，训练参数"></a>BERT的预训练，训练参数</h3><h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p>由于深度神经网络DNN参数量过大以及丢失了时序信息，在NLP处理中不如RNN。</p><p>但是RNN关键在于将之前保存的信息应用到当前的任务之上。<br>当距离过大时，容易出现梯度衰减和爆炸。</p><p>所以采用LSTM和GRU弥补。</p><h3 id="seq2seq"><a href="#seq2seq" class="headerlink" title="seq2seq"></a>seq2seq</h3><p>虽然RNN输入可以不定长，但是输出是定长的，所以无法解决机器翻译的问题。<br>seq2seq将输入通过Encoder编码成向量C，然后作为Decoder的一部分用来预测，Decode的输入是前一时刻Decoder的输出，所以可以输出不定长。</p><h3 id="attention"><a href="#attention" class="headerlink" title="attention"></a>attention</h3><p>当输入的句子很长时，将所有的输入都融合成一个向量C显然不合适。<br>attention就是将C变成一个随时间变化的权重变量。</p><h3 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h3><p>由于RNN无法并行，attention的编码器和解码器还是使用了RNN。所以transformer完全抛弃了RNN，在编码器和解码器采用self-attention机制，可以很好地并行化。</p><h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>BERT就是采用的transformer的编码器，</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;简单介绍来&quot;&gt;&lt;a href=&quot;#简单介绍来&quot; class=&quot;headerlink&quot; title=&quot;简单介绍来&quot;&gt;&lt;/a&gt;简单介绍来&lt;/h3&gt;&lt;p&gt;transfomer的BERT模型。2017年底谷歌，attention is all you need，一种seq
+        &lt;h3 id=&quot;RNN&quot;&gt;&lt;a href=&quot;#RNN&quot; class=&quot;headerlink&quot; title=&quot;RNN&quot;&gt;&lt;/a&gt;RNN&lt;/h3&gt;&lt;p&gt;由于深度神经网络DNN参数量过大以及丢失了时序信息，在NLP处理中不如RNN。&lt;/p&gt;
+&lt;p&gt;但是RNN关键在于将之前保存的信息应用
       
     
     </summary>
