@@ -20,17 +20,44 @@
     var CONFIG = {"hostname":"asswei7.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","Sidebar Display (only for Muse | Mist), available values":["post    expand on posts automatically. Default.","always  expand for all pages automatically."],"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="篮球，计算机">
+  <meta name="description" content="1. 基本概念 2. 封装成帧和透明传输封装成帧就是加将数据加头加尾，相当于将数据打包 透明传输就是为了防止特殊的数据无法正常传输的的情况的发生，比如说在封装成帧的过程中出现数据中的某些标记符与开始&#x2F;结束标记符恰巧重复等等情况 2.1 透明传输帧同步：接收方能从接收到的二进制比特流中区分出帧的起始和终止  字符计数法 字符填充法 零比特填充法 违规编码法  3. 差错控制数据链路层的差错检测的是比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网数据链路层">
 <meta property="og:url" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/index.html">
 <meta property="og:site_name" content="Asswei&#39;s blog">
-<meta property="og:description" content="篮球，计算机">
+<meta property="og:description" content="1. 基本概念 2. 封装成帧和透明传输封装成帧就是加将数据加头加尾，相当于将数据打包 透明传输就是为了防止特殊的数据无法正常传输的的情况的发生，比如说在封装成帧的过程中出现数据中的某些标记符与开始&#x2F;结束标记符恰巧重复等等情况 2.1 透明传输帧同步：接收方能从接收到的二进制比特流中区分出帧的起始和终止  字符计数法 字符填充法 零比特填充法 违规编码法  3. 差错控制数据链路层的差错检测的是比">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%9F%BA%E6%9C%AC.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC4.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%88%A9%E7%94%A8%E7%8E%87%E8%AE%A1%E7%AE%97.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD4.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CA1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CA2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E4%BB%8B%E8%B4%A8%E8%AE%BF%E9%97%AE.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/LLC.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/MAC%E5%B8%A7.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/PPP1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/PPP2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/PPP3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/HDLC1.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/HDLC2.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/HDLC3.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%AF%B9%E6%AF%94.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E7%BD%91%E6%A1%A5.png">
+<meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%B9%BF%E6%92%AD%E5%9F%9F.png">
 <meta property="article:published_time" content="2021-01-09T13:59:51.000Z">
-<meta property="article:modified_time" content="2021-01-09T14:03:00.854Z">
+<meta property="article:modified_time" content="2021-01-11T07:04:26.334Z">
 <meta property="article:author" content="孙书玮">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E5%9F%BA%E6%9C%AC.png">
 
 <link rel="canonical" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
                      
@@ -189,10 +216,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-09 21:59:51 / Modified: 22:03:00" itemprop="dateCreated datePublished" datetime="2021-01-09T21:59:51+08:00">2021-01-09</time>
+              <time title="Created: 2021-01-09 21:59:51" itemprop="dateCreated datePublished" datetime="2021-01-09T21:59:51+08:00">2021-01-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-11 15:04:26" itemprop="dateModified" datetime="2021-01-11T15:04:26+08:00">2021-01-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -216,14 +249,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>0</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -235,7 +268,162 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/基本.png" alt="avatar"></p>
+<h2 id="2-封装成帧和透明传输"><a href="#2-封装成帧和透明传输" class="headerlink" title="2. 封装成帧和透明传输"></a>2. 封装成帧和透明传输</h2><p>封装成帧就是加将数据加头加尾，相当于将数据打包</p>
+<p>透明传输就是为了防止特殊的数据无法正常传输的的情况的发生，比如说在封装成帧的过程中出现数据中的某些标记符与开始/结束标记符恰巧重复等等情况</p>
+<h3 id="2-1-透明传输"><a href="#2-1-透明传输" class="headerlink" title="2.1 透明传输"></a>2.1 透明传输</h3><p>帧同步：接收方能从接收到的二进制比特流中区分出帧的起始和终止</p>
+<ol>
+<li>字符计数法</li>
+<li>字符填充法</li>
+<li>零比特填充法</li>
+<li>违规编码法</li>
+</ol>
+<h2 id="3-差错控制"><a href="#3-差错控制" class="headerlink" title="3. 差错控制"></a>3. 差错控制</h2><p>数据链路层的差错检测的是比特的错误</p>
+<h3 id="3-1-为什么在数据链路层差错控制？"><a href="#3-1-为什么在数据链路层差错控制？" class="headerlink" title="3.1 为什么在数据链路层差错控制？"></a>3.1 为什么在数据链路层差错控制？</h3><p>因为错误可以尽早发现，不会让一个错误的数据包发送了很长时间到达最终目的地之后才被发现，从而导致网络资源的浪费</p>
+<h3 id="3-2-检错编码"><a href="#3-2-检错编码" class="headerlink" title="3.2 检错编码"></a>3.2 检错编码</h3><h4 id="3-2-1-奇偶校验码"><a href="#3-2-1-奇偶校验码" class="headerlink" title="3.2.1 奇偶校验码"></a>3.2.1 奇偶校验码</h4><h4 id="3-2-2-CRC循环冗余码"><a href="#3-2-2-CRC循环冗余码" class="headerlink" title="3.2.2 CRC循环冗余码"></a>3.2.2 CRC循环冗余码</h4><p>就是用传输数据除以生成多项式得到冗余码<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC1.png" alt="avatar"><br>实际例子<br>注释：</p>
+<ol>
+<li>阶数就是最高位是哪位，然后位数-1，如10011就是5-1=4,1011就是4-1=3</li>
+<li>异或运算就是相同得0，不同得1，比如100和101做异或，结果就是001</li>
+<li>除数和最后的余数添加到要发送的数据后面，称为帧检验序列FCS</li>
+</ol>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC2.png" alt="avatar"><br>接收方收到数据后进行检测</p>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC3.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CRC4.png" alt="avatar"></p>
+<h2 id="4-数据链路层的流量控制和可靠传输"><a href="#4-数据链路层的流量控制和可靠传输" class="headerlink" title="4. 数据链路层的流量控制和可靠传输"></a>4. 数据链路层的流量控制和可靠传输</h2><h3 id="4-1-流量控制与可靠传输"><a href="#4-1-流量控制与可靠传输" class="headerlink" title="4.1 流量控制与可靠传输"></a>4.1 流量控制与可靠传输</h3><p>流量控制是为了让传输过程中的发送速度和接受速度匹配，减少传输出错与资源浪费<br><br>可靠传输是发送端发送什么，接收端就要受到什么</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">协议名称</th>
+<th style="text-align:center">发送窗口</th>
+<th style="text-align:center">接收窗口</th>
+<th style="text-align:center">特点</th>
+<th style="text-align:center">窗口大小限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">停等协议</td>
+<td style="text-align:center">=1</td>
+<td style="text-align:center">=1</td>
+<td style="text-align:center">数据帧和确认帧必须编号</td>
+<td style="text-align:center">恒为1,n个比特数对帧编号</td>
+</tr>
+<tr>
+<td style="text-align:center">后退N帧协议</td>
+<td style="text-align:center">&gt;1</td>
+<td style="text-align:center">=1</td>
+<td style="text-align:center">不是想要的帧就丢弃</td>
+<td style="text-align:center">1&lt;=Ws&lt;=2^n - 1</td>
+</tr>
+<tr>
+<td style="text-align:center">选择重传协议</td>
+<td style="text-align:center">&gt;1</td>
+<td style="text-align:center">&gt;1</td>
+<td style="text-align:center">来者不拒</td>
+<td style="text-align:center">Ws=Wr = 2^(n-1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="4-2-停等协议"><a href="#4-2-停等协议" class="headerlink" title="4.2 停等协议"></a>4.2 停等协议</h3><p>停止等待协议的特点</p>
+<ol>
+<li>简单</li>
+<li>信道利用率低。大部分时间数据都在路上，发送方很长时间闲置，资源浪费</li>
+</ol>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/利用率计算.png" alt="avatar"></p>
+<h3 id="4-3-后退N帧协议"><a href="#4-3-后退N帧协议" class="headerlink" title="4.3 后退N帧协议"></a>4.3 后退N帧协议</h3><p>因为停止等待协议太浪费时间了，所以尝试采用GBN，发送连续多个数据帧，以增大信道利用率</p>
+<p>累计确认：就是收到一个确认帧，那么它和它之前的所有帧都默认已收到，反之，如果某个确认帧没收到，那么它和它之后的所有帧都默认丢失（即使收到了也丢掉），进行重传</p>
+<p>GBN的优缺点也显而易见，优点是提高了信道利用率，缺点是因为重传机制的原因导致已经收到数据却需要强行丢弃而造成浪费.</p>
+<h3 id="4-4-选择重传协议协议"><a href="#4-4-选择重传协议协议" class="headerlink" title="4.4 选择重传协议协议"></a>4.4 选择重传协议协议</h3><p>为了解决GBN的缺点，我们打算尝试只重传错误的帧，这样的话就不用浪费资源吧已经收到的帧再重传一次了。</p>
+<p>和GBN相比，两者都有窗口了，和GBN的区别其实就是做了一个数据缓存，已经收到的帧不用扔了，等待之前因意外丢失的帧收到的时候确认即可，但是只能缓存窗口尺寸内的包含的帧（PS，缓存咋可能无限大）</p>
+<h2 id="5-介质访问控制技术"><a href="#5-介质访问控制技术" class="headerlink" title="5. 介质访问控制技术"></a>5. 介质访问控制技术</h2><p>就是让节点之间的通信不会进行相互干扰<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/介质访问控制.png" alt="avatar"></p>
+<h3 id="5-1-信道划分介质访问控制"><a href="#5-1-信道划分介质访问控制" class="headerlink" title="5.1 信道划分介质访问控制"></a>5.1 信道划分介质访问控制</h3><p>虽然使用一条共享信道，但是通过多路复用技术组合进行传输，提高了信道的利用率</p>
+<ol>
+<li>频分多路复用</li>
+<li>时分多路复用</li>
+<li>统计时分多路复用：STDM的原则是先到先走，满了就发，相对于TDM提高了利用率</li>
+<li>码分多路复用</li>
+</ol>
+<h3 id="5-2-随机访问控制"><a href="#5-2-随机访问控制" class="headerlink" title="5.2 随机访问控制"></a>5.2 随机访问控制</h3><p>所有用户都可以随机发送信息，发送时可以占用全部带宽，理论上个人使用时比静态分配信道的速度更快。</p>
+<h4 id="5-2-1-ALOHA协议"><a href="#5-2-1-ALOHA协议" class="headerlink" title="5.2.1 ALOHA协议"></a>5.2.1 ALOHA协议</h4><p>不听就发。<br><strong>冲突如何检测？</strong><br><br>如果发生冲突，接收方会检测出差错，然后不予确认，发送方在一段时间内收不到确认就判断发送冲突。<br><strong>冲突如何解决？</strong><br><br>超时后等一个随机时间再重传</p>
+<p>相对于纯ALOHA协议就是固定了发送的时间（只能在一个时间片的开始），提高了效率</p>
+<h4 id="5-2-2-CSMA协议"><a href="#5-2-2-CSMA协议" class="headerlink" title="5.2.2 CSMA协议"></a>5.2.2 CSMA协议</h4><p>先听再发，在发送帧之前，先监听信道。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">1-坚持</th>
+<th style="text-align:center">非坚持</th>
+<th style="text-align:center">p-坚持</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">信道空闲</td>
+<td style="text-align:center">马上发</td>
+<td style="text-align:center">马上发</td>
+<td style="text-align:center">以概率p发</td>
+</tr>
+<tr>
+<td style="text-align:center">信道忙</td>
+<td style="text-align:center">坚持监听，等空闲就发</td>
+<td style="text-align:center">放弃监听，随机等一段时间后再监听</td>
+<td style="text-align:center">放弃监听，随机等一段时间后再监听</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="5-2-3-CSMA-CD协议"><a href="#5-2-3-CSMA-CD协议" class="headerlink" title="5.2.3 CSMA/CD协议"></a>5.2.3 CSMA/CD协议</h4><p>就是因为链路实际有长短，发送数据需要时间，这个时间内可能就被其他节点当成空闲状态导致发生碰撞<br><br>知道自己发生碰撞的最长时间是2τ（两倍的传播时延），就是一去一回<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD1.png" alt="avatar"><br>图示传播时延对载波监听的影响<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD2.png" alt="avatar"><br>由此我们可以想到最小帧长的问题，因为如果帧太短，帧都发送完了才检测到碰撞导致停止，导致无法停止碰撞</p>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD3.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CD4.png" alt="avatar"></p>
+<h4 id="5-2-4-CSMA-CA协议"><a href="#5-2-4-CSMA-CA协议" class="headerlink" title="5.2.4 CSMA/CA协议"></a>5.2.4 CSMA/CA协议</h4><p>无线局域网中无法做到360°的全面碰撞检测。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CA1.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/CA2.png" alt="avatar"></p>
+<h3 id="5-3-轮询访问介质访问控制"><a href="#5-3-轮询访问介质访问控制" class="headerlink" title="5.3 轮询访问介质访问控制"></a>5.3 轮询访问介质访问控制</h3><p>主要包括两大类，一个是轮询协议，另一个是令牌传递协议。</p>
+<h2 id="6-局域网"><a href="#6-局域网" class="headerlink" title="6. 局域网"></a>6. 局域网</h2><h3 id="6-1-局域网概念"><a href="#6-1-局域网概念" class="headerlink" title="6.1 局域网概念"></a>6.1 局域网概念</h3><p>概括：范围小，速度快，延迟低，节点平等<br>使用广播信道。</p>
+<p>决定局域网的主要要素为：网络拓扑、传输介质、介质访问控制方法。</p>
+<h4 id="6-1-1-局域网的网络拓扑结构"><a href="#6-1-1-局域网的网络拓扑结构" class="headerlink" title="6.1.1 局域网的网络拓扑结构"></a>6.1.1 局域网的网络拓扑结构</h4><p>最常用的是总线型拓扑<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/拓扑结构.png" alt="avatar"></p>
+<h4 id="6-1-2-局域网的传播介质"><a href="#6-1-2-局域网的传播介质" class="headerlink" title="6.1.2 局域网的传播介质"></a>6.1.2 局域网的传播介质</h4><p>有线局域网：双绞线、同轴电缆、光纤<br><br>无线局域网：电磁波</p>
+<h4 id="6-1-3-局域网的介质访问控制方法"><a href="#6-1-3-局域网的介质访问控制方法" class="headerlink" title="6.1.3 局域网的介质访问控制方法"></a>6.1.3 局域网的介质访问控制方法</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/介质访问.png" alt="avatar"></p>
+<h3 id="6-2-局域网的分类"><a href="#6-2-局域网的分类" class="headerlink" title="6.2 局域网的分类"></a>6.2 局域网的分类</h3><ol>
+<li>以太网，IEEE 802.3系列标准。逻辑拓扑总线型，物理拓扑是星型。使用CSMA/CD</li>
+<li>令牌环网</li>
+<li>FDDI网</li>
+<li>ATM网</li>
+<li>无线局域网，采用IEEE 802.11标准</li>
+</ol>
+<h3 id="6-3-IEEE802标准"><a href="#6-3-IEEE802标准" class="headerlink" title="6.3 IEEE802标准"></a>6.3 IEEE802标准</h3><p>802.3：以太网介质访问控制协议(CSMA/CD)及物理层技术规范。<br><br>802.5：令牌环网<br><br>802.8：光纤有关<br><br>802.11：无线局域网(WLAN)的介质访问控制协议及物理层技术规范</p>
+<h4 id="6-3-1-IEEE802描述的局域网参考模型"><a href="#6-3-1-IEEE802描述的局域网参考模型" class="headerlink" title="6.3.1 IEEE802描述的局域网参考模型"></a>6.3.1 IEEE802描述的局域网参考模型</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/LLC.png" alt="avatar"></p>
+<h3 id="6-4-以太网"><a href="#6-4-以太网" class="headerlink" title="6.4 以太网"></a>6.4 以太网</h3><p>是应用最广泛的一种局域网技术。使用CSMA/CD技术。</p>
+<h4 id="6-4-1-以太网概念"><a href="#6-4-1-以太网概念" class="headerlink" title="6.4.1 以太网概念"></a>6.4.1 以太网概念</h4><p>以太网提供无连接、不可靠的服务。<br><br>无连接：无握手过程<br><br>不可靠：不对数据帧编号，接收方不向发送方进行确认，差错帧直接丢弃。</p>
+<p>以太网只实现无差错接收，不实现可靠传输。</p>
+<h4 id="6-4-2-以太网MAC帧"><a href="#6-4-2-以太网MAC帧" class="headerlink" title="6.4.2 以太网MAC帧"></a>6.4.2 以太网MAC帧</h4><ol>
+<li>这里的mac层指的是数据链路层</li>
+<li>之前说过数据链路层将上一层ip数据包加头加尾<br><br>头就是目标地址（6字节），源地址（6字节），类型（2字节）<br><br>尾就是FCS（帧检验序列），（4字节）</li>
+<li>前导码不是MAC帧的一部分，目的是使时钟同步</li>
+<li><p>为什么数据长度时46~1500？<br><br>因为有最小传输字节64字节，mac占用6+6+2+4=18，所以数据最小为64-18=46，1500则是规定的默认最大字节，没有理由<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/MAC帧.png" alt="avatar"></p>
+<h4 id="6-4-3-10BASE-T以太网"><a href="#6-4-3-10BASE-T以太网" class="headerlink" title="6.4.3 10BASE-T以太网"></a>6.4.3 10BASE-T以太网</h4><p>是传送基带信号的双绞线以太网。T表示使用双绞线，传输速率是10Mb/s。</p>
+</li>
+<li><p>物理上采用星型，逻辑上采用总线型，每段双绞线最长为100米。（罗总五星）</p>
+</li>
+<li>采用曼彻斯特编码</li>
+<li>采用CSMA/CD介质访问控制。</li>
+</ol>
+<p>100BASE-T以太网，在双绞线上传送100Mb/s基带信号的星型拓扑以太网。</p>
+<h3 id="6-5-无线局域网"><a href="#6-5-无线局域网" class="headerlink" title="6.5 无线局域网"></a>6.5 无线局域网</h3><p>802.11</p>
+<h2 id="7-广域网"><a href="#7-广域网" class="headerlink" title="7. 广域网"></a>7. 广域网</h2><h3 id="7-1-PPP协议"><a href="#7-1-PPP协议" class="headerlink" title="7.1 PPP协议"></a>7.1 PPP协议</h3><p>PPP协议是目前使用最广泛的数据链路层协议，拨号基本都是PPP协议<br><br>PPP协议仅支持全双工链路<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/PPP1.png" alt="avatar"><br>PPP不需要进行：</p>
+<ol>
+<li>纠错</li>
+<li>流量控制</li>
+<li>序号</li>
+<li>不支持多点线路<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/PPP2.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/PPP3.png" alt="avatar"><h3 id="7-2-HDLC协议"><a href="#7-2-HDLC协议" class="headerlink" title="7.2 HDLC协议"></a>7.2 HDLC协议</h3><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/HDLC1.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/HDLC2.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/HDLC3.png" alt="avatar"><h3 id="7-3-PPP和HDLC协议对比"><a href="#7-3-PPP和HDLC协议对比" class="headerlink" title="7.3 PPP和HDLC协议对比"></a>7.3 PPP和HDLC协议对比</h3>为什么HDLC协议更可靠，但是我们使用PPP协议？</li>
+</ol>
+<p>因为现在网络要求高，数据链路层本来就是不可靠的尽力传输，差错控制这些复杂的交给了TCP等<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/对比.png" alt="avatar"></p>
+<h2 id="8-链路层设备"><a href="#8-链路层设备" class="headerlink" title="8. 链路层设备"></a>8. 链路层设备</h2><p>物理层的集线器会无脑将一个设备的所有消息转发到集线器所连的所有设备，故会将所连接的所有设备变成一个大的冲突域，同时只能有两台设备进行通信，且设备越多，冲突越多。由此诞生了网桥</p>
+<h3 id="8-1-网桥"><a href="#8-1-网桥" class="headerlink" title="8.1 网桥"></a>8.1 网桥</h3><p>使用网桥时，由于网桥会根据mac地址进行过滤，所以不会形成冲突域<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/网桥.png" alt="avatar"><br>透明网桥：通过自学习来构建转发表。每一个通过网桥的数据包都会被记录下网桥收到数据时数据对应的地址和网桥自己的接口，通过许许多多的数据包的构造的缓存，网桥就可以知道哪个数据包在哪个接口，以后如果要穿数据包就知道要往哪个接口发送数据包了</p>
+<p>原路由网桥：在发送时，直接将最佳路径放到帧首部。那么网桥如何获得最佳路径？通过广播方式想目标地址发送广播，此时可能会经过不同路由产生不同的路径，目标地址收到后再将每一条路径都发一个响应帧给网桥，网桥经过对比就知道哪个接口最快了</p>
+<h3 id="8-2-交换机"><a href="#8-2-交换机" class="headerlink" title="8.2 交换机"></a>8.2 交换机</h3><p>网桥接口越来越多，网桥就变成了交换机。</p>
+<p>交换机也被成为多端口的网桥。</p>
+<h3 id="8-3-冲突域和广播域"><a href="#8-3-冲突域和广播域" class="headerlink" title="8.3 冲突域和广播域"></a>8.3 冲突域和广播域</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E8%AE%A1%E7%BD%91%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/广播域.png" alt="avatar"></p>
+
     </div>
 
     
@@ -316,6 +504,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本概念"><span class="nav-number">1.</span> <span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-封装成帧和透明传输"><span class="nav-number">2.</span> <span class="nav-text">2. 封装成帧和透明传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-透明传输"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 透明传输</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-差错控制"><span class="nav-number">3.</span> <span class="nav-text">3. 差错控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-为什么在数据链路层差错控制？"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 为什么在数据链路层差错控制？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-检错编码"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 检错编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-奇偶校验码"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 奇偶校验码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-CRC循环冗余码"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 CRC循环冗余码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数据链路层的流量控制和可靠传输"><span class="nav-number">4.</span> <span class="nav-text">4. 数据链路层的流量控制和可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-流量控制与可靠传输"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 流量控制与可靠传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-停等协议"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 停等协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-后退N帧协议"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 后退N帧协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-选择重传协议协议"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 选择重传协议协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-介质访问控制技术"><span class="nav-number">5.</span> <span class="nav-text">5. 介质访问控制技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-信道划分介质访问控制"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 信道划分介质访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-随机访问控制"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 随机访问控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-ALOHA协议"><span class="nav-number">5.2.1.</span> <span class="nav-text">5.2.1 ALOHA协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-CSMA协议"><span class="nav-number">5.2.2.</span> <span class="nav-text">5.2.2 CSMA协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-CSMA-CD协议"><span class="nav-number">5.2.3.</span> <span class="nav-text">5.2.3 CSMA&#x2F;CD协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-4-CSMA-CA协议"><span class="nav-number">5.2.4.</span> <span class="nav-text">5.2.4 CSMA&#x2F;CA协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-轮询访问介质访问控制"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 轮询访问介质访问控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-局域网"><span class="nav-number">6.</span> <span class="nav-text">6. 局域网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-局域网概念"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 局域网概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-1-局域网的网络拓扑结构"><span class="nav-number">6.1.1.</span> <span class="nav-text">6.1.1 局域网的网络拓扑结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-局域网的传播介质"><span class="nav-number">6.1.2.</span> <span class="nav-text">6.1.2 局域网的传播介质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-3-局域网的介质访问控制方法"><span class="nav-number">6.1.3.</span> <span class="nav-text">6.1.3 局域网的介质访问控制方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-局域网的分类"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 局域网的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-IEEE802标准"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 IEEE802标准</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-IEEE802描述的局域网参考模型"><span class="nav-number">6.3.1.</span> <span class="nav-text">6.3.1 IEEE802描述的局域网参考模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-以太网"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 以太网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-1-以太网概念"><span class="nav-number">6.4.1.</span> <span class="nav-text">6.4.1 以太网概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-2-以太网MAC帧"><span class="nav-number">6.4.2.</span> <span class="nav-text">6.4.2 以太网MAC帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-4-3-10BASE-T以太网"><span class="nav-number">6.4.3.</span> <span class="nav-text">6.4.3 10BASE-T以太网</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-无线局域网"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 无线局域网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-广域网"><span class="nav-number">7.</span> <span class="nav-text">7. 广域网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-PPP协议"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 PPP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-HDLC协议"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 HDLC协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-PPP和HDLC协议对比"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 PPP和HDLC协议对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-链路层设备"><span class="nav-number">8.</span> <span class="nav-text">8. 链路层设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-网桥"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 网桥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-交换机"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-冲突域和广播域"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 冲突域和广播域</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -331,14 +520,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -388,12 +577,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">34k</span>
+    <span title="Symbols count total">40k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">31 mins.</span>
+    <span title="Reading time total">36 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

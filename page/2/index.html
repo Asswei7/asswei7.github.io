@@ -165,6 +165,943 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/" class="post-title-link" itemprop="url">计网物理层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-09 20:57:07" itemprop="dateCreated datePublished" datetime="2021-01-09T20:57:07+08:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-11 09:52:09" itemprop="dateModified" datetime="2021-01-11T09:52:09+08:00">2021-01-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网物理层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h2>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/基本概念.png" alt="avatar"></p>
+<h2 id="2-数据通信基本知识"><a href="#2-数据通信基本知识" class="headerlink" title="2. 数据通信基本知识"></a>2. 数据通信基本知识</h2><h3 id="2-1-一个数据通信例子"><a href="#2-1-一个数据通信例子" class="headerlink" title="2.1 一个数据通信例子"></a>2.1 一个数据通信例子</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/例子.png" alt="avatar"></p>
+<h3 id="2-2-相关术语"><a href="#2-2-相关术语" class="headerlink" title="2.2 相关术语"></a>2.2 相关术语</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/术语.png" alt="avatar"></p>
+<h3 id="2-3-三种通信方式"><a href="#2-3-三种通信方式" class="headerlink" title="2.3 三种通信方式"></a>2.3 三种通信方式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">定义</th>
+<th style="text-align:center">需要信道数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">单工</td>
+<td style="text-align:center">一个发一个收</td>
+<td style="text-align:center">一条</td>
+</tr>
+<tr>
+<td style="text-align:center">半双工</td>
+<td style="text-align:center">两边都可以发或收，但同一时间只能进行一个</td>
+<td style="text-align:center">两条</td>
+</tr>
+<tr>
+<td style="text-align:center">全双工</td>
+<td style="text-align:center">都可以同时收发数据</td>
+<td style="text-align:center">两条</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-4-数据传输方式"><a href="#2-4-数据传输方式" class="headerlink" title="2.4 数据传输方式"></a>2.4 数据传输方式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">传输方式</th>
+<th style="text-align:center">特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">串行</td>
+<td style="text-align:center">速度慢，省钱，适合远距离</td>
+</tr>
+<tr>
+<td style="text-align:center">并行</td>
+<td style="text-align:center">速度快，耗钱，适合近距离</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="2-5-码元"><a href="#2-5-码元" class="headerlink" title="2.5 码元"></a>2.5 码元</h3><p>一个码元可以携带多个比特信息</p>
+<h3 id="2-6-波特Baud"><a href="#2-6-波特Baud" class="headerlink" title="2.6 波特Baud"></a>2.6 波特Baud</h3><p>一秒可以传输多少码元</p>
+<h3 id="2-7-速率"><a href="#2-7-速率" class="headerlink" title="2.7 速率"></a>2.7 速率</h3><p>信息传输速率：b/s<br><br>码元传输速率：波特</p>
+<p>码元可以理解为携带几个比特的信息，码元所带比特数=log2M(码元进制数)<br><br>信息传输速率（网速）=码元传输速率x码元所带信息量（多少比特）</p>
+<h3 id="2-8-带宽"><a href="#2-8-带宽" class="headerlink" title="2.8 带宽"></a>2.8 带宽</h3><p>最高数据率</p>
+<h3 id="2-9-奈奎斯特准则"><a href="#2-9-奈奎斯特准则" class="headerlink" title="2.9 奈奎斯特准则"></a>2.9 奈奎斯特准则</h3><p>在信道带宽是W Hz的情况下，码元传输速率上限是2W Baud。</p>
+<p>而数据传输速率=码元速率*码元携带比特量</p>
+<p>所以极限数据传输率=2Wlog2M</p>
+<h3 id="2-10-香农公式"><a href="#2-10-香农公式" class="headerlink" title="2.10 香农公式"></a>2.10 香农公式</h3><p>信噪比(dB) = 10log10(S/N)</p>
+<p>极限数据传输速率 = Wlog2(1+S/N)</p>
+<p>信道的<strong>带宽</strong>或者<strong>信噪比</strong>越大，极限数据传输速率就越高。</p>
+<h3 id="2-11-基带信号和带宽信号"><a href="#2-11-基带信号和带宽信号" class="headerlink" title="2.11 基带信号和带宽信号"></a>2.11 基带信号和带宽信号</h3><p>基带信号：计算机输出的0，1数字信号，未经处理。距离近时使用。<br><br>带宽信号：将基带信号调制后形成的较高频段的模拟信号。距离远时使用</p>
+<h3 id="2-12-编码"><a href="#2-12-编码" class="headerlink" title="2.12 编码"></a>2.12 编码</h3><p>将数据转化为数字信号。</p>
+<p>模拟数据通过PCM编码器转化为数字信号。</p>
+<p>曼彻斯特编码：单极性编码的缺点是没有办法区分此时是没有信号，还是有信号，但是信号是0.<br>这种编码方式是bit中间有信号，低-高跳转表示0，高-低跳转表示1，一个时钟周期只可以表示一个bit，并且必须通过两次采样才能得到一个bit。它能携带时钟信号，而且能区分此时是没有信号还是信号为0.</p>
+<p>差分曼彻斯特编码：抗干扰能力比曼彻斯特编码更强。bit与bit之间有信号跳变，表示下一个bit为0，bit与bit之间没有信号跳变，表示下一个bit为1。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/曼彻斯特.png" alt="avatar"></p>
+<h3 id="2-13-调制"><a href="#2-13-调制" class="headerlink" title="2.13 调制"></a>2.13 调制</h3><p>不论模拟和数字数据，通过调制器转换为模拟信号。<br><br>调频，调幅，调相<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/调制.png" alt="avatar"></p>
+<h2 id="3-物理层传输介质"><a href="#3-物理层传输介质" class="headerlink" title="3. 物理层传输介质"></a>3. 物理层传输介质</h2><p>导向性介质：铜线/光纤<br><br>非导向性介质：空气</p>
+<h3 id="3-1-导向性传输介质"><a href="#3-1-导向性传输介质" class="headerlink" title="3.1 导向性传输介质"></a>3.1 导向性传输介质</h3><h4 id="3-1-1-双绞线"><a href="#3-1-1-双绞线" class="headerlink" title="3.1.1 双绞线"></a>3.1.1 双绞线</h4><p>根据有无屏蔽层分为<strong>屏蔽双绞线（STP）和无屏蔽双绞线（UTP）</strong></p>
+<p>对于模拟传输，用放大器放大衰减的信号。<br><br>对于数字传输，用中继器将失真的信号整形。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/双绞线.png" alt="avatar"></p>
+<h4 id="3-1-2-同轴电缆"><a href="#3-1-2-同轴电缆" class="headerlink" title="3.1.2 同轴电缆"></a>3.1.2 同轴电缆</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/同轴电缆.png" alt="avatar"></p>
+<h4 id="3-1-3-光纤"><a href="#3-1-3-光纤" class="headerlink" title="3.1.3 光纤"></a>3.1.3 光纤</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/光纤.png" alt="avatar"><br>根据入射角的不同，分为单模光纤和多模光纤。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/单模.png" alt="avatar"></p>
+<h3 id="3-2-非导向性介质"><a href="#3-2-非导向性介质" class="headerlink" title="3.2 非导向性介质"></a>3.2 非导向性介质</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/非导向.png" alt="avatar"></p>
+<h2 id="4-物理层设备"><a href="#4-物理层设备" class="headerlink" title="4. 物理层设备"></a>4. 物理层设备</h2><h3 id="4-1-中继器"><a href="#4-1-中继器" class="headerlink" title="4.1 中继器"></a>4.1 中继器</h3><p>5是指不能超过5个网段<br><br>4是指在这些网段中的物理层网络设备（中继器，集线器）最多不超过4个<br><br>3是指这些网段中最多只有三个网段挂有计算机<br><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/中继器.png" alt="avatar"></p>
+<h3 id="4-2-集线器"><a href="#4-2-集线器" class="headerlink" title="4.2 集线器"></a>4.2 集线器</h3><p>集线器是个大的冲突域，同时只能有<strong>两个设备进行通讯</strong>，只会传输信号，没有智能。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/集线器.png" alt="avatar"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">计网传输层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-09 13:53:39" itemprop="dateCreated datePublished" datetime="2021-01-09T13:53:39+08:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-27 10:31:18" itemprop="dateModified" datetime="2021-01-27T10:31:18+08:00">2021-01-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网传输层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><h3 id="1-1-传输层的意义"><a href="#1-1-传输层的意义" class="headerlink" title="1.1 传输层的意义"></a>1.1 传输层的意义</h3><p>网络层可以把数据从一个主机传送到另一个主机，但是没有和进程建立联系。<br><br>传输层就是将进程和收到的数据联系到一起，使数据能够为应用服务<br><br>所以说传输层是主机才有的层次</p>
+<h3 id="1-2-TCP和UDP"><a href="#1-2-TCP和UDP" class="headerlink" title="1.2 TCP和UDP"></a>1.2 TCP和UDP</h3><p>TCP：可靠、面向连接、时延大、适用于大文件<br><br>拥塞控制、流量控制、连接建立<br><br>UDP:不可靠，无连接、时延小、适用于小文件。收到UDP报文后不需要给出任何确认</p>
+<h3 id="1-3-复用和分用"><a href="#1-3-复用和分用" class="headerlink" title="1.3 复用和分用"></a>1.3 复用和分用</h3><p>复用：应用层的所有应用进程都可以通过传输层再传到网络层<br><br>分用：传输层 从网络层收到数据后交付给指明的应用进程<br><br></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">应用程序</th>
+<th style="text-align:center">端口号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">FTP</td>
+<td style="text-align:center">21</td>
+</tr>
+<tr>
+<td style="text-align:center">TELNET</td>
+<td style="text-align:center">23</td>
+</tr>
+<tr>
+<td style="text-align:center">SMTP</td>
+<td style="text-align:center">25</td>
+</tr>
+<tr>
+<td style="text-align:center">DNS</td>
+<td style="text-align:center">53</td>
+</tr>
+<tr>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:center">80</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-UDP协议"><a href="#2-UDP协议" class="headerlink" title="2. UDP协议"></a>2. UDP协议</h2><h3 id="2-1-UDP概述"><a href="#2-1-UDP概述" class="headerlink" title="2.1 UDP概述"></a>2.1 UDP概述</h3><p>UDP一次发送一个完整报文不会分片，所以需要应用层传输过来的数据不要太大，否则网络层分片任务就很重，但是也不能太小，不然效率较低<br><br>应用层给UDP多长的报文，UDP就照样发送，即一次发送一个完整的报文。<br><br>UDP适合一些实时应用，因为实时应用延迟要求高，需要立即响应<br><br><br>UDP只在IP数据报服务之上增加了复用分用和差错检测功能。<br><strong>面向报文</strong></p>
+<h3 id="2-2-UDP首部格式"><a href="#2-2-UDP首部格式" class="headerlink" title="2.2 UDP首部格式"></a>2.2 UDP首部格式</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/UDP首部.png" alt="avatar"></p>
+<h4 id="2-2-1-UDP的校验位"><a href="#2-2-1-UDP的校验位" class="headerlink" title="2.2.1 UDP的校验位"></a>2.2.1 UDP的校验位</h4><p>伪首部只有在计算校验和时才出现，不向上递交也不向下传送<br><br>封装UDP报文的IP数据报首部协议字段是17<br><br>UDP长度：UDP首部８B　＋　数据部分长度</p>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/校验.png" alt="avatar"></p>
+<h4 id="2-2-2-UDP校验方式"><a href="#2-2-2-UDP校验方式" class="headerlink" title="2.2.2 UDP校验方式"></a>2.2.2 UDP校验方式</h4><p>在发送端：<strong>伪首部+首部+数据</strong>采用二进制反码求和，将结果填入检验和字段，<br>然后去掉伪首部发送</p>
+<h2 id="3-TCP协议"><a href="#3-TCP协议" class="headerlink" title="3. TCP协议"></a>3. TCP协议</h2><h3 id="3-1-TCP协议特点"><a href="#3-1-TCP协议特点" class="headerlink" title="3.1 TCP协议特点"></a>3.1 TCP协议特点</h3><p>TCP必须建立连接后才能进行数据交换，</p>
+<p>TCP提供可靠交付的服务，可靠有序，不丢不重。<br><br>全双工通信：有发送缓存和接收缓存</p>
+<p>面向字节流：把应用程序交下来的数据看成是一串<strong>无结构的字节流</strong></p>
+<h3 id="3-2-TCP报文的首部"><a href="#3-2-TCP报文的首部" class="headerlink" title="3.2 TCP报文的首部"></a>3.2 TCP报文的首部</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/TCP首部.png" alt="avatar"><br><strong>序号：</strong>序号的单位是字节，即每一个字节都按照顺序编号。这个字段表示本报文段发送数据的第一个字节的序号。</p>
+<p><strong>确认号：</strong>期望收到的对方下一个报文段的第一个数据字节的序号。若确认号是N，则前N-1的数据都已经正确接收。</p>
+<p><strong>数据偏移：</strong>即首部长度，以4B为单位。TCP有20B的固定首部</p>
+<h4 id="3-2-1-TCP首部的控制位"><a href="#3-2-1-TCP首部的控制位" class="headerlink" title="3.2.1 TCP首部的控制位"></a>3.2.1 TCP首部的控制位</h4><p>ACK：ACK=1时表示确认号有效，在连接建立后所有报文段都要置1.<br>三次握手时，除了第一次，其余ACK都为1.</p>
+<p>SYN：同步位，表示是在进行请求连接或者接收连接。握手的前两次SYN位置1.</p>
+<h3 id="3-3-TCP连接管理"><a href="#3-3-TCP连接管理" class="headerlink" title="3.3 TCP连接管理"></a>3.3 TCP连接管理</h3><h4 id="3-3-1-TCP三次握手"><a href="#3-3-1-TCP三次握手" class="headerlink" title="3.3.1 TCP三次握手"></a>3.3.1 TCP三次握手</h4><p>第一段的意思是<br><br>SYN=1：(A)要建立连接了！<br><br>seq=x（随机）：因为还没有数据，所以写什么都无所谓</p>
+<p>第二段的意思是<br><br>SYN=1：我(B)同意你(A)建立连接！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=y（随机）：因为还没有数据，所以写什么都无所谓<br><br>ack=x+1：之前发送方(A)说发送的是第x位数据（虽然发送方是瞎说的），所以我(B)要的是x+1位数据</p>
+<p>第三段的意思是<br><br>SYN=0：SYN只有在建立连接时才为1，其他时候均设为0<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=x+1：我(A)发送的报文段的第一个字节就是x+1<br><br>ack=y+1：之前接收方(B)说发送的是第y位数据（虽然接收方是瞎说的），所以我(A)要的是y+1位数据</p>
+<p>注意一下，TCP是双向的，所以不存在绝对不变的发送方接收方，这里的两台主机都同时是发送方和接收方<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/三次握手.png" alt="avatar"></p>
+<h4 id="3-3-2-SYN洪泛攻击"><a href="#3-3-2-SYN洪泛攻击" class="headerlink" title="3.3.2 SYN洪泛攻击"></a>3.3.2 SYN洪泛攻击</h4><p>攻击者发送SYN请求建立连接，服务器返回ACK时，攻击者不予以确认，这个TCP连接就处于挂起状态。服务器没收到确认，会重复发送ACK给攻击者，浪费其资源。</p>
+<h4 id="3-3-3-TCP四次挥手"><a href="#3-3-3-TCP四次挥手" class="headerlink" title="3.3.3 TCP四次挥手"></a>3.3.3 TCP四次挥手</h4><p>第一段的意思是<br><br>FIN=1：(A)要释放连接了！<br><br>seq=u：发了好多数据，这里只是用u指代一下，这里u是有确定值的</p>
+<p>第二段的意思是<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=v：发了好多数据，这里只是用v指代一下，这里v是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（尽管此时A已经决定释放连接了）</p>
+<p>第三段的意思是<br><br>FIN=1：(B)要释放连接了！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=w：发了好多数据，这里只是用w指代一下，这里w是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（因为A直接不发数据了，所以第二段第三段的ack都是u+1）</p>
+<p>第四段的意思是<br>ACK=1：连接建立了，之后的ACK必须都置为1<br>seq=u+1：之前发的数据时第u位数据，B也要第u+1位数据，所以我发第u+1位数据<br>ack=w+1：之前发送方(B)说发送的是第w位数据，所以我(A)要的是w+1位数据</p>
+<p>为什么需要等待计时2MSL？<br><br>因为这样可以保证B可以收到A的终止报文段进而进入关闭状态<br><br>比如说如果A的第四段报文丢失，那么等待一个MSL之后B就会重传第三段报文，花费小于1MSL之后A就会再收到第三段报文，之后就可以再次向B发送第四段报文提示B关闭连接<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/四次挥手.png" alt="avatar"></p>
+<h3 id="3-4-TCP的可靠传输"><a href="#3-4-TCP的可靠传输" class="headerlink" title="3.4 TCP的可靠传输"></a>3.4 TCP的可靠传输</h3><p>UDP这种本身不可靠的依赖于应用层去解决。</p>
+<p>可靠：保证接收方进程从缓冲区读取的字节流与发送方发出的字节流完全一样。</p>
+<p>TCP实现可靠传输的机制：</p>
+<ol>
+<li>校验  2. 序号  3. 确认  4. 重传</li>
+</ol>
+<p>累计确认机制：从第一个丢失的字节开始请求丢失的报文段。<br>如图中456丢失，78到达，但仍然请求发送的数据序号是4</p>
+<p>冗余ACK：发送方收到三个对于报文段1的冗余ACK，就重传报文段2.</p>
+<h3 id="3-5-TCP流量控制"><a href="#3-5-TCP流量控制" class="headerlink" title="3.5 TCP流量控制"></a>3.5 TCP流量控制</h3><p>简单来说就是接收方可以动态的发送信息告诉发送方发送窗口的大小。</p>
+<p>接收方接受不过来了就让发送方发送窗口小点，这样发送方发送的速率就慢下来了，接收方就有时间处理它的数据了</p>
+<p>接受方处理完了也可以发送请求让发送方发送窗口大点，这样发送方发送的速率就快起来了，接收方就可以处理更多数据而不是空闲等着收数据了。</p>
+<p>例外情况：B不允许A发送数据了，过一段时间后，B处理完数据想要恢复窗口大小但发送的有ｒｗｎｄ大小的数据报丢了。对于A，之前B回复的发送窗口为0，而B也在等待A的回复。</p>
+<p>计时器设置：当A收到B的接收窗口为０，开启计时器，设置的时间到后，发送一个探测报文段，接收方收到探测报文段后给出现在的窗口值。</p>
+<h3 id="3-6-TCP拥塞控制"><a href="#3-6-TCP拥塞控制" class="headerlink" title="3.6 TCP拥塞控制"></a>3.6 TCP拥塞控制</h3><p><strong>流量控制是对单独一个来说，拥塞控制是对于一群</strong>，防止过多的数据注入网络当中。</p>
+<h4 id="3-6-1-基础假定"><a href="#3-6-1-基础假定" class="headerlink" title="3.6.1 基础假定"></a>3.6.1 基础假定</h4><ol>
+<li>数据单方向传送，而另一个方向只传送确认</li>
+<li>接收方总是具有足够大的缓存空间，因而发送窗口大小取决于拥塞程度</li>
+</ol>
+<p>发送窗口= min{接收窗口，拥塞窗口}</p>
+<p>接收窗口：<strong>接收方</strong>根据接收缓存设置的值，并告知给发送方，反映接收方容量<br><br>拥塞窗口：<strong>发送方</strong>自己估算的网络拥塞程度设置的窗口值</p>
+<h4 id="3-6-2-慢开始和拥塞避免"><a href="#3-6-2-慢开始和拥塞避免" class="headerlink" title="3.6.2 慢开始和拥塞避免"></a>3.6.2 慢开始和拥塞避免</h4><p>开始指数形式增长，到达阈值后线性增长。<br><br>到达拥塞状态后，阈值降为原来的一半，拥塞窗口设置为1.<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/慢开始和拥塞避免.png" alt="avatar"></p>
+<h4 id="3-6-3-快重传和快恢复"><a href="#3-6-3-快重传和快恢复" class="headerlink" title="3.6.3 快重传和快恢复"></a>3.6.3 快重传和快恢复</h4><p>在收到连续的ack确认之后执行，这里的ack就是冗余ack，冗余ack的特点是如果多次对某一段请求的数据没有被收到，达到一定数目之后就会立即执行重传。</p>
+<p>此时传输数据报降到原来的一半，而不是降到1.<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/快重传.png" alt="avatar"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">计网概述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-09 13:29:28" itemprop="dateCreated datePublished" datetime="2021-01-09T13:29:28+08:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-11 09:45:58" itemprop="dateModified" datetime="2021-01-11T09:45:58+08:00">2021-01-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-meta-item leancloud_visitors" data-flag-title="计网概述" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>565</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-速率相关性能指标"><a href="#1-速率相关性能指标" class="headerlink" title="1. 速率相关性能指标"></a>1. 速率相关性能指标</h2><h3 id="1-1-速率"><a href="#1-1-速率" class="headerlink" title="1.1 速率"></a>1.1 速率</h3><p>定义：连接在计算机网络上的主机在数字信道上传送数据位数的速率<br><br>单位:b/s,Kb/s,Mb/s,Tb/s，<br><br>如果用字节表示，则是B/s,KB/s,MB/s,TB/s<br><br>1Byte=8Bit</p>
+<h3 id="1-2-带宽"><a href="#1-2-带宽" class="headerlink" title="1.2 带宽"></a>1.2 带宽</h3><p>在计算机网络中，指的是网络设备所支持的最高速度，单位同速率，是<strong>理想条件下最高速率</strong></p>
+<h3 id="1-3-吞吐量"><a href="#1-3-吞吐量" class="headerlink" title="1.3 吞吐量"></a>1.3 吞吐量</h3><p>单位时间内通过某个网络的数据总量</p>
+<h2 id="2-时延的相关指标"><a href="#2-时延的相关指标" class="headerlink" title="2. 时延的相关指标"></a>2. 时延的相关指标</h2><h3 id="2-1-四个类别"><a href="#2-1-四个类别" class="headerlink" title="2.1 四个类别"></a>2.1 四个类别</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">发送时延</td>
+<td style="text-align:center">数据从主机到信道上所用的时间</td>
+<td style="text-align:center">发送的数据长度/发送速率</td>
+</tr>
+<tr>
+<td style="text-align:center">传播时延</td>
+<td style="text-align:center">数据在信道上传播所花费的时间</td>
+<td style="text-align:center">信道长度/电磁波在信道上传播的速率</td>
+</tr>
+<tr>
+<td style="text-align:center">排队时延</td>
+<td style="text-align:center">数据在路由器前等待处理的时间</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">处理时延</td>
+<td style="text-align:center">数据在路由器上处理的时间</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>使用高速链路(提高网速)，只能减小发送时延，无法减少其他三个时延<br><br>传播的速度是固定的：电磁波速度。</p>
+<h3 id="2-2-时延带宽积"><a href="#2-2-时延带宽积" class="headerlink" title="2.2 时延带宽积"></a>2.2 时延带宽积</h3><p>公式：时延带宽积 = 传播时延x带宽<br><br>含义：链路上有多少比特的数据</p>
+<h3 id="2-3-往返时延RTT"><a href="#2-3-往返时延RTT" class="headerlink" title="2.3 往返时延RTT"></a>2.3 往返时延RTT</h3><p>RTT= 传播时延*2 + 处理时间</p>
+<h2 id="3-分层结构"><a href="#3-分层结构" class="headerlink" title="3. 分层结构"></a>3. 分层结构</h2><h3 id="3-1-认识分层结构"><a href="#3-1-认识分层结构" class="headerlink" title="3.1 认识分层结构"></a>3.1 认识分层结构</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/分层结构.png" alt="avatar"></p>
+<h2 id="4-参考模型"><a href="#4-参考模型" class="headerlink" title="4. 参考模型"></a>4. 参考模型</h2><p>OSI七层模型</p>
+<ol>
+<li>应用层：直接为应用进程提供服务<br></li>
+<li>表示层：把数据转换为能与接收者的系统格式兼容的格式</li>
+<li>会话层：在数据传输中设置和维护两台计算机的通信连接</li>
+<li>传输层：端到端，流量控制，复用分用</li>
+<li>网络层：选择最优路由，规划IP地址，拥塞控制</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">层次</th>
+<th style="text-align:center">OSI</th>
+<th style="text-align:center">TCP/IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">有连接</td>
+<td style="text-align:center">都可以</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">都可以</td>
+<td style="text-align:center">无连接</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">在惊讶中学习- 慢增长</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-08 14:57:32 / Modified: 15:29:29" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="在惊讶中学习- 慢增长" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>661</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在大选前，我曾看过一篇文章，用非常翔实的数据，做了一个数学模型，最终预测川普获胜。当时我觉得整体分析过程挺不错，收藏了那篇文章。</p>
+<p>如今，我想回头去看看那篇文章中的模型，哪些分析结果与实际不符，竟然发现作者把自己的文章给删除了 </p>
+<p>太可惜了。算法预测失败是很正常的呀！关键是复盘，总结，让大家看到问题出在哪里，这也是学习，甚至是更重要的学习呀。</p>
+<blockquote>
+<p>People learn when they’re surprised.</p>
+</blockquote>
+<p>为什么现在的教科书中让人提不起兴趣？</p>
+<blockquote>
+<p>astonishing facts were presented without astonishment.</p>
+</blockquote>
+<hr>
+<p>过去追求快，结果却很慢。真的慢下来，才发现：慢就是快。<br>结合我自身来说，很多时候为了赶进度，两倍速囫囵吞枣地看视频，有了一个大概的认识，但当我关上视频时，刚才看的什么也就完全忘得一干二净了。只有当真正静下心来看，能与别的东西连结起来，才是真正的收获。</p>
+<p>研究生刚创业的时候，一腔热血，觉得自己要学习乔布斯，改变世界。Change the World。</p>
+<p>后来，来了美国，和一个 Google 的同学聊天，启发很大。其实，我们不需要改变世界，对这个世界产生一点影响，就够了。所谓的 Make an Impact。</p>
+<p>但是现在，我的观念又变了。我觉得，产生一点影响都是奢求。现在，我喜欢的说法，是产生一点涟漪。Make a Ripple。</p>
+<p>你看，我是不是越来越没追求？</p>
+<p>但我却觉得，我越来越进步了。因为，不再年少轻狂，理解了梦想和现实的分界。</p>
+<p>慢慢来，哪怕产生一点涟漪，或许才是实现梦想的开始。</p>
+<p>再不济，涟漪虽浅，但也证明，我在这里。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8F%A4%E4%BB%A3%E6%96%87%E5%AD%A6%E4%BD%9C%E5%93%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E5%8F%A4%E4%BB%A3%E6%96%87%E5%AD%A6%E4%BD%9C%E5%93%81/" class="post-title-link" itemprop="url">古代文学</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-08 14:57:32 / Modified: 15:56:48" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">文学</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E5%8F%A4%E4%BB%A3%E6%96%87%E5%AD%A6%E4%BD%9C%E5%93%81/" class="post-meta-item leancloud_visitors" data-flag-title="古代文学" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="唐诗三百首"><a href="#唐诗三百首" class="headerlink" title="唐诗三百首"></a>唐诗三百首</h3><p>孙洙，字临西，编选唐诗三百首。<br>近体诗：格律诗，即唐诗，绝句和律诗。<br>古体诗：格律限制较少的诗 ###<br>王勃字子安，神童，14岁参加科举，获得七品官，</p>
+<p>武汉黄鹤楼、南昌滕王阁、岳阳岳阳楼，江南三大名楼</p>
+<h2 id="关关雎鸠"><a href="#关关雎鸠" class="headerlink" title="关关雎鸠"></a>关关雎鸠</h2><h4 id="关关是什么？"><a href="#关关是什么？" class="headerlink" title="关关是什么？"></a>关关是什么？</h4><p>关关：拟声词，鸟的叫声。<br>因为古代的发音和现代不同，古音与鸟叫类似。 </p>
+<h4 id="雎鸠是什么？"><a href="#雎鸠是什么？" class="headerlink" title="雎鸠是什么？"></a>雎鸠是什么？</h4><p>鱼鹰，捕鱼的鸟。 </p>
+<h4 id="关雎隐喻什么"><a href="#关雎隐喻什么" class="headerlink" title="关雎隐喻什么"></a>关雎隐喻什么</h4><p>兴：欲言此物先言它物<br>鸟衔鱼图案隐喻：鱼籽很多，代表女性。鸟代表男性。 </p>
+<h4 id="为什么第一首是这个"><a href="#为什么第一首是这个" class="headerlink" title="为什么第一首是这个"></a>为什么第一首是这个</h4><p>发乎于情，止乎于礼</p>
+<h2 id="逍遥游"><a href="#逍遥游" class="headerlink" title="逍遥游"></a>逍遥游</h2><p>朝菌不知晦朔，蟪蛄不知春秋 </p>
+<p>且举世誉之而不加劝，举世非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。(就觉得不过如此罢了)</p>
+<h2 id="鱼我所欲也"><a href="#鱼我所欲也" class="headerlink" title="鱼我所欲也"></a>鱼我所欲也</h2><p>万钟则不辩礼义而受之，万钟于我何加焉！为宫室之美，妻妾之奉，所识穷乏者得我与？<br>乡为身死而不受，今为宫室之美为之；乡为身死而不受，今为妻妾之奉为之；<br>乡为身死而不受，今为所识穷乏者得我而为之；是亦不可以已乎？此之谓失其本心。</p>
+<h2 id="生于忧患死于安乐"><a href="#生于忧患死于安乐" class="headerlink" title="生于忧患死于安乐"></a>生于忧患死于安乐</h2><p>困于心，衡于虑，而后作。<br>借用悲剧哲学家尼采的话来说，是要求我们“去同时面对人类最大的<br>痛苦和最高的希望。”（《快乐的科学》）因为，痛苦与希望本来就同在。</p>
+<h2 id="得道多助，失道寡助"><a href="#得道多助，失道寡助" class="headerlink" title="得道多助，失道寡助"></a>得道多助，失道寡助</h2><p>天时不如地利，地利不如人和。</p>
+<p>三里之城，七里之郭，环而攻之而不胜。夫环而攻之，必有得天时者矣；<br>然而不胜者，是天时不如地利也。</p>
+<p>城非不高也，池非不深也，兵革非不坚利也，米粟非不多也；委而去之，是地利不如人和也。</p>
+<p>故曰：域民不以封疆之界，固国不以山溪之险，威天下不以兵革之利。<br>得道者多助，失道者寡助。寡助之至，亲戚畔之；多助之至，天下顺之。<br>以天下之所顺，攻亲戚之所畔，故君子有不战，战必胜矣。</p>
+<h2 id="劝学"><a href="#劝学" class="headerlink" title="劝学"></a>劝学</h2><p>神莫大于化道，福莫长于无祸。<br>故君子居必择乡，游必就士，所以防邪辟而近中正也。</p>
+<p>吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。<br>登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。<br>假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。</p>
+<p>积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。<br>故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；<br>驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。<br>蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。<br>蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。</p>
+<h2 id="阿旁宫赋"><a href="#阿旁宫赋" class="headerlink" title="阿旁宫赋"></a>阿旁宫赋</h2><p>奈何取之尽锱铢，用之如泥沙？使负栋之柱，多于南亩之农夫；<br>架梁之椽，多于机上之工女；钉头磷磷，多于在庾之粟粒；<br>瓦缝参差，多于周身之帛缕；<br>直栏横槛，多于九土之城郭；管弦呕哑，多于市人之言语。</p>
+<p>戍卒叫，函谷举，楚人一炬，可怜焦土！</p>
+<p>灭六国者六国也，非秦也。族秦者秦也，非天下也。</p>
+<p>秦人不暇自哀，而后人哀之；后人哀之而不鉴之，亦使后人而复哀后人也。</p>
+<h2 id="六国论"><a href="#六国论" class="headerlink" title="六国论"></a>六国论</h2><p>思厥先祖父，暴霜露，斩荆棘，以有尺寸之地。子孙视之不甚惜，举以予人，如弃草芥。</p><p></p>
+<p>今日割五城，明日割十城，然后得一夕安寝。起视四境，而秦兵又至矣。</p>
+<p>然则诸侯之地有限，暴秦之欲无厌，奉之弥繁，侵之愈急。</p>
+<p>“以地事秦，犹抱薪救火，薪不尽，火不灭。”</p>
+<h2 id="常见的名言"><a href="#常见的名言" class="headerlink" title="常见的名言"></a>常见的名言</h2><p>靡不有初鲜克有终</p>
+<p>茕茕白兔，东走西顾。衣不如新人不如故。</p>
+<p>一生负气成今日，四海无人对夕阳。</p>
+<p>功名半纸，风雪千山。</p>
+<p>早知如此绊人心，何如当初莫相识。</p>
+<p>人面不知何处去，桃花依旧笑春风。<br>欲买桂花同载酒，终不似，少年游。</p>
+<p>我有所念人，隔在远远乡。<br>我有所念人，结在深深肠。</p>
+<p>此去经年，应是良辰好景虚设。便纵有，千种风情，更与何人说。<br>而今识尽愁滋味，欲说还休，欲说还休，却道天凉好个秋。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/" class="post-title-link" itemprop="url">swag meaning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-08 14:57:32 / Modified: 15:29:20" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E5%8F%A3%E8%AF%AD%E6%8E%A7/" class="post-meta-item leancloud_visitors" data-flag-title="swag meaning" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>247</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="The-meaning-of-swag"><a href="#The-meaning-of-swag" class="headerlink" title="The meaning of swag"></a>The meaning of swag</h3><ul>
+<li>Hey mam. What’s poppin?  </li>
+<li>Yo. what up dawg? Good to see you here.</li>
+<li>Yes, are you here for the audition as well?</li>
+<li>I mean, who isn’t. I’m all pumped up right now.</li>
+<li>You have a great chance of winning among all these readers.</li>
+<li>Come on bruh. Look at you. You got the swag, the talent and everything.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E9%81%93%E5%AE%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E9%81%93%E5%AE%B6/" class="post-title-link" itemprop="url">道家</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-08 14:57:32 / Modified: 15:53:40" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">文学</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E9%81%93%E5%AE%B6/" class="post-meta-item leancloud_visitors" data-flag-title="道家" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="哲学篇"><a href="#哲学篇" class="headerlink" title="哲学篇"></a>哲学篇</h1><h3 id="常道"><a href="#常道" class="headerlink" title="常道"></a>常道</h3><p>无所不在谓之道，自其所得谓之德。(道是普遍的原理，德是自己的行动。)</p><p><br>道可道，不知道的东西也可以去研究它，研究它的性质和意义。</p><p><br>就像根号2大家不知道它的精确解，但是可以知道它的性质。</p><p><br>有物混成，先天地生。吾不知其名，强字之曰道。<br><br>惚兮恍兮，其中有象，惚兮恍兮，其中有物。<br><br>韩非：道是万物之所然，万理之所稽。（规律的规律）</p>
+<h3 id="有生于无"><a href="#有生于无" class="headerlink" title="有生于无"></a>有生于无</h3><p>无，名天地之始。有，名万物之母。<br><br>天下万物生于有，有生于无。</p><p><br>中国女排冠军，郎平指导是无，得冠军是有。杯子用的是无，房子修的是墙，住的是无。</p>
+<h3 id="反者道之动"><a href="#反者道之动" class="headerlink" title="反者道之动"></a>反者道之动</h3><p>吾言甚易知，甚易行。天下莫能知，莫能行。（怨言）<br>老子认为是循环的，<br>将欲取之，必先予之。</p><p><br>车辆撞着翻栏杆行人，也要赔钱。其实是害了更多的行人。</p>
+<h3 id="责人容易责己难"><a href="#责人容易责己难" class="headerlink" title="责人容易责己难"></a>责人容易责己难</h3><p>知 不知 上，不知 知 病。<br><br>我讲得不一定对，现在认为自己讲的是对的，未来肯定不对。<br><br>大成若缺，大家不要互相颠覆，就像世界杯现场看和在家直播,各有各的好处。</p>
+<h3 id="非有公是——换位思考"><a href="#非有公是——换位思考" class="headerlink" title="非有公是——换位思考"></a>非有公是——换位思考</h3><p>老子偏理论，没什么例子，但是只讲道理。庄子偏向事例。<br><br>天下非有公是也，而各是其所是。<br><br>太阳绕地球还是地球绕太阳。庄子变蝴蝶还是蝴蝶变庄子。<br><br>人长期泡水要生病，泥鳅离了水反而要干死。各有各的活法，因此需要换位思考，不要把你的是非强加于别人。</p>
+<h3 id="道家与科学"><a href="#道家与科学" class="headerlink" title="道家与科学"></a>道家与科学</h3><p>科学：墨子。玄之又玄，众妙之门。<br><br>哥德尔不完备证明，是不是有限次增加后，能证明所有结论，答案是否定的。<br>故常无欲以观其妙，常有欲以观其徼(边界)。 有一利必有一害。<br>屠龙之技，比喻没有意义的技巧，伽利略造钟表，就是看教堂的摆动。<br>(1)道法自然，不信神仙。<br>(2)玄之又玄，清醒认识到人类认识规律的困难。<br>(3)无欲观其妙,有欲观其徼，对于理论研究和应用研究的定位有指导意义。</p>
+<h3 id="无为而治"><a href="#无为而治" class="headerlink" title="无为而治"></a>无为而治</h3><p>太上不知有之，最好的管理是不知道有人在管理，太阳系是谁在管理？万有引力定律。</p><p><br>由规律自己来管理，大禹疏导水流。都江堰水利工程。<br><br>(1)鱼嘴分水提，外江泄洪排沙，内江引水灌溉。<br><br>(2)飞沙堰，进入内江的过量洪水和沙石排入外江<br><br>(3)宝瓶口，内江的水由此送入成都平原</p><p><br>表层水流向凹岸，即内江，底层水流向凸岸，即外江。<br>交通几乎不需要交警，体育比赛裁判只是辅助。<br>不是不管理，而是顺其自然，让规律去管理，</p>
+<h3 id="圣人不死，大盗不止"><a href="#圣人不死，大盗不止" class="headerlink" title="圣人不死，大盗不止"></a>圣人不死，大盗不止</h3><p>对仁义道德的强烈批判，冷眼热心。<br><br>窃钩者诛，窃国者诸侯。一将功成万骨枯，产生乱的/大盗的根源，就是老想着去建功立业，老想着去整别人。</p>
+<p></p><p><br>大道废，有仁义。智慧出，有大伪。六亲不和，有孝慈。国家昏乱，有忠臣。<br><br>为什么需要仁义、忠臣、孝慈？是因为你乱套了，指明了原因，孔子讲的是解决的方法。<br><br>绝圣弃智，民利百倍。绝仁弃义，民复孝慈。绝巧弃利，盗贼无有。</p><p></p>
+<p>儒家提倡仁义道德，劝说人民服从统治者。老子和庄子站在老百姓立场，指出产生大盗的根源是统治者对人民的压迫。</p>
+<h3 id="上德不德"><a href="#上德不德" class="headerlink" title="上德不德"></a>上德不德</h3><p>上德不德，是以有德。按照规律来行动，就是德。道是普遍规律，德是行为。<br><br>与其相濡以沫，不如相忘于江湖。与其誉尧而非桀，不如两忘而化其道。<br><br>对于统治者无所谓，只要用道来约束人民就行。<br><br>德”不需要另外炒作，只要按照“道”做好事造福于人，有了效果，就是功德无量。做好事时只要想到如何有利于人，就是最高的道德，不需要另立标准来鉴定是不是道德。</p>
+<h3 id="逍遥游"><a href="#逍遥游" class="headerlink" title="逍遥游"></a>逍遥游</h3><p>鲲鹏展翅九万里，翻动扶摇羊角。有待，自由依赖于约束，依赖于客观规律。</p>
+<h3 id="为而不争"><a href="#为而不争" class="headerlink" title="为而不争"></a>为而不争</h3><p>真正努力的人都不争名，反而会做出成绩来。<br><br>夫唯不争，故天下莫能与之争。<br><br>干活时只想到怎样把活干好，某一天好处就突然降临了。<br>那些争得头破血流的，都没得到。</p>
+<h3 id="功成身退天之道"><a href="#功成身退天之道" class="headerlink" title="功成身退天之道"></a>功成身退天之道</h3><p>孙叔敖，给子孙留一块最差的土地，这样没人来掠夺。<br><br>人无千日好，花无百日红。<br><br>丘吉尔：打仗就是为了保卫人民把我选下去的权利。</p><p><br>老子的“反者道之动”揭示了物极必反、乐极生悲的道理。无数历史事实一再证实这一理论。功臣被杀主要不是由于国君的随心所欲，而是执政需要；范蠡张良曾国藩识时务，完美收官。</p>
+<h3 id="鲁候养鸟"><a href="#鲁候养鸟" class="headerlink" title="鲁候养鸟"></a>鲁候养鸟</h3><p>尊重差异</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,790 +1393,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/" class="post-title-link" itemprop="url">最喜欢的格言</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 13:02:40 / Modified: 15:29:37" itemprop="dateCreated datePublished" datetime="2021-01-08T13:02:40+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/" class="post-meta-item leancloud_visitors" data-flag-title="最喜欢的格言" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>958</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>真正的大师，永远怀着一颗学徒的心。<br></p>
-<blockquote>
-<p>A true master, is an eternal student.</p>
-</blockquote>
-<p>数学家奥斯卡：</p>
-<blockquote>
-<p>给时光以生命，而不是给生命以时光。</p><p><br>To the time to life, rather than to life in time.</p><p><br>使人成熟的不是岁月，而是经历。</p>
-</blockquote>
-<p>海明威：</p>
-<blockquote>
-<p>The world is a fine place and worth fighting for.<br><br>电影《七宗罪》引用了这句话，并加上一句：<br>“I agree with the second part.”</p>
-</blockquote>
-<p>罗曼罗兰：</p>
-<blockquote>
-<p>There is only one heroism in the world: to see the world as it is and to love it.<br>世界也许并不美好，生活的真相也许是残酷，但我们还是要奋斗。</p>
-</blockquote>
-<p>一个人的奶奶说：</p>
-<blockquote>
-<p>Some bugger will always have a faster car, a flashier house, a glitzier watch - but you were the only kids that ever had me for a nana。<br><br>那些物质的东西，其实并不宝贵。真正宝贵的，是你见到的人，遇到的事儿，拥有的经历和感悟。这些才让你成为你，值得你珍视一生。</p>
-</blockquote>
-<p>有点像火蓝刀锋里：</p>
-<blockquote>
-<p>If you keep doing what you’ve always done, you’ll keep getting what you always got.<br><br>龙柏川说他的老班长说：如果你想要得到你从未得到过的东西，你就要去做你从未做过的事。</p>
-</blockquote>
-<hr>
-<p>以下是贺炜，央视的足球解说员，我都很喜欢：</p>
-<blockquote>
-<p>一件看似不经意的小事，往往就是命运的转折，一次看似普通的再见，其实就是永别。</p><p><br>人的一生中最光辉的一天，并非是功成名就的那天，而是从悲壮与绝望中产生对人生的挑战，以勇敢迈向意志的那天<br>                                    —福楼拜。</p><p><br>生活可能不像你想象得那么好，但是也不会像你想象得那么糟，人的脆弱和坚强都超乎了自己的想象，有时候脆弱的一句话就能泪流满面，有时候你发现自己咬着牙已经走了很长的路。</p><p></p>
-<p>爱本身并没有错，爱谁都是自由，爱强者更是人类的天性。不过因为自己所爱的事物的强大就幻想自己也强大了，甚至觉得爱其他事物的人都已经被踩在脚下了，这就是病态，一种弱智的病态。</p><p></p>
-<p>真正的成熟并不是去追求完美，而是直面自己的缺憾。</p><p><br>向上攀爬的那条路不是比站在顶峰更让人热血澎湃吗。</p><p><br>爱一件事物不是爱它的成败，而是爱它的全部。</p><p></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/" class="post-title-link" itemprop="url">努力就会成功？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 10:59:03 / Modified: 15:29:16" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="努力就会成功？" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？</p>
-<h4 id="一个具体的实例说明加班可能适得其反"><a href="#一个具体的实例说明加班可能适得其反" class="headerlink" title="一个具体的实例说明加班可能适得其反"></a>一个具体的实例说明加班可能适得其反</h4><p>直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1000多个bug。你没看错，是一千多个。</p>
-<p>最后，这个项目用了 1 年多的时间来返工。本来一个 6-8 个月的项目，团队被打了鸡血，想在3个月内完成，最终却花了近两年的时间来返工。</p>
-<p>要知道，我以前在外国公司工作，外国老板看到团队在长时间加班，会感到焦虑的。<font color="blue">因为加班，通常代表着有不好的事情正在发生。</font></p>
-<p>所以对此，我是有点看不懂的。看不懂的是，为什么这么一群聪明的人，放着明亮宽敞的办公桌不用，硬要挤在一个又窄又小又吵又热的小空间里工作，而且要这么透支地写那么重要的很关键的系统级代码？</p>
-<font color="blue">这就好像，一架在一个小作坊里被人加班加点赶工出来的飞机，谁敢坐啊？</font>难道他们真的以为，有足够多的钱，足够多的人，然后拼命加班，就能打败对手吗？
-
-
-#### 在低级事情上努力也许是对学习高级知识的逃避
-
-“努力就会成功”，“加班就会有成就”，“勤劳就会致富”……
-<font color="blue">因为这类人基本上都是能力有限，不知道怎么提升自己的人，当他们看到只要拼命使力就可以成功的观点时，他们就会有共鸣，就会感动。不用学习那些晦涩难懂的高级知识，不用掌握和练习那些高级技能，自己只需要在低级的事情上拼命和努力，加更多的班和干更多的活，自己就会像电影中的那些小人物一样，总有一天会成功的。</font>
-
-<p>因为，他们混淆了行动与进展，忙碌与多产。他们以为能靠蛮力可以弥补思维上的惰性，靠拼命可以弥补能力上的不足。喜欢或认同这句话的人，基本是能力上有问题的人。这类人适合做劳动密集型的事。不信你可以试试看，当一件事的难度超过一定程度的时候，那些聪明的人会找到更省力的方法；而能力上有问题的人，还是在那儿使蛮力。</p>
-<h4 id="应该怎么做？work-hrad-gt-work-smart"><a href="#应该怎么做？work-hrad-gt-work-smart" class="headerlink" title="应该怎么做？work-hrad -&gt; work-smart"></a>应该怎么做？work-hrad -&gt; work-smart</h4><p>再回想一下，我以前在职场上的很多关键点，不是因为我加班了，而是因为在某些关键问题上，我跳出来解决了其它人都解决不了的问题。<br>我也有失败的时候，而我失败的时候，总是因为我搞不定事，即便是加班拼命努力也无济于事。是的，我的职业生涯的成长，最根本的不是你有多努力，有多勤奋，而是你能搞定很多人搞不定的事。<br>你不信，你可以看看你们公司那些不用加班，就算什么也不干，公司也要花钱养的技术人员。他们的成功，一定不是努力和加班加出来的。<font color="blue">你会发现这些人拼的不是谁干的多，而是谁解决的问题更难。</font></p>
-<p>我加班 996 的时候，从来都不是我成长最快的时候；而我和一群牛人在解决难题的时候，才是我成长最快的时候。<br>关键不在于谁写的代码多，关键在于我们解决了什么样的问题。<br>在这样的一个时代，你要做的，不是通过加班和拼命来跪着挣钱，而是通过技能，来躺着挣钱。</p>
-<h4 id="自己的一些想法"><a href="#自己的一些想法" class="headerlink" title="自己的一些想法"></a>自己的一些想法</h4><p>这让我想到高中时期经常用到的一个作文素材，核心是“金字塔绝对不是由奴隶建造的”，因为受压迫的奴隶不可能做出这种巧夺天工的建筑，最后也由考古学家证实，建造金字塔的是身份地位较高的平民和劳工，绝非奴隶！</p>
-<p>许多作曲家和作家都曾说过，自己灵感迸发的时刻大多不是在工作时那种高强度的状态下，而是在洗澡淋浴时、和朋友闲谈时。</p>
-<p>LegalHigh中动画导演的那一集让我印象一直十分深刻，导演的坚毅的台词。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">技术发展历程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-08 10:59:03" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-10 00:04:36" itemprop="dateModified" datetime="2021-01-10T00:04:36+08:00">2021-01-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="技术发展历程" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>430</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p>由于深度神经网络DNN参数量过大以及丢失了时序信息，在NLP处理中不如RNN。</p>
-<p>但是RNN关键在于将之前保存的信息应用到当前的任务之上。<br>当距离过大时，容易出现梯度衰减和爆炸。</p>
-<p>所以采用LSTM和GRU弥补。</p>
-<h3 id="seq2seq"><a href="#seq2seq" class="headerlink" title="seq2seq"></a>seq2seq</h3><p>虽然RNN输入可以不定长，但是输出是定长的，所以无法解决机器翻译的问题。<br>seq2seq将输入通过Encoder编码成向量C，然后作为Decoder的一部分用来预测，Decode的输入是前一时刻Decoder的输出，所以可以输出不定长。</p>
-<h3 id="attention"><a href="#attention" class="headerlink" title="attention"></a>attention</h3><p>当输入的句子很长时，将所有的输入都融合成一个向量C显然不合适。<br>attention就是将C变成一个随时间变化的权重变量。</p>
-<h3 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h3><p>由于RNN无法并行，attention的编码器和解码器还是使用了RNN。所以transformer完全抛弃了RNN，在编码器和解码器采用self-attention机制，可以很好地并行化。</p>
-<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>BERT就是采用的transformer的编码器，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 10:22:04 / Modified: 15:14:45" itemprop="dateCreated datePublished" datetime="2021-01-08T10:22:04+08:00">2021-01-08</time>
-            </span>
-
-          
-            <span id="/2021/01/08/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>357</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/" class="post-title-link" itemprop="url">电脑知识</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-16 10:27:34" itemprop="dateCreated datePublished" datetime="2020-04-16T10:27:34+08:00">2020-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 15:29:57" itemprop="dateModified" datetime="2021-01-08T15:29:57+08:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/16/%E8%BE%BE%E5%B0%94%E6%96%87/" class="post-meta-item leancloud_visitors" data-flag-title="电脑知识" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="计算机视觉能干什么"><a href="#计算机视觉能干什么" class="headerlink" title="计算机视觉能干什么"></a>计算机视觉能干什么</h1><p>人们希望它能模仿人类的视觉系统，作为人工智能的基石，从视频、图像中提取信息。<br>图像分类、目标检测、超像素、风格迁移、目标追踪、图像拼接、语义分割</p>
-<h1 id="如何教计算机看懂一张图"><a href="#如何教计算机看懂一张图" class="headerlink" title="如何教计算机看懂一张图"></a>如何教计算机看懂一张图</h1><p>三个通道，灰度直方图，对比度低：灰度直方图比较集中。对比度高：直方图横轴分布很均匀。<br>也叫直方图均匀化</p>
-<h1 id="图像去噪"><a href="#图像去噪" class="headerlink" title="图像去噪"></a>图像去噪</h1><p>滤波器(核)：将周围八个点取平均(取中值)，代替噪声点。</p>
-<h1 id="全连接神经网络"><a href="#全连接神经网络" class="headerlink" title="全连接神经网络"></a>全连接神经网络</h1><h1 id="OLED与LCD"><a href="#OLED与LCD" class="headerlink" title="OLED与LCD"></a>OLED与LCD</h1><p>LCD的工作原理：每个像素点的显示，液晶层就类似百叶窗(液晶层+偏光片整体类似百叶窗)，最下面的背光层发射白光。<br>白光射穿具有颜色的彩色滤光层之后，就变成对应颜色的光线。<br>正极发送电压，穿透液晶层与负极构成回路，这个电压会驱使液晶层发生偏转，液晶层会遮挡住一部分光线。<br>这样只需要控制电压大小，就可以控制液晶层偏转角度，进而控制RGB子像素的亮度，从而混合出各种颜色。</p>
-<p>OLED(Organic Light-Emitting Diode有机自发光二极管)：<br>没有液晶层和背光层，是一种特殊的发光二极管，通电就发亮，电压越大亮度越大。<br>每个像素都可以独立控制开关，没必要像LCD一样整个背光层都要亮起。</p>
-<p>优点：</p>
-<ol>
-<li>可以做Always on display息屏提醒，手机锁屏时可以单独点亮部分像素点，以低亮度和低刷新率来显示时间和通知。<br>而LCD一开屏幕整个背光层都要打开，不可能以低功耗实现息屏提醒。</li>
-<li>近乎无限的对比度。对比度是画面黑白明暗的亮度比值，LCD要显示纯黑色，理想下是液晶层全闭合，完全挡住发出的背光。<br>但是LCD的液晶屏不能完全闭合，所以不能看到纯黑。OLED直接断电就是纯黑。</li>
-<li>没有漏光。屏幕面板需要装进手机或者显示器，屏幕和边框的衔接处，背光层的背光很容易漏出去。边框会出现光晕。</li>
-<li>屏幕响应时间。显示动态画面，会出现残影。液晶屏的偏转速度决定了LCD的灰阶响应时间。<br>而且与温度有关，温度越低偏转越慢，导致LCD在低温下会出现明显的拖影现象。</li>
-<li>厚度。OLED不需要液晶层和背光层，可以更加薄。并且可以弯折。</li>
-</ol>
-<p>手机屏幕除了屏幕本身还有控制IC和排线，COG就是直接把控制IC和排线放在屏幕正下方，导致有大下巴。<br>COF，把控制IC做到排线上，再把排线弯折到屏幕的背面。<br>COP，利用OLED把下巴弯没<br>缺点：</p>
-<ol>
-<li>寿命短。电压直接发在二极管上，有机物相对于无机物很容易老化。并且每个像素点独立，每个地方的老化程度不同，导致烧屏。<br>像素点老化不均匀导致的屏幕色差。</li>
-<li>调光方式。DC，利用电压来改变灯的亮度。 PWM，调整开关的时间占比，一开一关，频闪导致伤眼。<br>OLED在电压过低时，屏幕会出现和抹布一样不均匀效果，不能采用DC调光。</li>
-<li>实际分辨率达不到理论分辨率。RGBG排列，Pentilit排列。</li>
-</ol>
-<h1 id="机械硬盘-SMR瓦楞式堆叠硬盘"><a href="#机械硬盘-SMR瓦楞式堆叠硬盘" class="headerlink" title="机械硬盘 SMR瓦楞式堆叠硬盘"></a>机械硬盘 SMR瓦楞式堆叠硬盘</h1><p>自己不要拆机械硬盘，只要盘面落一粒灰，一转起来对盘面就是毁灭性打击。<br>结构：马达、磁盘、磁头臂、磁头<br>磁头悬浮在磁盘上几纳米，磁盘面上有很多的小格，小格内有小磁粒，磁头可以读取磁粒的极性，读出0和1.<br>写磁头可以改变磁粒的极性。 这就是最早的LMR水平式记录磁盘。<br>后来磁粒立起来，节省空间，PMR垂直式记录磁盘。(CMR)</p>
-<p>先寻道，磁头放在指定磁道，再旋转等待指定扇区的到来。<br>但是写磁头的半径需要很大，再加上磁道之间需要距离，所以空间利用率仍不是很高。<br><img src="/SMR_CMR.png" alt="avatar"><br>存储空间大了，但是改写内容时很麻烦。<br>所以缓存很大，需要用来临时存放那些改写数据会影响到的数据。</p>
-<h1 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h1><p>机械硬盘利用磁粒的极性来存储数据，所以机械硬盘也被称为磁盘。<br>固态硬盘存储的基本单元：浮栅晶体管。控制级、浮栅级，源级，漏级、P级。</p>
-<h1 id="驱动程序"><a href="#驱动程序" class="headerlink" title="驱动程序"></a>驱动程序</h1><p>驱使硬件动起来的程序，介于硬件和系统之间的API接口，让系统知道这个硬件的存在，并且通过接口和这个硬件交互数据。</p>
-<h1 id="CPU散片和盒装的区别"><a href="#CPU散片和盒装的区别" class="headerlink" title="CPU散片和盒装的区别"></a>CPU散片和盒装的区别</h1><p>OEM：原始设备制造商。卖给联想、戴尔、惠普的东西与零售的东西不同，不带有说明书、保修卡、包装盒，只有工包。</p>
-<ol>
-<li>来源不同。盒装作为零售商品。散装供给给OEM作为电脑原件原料的。但都是由Intel或者AMD生产的</li>
-<li>保修政策不同。买散片要看店铺</li>
-<li>每个CPU体制(性能)不完全相同。<br>但是CPU故障率低，几乎不用保修。</li>
-</ol>
-<p>#<br>CPU主频 = 外频 × 倍频<br>电脑里所有的电气信号必须要保证频率协调统一，主板晶振XO，<br>100MHz电脑平台的基础频率BCLK。跳大绳的口号。外频。<br>在保证和其他设备通讯的100MHz外频不变的情况下，让CPU在自己工作的时候的频率在此基础上翻倍</p>
-<h1 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h1><p>显卡：绘制电脑图像。<br>关键参数：<br>-流处理器数量：画师个数，越多游戏帧数就越高<br>-显卡架构：老一代的麦克斯架构不如新的10代帕斯卡架构，最新的是图灵架构<br>-显卡频率：画画速度<br>-显存容量/位宽/显存频率：画的仓库大小/小车的运载量/小车往返速度<br>N卡：英伟达 GTX450、GTX1080TI,RTX2080TI<br>A卡：AMD RX580,RX VAGE 56</p>
-<h1 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h1><p>先看CPU与主板能否匹配，芯片组和接口类型<br>1.选择合适的芯片组<br>2.内存插槽，建议4根<br>3.PCIE扩展插槽数量，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/12/PAT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/12/PAT/" class="post-title-link" itemprop="url">OJ基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-12 10:07:05" itemprop="dateCreated datePublished" datetime="2020-04-12T10:07:05+08:00">2020-04-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 15:14:24" itemprop="dateModified" datetime="2021-01-08T15:14:24+08:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">编程相关</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/12/PAT/" class="post-meta-item leancloud_visitors" data-flag-title="OJ基础" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>466</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="常见的评测结果"><a href="#常见的评测结果" class="headerlink" title="常见的评测结果"></a>常见的评测结果</h3><p>-AC:accept<br>-CE:compile error<br>-WA:wrong answer<br>-TLE:time limit exceeded<br>-RE:runtime error:数组越界，指针乱指，<br>-MLE:memory limit exceeded<br>-PE:presentation error </p>
-<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>int:-2<em>10^9~2</em>10^9<br>long long:-9<em>10^18~9</em>10^18<br>char:-128~127<br>int占4Byte，10^9以内的数都可以int型<br>long long型赋值大于2^31的初值，需要在后面加上LL，否则编译出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long long bignum &#x3D; 123456789012345LL;</span><br></pre></td></tr></table></figure><br>浮点型用double存储，占64位，printf(“%f”,c);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define pi 3.14</span><br><span class="line">const double pi &#x3D; 3.14</span><br><span class="line">#define ADD(a,b) ((a)+(b))</span><br><span class="line">#define MAX(a,b) ((a)&gt;(b)?(a):(b))</span><br></pre></td></tr></table></figure><br>位运算符：<br>int型上限是2^31-1，所以INF可以设置为(1&lt;<31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高** 但是一般更常用的是2^30-1，避免相加超过int，写成二进制是0x3fffffff <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int INF &#x3D; (1&lt;&lt;30)-1</span><br><span class="line">const int INF &#x3D; 0x3fffffff</span><br></pre></td></tr></table><br>scanf(“%lld”,&amp;long);      printf(“%lld”,long);<br>scanf(“%lf”,&amp;db);           printf(“%f”,db);<br>scanf(“%s”,str);<br>scanf可以不加空格的原因，对于其他格式符的输入以空白符(空格、tab)作为结束标志<br>使用%s读入以空格和换行作为读入结束标志。</31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高**></p>
-<p>想要输出%和\在前面加上一个相应符号<br>printf(“%%”);<br>printf(“\“);<br>%md右对齐，补空格<br>%0md右对齐，补0</p>
-<p>typedef给复杂的类型起一个别名<br>typedef long long LL;<br>LL a = 12134;<br>数学函数：<br>fabs(double x)<br>floor(double x) ceil(double x)<br>pow(double r,double p)  round(double x)</p>
-<p>对数组中每一个元素赋相同的值，memset按字节赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">memset(a,0,sizeof(a))  &#x2F;&#x2F;只建议赋值为0或-1，赋值为其他的建议fill</span><br></pre></td></tr></table></figure><br>strlen(str) strcmp(s1,s2)返回负数，0，正数<br>strcmp(s1,s2)  把s2的值赋值给s1<br>strcat(s1,s2)  把字符数组2接到字符1后面</p>
-<p>sscanf把字符数组str中的内容以%d形式写到n中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n; char str[10]&#x3D;&quot;233&quot;;</span><br><span class="line">sscanf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure><br>sprintf把n以%d的形式写到字符数组中（从右至左）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n&#x3D;233; char str[10];</span><br><span class="line">sprintf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure></p>
-<p>如果自己重新定义了构造函数，则不能不经初始化就定义结构体变量，<br>可以手动再加上默认的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct studentInfo&#123;</span><br><span class="line">    int id;</span><br><span class="line">    char gender;</span><br><span class="line">    studentInfo()&#123;&#125;</span><br><span class="line">    studentInfo(int _id,char _gender)&#123;</span><br><span class="line">        id &#x3D; _id;</span><br><span class="line">        gender &#x3D; _gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">studentInfo(int _id,char _gender):id(_id),gender(_gender)&#123;&#125;</span><br></pre></td></tr></table></figure><br>补充<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">const double Pi &#x3D; acos(-1.0)</span><br><span class="line">#define Equ(a,b) ( (fabs((a)-(b)))&lt;(eps) )</span><br></pre></td></tr></table></figure><br>scanf函数的返回值为成功读入的参数的个数，读入失败时会返回-1，即EOF<br>while(scanf(“%s”,str) != EOF)<br>while(gets(str) != NULL)<br>当输入的a,b都为0时结束<br>while(scanf(“%d%d”,&amp;a,&amp;b),a||b)</p>
-<p>判断闰年:是4的倍速但不是100倍数，或者是400的倍数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool isLeap(int year)&#123;</span><br><span class="line">    return (year%4&#x3D;&#x3D;0 &amp;&amp; year%100!&#x3D;0) || (year%400&#x3D;&#x3D;0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>进制转换<br>（1）将P进制数x转换为十进制数y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int transform2ten(int P,int x)&#123;</span><br><span class="line">    int y&#x3D;0,product&#x3D;1;</span><br><span class="line">    while(x!&#x3D;0)&#123;</span><br><span class="line">        y +&#x3D; (x%10) * product;  加上这个数乘权重</span><br><span class="line">        x&#x2F;&#x3D;10;                   去掉个位</span><br><span class="line">        product *&#x3D; P;            权重数</span><br><span class="line">    &#125;</span><br><span class="line">    return y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>(2)将十进制数y转换为Q进制数z<br>除基取余法，Q即为基，余数保存到地位中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int num&#x3D;0,z[40];</span><br><span class="line">do&#123;</span><br><span class="line">    z[num++] &#x3D; y%Q;</span><br><span class="line">    y&#x2F;&#x3D;Q;</span><br><span class="line">&#125;while(y!&#x3D;0);</span><br></pre></td></tr></table></figure><br>从z[num-1]到z[0]即转换完成。采用do-while是当y=0时，while会直接退出，<br>导致错误，应当是z[0]=0。</p>
-<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>首先从待排序中找到最小元素A[k]，与待排序第一个元素A[i]交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">    int k&#x3D;i;</span><br><span class="line">    for(int j&#x3D;i;j&lt;&#x3D;n;j++)&#123;</span><br><span class="line">        if(A[j]&lt;A[k])</span><br><span class="line">            k&#x3D;j;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;交换A[k]与A[i]</span><br><span class="line">    int temp &#x3D; A[i];</span><br><span class="line">    A[i]&#x3D;A[k];</span><br><span class="line">    A[k]&#x3D;temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>将未排序的第一个元素插入到已经排序好的合适的位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int A[maxn],n;   &#x2F;&#x2F;数组下标为1~n</span><br><span class="line">void insertSort()&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        int temp&#x3D;A[i],j&#x3D;i;</span><br><span class="line">        while(j&gt;1 &amp;&amp; temp&lt;A[j-1])&#123;</span><br><span class="line">            A[j] &#x3D; A[j-1];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        A[j] &#x3D; temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>先对两个进行排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;</span><br></pre></td></tr></table></figure></p>
-<p>结构体排序，先按照分数排序，然后姓名字典序小的在前<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool cmp(Student a,Student b)&#123;</span><br><span class="line">    if(a.score!&#x3D;b.score) return a.score&gt;b.score;</span><br><span class="line">    else return strcmp(a.name,b.name)&lt;0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>结构体的排名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stu[0].r&#x3D;1;</span><br><span class="line">for(int i&#x3D;1;i&lt;n;i++)&#123;</span><br><span class="line">    if(stu[i].score &#x3D;&#x3D; stu[i-1].score)</span><br><span class="line">        stu[i].r &#x3D; stu[i-1].r;</span><br><span class="line">    else</span><br><span class="line">        stu[i].r &#x3D; i+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>将元素通过一个函数转换为整数，使得该整数可以尽量唯一地代表这个元素。<br>将字符串转换为一个整数，判断该整数位置是否有元素</p>
-<p>分治可以采用递归的方法实现，也可以采用非递归方法实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int F(int n)&#123;</span><br><span class="line">    if(n&#x3D;&#x3D;0 || n&#x3D;&#x3D;1) return 1;</span><br><span class="line">    else return F(n-1)+F(n-2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h3><h3 id="区间贪心"><a href="#区间贪心" class="headerlink" title="区间贪心"></a>区间贪心</h3><p>区间不相交问题，</p>
-<h3 id="快速幂，二分幂"><a href="#快速幂，二分幂" class="headerlink" title="快速幂，二分幂"></a>快速幂，二分幂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef long long LL;</span><br><span class="line">LL binaryPow(LL a, LL b,LL m)&#123;</span><br><span class="line">    if(b&#x3D;&#x3D;0) return 1;</span><br><span class="line">    if(b%2&#x3D;&#x3D;1) return a*binaryPow(a,b-1,m)%m;</span><br><span class="line">    else&#123;</span><br><span class="line">        LL mul &#x3D; binaryPow(a,b&#x2F;2,m);</span><br><span class="line">        return mul*mul%m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>vector<br>(1)push_back(1)<br>(2)pop_back()<br>(3)v.size()<br>(4)v.clear()<br>(5)v.insert(v.begin()+2, 8);<br>(6)v.erase(v.begin()+3)  删除v[4]<br>v.erase(v.begin()+1,v.begin()+4) 删除v[1],v[2],v[3]<br>v.erase(v.begin(),v.end()) 删除所有元素，v.end()是尾元素地址的下一个地址<br>Set内部自动有序且不含重复元素</p>
-<p>map<br>同一个键，不同的值被后一个赋的值覆盖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mp[&#39;m&#39;] &#x3D; 20;</span><br><span class="line">mp[&#39;m&#39;] &#x3D; 30; &#x2F;&#x2F;20被覆盖</span><br></pre></td></tr></table></figure><br>it-&gt;first输出顺序按照键的大小</p>
-<p>queue<br>q.push(i) 将i压入队列 q.pop()将队首元素弹出<br>q.front()  q.back() 获取队列队首和队尾元素<br>使用这两个操作前，先对队列判空</p>
-<p>pair<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br><span class="line">添加map时自动添加了utiliy</span><br><span class="line">(1)pair&lt;string,int&gt;p</span><br><span class="line">   p &#x3D; make_pair(&quot;xixi&quot;,5);</span><br><span class="line">(2)pair&lt;string,int&gt;p1(&quot;xixi&quot;,5);</span><br><span class="line"></span><br><span class="line">map&lt;string,int&gt;mp;</span><br><span class="line">mp.insert(make_pair(&quot;haha&quot;,5));</span><br></pre></td></tr></table></figure><br>p1\&lt;\p2先比较p-&gt;first，</p>
-<p>algorithm<br>max(),min()可以整数和浮点数，但是参数只能两个<br>abs()必须整数，浮点数取绝对值用math下的fabs()<br>swap()交换两个数的值<br>reverse()  对数组合字符串进行翻转<br>next_permutation()<br>    do{<br>        printf(“%d%d%d\n”,a[0],a[1],a[2]);<br>    }while(next_permutation(a,a+3));<br>fill()  fill(a,a+5,233);<br>lower_bound(first,last,val) 寻找第一个大于等于val值位置<br>upper_bound(first,last,val) 寻找第一个大于val值位置<br>    printf(“%d,%d\n”,lower_bound(a,a+10,3)-a,upper_bound(a,a+10,3)-a )</p>
-<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>清空：top=-1<br>size:top+1;</p>
-<p>链表<br>1.malloc函数 stdlib.h  free(p)<br>int<em> p =(int</em>)malloc(sizeof(int));<br>node<em> p =(node</em>)malloc(sizeof(node));<br>2.new      delete(p)<br>int<em> p =new int;<br>node</em> p =new node;<br>静态链表</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/" class="post-title-link" itemprop="url">卷积</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-12 10:07:05" itemprop="dateCreated datePublished" datetime="2020-04-12T10:07:05+08:00">2020-04-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 15:33:50" itemprop="dateModified" datetime="2021-01-08T15:33:50+08:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/" class="post-meta-item leancloud_visitors" data-flag-title="卷积" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.9k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="傅里叶的变换哲学"><a href="#傅里叶的变换哲学" class="headerlink" title="傅里叶的变换哲学"></a>傅里叶的变换哲学</h1><p>泊松：用三角级数的和表达一些周期的函数<br>傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)<br>狄利克雷：给出了能拆的充分不必要的条件<br>采用三角级数表达是因为三角的微分和积分仍是三角函数。</p>
-<h1 id="终成精神病的数学家-康托尔"><a href="#终成精神病的数学家-康托尔" class="headerlink" title="终成精神病的数学家(康托尔)"></a>终成精神病的数学家(康托尔)</h1><p>集合论的鼻祖：康托尔<br>父母希望学工科，自己想读数学。<br>伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。<br>康托尔：是等势的，个数一样多。<br>由此得出的结论：半径不同的同心圆，可以理解为包含了相等个数的点<br>他在柏林大学的导师克罗内克极力反对他的理论，最终在康托尔40岁的时候精神崩溃，得了躁郁症。</p>
-<h1 id="存在：缸中之脑"><a href="#存在：缸中之脑" class="headerlink" title="存在：缸中之脑"></a>存在：缸中之脑</h1><p>哲学关注的问题和门口的保安关注的很相似：你是谁、你从哪里来、你到哪里去？<br>罗素：一切确切的知识属于科学，一切超出于确切知识以外的教条，属于神学，介于科学和神学之间的理论就是哲学。<br>普特南：把大脑放在营养液当中，通过电脑编程给大脑不同的刺激，让大脑感觉确实正在做类似的事情。<br>哥德尔不完全性定理：人类不可能创造一个公理系统来证明世界上所有的东西，却在论证中不产生矛盾。<br>如果想论证世界上所有的结论是真还是假，一定会产生矛盾。<br>用肉体的辛苦去换取思想的自由，而思想的更加的自由才是我们在这个世界存在的理由。</p>
-<h1 id="根号2与第一次数学危机"><a href="#根号2与第一次数学危机" class="headerlink" title="根号2与第一次数学危机"></a>根号2与第一次数学危机</h1><p>实数分为有理数和无理数。<br><em>毕达哥拉斯</em>：政教合一的组织，万物皆数，通过整数和整数的比值(整数，有限小数，无限循环小数)来解释。<br><em>希帕索斯</em>： 发现了根号2，被沉入大海淹死了。 假设根号2等于a/b，a,b互质。$2=\frac{a^2}{b^2}$ $2b^2=a^2$ 所以a是偶数，且是4的倍数，所以B为偶数，与假设矛盾。<br><em>欧多克索斯</em>：他采用了一个十分巧妙的关于“两个量之比”的新说法，回避了√2是无理数的实质，而是用几何的方法处理不可公度比。这样做的结果就使几何的基础牢靠了，几何从全部数学中脱颖而出，同时欧几里得的《几何原本》也采用了这一说法，以致在以后的二千年中，几何变成了几乎是全部严密数学的基础。<br><em>戴德金</em>：怎样由已知的有理数，去定义这些无理数呢？戴德金想了一个办法：就用这个无理数前面的有理数，以及这个无理数后面的有理数。<br>这两段有理数，把我们要定义的无理数夹在中间，就形成了戴德金分割。</p>
-<h1 id="一个聪明人的悲剧"><a href="#一个聪明人的悲剧" class="headerlink" title="一个聪明人的悲剧"></a>一个聪明人的悲剧</h1><p>恪聪明尽显于外，此子非保家之主也。聪明总是拿出来显摆。</p>
-<h1 id="为密码加把盐"><a href="#为密码加把盐" class="headerlink" title="为密码加把盐"></a>为密码加把盐</h1><p>网站后台如何保存用户的密码？<br>服务器不存储明文密码，只存储密码变换后的数据，这样被盗也不知道原密码。<br>但是简单的变换，在巨量的数据下，很容易推导出变换公式。<br>算法要求：</p>
-<ol>
-<li>单向，很难通过密文来推导出明文，不可逆</li>
-<li>强碰撞性，不同的明文要对应完全不同的密文<br>李维斯特，MD5，MessageDigest数据摘要算法。<br>问题：黑客可以做一张表，当原始数据较短时，可以在彩虹表里去查，每个八位数对应的MD5是什么。<br>所以此时需要给原始的密码自动加一点盐，md5(md5(password)+salt)<h1 id="相对论"><a href="#相对论" class="headerlink" title="相对论"></a>相对论</h1><em>我想知道的，上帝是如何创造这个世界的，我对这个或者那个现象、这个或者那个元素的能谱不感兴趣，我要知道的是他的思想，其他的都是细节。</em><br>牛顿经典时空观：时间和空间是相互独立的，时间在任何一个地方是均匀流逝的。<br>光，就是可见波段的一种电磁波。<br>狭义相对论基本假设：</li>
-<li>世界上任意两个惯性系(匀速直线运动或静止系统)之间得到的物理定律是一样的。<br>但是不满足伽利略变换，在接近光速的情况下，要进行洛伦兹变换，速度不能直接相加。<br>得到的结论：时间会变慢、长度会收缩、质量会增加。<h1 id="欧拉公式在干什么"><a href="#欧拉公式在干什么" class="headerlink" title="欧拉公式在干什么"></a>欧拉公式在干什么</h1>$e^{ix}=\cos x+i\sin x$当x=\pi,$e^{i\pi}+1=0$</li>
-</ol>
-<h1 id="自动控制原理遛狗"><a href="#自动控制原理遛狗" class="headerlink" title="自动控制原理遛狗"></a>自动控制原理遛狗</h1><p>给定环节、比较器、控制器(大脑)、执行机构(绳子)、被控对象(狗)</p>
-<h1 id="PID-proportional-integral-derivative-controller"><a href="#PID-proportional-integral-derivative-controller" class="headerlink" title="PID(proportional-integral-derivative controller)"></a>PID(proportional-integral-derivative controller)</h1><p>烧水到80°，从75到85可以接受，希望烧水烧得最快，一开始火开到最大，等待70°左右减少火。<br>P:偏差越大，控制的力度就越大。(弹簧)<br>I:系统没惯性，会存在静差。对历史的偏差进行累加(惯性，锅关了火温度还会上升)<br>D:(阻尼力)</p>
-<h1 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h1><p>wavelet:wave表示波，let表示小。droplet水滴，leaflet小树叶，booklet小册子<br>傅里叶变换：将时间信号拆解为不同频率的正弦波相加。(需要假设时域信号的频率不随时间改变)<br>但是根据多普勒效应，大多数情况下，信号的频率会随着时间的变化而变化。<br>对于一个随时间变化而频率改变的信号做傅里叶变换，得到的波失去了时间特性。<br>这是因为正弦波的幅值与时间无关。<br>所以需要小波：一个长度比较短的波，只在一个时间范围内有值，其余时间内值为0.<br>将时域信号向不同位置、不同胖瘦的小波去表达，能反映频率和时间特性。</p>
-<h1 id="泰勒公式有何用"><a href="#泰勒公式有何用" class="headerlink" title="泰勒公式有何用"></a>泰勒公式有何用</h1><p>如何计算sin36°？</p>
-<h1 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h1><p>系统就是一个房间，输入f(t)，输出y(t)，系统的影响h(t)，系统的单位冲击响应<br>y(t)=f(t)*h(t)  Y(s) = F(s)H(s)<br>时域的卷到了复频域变成了乘积。单位冲击响应的拉普拉斯变换就是传递函数</p>
-<h1 id="冲激函数冲出了什么"><a href="#冲激函数冲出了什么" class="headerlink" title="冲激函数冲出了什么"></a>冲激函数冲出了什么</h1><p>线性时不变系统：输入增大、输出随之增大(线性)，频率不随时间变化而变化(时不变)</p>
-<h1 id="卷积："><a href="#卷积：" class="headerlink" title="卷积："></a>卷积：</h1><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}f(\tau)g(t-\tau)d\tau</script><p>傅里叶：将一个函数用无限多个正弦波的函数加和来表示<br>拉普拉斯：将一个函数部分衰减后用无限多个正弦波加和来表达<br>因为正弦波的积分和微分仍然是正弦波。<br>任意一个函数可以划得更简单一点：</p>
-<script type="math/tex; mode=display">y(t)\approx \sum_{-\infty}^{+infty}许多线段</script><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}许多点</script><p>u(t)是0之前是0,0之后为1。$u(t)-u(t-t_0)$就是在0到t0的冲激<br>把f(t)拆成一段一段的，u(t)的导数就是冲激函数<br>相当于把函数敲碎。<br>那我们可以先用冲击函数δ(t)通过系统得到冲击响应h(t)。<br>然后我们把任何输入f(t)通过卷积表示为无穷多冲击函数的累加，即f(t)＝f(t)<em>δ(t)。(这里</em>表示卷积运算)<br>最后根据线性时不变系统的性质，可以得到响应y(t)＝f(t)*h(t)。<br>于是只要我们知道冲激响应，对于任何输入的响应也可以通过卷积运算得到。</p>
-<h1 id="模拟是什么意思"><a href="#模拟是什么意思" class="headerlink" title="模拟是什么意思"></a>模拟是什么意思</h1><p>将一个物理量转换为另一个物理量。<br>通过电信号来模拟大自然的物理量（比如利用运算放大器，一段输入1.2V,一段1.5V，得到的结果即为乘积）</p>
-<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p>卷积：特征提取器，滤波器<br>神经网络：分类器</p>
-<h1 id="Z变换"><a href="#Z变换" class="headerlink" title="Z变换"></a>Z变换</h1><p>Z变换分析的是离散系统，傅里叶和拉普拉斯是连续系统。<br>电脑只有高高低低的电平，是离散的。所以要将连续信号冲激成离散的冲激串。<br>即采样。  可以无损的敲碎。<br>对采样的信号进行拉普拉斯变换，得到的结果也是离散信号。</p>
-<h1 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h1><p>估计器，通过各种各样的测量方法来最后加权平均来估计到一个结果。</p>
-<h1 id="无功功率"><a href="#无功功率" class="headerlink" title="无功功率"></a>无功功率</h1><p>全连接：映射到高维。然后softmax进行分类。</p>
-<h1 id="对抗生成网络：GAN"><a href="#对抗生成网络：GAN" class="headerlink" title="对抗生成网络：GAN"></a>对抗生成网络：GAN</h1><p>mnist 28×28<br>生成器G：一个随机的向量，通过生成器G，得到一个图像，28×28×1，得到一个假的数据。<br>判别器D：对生成的图像判别，得到1或者0.   </p>
-<p>损失函数：一方面让判别器分辨能力更强，另一方面让生成器更真</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1307,14 +1465,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1364,12 +1522,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">34k</span>
+    <span title="Symbols count total">40k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">31 mins.</span>
+    <span title="Reading time total">36 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
@@ -1510,59 +1668,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
