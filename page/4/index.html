@@ -165,6 +165,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">技术发展历程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-08 10:59:03" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-10 00:04:36" itemprop="dateModified" datetime="2021-01-10T00:04:36+08:00">2021-01-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="技术发展历程" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>430</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p>由于深度神经网络DNN参数量过大以及丢失了时序信息，在NLP处理中不如RNN。</p>
+<p>但是RNN关键在于将之前保存的信息应用到当前的任务之上。<br>当距离过大时，容易出现梯度衰减和爆炸。</p>
+<p>所以采用LSTM和GRU弥补。</p>
+<h3 id="seq2seq"><a href="#seq2seq" class="headerlink" title="seq2seq"></a>seq2seq</h3><p>虽然RNN输入可以不定长，但是输出是定长的，所以无法解决机器翻译的问题。<br>seq2seq将输入通过Encoder编码成向量C，然后作为Decoder的一部分用来预测，Decode的输入是前一时刻Decoder的输出，所以可以输出不定长。</p>
+<h3 id="attention"><a href="#attention" class="headerlink" title="attention"></a>attention</h3><p>当输入的句子很长时，将所有的输入都融合成一个向量C显然不合适。<br>attention就是将C变成一个随时间变化的权重变量。</p>
+<h3 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h3><p>由于RNN无法并行，attention的编码器和解码器还是使用了RNN。所以transformer完全抛弃了RNN，在编码器和解码器采用self-attention机制，可以很好地并行化。</p>
+<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>BERT就是采用的transformer的编码器，</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1161,106 +1262,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/" class="post-title-link" itemprop="url">本福特定律</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-01 10:45:16" itemprop="dateCreated datePublished" datetime="2020-04-01T10:45:16+08:00">2020-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-08 15:29:39" itemprop="dateModified" datetime="2021-01-08T15:29:39+08:00">2021-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/04/01/%E6%9C%AC%E7%A6%8F%E7%89%B9%E5%AE%9A%E5%BE%8B/" class="post-meta-item leancloud_visitors" data-flag-title="本福特定律" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>349</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="本福特定律"><a href="#本福特定律" class="headerlink" title="本福特定律"></a>本福特定律</h1><ol>
-<li>自然的数据，杂乱无章，首位为1的概率为1/9？</li>
-<li>1881年纽康，1938年，本福特<br>10进制中，首位为n的概率，<script type="math/tex; mode=display">P_n = log_10{\frac{n+1}{n}}</script>$P_1 = lg2 = 30.1%$<br>$P_2 = lg3/2 = 17.6%$<br>$P_9 = lg10/9 = 4.6%$</li>
-<li>应用：非人为数据（不能选电话号码）跨度大（不能选择身高体重这种）<br>李永乐老师视频播放量，各个国家GDP，各个国家人口，国土面积<br>斐波那契数列，放射性元素的半衰期<br>研究财务报表是否造假，地区大选是否舞弊</li>
-<li>证明<br>(1)数据的增长量正比于存量$\frac{\deta N}{N\deta t} = Constant $<br>(2)<script type="math/tex">N = N_0e^{ct}</script> <script type="math/tex">t = c^'lg\frac{N_2}{N_1}</script><br>(3)首数为1的时间 $t_1 = c^’lg\frac{20}{10} $</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1333,7 +1334,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1390,12 +1391,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">44k</span>
+    <span title="Symbols count total">45k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">40 mins.</span>
+    <span title="Reading time total">41 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
