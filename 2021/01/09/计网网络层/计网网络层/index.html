@@ -79,7 +79,7 @@
 <meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/比较.png">
 <meta property="og:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/转发.png">
 <meta property="article:published_time" content="2021-01-09T14:02:40.000Z">
-<meta property="article:modified_time" content="2021-01-09T15:15:32.161Z">
+<meta property="article:modified_time" content="2021-09-16T01:16:27.224Z">
 <meta property="article:author" content="孙书玮">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/计算.png">
@@ -241,10 +241,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-01-09 22:02:40 / Modified: 23:15:32" itemprop="dateCreated datePublished" datetime="2021-01-09T22:02:40+08:00">2021-01-09</time>
+              <time title="Created: 2021-01-09 22:02:40" itemprop="dateCreated datePublished" datetime="2021-01-09T22:02:40+08:00">2021-01-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-16 09:16:27" itemprop="dateModified" datetime="2021-09-16T09:16:27+08:00">2021-09-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -341,7 +347,7 @@
 <li>乱序到达目的主机时，要对其重新排序<h3 id="2-4-分组交换和报文交换计算量对比"><a href="#2-4-分组交换和报文交换计算量对比" class="headerlink" title="2.4 分组交换和报文交换计算量对比"></a>2.4 分组交换和报文交换计算量对比</h3>报文交换：一共三段，每段都需要10000bit/1000bps=10s，三段就是3x10=30s</li>
 </ol>
 <p>分组交换：可以分为两段，一个是第一个数据开始发到最后一个数据从源发出，一段是最后一个数据到达目的地。第一段总时间是10000bit/1000bps=10s，第二段总时间是（10/1000）*2=0.02s，所以总时间是10.02s。</p>
-<p>理解一下，这里就是报文交换的时候，由于报文没有分割，所以即使先到的数据也不能先发走，只能等到最后一段报文全部到了之后才能一起走，相对于分组交换明显拖慢了前面数据的速度，所以导致报文交换明显慢于分组交换<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/计算.png" alt="avatar"></p>
+<p>理解一下，这里就是报文交换的时候，由于报文没有分割，所以即使先到的数据也不能先发走，只能等到最后一段报文全部到了之后才能一起走，相对于分组交换明显拖慢了前面数据的速度，所以导致报文交换明显慢于分组交换<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/计算.png" alt></p>
 <h4 id="2-4-1-分组传输的两种方式-数据报和虚电路"><a href="#2-4-1-分组传输的两种方式-数据报和虚电路" class="headerlink" title="2.4.1 分组传输的两种方式-数据报和虚电路"></a>2.4.1 分组传输的两种方式-数据报和虚电路</h4><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/概述.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/表格.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/数据报.png" alt="avatar"><br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/虚电路.png" alt="avatar"></p>
 <h2 id="3-路由算法和路由协议"><a href="#3-路由算法和路由协议" class="headerlink" title="3. 路由算法和路由协议"></a>3. 路由算法和路由协议</h2><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/路由算法.png" alt="avatar"><br>AS就是多个路由器之间构成的单独的小圈子，圈子内使用自己的协议，圈子和圈子之间用的是BGP协议<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/层次路由.png" alt="avatar"></p>
 <h3 id="3-1-RIP协议和距离向量算法"><a href="#3-1-RIP协议和距离向量算法" class="headerlink" title="3.1 RIP协议和距离向量算法"></a>3.1 RIP协议和距离向量算法</h3><h4 id="3-1-1-RIP协议概述"><a href="#3-1-1-RIP协议概述" class="headerlink" title="3.1.1 RIP协议概述"></a>3.1.1 RIP协议概述</h4><p>最大优点是简单，只适用于小型互联网。<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/%E8%AE%A1%E7%BD%91%E7%BD%91%E7%BB%9C%E5%B1%82/RIP概述.png" alt="avatar"></p>
@@ -493,7 +499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
