@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/Champion_ka.png">
@@ -179,7 +179,204 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">图谱实践</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-17 10:07:52 / Modified: 10:53:40" itemprop="dateCreated datePublished" datetime="2021-09-17T10:07:52+08:00">2021-09-17</time>
+            </span>
+
+          
+            <span id="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="图谱实践" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="RDF、RDFS、OWL"><a href="#RDF、RDFS、OWL" class="headerlink" title="RDF、RDFS、OWL"></a>RDF、RDFS、OWL</h1><h3 id="RDF"><a href="#RDF" class="headerlink" title="RDF"></a>RDF</h3><p>Example3 Turtle:</p>
+<p>@prefix person: <a target="_blank" rel="noopener" href="http://www.kg.com/person/">http://www.kg.com/person/</a> .<br>@prefix place: <a target="_blank" rel="noopener" href="http://www.kg.com/place/">http://www.kg.com/place/</a> .<br>@prefix : <a target="_blank" rel="noopener" href="http://www.kg.com/ontology/">http://www.kg.com/ontology/</a> .</p>
+<p>person:1 :chineseName “罗纳尔多·路易斯·纳萨里奥·德·利马”^^string;<br>         :career “足球运动员”^^string;<br>         :fullName “Ronaldo Luís Nazário de Lima”^^string;<br>         :birthDate “1976-09-18”^^date;<br>         :height “180”^^int;<br>         :weight “98”^^int;<br>         :nationality “巴西”^^string;<br>         :hasBirthPlace place:10086.<br>place:10086 :address “里约热内卢”^^string;<br>            :coordinate “-22.908333, -43.196389”^^string.</p>
+<p>即，将一个实体用一个句子表示（这里的句子指的是一个英文句号“.”）而不是多个句子，属性间用分号隔开。</p>
+<p>RDF的表达能力有限，无法区分类和对象，也无法定义和描述类的关系/属性。我的理解是，RDF是对具体事物的描述，缺乏抽象能力，无法对同一个类别的事物进行定义和描述。就以罗纳尔多这个知识图为例，RDF能够表达罗纳尔多和里约热内卢这两个实体具有哪些属性，以及它们之间的关系。但如果我们想定义罗纳尔多是人，里约热内卢是地点，并且人具有哪些属性，地点具有哪些属性，人和地点之间存在哪些关系，这个时候RDF就表示无能为力了。</p>
+<p>RDFS和OWL这两种技术或者说模式语言/本体语言（schema/ontology language）解决了RDF表达能力有限的困境。</p>
+<h3 id="RDFS"><a href="#RDFS" class="headerlink" title="RDFS"></a>RDFS</h3><p>RDFS/OWL本质上是一些预定义词汇（vocabulary）构成的集合，用于对RDF进行类似的类定义及其属性的定义。</p>
+<p>我们这里只介绍RDFS几个比较重要，常用的词汇：</p>
+<ol>
+<li>rdfs:Class. 用于定义类。</li>
+<li>rdfs:domain. 用于表示该属性属于哪个类别。</li>
+<li>rdfs:range. 用于描述该属性的取值类型。</li>
+<li>rdfs:subClassOf. 用于描述该类的父类。比如，我们可以定义一个运动员类，声明该类是人的子类。</li>
+<li>rdfs:subProperty. 用于描述该属性的父属性。比如，我们可以定义一个名称属性，声明中文名称和全名是名称的子类。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F;&gt; .</span><br><span class="line"></span><br><span class="line">这里我们用词汇rdfs:Class定义了“人”和“地点”这两个类。</span><br><span class="line">:Person rdf:type rdfs:Class.</span><br><span class="line">:Place rdf:type rdfs:Class.</span><br><span class="line">rdfs当中不区分数据属性和对象属性，词汇rdf:Property定义了属性，即RDF的“边”。</span><br><span class="line">:chineseName rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br><span class="line">:career rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line">        </span><br><span class="line">:fullName rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br></pre></td></tr></table></figure>
+<h3 id="OWL"><a href="#OWL" class="headerlink" title="OWL"></a>OWL</h3><p>上面我们提到，RDFS本质上是RDF词汇的一个扩展。后来人们发现RDFS的表达能力还是相当有限，因此提出了OWL。我们也可以把OWL当做是RDFS的一个扩展，其添加了额外的预定义词汇。OWL，即“Web Ontology Language”，语义网技术栈的核心之一。OWL有两个主要的功能：1. 提供快速、灵活的数据建模能力。2. 高效的自动推理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F;&gt; .</span><br><span class="line">@prefix owl: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;07&#x2F;owl#&gt; .</span><br><span class="line"></span><br><span class="line">这里我们用词汇owl:Class定义了“人”和“地点”这两个类。</span><br><span class="line">:Person rdf:type owl:Class.</span><br><span class="line">:Place rdf:type owl:Class.</span><br><span class="line"></span><br><span class="line">owl区分数据属性和对象属性（对象属性表示实体和实体之间的关系）。词汇owl:DatatypeProperty定义了数据属性，owl:ObjectProperty定义了对象属性。</span><br><span class="line">:chineseName rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br><span class="line">:career rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line">        </span><br><span class="line">:fullName rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>描述属性特征的词汇</p>
+<ol>
+<li>owl:TransitiveProperty. 表示该属性具有传递性质。例如，我们定义“位于”是具有传递性的属性，若A位于B，B位于C，那么A肯定位于C。</li>
+<li>owl:SymmetricProperty. 表示该属性具有对称性。例如，我们定义“认识”是具有对称性的属性，若A认识B，那么B肯定认识A。</li>
+<li>owl:FunctionalProperty表示该属性取值的唯一性。例如，我们定义“母亲”是具有唯一性的属性，若A的母亲是B，在其他地方我们得知A的母亲是C，那么B和C指的是同一个人。</li>
+<li>owl:inverseOf. 定义某个属性的相反关系。例如，定义“父母”的相反关系是“子女”，若A是B的父母，那么B肯定是A的子女。</li>
+</ol>
+<p>本体映射词汇（Ontology Mapping）</p>
+<ol>
+<li>owl:equivalentClass. 表示某个类和另一个类是相同的。</li>
+<li>owl:equivalentProperty. 表示某个属性和另一个属性是相同的。</li>
+<li>owl:sameAs. 表示两个实体是同一个实体。</li>
+</ol>
+<p>本体映射主要用在融合多个独立的Ontology（Schema）。举个例子，张三自己构建了一个本体结构，其中定义了Person这样一个类来表示人；李四则在自己构建的本体中定义Human这个类来表示人。当我们融合这两个本体的时候，就可以用到OWL的本体映射词汇。</p>
+<p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/reverse.png" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/16/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">面试题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-16 09:53:16 / Modified: 10:05:21" itemprop="dateCreated datePublished" datetime="2021-09-16T09:53:16+08:00">2021-09-16</time>
+            </span>
+
+          
+            <span id="/2021/09/16/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="面试题" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>279</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><p>指事务的参与者、支持事务的服务器、资源服务器、事务管理器分别位于不同的分布式系统的不同节点之上。简单说，就是分布式系统中的事务，它的存在是为了保证不同的数据库节点的数据一致性。</p>
+<h3 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h3><ul>
+<li>Consistency:数据在多个副本之间保持一致性。例如一个数据在某个分区节点更新后，在其他分区节点读出来的数据也是更新之后的数据。</li>
+<li>Availability:系统提供的服务必须一直处于可用的状态。对于用户的操作请求总是能在有限的时间内返回结果。</li>
+<li>Partition tolerance分布式系统在遇到任何网络分区故障时，仍然能保证对外提供满足一致性和可用性的服务。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">idea快捷键</a>
         </h2>
 
         <div class="post-meta">
@@ -189,11 +386,11 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-16 09:11:27" itemprop="dateCreated datePublished" datetime="2021-09-16T09:11:27+08:00">2021-09-16</time>
+              <time title="Created: 2021-09-16 09:34:02" itemprop="dateCreated datePublished" datetime="2021-09-16T09:34:02+08:00">2021-09-16</time>
             </span>
 
           
-            <span id="/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="" title="Views">
+            <span id="/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="idea快捷键" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -243,7 +440,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/vue%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/Champion_ka.png">
@@ -257,7 +454,86 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Untitled</a>
+            <a href="/2021/09/16/vue%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">vue学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-16 09:32:05 / Modified: 09:33:18" itemprop="dateCreated datePublished" datetime="2021-09-16T09:32:05+08:00">2021-09-16</time>
+            </span>
+
+          
+            <span id="/2021/09/16/vue%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="vue学习" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/vue%E5%AD%A6%E4%B9%A0/vue%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/16/vue%E5%AD%A6%E4%B9%A0/vue%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">vue学习</a>
         </h2>
 
         <div class="post-meta">
@@ -267,11 +543,89 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-16 09:08:09" itemprop="dateCreated datePublished" datetime="2021-09-16T09:08:09+08:00">2021-09-16</time>
+              <time title="Created: 2021-09-16 09:32:05" itemprop="dateCreated datePublished" datetime="2021-09-16T09:32:05+08:00">2021-09-16</time>
             </span>
 
           
-            <span id="/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="" title="Views">
+            <span id="/2021/09/16/vue%E5%AD%A6%E4%B9%A0/vue%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="vue学习" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-16 09:11:27" itemprop="dateCreated datePublished" datetime="2021-09-16T09:11:27+08:00">2021-09-16</time>
+            </span>
+
+          
+            <span id="/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -680,399 +1034,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/29/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/29/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/" class="post-title-link" itemprop="url">前端</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-29 09:19:01" itemprop="dateCreated datePublished" datetime="2021-01-29T09:19:01+08:00">2021-01-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-27 15:26:24" itemprop="dateModified" datetime="2021-02-27T15:26:24+08:00">2021-02-27</time>
-              </span>
-
-          
-            <span id="/2021/01/29/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/" class="post-meta-item leancloud_visitors" data-flag-title="前端" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>833</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>侵入式和非侵入式：<br>假设大家都想要把用户代码塞到一个框架里。侵入式的做法就是要求用户代码“知道”框架的代码，表现为用户代码需要继承框架提供的类。非侵入式则不需要用户代码引入框架代码的信息，从类的编写者角度来看，察觉不到框架的存在。<br>例如：<br>使用struts的时候，我需要继承一些struts的类，这时struts侵入到了我的代码里。<br>使用spring，编写一些业务类的时候不需要继承spring特定的类，通过配置完成依赖注入后就可以使用，此时，spring就没有侵入到我业务类的代码里。</p>
-<p>侵入式让用户代码产生对框架的依赖，这些代码不能在框架外使用，不利于代码的复用。但侵入式可以使用户跟框架更好的结合，更容易更充分的利用框架提供的功能。<br>非侵入式的代码则没有过多的依赖，可以很方便的迁移到其他地方。但是与用户代码互动的方式可能就比较复杂。</p>
-<p>反射的作用：<br>1）在运行时判断任意一个对象所属的类。<br>2）在运行时构造任意一个类的对象。<br>3）在运行时判断任意一个类所具有的成员变量和方法。<br>4）在运行时调用任意一个对象的方法</p>
-<p>反射就是把Java类中的各个部分，映射成一个个的Java对象，拿到这些对象后可以做一些事情。</p>
-<p>既然说反射是反射Java类中的各个组成部分，所以说咱们得知道一个类中有哪儿些部分？</p>
-<p>例如，一个类有：成员变量，方法，构造方法，等信息，利用反射技术咱们可以把这些组成部分映射成一个个对象。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Appleyk/article/details/77879073?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control">https://blog.csdn.net/Appleyk/article/details/77879073?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/27/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/27/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/" class="post-title-link" itemprop="url">经济危机</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-27 12:00:23" itemprop="dateCreated datePublished" datetime="2021-01-27T12:00:23+08:00">2021-01-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-29 09:19:21" itemprop="dateModified" datetime="2021-01-29T09:19:21+08:00">2021-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/" itemprop="url" rel="index"><span itemprop="name">经济危机</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/27/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="经济危机" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>143</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>首先大量债务违约，房贷无法偿还，随后银行倒闭，金融市场恐慌，资本逃离，制造业银根断裂，失业紧跟而至。</p>
-<p>经济危机：消费者的购买力过剩，根本原因是生产的社会化和生产资料私人占有之间的矛盾。</p>
-<p>资本家没有需求去消费那么多商品，而真正有需求的普通大众日渐支付不起属于资本家的商品，市场的失调就此产生，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/27/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/27/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/" class="post-title-link" itemprop="url">安史之乱</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-27 10:51:06 / Modified: 11:37:09" itemprop="dateCreated datePublished" datetime="2021-01-27T10:51:06+08:00">2021-01-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/" itemprop="url" rel="index"><span itemprop="name">思维实验室</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/27/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/" class="post-meta-item leancloud_visitors" data-flag-title="安史之乱" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>844</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>唐朝历史的转折点，也是中国历史的转折点。<br>公元618年李渊建立唐朝，安史之乱前总人口大约8000万，而且人均粮食占有量极高。<br>唐玄宗李隆基唐代第七位皇帝，初期勤政，提倡节俭，开元之治。<br>执政中期，不再专心政务，潜心钻研声乐歌舞，</p>
-<p>节度使：是唐朝为了维持对外用兵或者镇守边关设置的官职，后期由于土地兼并，许多农民失去土地变成流民，只能变为募兵制，军队的开销就大幅增加，中央无法供给。就让边境的军队自给自足，节度使就掌管了军事、行政、民政、财政以及生产和税收。导致边境士兵“唯知其将之恩威而不知有天子”。怛罗斯战役，唐朝碰到了阿拉伯帝国，停止向西扩张。</p>
-<p>唐朝宰相张九龄被李林甫代替，任人唯亲，导致中央的实力逐渐消弱。安禄山通过贿赂官员洗脱罪责，并表演胡旋舞得到了唐玄宗的注意，李林甫投其所好，推举安禄山为东北三镇节度使。李林甫死后，杨国忠为新的宰相，安禄山作为李林甫的党羽，与杨国忠交恶。</p>
-<p>安禄山意识到中央实力削弱，并且自身受到威胁，下定决心发动兵变。安禄山以忧国之危奉密诏讨伐杨国忠为借口，在范阳（北京）起兵。皇帝令儿子李琬为元帅，高仙芝为副帅东征，保卫洛阳。<br>然后洛阳失守，坚守潼关，等待边关节度使调回大军。然而朝中文官忌惮武将立功，进谗言，皇帝以避战不出的罪名处斩高仙芝，哥舒翰继任。皇帝又逼迫他出城决战，安禄山设伏剿灭守军。玄宗逃出长安，向蜀地而去。</p>
-<p>由于安禄山是湖人，中央逐渐排外，从包容变得保守，开始封闭自我，减少交流。</p>
-<p>由于逃亡路上保卫皇帝的士兵没有食物，怨声载道，将怒气发向杨国忠，将其杀死，皇帝为了保护自己杀死杨玉环。太子李亨和李隆基关系不好，率兵向北逃亡。逃到宁夏，与各地节度使接洽，自称唐肃宗，说李隆基为太上皇，而玄宗在四川控制兵力不足两千，只得接受现实。肃宗在灵武封郭子仪为兵部尚书，李光弼为户部尚书，反击。 安禄山被儿子安庆绪灭掉，安庆绪想控制江南，睢阳是运河上的关键节点，若被攻陷，中央和江南的联系就会被掐断，但是张巡兵力仅有六千。坚守了一年，是转折点。</p>
-<p>之后，肃宗收复长安，收复洛阳，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/25/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/25/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/" class="post-title-link" itemprop="url">战国四大名将</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-25 14:53:04" itemprop="dateCreated datePublished" datetime="2021-01-25T14:53:04+08:00">2021-01-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-15 21:46:14" itemprop="dateModified" datetime="2021-09-15T21:46:14+08:00">2021-09-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">历史</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/25/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/" class="post-meta-item leancloud_visitors" data-flag-title="战国四大名将" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>561</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="李牧-赵"><a href="#李牧-赵" class="headerlink" title="李牧(赵)"></a>李牧(赵)</h3><ol>
-<li><p>坚壁清野<br>开始在北方抵御匈奴，采取坚壁清野(加固城墙的同时，把城外的植物水源统统破坏)的策略，但赵孝成王不满，去和匈奴硬打，战败，重新启用李牧。李牧大败匈奴。</p>
-</li>
-<li><p>防卫秦国<br>秦国派<strong>桓齮</strong>攻打赵国，一路高歌猛进，被李牧坚守不出打不过，被李牧打败。<br>嬴政启用<strong>王翦</strong>，收买了赵国重臣<strong>郭开</strong>，赵王杀害了李牧。王翦攻破赵国。</p>
-</li>
-</ol>
-<h3 id="廉颇（赵）"><a href="#廉颇（赵）" class="headerlink" title="廉颇（赵）"></a>廉颇（赵）</h3><p>先打齐，又打魏，后打秦。<br>因为上党郡，和秦国僵持，一守就是三年。<br>廉颇攻打魏国，郭开进谗言，将廉颇革职，廉颇投奔魏国。后来赵王去请廉颇回来，使者被郭开拦下，最后在楚国郁郁而终。</p>
-<h3 id="王翦（秦）"><a href="#王翦（秦）" class="headerlink" title="王翦（秦）"></a>王翦（秦）</h3><ol>
-<li><p>早期比较低调，帮助宰相范雎干掉他的仇人。然后帮助嬴政解决他弟弟的叛乱。又帮助嬴政收拾吕不韦和嫪毐。</p>
-</li>
-<li><p>嬴政即位后<br>第一场灭赵国。然后荆轲刺秦，王翦灭燕国，燕王逃到辽东，最后被其儿子王贲灭掉。第三场王贲放水灭了魏国。第四场灭楚国，李信先去灭楚，被项燕打败。王翦带60万打楚国。第五场打齐国。</p>
-</li>
-</ol>
-<h3 id="白起（秦）"><a href="#白起（秦）" class="headerlink" title="白起（秦）"></a>白起（秦）</h3><ol>
-<li>战必全歼，战国死亡人数两百多万，一半死在他的手上。<br>包围魏韩联军主力，斩杀24万人，伊阙之战。<br>攻打楚国，放水淹死数十万人，鄢郢之战。<br>攻打赵魏进攻韩国的联军，斩杀13万，华阳之战。<br>攻打韩国，占领野王，切断韩国和上党郡的联系，引发长平之战。<br>韩赵两国联手贿赂范雎，把白起撤下，救了赵国。后来秦国一直打败仗，白起依旧称病不带兵，引起秦王暴怒。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1145,7 +1106,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1202,12 +1163,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">45k</span>
+    <span title="Symbols count total">49k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">41 mins.</span>
+    <span title="Reading time total">44 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
