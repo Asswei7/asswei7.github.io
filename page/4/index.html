@@ -1098,7 +1098,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-20 13:02:43" itemprop="dateModified" datetime="2021-09-20T13:02:43+08:00">2021-09-20</time>
+                <time title="Modified: 2021-09-20 13:11:36" itemprop="dateModified" datetime="2021-09-20T13:11:36+08:00">2021-09-20</time>
               </span>
 
           
@@ -1114,7 +1114,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>558</span>
+              <span>893</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1144,6 +1144,7 @@
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 <p>hexo d -g有时回报错，fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/Asswei7/asswei7.github.io.git/">https://github.com/Asswei7/asswei7.github.io.git/</a>‘: OpenSSL SSL_read: Connection was reset, errno 10054，使用git config —global http.sslVerify “false”即可解决</p>
 <p>最好使用git bash而不是cmd</p>
+<p>首先在文件夹下，git bash，ssh检查是否安装了ssh。然后<br>ssh-keygen -t rsa -C “邮件地址”<br>在C盘下对应位置生成key,点击id)rsa.pub，将其中的内容复制。<br>在github中，settings，SSH and GPG keys，new SSH keys，将复杂的粘贴在这里。<br>然后在git bash中，ssh -T git@github.com，出现Connection reset by 140.82.112.4 port 22<br>，更改本地的host文件，再执行ssh -T git@github.com，出现成功认证即可。<br>再将config.yal的配置内容repo: ssh://git@github.com/Asswei7/asswei7.github.io.git改成这个。</p>
 
       
     </div>
