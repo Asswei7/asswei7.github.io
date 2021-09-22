@@ -546,6 +546,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/" class="post-title-link" itemprop="url">第四范式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-08 14:57:32" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-22 09:39:11" itemprop="dateModified" datetime="2021-09-22T09:39:11+08:00">2021-09-22</time>
+              </span>
+
+          
+            <span id="/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="第四范式" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="四种范式："><a href="#四种范式：" class="headerlink" title="四种范式："></a>四种范式：</h3><ol>
+<li>非神经网络时代的完全监督学习</li>
+<li>基于神经网络的完全监督学习</li>
+<li>预训练、精调范式</li>
+<li>预训练、提示、预测范式  </li>
+</ol>
+<h3 id="演变的规律"><a href="#演变的规律" class="headerlink" title="演变的规律"></a>演变的规律</h3><p>规律一：每个范式都会涉及繁琐的，需要人工参与（提供先验）的特征工程<br><strong>P1：特征工程</strong><br>要进行特征模板定义环节<br><strong>P2：结构工程</strong><br>神经网络虽然解放手动配置模板特征的人力，但是需要人工去设计合适的网络结构。因此，需要人工去探究最适配下游任务的结构偏置(structral bias)。比如使用RNN还是CNN。<br><strong>P3：目标函数挖掘</strong><br>通过引入额外的目标函数到预训练语言模型上，以便让其更适配下游任务。有时也需要网络结构的探索，但不是主旋律，主要有以下两个原因。（1）预训练本身很费时，过度的结构偏置的探索开销过大（2）精调过程中，预训练模型本身的知识让大家“忘记”RNN和CNN的差异。<br><strong>P4：Prompt挖掘</strong><br>只是通过对合适prompt的利用将下游任务建模的方式重新定义。</p>
+<p>规律2：新范式带来的收益可以让我们暂时“忽略”那些额外需要的人力代价<br>P1-&gt;P2: 虽然我们常常吐槽神经网络调参如炼丹，可是也在享受着不用手工配置模板，就能够得到还不错甚至更好结果的福利。与其说“炼丹“，我觉得神经网络的训练更像是“陶艺”，而传统的特征工程更像是“炼丹”，因为它对原材料（特征）的选择以及加入丹炉的顺序（特征组合）的要求几乎非常苛刻。<br>P2-&gt;P3: 虽然探究“哪一种损失函数引入到预训练语言模型中更适配下游任务”比较无聊，但比起排列组合各种网络结构，却不一定能获得好性能而言，前者似乎还行。<br>P3-&gt;P4: 虽然prompt的定义很繁琐，但是如果有个方法可以帮你回答“BERT效果都那么好了 ，我还研究个啥“这个问题，那它也挺有吸引力。并且，Prompt Learning激活了很多新的研究场景，比如小样本学习，这显然可以成为那些GPU资源受限研究者的福音。当然，我理解Prompt Learning最重要的一个作用在于给我们prompt（提示）了NLP发展可能的核心动力是什么。</p>
+<h3 id="Prompt-Learning到底是什么"><a href="#Prompt-Learning到底是什么" class="headerlink" title="Prompt Learning到底是什么"></a>Prompt Learning到底是什么</h3><p>比如，假如我要判断“我喜欢这个电影” 这句话的情感（“正面” 或者 “负面”），原有的任务形式是把他看成一个分类问题</p>
+<p>输入：我喜欢这个电影</p>
+<p>输出：“正面” 或者 “负面”</p>
+<p>而如果用Prompt Learning去解决的话，任务可以变成“完形填空”，</p>
+<p>输入：我喜欢这个电影，整体上来看，这是一个 __ 的电影</p>
+<p>输出：“有趣的” 或者 “无聊的”</p>
+<blockquote>
+<p><strong>Fine-tuning中：是预训练语言模型“迁就“各种下游任务。</strong>具体体现就是上面提到的通过引入各种辅助任务loss，将其添加到预训练模型中，然后继续pre-training，以便让其更加适配下游任务。总之，这个过程中，预训练语言模型做出了更多的牺牲。<br><strong>Prompting中，是各种下游任务“迁就“预训练语言模型。</strong>具体体现也是上面介绍的，我们需要对不同任务进行重构，使得它达到适配预训练语言模型的效果。总之，这个过程中，是下游任务做出了更多的牺牲。</p>
+</blockquote>
+<p>NLP的发展史本质上是下游任务和预训练语言模型关系的变迁史，性能大幅提高大概率是因为：</p>
+<ol>
+<li>使用了预训练语言模型</li>
+<li>使用了更强的预训练语言模型</li>
+<li>更好地使用了预训练语言模型<br>Prompting 本身不是目的，它是一种实现让下游任务和预训练语言模型更加接近的途径，如果我们有其它更好的方式，那就可以引领下一个范式。</li>
+</ol>
+<h2 id="Knowledgeable-Prompt-tuning"><a href="#Knowledgeable-Prompt-tuning" class="headerlink" title="Knowledgeable Prompt-tuning:"></a>Knowledgeable Prompt-tuning:</h2><p>Incorporating Knowledge into Prompt Verbalizer for Text Classification</p>
+<p>文本分类任务：通过构建标签词表，将分类问题转化为一个预测和标签相关词的问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1170,104 +1280,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-08 10:22:04" itemprop="dateCreated datePublished" datetime="2021-01-08T10:22:04+08:00">2021-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-20 13:18:04" itemprop="dateModified" datetime="2021-09-20T13:18:04+08:00">2021-09-20</time>
-              </span>
-
-          
-            <span id="/2021/01/08/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>940</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p>hexo d -g有时回报错，fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/Asswei7/asswei7.github.io.git/">https://github.com/Asswei7/asswei7.github.io.git/</a>‘: OpenSSL SSL_read: Connection was reset, errno 10054，使用git config —global http.sslVerify “false”即可解决</p>
-<p>最好使用git bash而不是cmd</p>
-<p>首先在文件夹下，git bash，ssh检查是否安装了ssh。然后<br>ssh-keygen -t rsa -C “邮件地址”<br>在C盘下对应位置生成key,点击id)rsa.pub，将其中的内容复制。<br>在github中，settings，SSH and GPG keys，new SSH keys，将复杂的粘贴在这里。<br>然后在git bash中，ssh -T git@github.com，出现Connection reset by 140.82.112.4 port 22<br>，更改本地的host文件，再执行ssh -T git@github.com，出现成功认证即可。<br>再将config.yal的配置内容repo: ssh://git@github.com/Asswei7/asswei7.github.io.git改成这个。</p>
-<p>将图片放置在F:\Graduate\hexo\source\images下，然后导入图片格式为<img src="/images/计网网络层/46过渡.png" alt="avatar"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1340,7 +1352,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1397,12 +1409,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">57k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">52 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"asswei7.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","Sidebar Display (only for Muse | Mist), available values":["post    expand on posts automatically. Default.","always  expand for all pages automatically."],"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="四种范式： 非神经网络时代的完全监督学习 基于神经网络的完全监督学习 预训练、精调范式 预训练、提示、预测范式    演变的规律规律一：每个范式都会涉及繁琐的，需要人工参与（提供先验）的特征工程P1：特征工程要进行特征模板定义环节P2：结构工程神经网络虽然解放手动配置模板特征的人力，但是需要人工去设计合适的网络结构。因此，需要人工去探究最适配下游任务的结构偏置(structral bias)。比如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四范式">
+<meta property="og:url" content="https://asswei7.github.io/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Asswei&#39;s blog">
+<meta property="og:description" content="四种范式： 非神经网络时代的完全监督学习 基于神经网络的完全监督学习 预训练、精调范式 预训练、提示、预测范式    演变的规律规律一：每个范式都会涉及繁琐的，需要人工参与（提供先验）的特征工程P1：特征工程要进行特征模板定义环节P2：结构工程神经网络虽然解放手动配置模板特征的人力，但是需要人工去设计合适的网络结构。因此，需要人工去探究最适配下游任务的结构偏置(structral bias)。比如">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-08T06:57:32.000Z">
+<meta property="article:modified_time" content="2021-09-22T01:39:11.783Z">
+<meta property="article:author" content="孙书玮">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://asswei7.github.io/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/">
+                     
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>第四范式 | Asswei's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Asswei's blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Asswei's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第四范式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-08 14:57:32" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-22 09:39:11" itemprop="dateModified" datetime="2021-09-22T09:39:11+08:00">2021-09-22</time>
+              </span>
+
+          
+            <span id="/2021/01/08/%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="第四范式" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="四种范式："><a href="#四种范式：" class="headerlink" title="四种范式："></a>四种范式：</h3><ol>
+<li>非神经网络时代的完全监督学习</li>
+<li>基于神经网络的完全监督学习</li>
+<li>预训练、精调范式</li>
+<li>预训练、提示、预测范式  </li>
+</ol>
+<h3 id="演变的规律"><a href="#演变的规律" class="headerlink" title="演变的规律"></a>演变的规律</h3><p>规律一：每个范式都会涉及繁琐的，需要人工参与（提供先验）的特征工程<br><strong>P1：特征工程</strong><br>要进行特征模板定义环节<br><strong>P2：结构工程</strong><br>神经网络虽然解放手动配置模板特征的人力，但是需要人工去设计合适的网络结构。因此，需要人工去探究最适配下游任务的结构偏置(structral bias)。比如使用RNN还是CNN。<br><strong>P3：目标函数挖掘</strong><br>通过引入额外的目标函数到预训练语言模型上，以便让其更适配下游任务。有时也需要网络结构的探索，但不是主旋律，主要有以下两个原因。（1）预训练本身很费时，过度的结构偏置的探索开销过大（2）精调过程中，预训练模型本身的知识让大家“忘记”RNN和CNN的差异。<br><strong>P4：Prompt挖掘</strong><br>只是通过对合适prompt的利用将下游任务建模的方式重新定义。</p>
+<p>规律2：新范式带来的收益可以让我们暂时“忽略”那些额外需要的人力代价<br>P1-&gt;P2: 虽然我们常常吐槽神经网络调参如炼丹，可是也在享受着不用手工配置模板，就能够得到还不错甚至更好结果的福利。与其说“炼丹“，我觉得神经网络的训练更像是“陶艺”，而传统的特征工程更像是“炼丹”，因为它对原材料（特征）的选择以及加入丹炉的顺序（特征组合）的要求几乎非常苛刻。<br>P2-&gt;P3: 虽然探究“哪一种损失函数引入到预训练语言模型中更适配下游任务”比较无聊，但比起排列组合各种网络结构，却不一定能获得好性能而言，前者似乎还行。<br>P3-&gt;P4: 虽然prompt的定义很繁琐，但是如果有个方法可以帮你回答“BERT效果都那么好了 ，我还研究个啥“这个问题，那它也挺有吸引力。并且，Prompt Learning激活了很多新的研究场景，比如小样本学习，这显然可以成为那些GPU资源受限研究者的福音。当然，我理解Prompt Learning最重要的一个作用在于给我们prompt（提示）了NLP发展可能的核心动力是什么。</p>
+<h3 id="Prompt-Learning到底是什么"><a href="#Prompt-Learning到底是什么" class="headerlink" title="Prompt Learning到底是什么"></a>Prompt Learning到底是什么</h3><p>比如，假如我要判断“我喜欢这个电影” 这句话的情感（“正面” 或者 “负面”），原有的任务形式是把他看成一个分类问题</p>
+<p>输入：我喜欢这个电影</p>
+<p>输出：“正面” 或者 “负面”</p>
+<p>而如果用Prompt Learning去解决的话，任务可以变成“完形填空”，</p>
+<p>输入：我喜欢这个电影，整体上来看，这是一个 __ 的电影</p>
+<p>输出：“有趣的” 或者 “无聊的”</p>
+<blockquote>
+<p><strong>Fine-tuning中：是预训练语言模型“迁就“各种下游任务。</strong>具体体现就是上面提到的通过引入各种辅助任务loss，将其添加到预训练模型中，然后继续pre-training，以便让其更加适配下游任务。总之，这个过程中，预训练语言模型做出了更多的牺牲。<br><strong>Prompting中，是各种下游任务“迁就“预训练语言模型。</strong>具体体现也是上面介绍的，我们需要对不同任务进行重构，使得它达到适配预训练语言模型的效果。总之，这个过程中，是下游任务做出了更多的牺牲。</p>
+</blockquote>
+<p>NLP的发展史本质上是下游任务和预训练语言模型关系的变迁史，性能大幅提高大概率是因为：</p>
+<ol>
+<li>使用了预训练语言模型</li>
+<li>使用了更强的预训练语言模型</li>
+<li>更好地使用了预训练语言模型<br>Prompting 本身不是目的，它是一种实现让下游任务和预训练语言模型更加接近的途径，如果我们有其它更好的方式，那就可以引领下一个范式。</li>
+</ol>
+<h2 id="Knowledgeable-Prompt-tuning"><a href="#Knowledgeable-Prompt-tuning" class="headerlink" title="Knowledgeable Prompt-tuning:"></a>Knowledgeable Prompt-tuning:</h2><p>Incorporating Knowledge into Prompt Verbalizer for Text Classification</p>
+<p>文本分类任务：通过构建标签词表，将分类问题转化为一个预测和标签相关词的问题。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/08/%E5%8F%A6%E4%B8%80%E8%A7%92%E5%BA%A6%E7%9C%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9D%E4%B8%AD%E8%BE%8D%E5%AD%A6%E7%9A%84%E4%BA%BA%E7%9A%84%E6%88%90%E5%8A%9F/" rel="prev" title="另一角度看为什么初中辍学的人的成功">
+      <i class="fa fa-chevron-left"></i> 另一角度看为什么初中辍学的人的成功
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/08/%E9%81%93%E5%AE%B6/" rel="next" title="道家">
+      道家 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E7%A7%8D%E8%8C%83%E5%BC%8F%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">四种范式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%94%E5%8F%98%E7%9A%84%E8%A7%84%E5%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">演变的规律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prompt-Learning%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">3.</span> <span class="nav-text">Prompt Learning到底是什么</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Knowledgeable-Prompt-tuning"><span class="nav-number"></span> <span class="nav-text">Knowledgeable Prompt-tuning:</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="孙书玮"
+      src="/uploads/Champion_ka.png">
+  <p class="site-author-name" itemprop="name">孙书玮</p>
+  <div class="site-description" itemprop="description">篮球，计算机</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Asswei7" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Asswei7" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:374857303@qq.com" title="E-Mail → mailto:374857303@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">孙书玮</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">57k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">52 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"9nqY8UhYOlt212u1O1JhHnAj-gzGzoHsz","app_key":"gN45qG98T2l1CdnuIsXdiW2v","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
