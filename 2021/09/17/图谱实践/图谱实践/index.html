@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="Asswei&#39;s blog">
 <meta property="og:description" content="RDF、RDFS、OWLRDFExample3 Turtle: @prefix person: http:&#x2F;&#x2F;www.kg.com&#x2F;person&#x2F; .@prefix place: http:&#x2F;&#x2F;www.kg.com&#x2F;place&#x2F; .@prefix : http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F; . person:1 :chineseName “罗纳尔多·路易斯·纳萨里奥·德·利马”^^">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/reverse.png">
-<meta property="og:image" content="https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/movie_data.png">
+<meta property="og:image" content="https://asswei7.github.io/images/图谱实践/reverse.png">
+<meta property="og:image" content="https://asswei7.github.io/images/图谱实践/movie_data.png">
+<meta property="og:image" content="https://asswei7.github.io/images/图谱实践/2020.png">
+<meta property="og:image" content="https://asswei7.github.io/images/图谱实践/查询示例.png">
 <meta property="article:published_time" content="2021-09-17T02:07:52.000Z">
-<meta property="article:modified_time" content="2021-09-18T02:35:28.835Z">
+<meta property="article:modified_time" content="2021-09-23T06:52:44.606Z">
 <meta property="article:author" content="孙书玮">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/reverse.png">
+<meta name="twitter:image" content="https://asswei7.github.io/images/图谱实践/reverse.png">
 
 <link rel="canonical" href="https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/">
                      
@@ -200,7 +202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 10:35:28" itemprop="dateModified" datetime="2021-09-18T10:35:28+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-23 14:52:44" itemprop="dateModified" datetime="2021-09-23T14:52:44+08:00">2021-09-23</time>
               </span>
 
           
@@ -216,14 +218,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.3k</span>
+              <span>8.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
+              <span>8 mins.</span>
             </span>
 
         </div>
@@ -267,21 +269,70 @@
 <li>owl:sameAs. 表示两个实体是同一个实体。</li>
 </ol>
 <p>本体映射主要用在融合多个独立的Ontology（Schema）。举个例子，张三自己构建了一个本体结构，其中定义了Person这样一个类来表示人；李四则在自己构建的本体中定义Human这个类来表示人。当我们融合这两个本体的时候，就可以用到OWL的本体映射词汇。</p>
-<p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/reverse.png" alt>绿色的关系表示是我们RDF数据中真实存在的，红色的关系是推理得到的。</p>
-<h1 id="数据准备和实体建模"><a href="#数据准备和实体建模" class="headerlink" title="数据准备和实体建模"></a>数据准备和实体建模</h1><p>本实例数据获取方法：以周星驰为初始入口，获取其出演的所有电影；再获取这些电影的所有参演演员；最后获取所有参演演员所出演的全部电影。经过去重处理，我们得到了505个演员的基本信息和4518部电影的基本信息。数据保存在mysql中，其ER图如下：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/movie_data.png" alt></p>
-<p>protege字体调大,File-Perference-Renderer-font size即可。</p>
+<p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/images/图谱实践/reverse.png" alt>绿色的关系表示是我们RDF数据中真实存在的，红色的关系是推理得到的。</p>
+<h1 id="数据准备和实体建模"><a href="#数据准备和实体建模" class="headerlink" title="数据准备和实体建模"></a>数据准备和实体建模</h1><p>本实例数据获取方法：以周星驰为初始入口，获取其出演的所有电影；再获取这些电影的所有参演演员；最后获取所有参演演员所出演的全部电影。经过去重处理，我们得到了505个演员的基本信息和4518部电影的基本信息。数据保存在mysql中，其ER图如下：<br><img src="/images/图谱实践/movie_data.png" alt></p>
+<p>protege字体调大,File-Perference-Renderer-font size即可。<br>首先填写本体资源的IRI。</p>
+<p>然后创建三个类，分别为Genre、Movie、Person</p>
+<p>切换到Object Properties，在此建立三个类之间的关系，”hasActedIn”表示某人参演了某电影，因此我们在右下方的3号矩形框中定义该属性的”domain”是人，4号框定义”range”是电影。这个很好理解，”domain”表示该属性是属于哪个类的，”range”表示该属性的取值范围。2号框表示该属性的逆属性是”hasActor”，即，有了推理机，尽管我们的RDF数据只保存了A出演了B，我们在查询的时候也能得到B的演员有A。</p>
+<p>最后，我们切换到”Data properties”，我们在该界面创建类的属性，即，数据属性。其定义方法和对象属性类似，除了没有这么丰富的描述属性特性的词汇。其实不难理解，这些描述特性的词汇是传递、对称、反对称、自反等，表明其必定有指向其他资源或自身的边，而我们之前提到过，数据属性相当于树的叶子节点，只有入度，而没有出度。</p>
+<p>然后保存成为了owl文件，内容即为之前设置的class、object property、Data property三部分。</p>
 <h1 id="关系数据库到RDF"><a href="#关系数据库到RDF" class="headerlink" title="关系数据库到RDF"></a>关系数据库到RDF</h1><h3 id="从关系数据库映射到RDF的两个标准"><a href="#从关系数据库映射到RDF的两个标准" class="headerlink" title="从关系数据库映射到RDF的两个标准"></a>从关系数据库映射到RDF的两个标准</h3><ul>
-<li>direct mapping</li>
-</ul>
-<ol>
-<li>数据库的表作为本体中的类（Class）。比如我们在mysql中保存的数据，一共有5张表。那么通过映射后，我们的本体就有5个类了，而不是我们自己定义的三个类。2. 表的列作为属性（Property）。3. 表的行作为实例/资源。4. 表的单元格值为字面量5. 如果单元格所在的列是外键，那么其值为IRI，或者说实体/资源。</li>
-</ol>
-<ul>
-<li>R2RML<br>generate-mapping -u root -o kg_demo_movie_mapping.ttl jdbc:mysql:///kg_demo_movie<br>.\d2r-server lsy.ttl<br>生成一个mapping的ttl文件，</li>
+<li><p>direct mapping<br>1.数据库的表作为本体中的类（Class）。比如我们在mysql中保存的数据，一共有5张表。那么通过映射后，我们的本体就有5个类了，而不是我们自己定义的三个类。2. 表的列作为属性（Property）。3. 表的行作为实例/资源。4. 表的单元格值为字面量5. 如果单元格所在的列是外键，那么其值为IRI，或者说实体/资源。</p>
+</li>
+<li><p>R2RML<br>generate-mapping -u root -o kg_demo_movie_mapping.ttl jdbc:mysql:///kg_demo_movie<br>.\d2r-server lsy.ttl<br>生成一个mapping的ttl文件，</p>
+</li>
 </ul>
 <p>把每个表映射成为一个类，每一行是一个资源，每一列就是资源的属性。</p>
+<p><a target="_blank" rel="noopener" href="http://www.pizza.com/ontologies/pizza.owl">http://www.pizza.com/ontologies/pizza.owl</a><br>Functional Properties：一一映射，一个输入对应的输出是相同的：<br>比如A的生母是B，也是C，生母关系具有函数性，那么B和C是同一个人。<br>反函数性可以一对多。</p>
 <p>接下来，把默认的映射词汇改为我们本体中的词汇即可。在处理外键的时候要注意当前编辑的属性的domain和range，belongsToClassMap是domain，refersToClassMap是range。<br>1、三个类中，genre__label和genre_genre_id都去掉了<br>2、vocab:xxxx 换成了本体构建时候的术语<br>第一点：我们不需要这两个属性，对我们的系统或者后续应用没有什么帮助。第二点：vocab:xxxx是默认mapping文件定义的转换规则，就是把数据库的字段名和表名直接当成本体。因此要换成我们自己定义的本体。<br>d2rq:property vocab:person_to_movie; ——&gt;   d2rq:property :hasActedIn;<br>d2rq:property vocab:person_person_birth_place;  ——-&gt;   d2rq:property :personBirthPlace;</p>
-<p>.\dump-rdf.bat -o kg_demo_movie.nt .\kg_demo_movie_mapping.ttl<br>讲数据转为RDF。</p>
+<p>.\dump-rdf.bat -o kg_demo_movie.nt .\kg_demo_movie_mapping.ttl<br>将数据转为RDF。</p>
+<p>这样就利用D2RQ完成了从MySQL数据表到RDF格式数据的转换。</p>
+<h1 id="RDF查询语言SPARQL"><a href="#RDF查询语言SPARQL" class="headerlink" title="RDF查询语言SPARQL"></a>RDF查询语言SPARQL</h1><p>查询实例：</p>
+<blockquote>
+<p>周星驰出演了哪些电影：<br>PREFIX : <a target="_blank" rel="noopener" href="http://www.kgdemo.com#">http://www.kgdemo.com#</a><br>PREFIX rdf: <a target="_blank" rel="noopener" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a><br>PREFIX owl: <a target="_blank" rel="noopener" href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a><br>PREFIX xsd: <XML schema><br>PREFIX vocab: <a target="_blank" rel="noopener" href="http://localhost:2020/resource/vocab/">http://localhost:2020/resource/vocab/</a><br>PREFIX rdfs: <a target="_blank" rel="noopener" href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a><br>PREFIX map: <a target="_blank" rel="noopener" href="http://localhost:2020/resource/#">http://localhost:2020/resource/#</a><br>PREFIX db: <a target="_blank" rel="noopener" href="http://localhost:2020/resource/">http://localhost:2020/resource/</a></XML></p>
+</blockquote>
+<p>SELECT ?n WHERE {<br>  ?s rdf:type :Person.<br>  ?s :personName ‘周星驰’.<br>  ?s :hasActedIn ?o.<br>  ?o :movieTitle ?n<br>}</p>
+<blockquote>
+<p>英雄这部电影有哪些演员参演？：<br>SELECT ?n WHERE {<br>  ?s rdf:type :Movie.<br>  ?s :movieTitle ‘英雄’.<br>  ?a :hasActedIn ?s.<br>  ?a :personName ?n<br>}</p>
+</blockquote>
+<h1 id="D2RQ来实现查询SPRAQL"><a href="#D2RQ来实现查询SPRAQL" class="headerlink" title="D2RQ来实现查询SPRAQL"></a>D2RQ来实现查询SPRAQL</h1><p>D2RQ以虚拟的RDF的方式来访问关系数据库中的数据，即我们不需要显式地把数据转为RDF形式。通过默认，或者自己定义的mapping文件，我们可以用查询RDF数据的方式来查询关系数据库中的数据。换个说法，D2RQ把SPARQL查询，按照mapping文件，翻译成SQL语句完成最终的查询，然后把结果返回给用户。</p>
+<p>进入d2rq目录，使用下面的命令启动D2R Server:</p>
+<blockquote>
+<p>d2r-server.bat kg_demo_movie_mapping.ttl<br>默认端口是2020，在浏览器输入“<a target="_blank" rel="noopener" href="http://localhost:2020/”，可以看到如下界面：">http://localhost:2020/”，可以看到如下界面：</a><br><img src="/images/图谱实践/2020.png" alt><br>点击红色方框2中的链接，进入endpoint.<br><img src="/images/图谱实践/查询示例.png" alt></p>
+</blockquote>
+<p>除了利用浏览器，也可以使用python进行交互。见代码中的MyTest文件。</p>
+<h1 id="Apache-jena-SPARQL-endpoint及推理"><a href="#Apache-jena-SPARQL-endpoint及推理" class="headerlink" title="Apache jena SPARQL endpoint及推理"></a>Apache jena SPARQL endpoint及推理</h1><p>本次实践我们会用到的组件有：TDB、rule reasoner和Fuseki。</p>
+<ol>
+<li>TDB是Jena用于存储RDF的组件，是属于存储层面的技术。在单机情况下，它能够提供非常高的RDF存储性能。目前TDB的最新版本是TDB2，且与TDB1不兼容。</li>
+<li>Jena提供了RDFS、OWL和通用规则推理机。其实Jena的RDFS和OWL推理机也是通过Jena自身的通用规则推理机实现的</li>
+<li>Fuseki是Jena提供的SPARQL服务器，也就是SPARQL endpoint。其提供了四种运行模式：单机运行、作为系统的一个服务运行、作为web应用运行或者作为一个嵌入式服务器运行。</li>
+</ol>
+<p>创建一个目录（我这里命名为“tdb”）用于存放tdb数据。进入“apache-jena-X.X.X”文件夹的bat目录，可以看到很多批处理文件，我们使用“tdbloader.bat”将之前我们的RDF数据以TDB的方式存储。命令如下：</p>
+<blockquote>
+<p>.\tdbloader.bat —loc=”D:\apache jena\tdb” “D:\d2rq\kg_demo_movie.nt”</p>
+</blockquote>
+<p>“—loc”指定tdb存储的位置，即刚才我们创建的文件夹；第二个参数是由Mysql数据转换得到的RDF数据。</p>
+<p>进入入“apache-jena-fuseki-X.X.X”文件夹，运行“fuseki-server.bat”，然后退出。程序会为我们在当前目录自动创建“run”文件夹。将我们的本体文件“ontology.owl”移动到“run”文件夹下的“databases”文件夹中，并将“owl”后缀名改为“ttl”。在“run”文件夹下的“configuration”中，我们创建名为“fuseki_conf.ttl”的文本文件（取名没有要求），加入如下内容：</p>
+<p><strong>报错的话，进入到D:\MMKG\env\apache-jena-3.5.0\tdb目录下，将前缀为prefix的文件全部删除，再次运行即可。</strong><br>再次运行“fuseki-server.bat”，如果出现如下界面表示运行成功：</p>
+<p>进入localhost:3030<br>PREFIX : <a target="_blank" rel="noopener" href="http://www.kgdemo.com#">http://www.kgdemo.com#</a><br>PREFIX rdf: <a target="_blank" rel="noopener" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a><br>PREFIX rdfs: <a target="_blank" rel="noopener" href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p>
+<p>SELECT * WHERE {<br>?x :movieTitle ‘功夫’.<br>?x ?p ?o.<br>}</p>
+<p>进行如下查询，可以得到hasActor属性，电影的“hasActor”属性是通过OWL推理机得到的，即我们原本的RDF数据里面是没有的。</p>
+<p>在“databases”文件夹下新建一个文本文件“rules.ttl”，填入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kgdemo.com#&gt; .</span><br><span class="line">@prefix owl: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;07&#x2F;owl#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix xsd: &lt;XML Schema&gt; .</span><br><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line"></span><br><span class="line">[ruleComedian: (?p :hasActedIn ?m) (?m :hasGenre ?g) (?g :genreName &#39;喜剧&#39;) -&gt; (?p rdf:type :Comedian)]</span><br><span class="line">[ruleInverse: (?p :hasActedIn ?m) -&gt; (?m :hasActor ?p)]</span><br></pre></td></tr></table></figure><br>我们定义了一个名为“ruleComedian”的规则，它的意思是：如果有一个演员，出演了一部喜剧电影，那么他就是一位喜剧演员。修改配置文件“fuseki_conf.ttl”：</p>
+<h1 id="demo实例"><a href="#demo实例" class="headerlink" title="demo实例"></a>demo实例</h1><h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><p>此demo是利用正则表达式来做语义解析。我们需要第三方库来完成初步的自然语言处理（分词、实体识别），然后利用支持词级别正则匹配的库来完成后续的语义匹配。</p>
+<p>分词和实体识别（人名和电影名）我们用jieba来完成。jieba是一个轻量级的中文分词工具，有多种语言的实现版本。对于分词，在实验环境中，jieba还是勉强能用。在我们这个demo当中，有些经常会被使用的词语并不能被正确切分。比如：“喜剧电影”、“恐怖电影”、“科幻电影”、“喜剧演员”、“出生日期”等，在分词的时候，jieba把它们当作一个词来处理，我们需要手动调整词语的频率使得“喜剧电影”能被切分为“喜剧”和“电影”。至于实体识别，jieba对于人名的识别精度尚可接受，但是电影名称的识别精度太低以至于完全不可用。因此，我们直接把数据库中的人名和电影名导出，作为外部词典；使用jieba的时候加载外部词典，这样就能解决实体识别的问题。</p>
+<p>将自然语言转为以词为基础的基本单位后，我们使用REfO(Regular Expressions for Objects)来完成语义匹配。具体实现请参考OpenKG的demo或者本demo的代码。</p>
+<p>匹配成功后，得到其对应的我们预先编写的SPARQL模板，再向Fuseki服务器发送查询，最后将结果打印出来。</p>
+<ul>
+<li>“crawler”文件夹包含的是我们从”The Movie DB”获取数据的脚本。</li>
+<li>“KB_query”文件夹包含的是完成整个问答demo流程所需要的脚本。</li>
+<li>“external_dict”包含的是人名和电影名两个外部词典。csv文件是从mysql-workbench导出的，按照jieba外部词典的格式，我们将csv转为对应的txt。</li>
+<li>“word_tagging”，定义Word类的结构（即我们在REfO中使用的对象）；定义”Tagger”类来初始化词典，并实现自然语言到Word对象的方法。</li>
+<li>“jena_sparql_endpoint”，用于完成与Fuseki的交互。</li>
+<li>“question2sparql”，将自然语言转为对应的SPARQL查询。</li>
+<li>“question_temp”，定义SPARQL模板和匹配规则。</li>
+</ul>
+<p>“query_main”，main函数。在运行”query_main”之前，读者需要启动Fuseki服务，具体方法请参考上一篇文章。</p>
+<p>streamlit run streamlit_app.py —server.enableCORS=true<br>终端输入可在浏览器中使用。</p>
 
     </div>
 
@@ -363,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RDF%E3%80%81RDFS%E3%80%81OWL"><span class="nav-number">1.</span> <span class="nav-text">RDF、RDFS、OWL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RDF"><span class="nav-number">1.0.1.</span> <span class="nav-text">RDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDFS"><span class="nav-number">1.0.2.</span> <span class="nav-text">RDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OWL"><span class="nav-number">1.0.3.</span> <span class="nav-text">OWL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E5%92%8C%E5%AE%9E%E4%BD%93%E5%BB%BA%E6%A8%A1"><span class="nav-number">2.</span> <span class="nav-text">数据准备和实体建模</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B0RDF"><span class="nav-number">3.</span> <span class="nav-text">关系数据库到RDF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84%E5%88%B0RDF%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%A0%87%E5%87%86"><span class="nav-number">3.0.1.</span> <span class="nav-text">从关系数据库映射到RDF的两个标准</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RDF%E3%80%81RDFS%E3%80%81OWL"><span class="nav-number">1.</span> <span class="nav-text">RDF、RDFS、OWL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RDF"><span class="nav-number">1.0.1.</span> <span class="nav-text">RDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RDFS"><span class="nav-number">1.0.2.</span> <span class="nav-text">RDFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OWL"><span class="nav-number">1.0.3.</span> <span class="nav-text">OWL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87%E5%92%8C%E5%AE%9E%E4%BD%93%E5%BB%BA%E6%A8%A1"><span class="nav-number">2.</span> <span class="nav-text">数据准备和实体建模</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%B0RDF"><span class="nav-number">3.</span> <span class="nav-text">关系数据库到RDF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84%E5%88%B0RDF%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%A0%87%E5%87%86"><span class="nav-number">3.0.1.</span> <span class="nav-text">从关系数据库映射到RDF的两个标准</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RDF%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80SPARQL"><span class="nav-number">4.</span> <span class="nav-text">RDF查询语言SPARQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D2RQ%E6%9D%A5%E5%AE%9E%E7%8E%B0%E6%9F%A5%E8%AF%A2SPRAQL"><span class="nav-number">5.</span> <span class="nav-text">D2RQ来实现查询SPRAQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache-jena-SPARQL-endpoint%E5%8F%8A%E6%8E%A8%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">Apache jena SPARQL endpoint及推理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#demo%E5%AE%9E%E4%BE%8B"><span class="nav-number">7.</span> <span class="nav-text">demo实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="nav-number">7.1.</span> <span class="nav-text">基本流程</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -379,7 +430,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -436,12 +487,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">57k</span>
+    <span title="Symbols count total">65k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">52 mins.</span>
+    <span title="Reading time total">59 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

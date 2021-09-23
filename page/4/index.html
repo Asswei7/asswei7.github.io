@@ -165,6 +165,466 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-title-link" itemprop="url">计网传输层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-09 13:53:39" itemprop="dateCreated datePublished" datetime="2021-01-09T13:53:39+08:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-27 10:31:18" itemprop="dateModified" datetime="2021-01-27T10:31:18+08:00">2021-01-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="计网传输层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h2><h3 id="1-1-传输层的意义"><a href="#1-1-传输层的意义" class="headerlink" title="1.1 传输层的意义"></a>1.1 传输层的意义</h3><p>网络层可以把数据从一个主机传送到另一个主机，但是没有和进程建立联系。<br><br>传输层就是将进程和收到的数据联系到一起，使数据能够为应用服务<br><br>所以说传输层是主机才有的层次</p>
+<h3 id="1-2-TCP和UDP"><a href="#1-2-TCP和UDP" class="headerlink" title="1.2 TCP和UDP"></a>1.2 TCP和UDP</h3><p>TCP：可靠、面向连接、时延大、适用于大文件<br><br>拥塞控制、流量控制、连接建立<br><br>UDP:不可靠，无连接、时延小、适用于小文件。收到UDP报文后不需要给出任何确认</p>
+<h3 id="1-3-复用和分用"><a href="#1-3-复用和分用" class="headerlink" title="1.3 复用和分用"></a>1.3 复用和分用</h3><p>复用：应用层的所有应用进程都可以通过传输层再传到网络层<br><br>分用：传输层 从网络层收到数据后交付给指明的应用进程<br><br></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">应用程序</th>
+<th style="text-align:center">端口号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">FTP</td>
+<td style="text-align:center">21</td>
+</tr>
+<tr>
+<td style="text-align:center">TELNET</td>
+<td style="text-align:center">23</td>
+</tr>
+<tr>
+<td style="text-align:center">SMTP</td>
+<td style="text-align:center">25</td>
+</tr>
+<tr>
+<td style="text-align:center">DNS</td>
+<td style="text-align:center">53</td>
+</tr>
+<tr>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:center">80</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-UDP协议"><a href="#2-UDP协议" class="headerlink" title="2. UDP协议"></a>2. UDP协议</h2><h3 id="2-1-UDP概述"><a href="#2-1-UDP概述" class="headerlink" title="2.1 UDP概述"></a>2.1 UDP概述</h3><p>UDP一次发送一个完整报文不会分片，所以需要应用层传输过来的数据不要太大，否则网络层分片任务就很重，但是也不能太小，不然效率较低<br><br>应用层给UDP多长的报文，UDP就照样发送，即一次发送一个完整的报文。<br><br>UDP适合一些实时应用，因为实时应用延迟要求高，需要立即响应<br><br><br>UDP只在IP数据报服务之上增加了复用分用和差错检测功能。<br><strong>面向报文</strong></p>
+<h3 id="2-2-UDP首部格式"><a href="#2-2-UDP首部格式" class="headerlink" title="2.2 UDP首部格式"></a>2.2 UDP首部格式</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/UDP首部.png" alt="avatar"></p>
+<h4 id="2-2-1-UDP的校验位"><a href="#2-2-1-UDP的校验位" class="headerlink" title="2.2.1 UDP的校验位"></a>2.2.1 UDP的校验位</h4><p>伪首部只有在计算校验和时才出现，不向上递交也不向下传送<br><br>封装UDP报文的IP数据报首部协议字段是17<br><br>UDP长度：UDP首部８B　＋　数据部分长度</p>
+<p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/校验.png" alt="avatar"></p>
+<h4 id="2-2-2-UDP校验方式"><a href="#2-2-2-UDP校验方式" class="headerlink" title="2.2.2 UDP校验方式"></a>2.2.2 UDP校验方式</h4><p>在发送端：<strong>伪首部+首部+数据</strong>采用二进制反码求和，将结果填入检验和字段，<br>然后去掉伪首部发送</p>
+<h2 id="3-TCP协议"><a href="#3-TCP协议" class="headerlink" title="3. TCP协议"></a>3. TCP协议</h2><h3 id="3-1-TCP协议特点"><a href="#3-1-TCP协议特点" class="headerlink" title="3.1 TCP协议特点"></a>3.1 TCP协议特点</h3><p>TCP必须建立连接后才能进行数据交换，</p>
+<p>TCP提供可靠交付的服务，可靠有序，不丢不重。<br><br>全双工通信：有发送缓存和接收缓存</p>
+<p>面向字节流：把应用程序交下来的数据看成是一串<strong>无结构的字节流</strong></p>
+<h3 id="3-2-TCP报文的首部"><a href="#3-2-TCP报文的首部" class="headerlink" title="3.2 TCP报文的首部"></a>3.2 TCP报文的首部</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/TCP首部.png" alt="avatar"><br><strong>序号：</strong>序号的单位是字节，即每一个字节都按照顺序编号。这个字段表示本报文段发送数据的第一个字节的序号。</p>
+<p><strong>确认号：</strong>期望收到的对方下一个报文段的第一个数据字节的序号。若确认号是N，则前N-1的数据都已经正确接收。</p>
+<p><strong>数据偏移：</strong>即首部长度，以4B为单位。TCP有20B的固定首部</p>
+<h4 id="3-2-1-TCP首部的控制位"><a href="#3-2-1-TCP首部的控制位" class="headerlink" title="3.2.1 TCP首部的控制位"></a>3.2.1 TCP首部的控制位</h4><p>ACK：ACK=1时表示确认号有效，在连接建立后所有报文段都要置1.<br>三次握手时，除了第一次，其余ACK都为1.</p>
+<p>SYN：同步位，表示是在进行请求连接或者接收连接。握手的前两次SYN位置1.</p>
+<h3 id="3-3-TCP连接管理"><a href="#3-3-TCP连接管理" class="headerlink" title="3.3 TCP连接管理"></a>3.3 TCP连接管理</h3><h4 id="3-3-1-TCP三次握手"><a href="#3-3-1-TCP三次握手" class="headerlink" title="3.3.1 TCP三次握手"></a>3.3.1 TCP三次握手</h4><p>第一段的意思是<br><br>SYN=1：(A)要建立连接了！<br><br>seq=x（随机）：因为还没有数据，所以写什么都无所谓</p>
+<p>第二段的意思是<br><br>SYN=1：我(B)同意你(A)建立连接！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=y（随机）：因为还没有数据，所以写什么都无所谓<br><br>ack=x+1：之前发送方(A)说发送的是第x位数据（虽然发送方是瞎说的），所以我(B)要的是x+1位数据</p>
+<p>第三段的意思是<br><br>SYN=0：SYN只有在建立连接时才为1，其他时候均设为0<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=x+1：我(A)发送的报文段的第一个字节就是x+1<br><br>ack=y+1：之前接收方(B)说发送的是第y位数据（虽然接收方是瞎说的），所以我(A)要的是y+1位数据</p>
+<p>注意一下，TCP是双向的，所以不存在绝对不变的发送方接收方，这里的两台主机都同时是发送方和接收方<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/三次握手.png" alt="avatar"></p>
+<h4 id="3-3-2-SYN洪泛攻击"><a href="#3-3-2-SYN洪泛攻击" class="headerlink" title="3.3.2 SYN洪泛攻击"></a>3.3.2 SYN洪泛攻击</h4><p>攻击者发送SYN请求建立连接，服务器返回ACK时，攻击者不予以确认，这个TCP连接就处于挂起状态。服务器没收到确认，会重复发送ACK给攻击者，浪费其资源。</p>
+<h4 id="3-3-3-TCP四次挥手"><a href="#3-3-3-TCP四次挥手" class="headerlink" title="3.3.3 TCP四次挥手"></a>3.3.3 TCP四次挥手</h4><p>第一段的意思是<br><br>FIN=1：(A)要释放连接了！<br><br>seq=u：发了好多数据，这里只是用u指代一下，这里u是有确定值的</p>
+<p>第二段的意思是<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=v：发了好多数据，这里只是用v指代一下，这里v是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（尽管此时A已经决定释放连接了）</p>
+<p>第三段的意思是<br><br>FIN=1：(B)要释放连接了！<br><br>ACK=1：连接建立了，之后的ACK必须都置为1<br><br>seq=w：发了好多数据，这里只是用w指代一下，这里w是有确定值的<br><br>ack=u+1：之前发送方(A)说发送的是第u位数据，所以我(B)要的是u+1位数据（因为A直接不发数据了，所以第二段第三段的ack都是u+1）</p>
+<p>第四段的意思是<br>ACK=1：连接建立了，之后的ACK必须都置为1<br>seq=u+1：之前发的数据时第u位数据，B也要第u+1位数据，所以我发第u+1位数据<br>ack=w+1：之前发送方(B)说发送的是第w位数据，所以我(A)要的是w+1位数据</p>
+<p>为什么需要等待计时2MSL？<br><br>因为这样可以保证B可以收到A的终止报文段进而进入关闭状态<br><br>比如说如果A的第四段报文丢失，那么等待一个MSL之后B就会重传第三段报文，花费小于1MSL之后A就会再收到第三段报文，之后就可以再次向B发送第四段报文提示B关闭连接<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/四次挥手.png" alt="avatar"></p>
+<h3 id="3-4-TCP的可靠传输"><a href="#3-4-TCP的可靠传输" class="headerlink" title="3.4 TCP的可靠传输"></a>3.4 TCP的可靠传输</h3><p>UDP这种本身不可靠的依赖于应用层去解决。</p>
+<p>可靠：保证接收方进程从缓冲区读取的字节流与发送方发出的字节流完全一样。</p>
+<p>TCP实现可靠传输的机制：</p>
+<ol>
+<li>校验  2. 序号  3. 确认  4. 重传</li>
+</ol>
+<p>累计确认机制：从第一个丢失的字节开始请求丢失的报文段。<br>如图中456丢失，78到达，但仍然请求发送的数据序号是4</p>
+<p>冗余ACK：发送方收到三个对于报文段1的冗余ACK，就重传报文段2.</p>
+<h3 id="3-5-TCP流量控制"><a href="#3-5-TCP流量控制" class="headerlink" title="3.5 TCP流量控制"></a>3.5 TCP流量控制</h3><p>简单来说就是接收方可以动态的发送信息告诉发送方发送窗口的大小。</p>
+<p>接收方接受不过来了就让发送方发送窗口小点，这样发送方发送的速率就慢下来了，接收方就有时间处理它的数据了</p>
+<p>接受方处理完了也可以发送请求让发送方发送窗口大点，这样发送方发送的速率就快起来了，接收方就可以处理更多数据而不是空闲等着收数据了。</p>
+<p>例外情况：B不允许A发送数据了，过一段时间后，B处理完数据想要恢复窗口大小但发送的有ｒｗｎｄ大小的数据报丢了。对于A，之前B回复的发送窗口为0，而B也在等待A的回复。</p>
+<p>计时器设置：当A收到B的接收窗口为０，开启计时器，设置的时间到后，发送一个探测报文段，接收方收到探测报文段后给出现在的窗口值。</p>
+<h3 id="3-6-TCP拥塞控制"><a href="#3-6-TCP拥塞控制" class="headerlink" title="3.6 TCP拥塞控制"></a>3.6 TCP拥塞控制</h3><p><strong>流量控制是对单独一个来说，拥塞控制是对于一群</strong>，防止过多的数据注入网络当中。</p>
+<h4 id="3-6-1-基础假定"><a href="#3-6-1-基础假定" class="headerlink" title="3.6.1 基础假定"></a>3.6.1 基础假定</h4><ol>
+<li>数据单方向传送，而另一个方向只传送确认</li>
+<li>接收方总是具有足够大的缓存空间，因而发送窗口大小取决于拥塞程度</li>
+</ol>
+<p>发送窗口= min{接收窗口，拥塞窗口}</p>
+<p>接收窗口：<strong>接收方</strong>根据接收缓存设置的值，并告知给发送方，反映接收方容量<br><br>拥塞窗口：<strong>发送方</strong>自己估算的网络拥塞程度设置的窗口值</p>
+<h4 id="3-6-2-慢开始和拥塞避免"><a href="#3-6-2-慢开始和拥塞避免" class="headerlink" title="3.6.2 慢开始和拥塞避免"></a>3.6.2 慢开始和拥塞避免</h4><p>开始指数形式增长，到达阈值后线性增长。<br><br>到达拥塞状态后，阈值降为原来的一半，拥塞窗口设置为1.<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/慢开始和拥塞避免.png" alt="avatar"></p>
+<h4 id="3-6-3-快重传和快恢复"><a href="#3-6-3-快重传和快恢复" class="headerlink" title="3.6.3 快重传和快恢复"></a>3.6.3 快重传和快恢复</h4><p>在收到连续的ack确认之后执行，这里的ack就是冗余ack，冗余ack的特点是如果多次对某一段请求的数据没有被收到，达到一定数目之后就会立即执行重传。</p>
+<p>此时传输数据报降到原来的一半，而不是降到1.<br><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/%E8%AE%A1%E7%BD%91%E4%BC%A0%E8%BE%93%E5%B1%82/快重传.png" alt="avatar"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">计网概述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-09 13:29:28" itemprop="dateCreated datePublished" datetime="2021-01-09T13:29:28+08:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-16 09:11:46" itemprop="dateModified" datetime="2021-09-16T09:11:46+08:00">2021-09-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/" class="post-meta-item leancloud_visitors" data-flag-title="计网概述" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>565</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-速率相关性能指标"><a href="#1-速率相关性能指标" class="headerlink" title="1. 速率相关性能指标"></a>1. 速率相关性能指标</h2><h3 id="1-1-速率"><a href="#1-1-速率" class="headerlink" title="1.1 速率"></a>1.1 速率</h3><p>定义：连接在计算机网络上的主机在数字信道上传送数据位数的速率<br><br>单位:b/s,Kb/s,Mb/s,Tb/s，<br><br>如果用字节表示，则是B/s,KB/s,MB/s,TB/s<br><br>1Byte=8Bit</p>
+<h3 id="1-2-带宽"><a href="#1-2-带宽" class="headerlink" title="1.2 带宽"></a>1.2 带宽</h3><p>在计算机网络中，指的是网络设备所支持的最高速度，单位同速率，是<strong>理想条件下最高速率</strong></p>
+<h3 id="1-3-吞吐量"><a href="#1-3-吞吐量" class="headerlink" title="1.3 吞吐量"></a>1.3 吞吐量</h3><p>单位时间内通过某个网络的数据总量</p>
+<h2 id="2-时延的相关指标"><a href="#2-时延的相关指标" class="headerlink" title="2. 时延的相关指标"></a>2. 时延的相关指标</h2><h3 id="2-1-四个类别"><a href="#2-1-四个类别" class="headerlink" title="2.1 四个类别"></a>2.1 四个类别</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">发送时延</td>
+<td style="text-align:center">数据从主机到信道上所用的时间</td>
+<td style="text-align:center">发送的数据长度/发送速率</td>
+</tr>
+<tr>
+<td style="text-align:center">传播时延</td>
+<td style="text-align:center">数据在信道上传播所花费的时间</td>
+<td style="text-align:center">信道长度/电磁波在信道上传播的速率</td>
+</tr>
+<tr>
+<td style="text-align:center">排队时延</td>
+<td style="text-align:center">数据在路由器前等待处理的时间</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">处理时延</td>
+<td style="text-align:center">数据在路由器上处理的时间</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>使用高速链路(提高网速)，只能减小发送时延，无法减少其他三个时延<br><br>传播的速度是固定的：电磁波速度。</p>
+<h3 id="2-2-时延带宽积"><a href="#2-2-时延带宽积" class="headerlink" title="2.2 时延带宽积"></a>2.2 时延带宽积</h3><p>公式：时延带宽积 = 传播时延x带宽<br><br>含义：链路上有多少比特的数据</p>
+<h3 id="2-3-往返时延RTT"><a href="#2-3-往返时延RTT" class="headerlink" title="2.3 往返时延RTT"></a>2.3 往返时延RTT</h3><p>RTT= 传播时延*2 + 处理时间</p>
+<h2 id="3-分层结构"><a href="#3-分层结构" class="headerlink" title="3. 分层结构"></a>3. 分层结构</h2><h3 id="3-1-认识分层结构"><a href="#3-1-认识分层结构" class="headerlink" title="3.1 认识分层结构"></a>3.1 认识分层结构</h3><p><img src="/2021/01/09/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/分层结构.png" alt="avatar"></p>
+<h2 id="4-参考模型"><a href="#4-参考模型" class="headerlink" title="4. 参考模型"></a>4. 参考模型</h2><p>OSI七层模型</p>
+<ol>
+<li>应用层：直接为应用进程提供服务<br></li>
+<li>表示层：把数据转换为能与接收者的系统格式兼容的格式</li>
+<li>会话层：在数据传输中设置和维护两台计算机的通信连接</li>
+<li>传输层：端到端，流量控制，复用分用</li>
+<li>网络层：选择最优路由，规划IP地址，拥塞控制</li>
+</ol>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">层次</th>
+<th style="text-align:center">OSI</th>
+<th style="text-align:center">TCP/IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">传输层</td>
+<td style="text-align:center">有连接</td>
+<td style="text-align:center">都可以</td>
+</tr>
+<tr>
+<td style="text-align:center">网络层</td>
+<td style="text-align:center">都可以</td>
+<td style="text-align:center">无连接</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8F%A4%E4%BB%A3%E6%96%87%E5%AD%A6%E4%BD%9C%E5%93%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/%E5%8F%A4%E4%BB%A3%E6%96%87%E5%AD%A6%E4%BD%9C%E5%93%81/" class="post-title-link" itemprop="url">古代文学</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-01-08 14:57:32 / Modified: 15:56:48" itemprop="dateCreated datePublished" datetime="2021-01-08T14:57:32+08:00">2021-01-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%96%87%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">文学</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/08/%E5%8F%A4%E4%BB%A3%E6%96%87%E5%AD%A6%E4%BD%9C%E5%93%81/" class="post-meta-item leancloud_visitors" data-flag-title="古代文学" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="唐诗三百首"><a href="#唐诗三百首" class="headerlink" title="唐诗三百首"></a>唐诗三百首</h3><p>孙洙，字临西，编选唐诗三百首。<br>近体诗：格律诗，即唐诗，绝句和律诗。<br>古体诗：格律限制较少的诗 ###<br>王勃字子安，神童，14岁参加科举，获得七品官，</p>
+<p>武汉黄鹤楼、南昌滕王阁、岳阳岳阳楼，江南三大名楼</p>
+<h2 id="关关雎鸠"><a href="#关关雎鸠" class="headerlink" title="关关雎鸠"></a>关关雎鸠</h2><h4 id="关关是什么？"><a href="#关关是什么？" class="headerlink" title="关关是什么？"></a>关关是什么？</h4><p>关关：拟声词，鸟的叫声。<br>因为古代的发音和现代不同，古音与鸟叫类似。 </p>
+<h4 id="雎鸠是什么？"><a href="#雎鸠是什么？" class="headerlink" title="雎鸠是什么？"></a>雎鸠是什么？</h4><p>鱼鹰，捕鱼的鸟。 </p>
+<h4 id="关雎隐喻什么"><a href="#关雎隐喻什么" class="headerlink" title="关雎隐喻什么"></a>关雎隐喻什么</h4><p>兴：欲言此物先言它物<br>鸟衔鱼图案隐喻：鱼籽很多，代表女性。鸟代表男性。 </p>
+<h4 id="为什么第一首是这个"><a href="#为什么第一首是这个" class="headerlink" title="为什么第一首是这个"></a>为什么第一首是这个</h4><p>发乎于情，止乎于礼</p>
+<h2 id="逍遥游"><a href="#逍遥游" class="headerlink" title="逍遥游"></a>逍遥游</h2><p>朝菌不知晦朔，蟪蛄不知春秋 </p>
+<p>且举世誉之而不加劝，举世非之而不加沮，定乎内外之分，辩乎荣辱之境，斯已矣。(就觉得不过如此罢了)</p>
+<h2 id="鱼我所欲也"><a href="#鱼我所欲也" class="headerlink" title="鱼我所欲也"></a>鱼我所欲也</h2><p>万钟则不辩礼义而受之，万钟于我何加焉！为宫室之美，妻妾之奉，所识穷乏者得我与？<br>乡为身死而不受，今为宫室之美为之；乡为身死而不受，今为妻妾之奉为之；<br>乡为身死而不受，今为所识穷乏者得我而为之；是亦不可以已乎？此之谓失其本心。</p>
+<h2 id="生于忧患死于安乐"><a href="#生于忧患死于安乐" class="headerlink" title="生于忧患死于安乐"></a>生于忧患死于安乐</h2><p>困于心，衡于虑，而后作。<br>借用悲剧哲学家尼采的话来说，是要求我们“去同时面对人类最大的<br>痛苦和最高的希望。”（《快乐的科学》）因为，痛苦与希望本来就同在。</p>
+<h2 id="得道多助，失道寡助"><a href="#得道多助，失道寡助" class="headerlink" title="得道多助，失道寡助"></a>得道多助，失道寡助</h2><p>天时不如地利，地利不如人和。</p>
+<p>三里之城，七里之郭，环而攻之而不胜。夫环而攻之，必有得天时者矣；<br>然而不胜者，是天时不如地利也。</p>
+<p>城非不高也，池非不深也，兵革非不坚利也，米粟非不多也；委而去之，是地利不如人和也。</p>
+<p>故曰：域民不以封疆之界，固国不以山溪之险，威天下不以兵革之利。<br>得道者多助，失道者寡助。寡助之至，亲戚畔之；多助之至，天下顺之。<br>以天下之所顺，攻亲戚之所畔，故君子有不战，战必胜矣。</p>
+<h2 id="劝学"><a href="#劝学" class="headerlink" title="劝学"></a>劝学</h2><p>神莫大于化道，福莫长于无祸。<br>故君子居必择乡，游必就士，所以防邪辟而近中正也。</p>
+<p>吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。<br>登高而招，臂非加长也，而见者远；顺风而呼，声非加疾也，而闻者彰。<br>假舆马者，非利足也，而致千里；假舟楫者，非能水也，而绝江河。君子生非异也，善假于物也。</p>
+<p>积土成山，风雨兴焉；积水成渊，蛟龙生焉；积善成德，而神明自得，圣心备焉。<br>故不积跬步，无以至千里；不积小流，无以成江海。骐骥一跃，不能十步；<br>驽马十驾，功在不舍。锲而舍之，朽木不折；锲而不舍，金石可镂。<br>蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。<br>蟹六跪而二螯，非蛇鳝之穴无可寄托者，用心躁也。</p>
+<h2 id="阿旁宫赋"><a href="#阿旁宫赋" class="headerlink" title="阿旁宫赋"></a>阿旁宫赋</h2><p>奈何取之尽锱铢，用之如泥沙？使负栋之柱，多于南亩之农夫；<br>架梁之椽，多于机上之工女；钉头磷磷，多于在庾之粟粒；<br>瓦缝参差，多于周身之帛缕；<br>直栏横槛，多于九土之城郭；管弦呕哑，多于市人之言语。</p>
+<p>戍卒叫，函谷举，楚人一炬，可怜焦土！</p>
+<p>灭六国者六国也，非秦也。族秦者秦也，非天下也。</p>
+<p>秦人不暇自哀，而后人哀之；后人哀之而不鉴之，亦使后人而复哀后人也。</p>
+<h2 id="六国论"><a href="#六国论" class="headerlink" title="六国论"></a>六国论</h2><p>思厥先祖父，暴霜露，斩荆棘，以有尺寸之地。子孙视之不甚惜，举以予人，如弃草芥。</p><p></p>
+<p>今日割五城，明日割十城，然后得一夕安寝。起视四境，而秦兵又至矣。</p>
+<p>然则诸侯之地有限，暴秦之欲无厌，奉之弥繁，侵之愈急。</p>
+<p>“以地事秦，犹抱薪救火，薪不尽，火不灭。”</p>
+<h2 id="常见的名言"><a href="#常见的名言" class="headerlink" title="常见的名言"></a>常见的名言</h2><p>靡不有初鲜克有终</p>
+<p>茕茕白兔，东走西顾。衣不如新人不如故。</p>
+<p>一生负气成今日，四海无人对夕阳。</p>
+<p>功名半纸，风雪千山。</p>
+<p>早知如此绊人心，何如当初莫相识。</p>
+<p>人面不知何处去，桃花依旧笑春风。<br>欲买桂花同载酒，终不似，少年游。</p>
+<p>我有所念人，隔在远远乡。<br>我有所念人，结在深深肠。</p>
+<p>此去经年，应是良辰好景虚设。便纵有，千种风情，更与何人说。<br>而今识尽愁滋味，欲说还休，欲说还休，却道天凉好个秋。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%9C%A8%E6%83%8A%E8%AE%B6%E4%B8%AD%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -947,339 +1407,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/" class="post-title-link" itemprop="url">最喜欢的格言</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-01-08 13:02:40 / Modified: 15:29:37" itemprop="dateCreated datePublished" datetime="2021-01-08T13:02:40+08:00">2021-01-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E6%9C%80%E5%96%9C%E6%AC%A2%E7%9A%84%E6%A0%BC%E8%A8%80/" class="post-meta-item leancloud_visitors" data-flag-title="最喜欢的格言" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>958</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>真正的大师，永远怀着一颗学徒的心。<br></p>
-<blockquote>
-<p>A true master, is an eternal student.</p>
-</blockquote>
-<p>数学家奥斯卡：</p>
-<blockquote>
-<p>给时光以生命，而不是给生命以时光。</p><p><br>To the time to life, rather than to life in time.</p><p><br>使人成熟的不是岁月，而是经历。</p>
-</blockquote>
-<p>海明威：</p>
-<blockquote>
-<p>The world is a fine place and worth fighting for.<br><br>电影《七宗罪》引用了这句话，并加上一句：<br>“I agree with the second part.”</p>
-</blockquote>
-<p>罗曼罗兰：</p>
-<blockquote>
-<p>There is only one heroism in the world: to see the world as it is and to love it.<br>世界也许并不美好，生活的真相也许是残酷，但我们还是要奋斗。</p>
-</blockquote>
-<p>一个人的奶奶说：</p>
-<blockquote>
-<p>Some bugger will always have a faster car, a flashier house, a glitzier watch - but you were the only kids that ever had me for a nana。<br><br>那些物质的东西，其实并不宝贵。真正宝贵的，是你见到的人，遇到的事儿，拥有的经历和感悟。这些才让你成为你，值得你珍视一生。</p>
-</blockquote>
-<p>有点像火蓝刀锋里：</p>
-<blockquote>
-<p>If you keep doing what you’ve always done, you’ll keep getting what you always got.<br><br>龙柏川说他的老班长说：如果你想要得到你从未得到过的东西，你就要去做你从未做过的事。</p>
-</blockquote>
-<hr>
-<p>以下是贺炜，央视的足球解说员，我都很喜欢：</p>
-<blockquote>
-<p>一件看似不经意的小事，往往就是命运的转折，一次看似普通的再见，其实就是永别。</p><p><br>人的一生中最光辉的一天，并非是功成名就的那天，而是从悲壮与绝望中产生对人生的挑战，以勇敢迈向意志的那天<br>                                    —福楼拜。</p><p><br>生活可能不像你想象得那么好，但是也不会像你想象得那么糟，人的脆弱和坚强都超乎了自己的想象，有时候脆弱的一句话就能泪流满面，有时候你发现自己咬着牙已经走了很长的路。</p><p></p>
-<p>爱本身并没有错，爱谁都是自由，爱强者更是人类的天性。不过因为自己所爱的事物的强大就幻想自己也强大了，甚至觉得爱其他事物的人都已经被踩在脚下了，这就是病态，一种弱智的病态。</p><p></p>
-<p>真正的成熟并不是去追求完美，而是直面自己的缺憾。</p><p><br>向上攀爬的那条路不是比站在顶峰更让人热血澎湃吗。</p><p><br>爱一件事物不是爱它的成败，而是爱它的全部。</p><p></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/" class="post-title-link" itemprop="url">努力就会成功？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-08 10:59:03" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-12 21:29:17" itemprop="dateModified" datetime="2021-01-12T21:29:17+08:00">2021-01-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">技术类随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E5%8A%AA%E5%8A%9B%E5%B0%B1%E4%BC%9A%E6%88%90%E5%8A%9F%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="努力就会成功？" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文解决了我和常清、吴金辰我们国庆一起聊天的困惑，总是说国内996，国外几乎不加班，为什么创新能力、互联网发展国内还是不如国外？</p>
-<h4 id="一个具体的实例说明加班可能适得其反"><a href="#一个具体的实例说明加班可能适得其反" class="headerlink" title="一个具体的实例说明加班可能适得其反"></a>一个具体的实例说明加班可能适得其反</h4><p>直到有一天，我看到这些高级的软件工程师们，把自己关在又挤又吵的会议室中，拼命地加班，真是拼命。周一到周日，每天早上 10 点到凌晨 3 点，甚至凌晨5点，连国庆节都来上班。就在这样的环境和状态下，连续干了三个多月。上线前，QA 找到了1000多个bug。你没看错，是一千多个。</p>
-<p>最后，这个项目用了 1 年多的时间来返工。本来一个 6-8 个月的项目，团队被打了鸡血，想在3个月内完成，最终却花了近两年的时间来返工。</p>
-<p>要知道，我以前在外国公司工作，外国老板看到团队在长时间加班，会感到焦虑的。<font color="blue">因为加班，通常代表着有不好的事情正在发生。</font></p>
-<p>所以对此，我是有点看不懂的。看不懂的是，为什么这么一群聪明的人，放着明亮宽敞的办公桌不用，硬要挤在一个又窄又小又吵又热的小空间里工作，而且要这么透支地写那么重要的很关键的系统级代码？</p>
-<font color="blue">这就好像，一架在一个小作坊里被人加班加点赶工出来的飞机，谁敢坐啊？</font>难道他们真的以为，有足够多的钱，足够多的人，然后拼命加班，就能打败对手吗？
-
-
-#### 在低级事情上努力是对学习高级知识的逃避
-
-“努力就会成功”，“加班就会有成就”，“勤劳就会致富”……
-<font color="blue">因为这类人基本上都是能力有限，不知道怎么提升自己的人，当他们看到只要拼命使力就可以成功的观点时，他们就会有共鸣，就会感动。不用学习那些晦涩难懂的高级知识，不用掌握和练习那些高级技能，自己只需要在低级的事情上拼命和努力，加更多的班和干更多的活，自己就会像电影中的那些小人物一样，总有一天会成功的。</font>
-
-<p>因为，他们混淆了行动与进展，忙碌与多产。他们以为能靠蛮力可以弥补思维上的惰性，靠拼命可以弥补能力上的不足。喜欢或认同这句话的人，基本是能力上有问题的人。这类人适合做劳动密集型的事。不信你可以试试看，当一件事的难度超过一定程度的时候，那些聪明的人会找到更省力的方法；而能力上有问题的人，还是在那儿使蛮力。</p>
-<h4 id="应该怎么做？work-hrad-gt-work-smart"><a href="#应该怎么做？work-hrad-gt-work-smart" class="headerlink" title="应该怎么做？work-hrad -&gt; work-smart"></a>应该怎么做？work-hrad -&gt; work-smart</h4><p>再回想一下，我以前在职场上的很多关键点，不是因为我加班了，而是因为在某些关键问题上，我跳出来解决了其它人都解决不了的问题。<br>我也有失败的时候，而我失败的时候，总是因为我搞不定事，即便是加班拼命努力也无济于事。是的，我的职业生涯的成长，最根本的不是你有多努力，有多勤奋，而是你能搞定很多人搞不定的事。<br>你不信，你可以看看你们公司那些不用加班，就算什么也不干，公司也要花钱养的技术人员。他们的成功，一定不是努力和加班加出来的。<font color="blue">你会发现这些人拼的不是谁干的多，而是谁解决的问题更难。</font></p>
-<p>我加班 996 的时候，从来都不是我成长最快的时候；而我和一群牛人在解决难题的时候，才是我成长最快的时候。<br>关键不在于谁写的代码多，关键在于我们解决了什么样的问题。<br>在这样的一个时代，你要做的，不是通过加班和拼命来跪着挣钱，而是通过技能，来躺着挣钱。</p>
-<h4 id="自己的一些想法"><a href="#自己的一些想法" class="headerlink" title="自己的一些想法"></a>自己的一些想法</h4><p>这让我想到高中时期经常用到的一个作文素材，核心是“金字塔绝对不是由奴隶建造的”，因为受压迫的奴隶不可能做出这种巧夺天工的建筑，最后也由考古学家证实，建造金字塔的是身份地位较高的平民和劳工，绝非奴隶！</p>
-<p>许多作曲家和作家都曾说过，自己灵感迸发的时刻大多不是在工作时那种高强度的状态下，而是在洗澡淋浴时、和朋友闲谈时。</p>
-<p>LegalHigh中动画导演的那一集让我印象一直十分深刻，导演的坚毅的台词。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">技术发展历程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-08 10:59:03" itemprop="dateCreated datePublished" datetime="2021-01-08T10:59:03+08:00">2021-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-01-10 00:04:36" itemprop="dateModified" datetime="2021-01-10T00:04:36+08:00">2021-01-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/08/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" class="post-meta-item leancloud_visitors" data-flag-title="技术发展历程" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>430</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p>由于深度神经网络DNN参数量过大以及丢失了时序信息，在NLP处理中不如RNN。</p>
-<p>但是RNN关键在于将之前保存的信息应用到当前的任务之上。<br>当距离过大时，容易出现梯度衰减和爆炸。</p>
-<p>所以采用LSTM和GRU弥补。</p>
-<h3 id="seq2seq"><a href="#seq2seq" class="headerlink" title="seq2seq"></a>seq2seq</h3><p>虽然RNN输入可以不定长，但是输出是定长的，所以无法解决机器翻译的问题。<br>seq2seq将输入通过Encoder编码成向量C，然后作为Decoder的一部分用来预测，Decode的输入是前一时刻Decoder的输出，所以可以输出不定长。</p>
-<h3 id="attention"><a href="#attention" class="headerlink" title="attention"></a>attention</h3><p>当输入的句子很长时，将所有的输入都融合成一个向量C显然不合适。<br>attention就是将C变成一个随时间变化的权重变量。</p>
-<h3 id="transformer"><a href="#transformer" class="headerlink" title="transformer"></a>transformer</h3><p>由于RNN无法并行，attention的编码器和解码器还是使用了RNN。所以transformer完全抛弃了RNN，在编码器和解码器采用self-attention机制，可以很好地并行化。</p>
-<h3 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h3><p>BERT就是采用的transformer的编码器，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1352,7 +1479,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1409,12 +1536,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">57k</span>
+    <span title="Symbols count total">65k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">52 mins.</span>
+    <span title="Reading time total">59 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

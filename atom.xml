@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asswei7.github.io/"/>
-  <updated>2021-09-22T07:03:01.964Z</updated>
+  <updated>2021-09-23T08:25:19.705Z</updated>
   <id>https://asswei7.github.io/</id>
   
   <author>
@@ -15,6 +15,74 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>知识图谱思路</title>
+    <link href="https://asswei7.github.io/2021/09/23/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/"/>
+    <id>https://asswei7.github.io/2021/09/23/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/</id>
+    <published>2021-09-23T06:48:36.000Z</published>
+    <updated>2021-09-23T08:25:19.705Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="知识图谱与预训练语言模型"><a href="#知识图谱与预训练语言模型" class="headerlink" title="知识图谱与预训练语言模型"></a>知识图谱与预训练语言模型</h1><h1 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h1><p>做机器学习分类问题，难免遇到Biased-Data-Problem, 例如</p><ul><li>CV的目标检测问题: 绝大多数检测框里都是 backgroud</li><li>NLP的异常文本检测: 绝大多数文本都是 normal</li><li>对此，以下套路可以缓解:</li><li>升/降采样, 或者调整样本权重</li><li>换个更鲁棒的loss函数 ，或者加正则</li><li>集成模型: Bagging, RandomForest …</li><li>利于外部先验知识: 预训练+微调</li><li>多任务联合学习</li></ul><p><img src="/images/知识图谱思路/CE.png" alt><br>可以看到如果label是1，p越接近1，损失就越小。</p><p>考前复习的时候，「他不会划重点，对所有知识点 “一视同仁”」。</p><p>如果教科书上有100道例题，包括: 90道加减乘除 + 10道 三角函数。CE同学就会吭哧吭哧的“平均用力”反复练习这100道例题，结果可想而知——他会精通那90道个位数加减乘除题目，然后其他题目基本靠蒙。那10道他不会的题，往往还是分值高的压轴题。</p><p>方法一：分科复习</p><p>每个【科目】的难度是不同的；你要花 30%的精力在四则运算，70%的精力在三角函数。—- 老师告诉CE同学 第一个技巧<br><img src="/images/知识图谱思路/way1.png" alt></p><p>方法二：刷题战术<br><img src="/images/知识图谱思路/way2.png" alt><br>当$p_t$越大，说明准确率越高，观察CE中的$p_t$，它反映了模型对这个样本的识别能力（即 “这个知识点掌握得有多好”）；显然，对于$p_t$越大的样本，我们越要打压它对loss的贡献。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from keras import backend as K</span><br><span class="line">def focal_loss(alpha&#x3D;0.75, gamma&#x3D;2.0):</span><br><span class="line">    &quot;&quot;&quot; 参考 https:&#x2F;&#x2F;blog.csdn.net&#x2F;u011583927&#x2F;article&#x2F;details&#x2F;90716942 &quot;&quot;&quot;</span><br><span class="line">    def focal_loss_fixed(y_true, y_pred):</span><br><span class="line">        # y_true 是个一阶向量, 下式按照加号分为左右两部分</span><br><span class="line">        # 注意到 y_true的取值只能是 0或者1 (假设二分类问题)，可以视为“掩码”</span><br><span class="line">        # 加号左边的 y_true*alpha 表示将 y_true中等于1的槽位置为标量 alpha</span><br><span class="line">        # 加号右边的 (ones-y_true)*(1-alpha) 则是将等于0的槽位置为 1-alpha</span><br><span class="line">        ones &#x3D; K.ones_like(y_true)</span><br><span class="line">        alpha_t &#x3D; y_true*alpha + (ones-y_true)*(1-alpha)</span><br><span class="line"></span><br><span class="line">        # 类似上面，y_true仍然视为 0&#x2F;1 掩码</span><br><span class="line">        # 第1部分 &#96;y_true*y_pred&#96; 表示 将 y_true中为1的槽位置为 y_pred对应槽位的值</span><br><span class="line">        # 第2部分 &#96;(ones-y_true)*(ones-y_pred)&#96; 表示 将 y_true中为0的槽位置为 (1-y_pred)对应槽位的值</span><br><span class="line">        # 第3部分 K.epsilon() 避免后面 log(0) 溢出</span><br><span class="line">        p_t &#x3D; y_true*y_pred + (ones-y_true)*(ones-y_pred) + K.epsilon()</span><br><span class="line"></span><br><span class="line">        # 就是公式的字面意思</span><br><span class="line">        focal_loss &#x3D; -alpha_t * K.pow((ones-p_t),gamma) * K.log(p_t)</span><br><span class="line">    return focal_loss_fixed</span><br><span class="line"></span><br><span class="line">model &#x3D; ...</span><br><span class="line">model.compile(..., loss&#x3D;focal_loss(gamma&#x3D;3, alpha&#x3D;0.5))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;知识图谱与预训练语言模型&quot;&gt;&lt;a href=&quot;#知识图谱与预训练语言模型&quot; class=&quot;headerlink&quot; title=&quot;知识图谱与预训练语言模型&quot;&gt;&lt;/a&gt;知识图谱与预训练语言模型&lt;/h1&gt;&lt;h1 id=&quot;Focal-Loss&quot;&gt;&lt;a href=&quot;#Foc
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx</title>
+    <link href="https://asswei7.github.io/2021/09/23/Nginx/Nginx/"/>
+    <id>https://asswei7.github.io/2021/09/23/Nginx/Nginx/</id>
+    <published>2021-09-23T02:05:22.000Z</published>
+    <updated>2021-09-23T02:14:39.845Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h1><p>设计模式中的代理模式：给某个对象提供一个代理对象，并由代理对象控制原对象的引用。</p><p>理解为看房的中介。<br>当使用我们平台的用户越来越多了，并发量慢慢增大了，这时候一台服务器满足不了我们的需求了。于是我们横向扩展，又增加了服务器。这个时候几个项目启动在不同的服务器上，用户要访问，就需要增加一个代理服务器了，通过代理服务器来帮我们转发和处理请求。</p><p>我们希望这个代理服务器可以帮助我们接收用户的请求，然后将用户的请求按照规则帮我们转发到不同的服务器节点之上。这个过程用户是无感知的，用户并不知道是哪个服务器返回的结果，我们还希望他可以按照服务器的性能提供不同的权重选择。<br><img src="/images/Nginx/代理.png" alt></p><h1 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h1><p>　这里我再举一个例子：大家都知道，现在国内是访问不了 Google的，那么怎么才能访问 Google呢？我们又想，美国人不是能访问 Google吗（这不废话，Google就是美国的），如果我们电脑的对外公网 IP 地址能变成美国的 IP 地址，那不就可以访问 Google了。你很聪明，VPN 就是这样产生的。我们在访问 Google 时，先连上 VPN 服务器将我们的 IP 地址变成美国的 IP 地址，然后就可以顺利的访问了。</p><p>　　这里的 VPN 就是做正向代理的。正向代理服务器位于客户端和服务器之间，为了向服务器获取数据，客户端要向代理服务器发送一个请求，并指定目标服务器，代理服务器将目标服务器返回的数据转交给客户端。这里客户端是要进行一些正向代理的设置的。</p><h1 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h1><p>正向和反向的区别在于：<strong>正向代理代理的是客户端，反向代理代理的是服务器</strong>。<br>所以，反向代理对客户端是无感知的，因为客户端不需要任何配置就可以访问。只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，再返回客户端。<br><img src="/images/Nginx/正向.png" alt><br><img src="/images/Nginx/反向.png" alt></p><p>理解这两种代理的关键在于代理服务器所代理的对象是什么，正向代理代理的是客户端，我们需要在客户端进行一些代理的设置。而反向代理代理的是服务器，作为客户端的我们是无法感知到服务器的真实存在的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;代理&quot;&gt;&lt;a href=&quot;#代理&quot; class=&quot;headerlink&quot; title=&quot;代理&quot;&gt;&lt;/a&gt;代理&lt;/h1&gt;&lt;p&gt;设计模式中的代理模式：给某个对象提供一个代理对象，并由代理对象控制原对象的引用。&lt;/p&gt;
+&lt;p&gt;理解为看房的中介。&lt;br&gt;当使用我们平台的用
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>长征</title>
+    <link href="https://asswei7.github.io/2021/09/22/%E9%95%BF%E5%BE%81/%E9%95%BF%E5%BE%81/"/>
+    <id>https://asswei7.github.io/2021/09/22/%E9%95%BF%E5%BE%81/%E9%95%BF%E5%BE%81/</id>
+    <published>2021-09-22T13:11:48.000Z</published>
+    <updated>2021-09-23T11:06:55.257Z</updated>
+    
+    <content type="html"><![CDATA[<p>顾顺章叛变，上海地下党暴露，中共中央的领导转移到了苏区，王明被共产国际指定为中央的主要领导人，认为应该攻击主要城市。然后博古请来了伏龙芝军事学院毕业的李德，认为山沟沟里没有马列主义。</p><p>蒋介石树立碉堡来割裂根据地，李德让红军堡垒对堡垒，引起大家的不满。因为共军的堡垒会被飞机打破。决定派项英、陈毅带领一万六千人留守，其余人进行长征。</p><p>教员在政治上趋于成熟，因为原本经常一个人反对所有人，得罪了好多人。现在决定争取中间派，在路上和洛浦、王稼祥同行，达成了共识：博古不行，没能力带领红军。</p><p>遵义会议：教员指出先纠正军事指挥的错误，不先追究责任。得到了周恩来的支持。</p><p>一开始指挥，为了能够顺利渡过长江，建议在土城附近围歼郭勋奇部，但由于情报有误，没有打过，只能一渡赤水，向西南走。</p><p><img src="/images/长征/一渡赤水.png" alt><br>蒋介石判断红军是想逃到云南，所以想在云南围歼红军。但是却出人意料地二渡赤水，占领娄山关，回到遵义。<br><img src="/images/长征/二渡赤水.png" alt><br>但此时教员的战法与大家不同。原来的方案是按照既定计划，严格执行。教员认为要保存有生力量，不能硬打。</p><p> 红军在鲁班场战役损失惨重，决定经茅台镇三渡赤水。<br> <img src="/images/长征/三渡赤水.png" alt></p><p> 在陈福村召开会议，因为遵义会议后，虽然解除了博古李德的指挥，但是仍有20多人参与决策。陈福村会议后，毛泽东进入领导核心。</p><p> 三渡赤水后，蒋介石判断红军的目的是北上渡江，立即调集兵力于川南。<br>  <img src="/images/长征/四渡赤水.png" alt><br>  毛主席带兵原路返回，四渡赤水，直插贵阳的蒋介石。蒋介石让滇军主力迅速来救，教员看到滇军离开云南，便带红军直插昆明，打出标语“打到昆明，活捉龙云”，龙云调附近守军回到昆明。金沙江旁边的守军兵力大幅缩减，于是巧渡金沙江，摆脱了大部分的敌人追击。</p><p>会理会议：林彪不满教员用兵走了很多冤枉路，因为他不知道很多情报，但是周恩来和朱德力挺教员。巩固了毛泽东在党内的地位。<br>红军要飞夺泸定桥，22名突击队员爬着铁索过桥。强渡大渡河。</p><p>然后翻雪山，夹金山。 </p><p>翻过雪山后与四方面军在懋功会师，总兵力达到10多万人。但是张国焘以为中央红军有30多万人，但是中央红军只有2万多人，而且 装备都不如四方面军。张国焘心里不满，公开要权。</p><p>只能继续北上过草地，右路军穿过草地，等着和左路军会合继续北上。但是左路军在张国焘进入草地后，准备退回阿坝。并要求右路军的陈昌浩也向南撤。毛泽东带着中央红军偷偷北上，徐向前和陈昌浩只能抱怨。 </p><p>1936年6月张国焘被迫取消第二中央，与红二、四方面军一起北上，10月到达陕北。</p><p>经过六盘山后，</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;顾顺章叛变，上海地下党暴露，中共中央的领导转移到了苏区，王明被共产国际指定为中央的主要领导人，认为应该攻击主要城市。然后博古请来了伏龙芝军事学院毕业的李德，认为山沟沟里没有马列主义。&lt;/p&gt;
+&lt;p&gt;蒋介石树立碉堡来割裂根据地，李德让红军堡垒对堡垒，引起大家的不满。因为共军的
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>基准数据集介绍</title>
@@ -96,9 +164,9 @@
     <link href="https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/"/>
     <id>https://asswei7.github.io/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/</id>
     <published>2021-09-17T02:07:52.000Z</published>
-    <updated>2021-09-18T02:35:28.835Z</updated>
+    <updated>2021-09-23T06:52:44.606Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="RDF、RDFS、OWL"><a href="#RDF、RDFS、OWL" class="headerlink" title="RDF、RDFS、OWL"></a>RDF、RDFS、OWL</h1><h3 id="RDF"><a href="#RDF" class="headerlink" title="RDF"></a>RDF</h3><p>Example3 Turtle:</p><p>@prefix person: <a href="http://www.kg.com/person/">http://www.kg.com/person/</a> .<br>@prefix place: <a href="http://www.kg.com/place/">http://www.kg.com/place/</a> .<br>@prefix : <a href="http://www.kg.com/ontology/">http://www.kg.com/ontology/</a> .</p><p>person:1 :chineseName “罗纳尔多·路易斯·纳萨里奥·德·利马”^^string;<br>         :career “足球运动员”^^string;<br>         :fullName “Ronaldo Luís Nazário de Lima”^^string;<br>         :birthDate “1976-09-18”^^date;<br>         :height “180”^^int;<br>         :weight “98”^^int;<br>         :nationality “巴西”^^string;<br>         :hasBirthPlace place:10086.<br>place:10086 :address “里约热内卢”^^string;<br>            :coordinate “-22.908333, -43.196389”^^string.</p><p>即，将一个实体用一个句子表示（这里的句子指的是一个英文句号“.”）而不是多个句子，属性间用分号隔开。</p><p>RDF的表达能力有限，无法区分类和对象，也无法定义和描述类的关系/属性。我的理解是，RDF是对具体事物的描述，缺乏抽象能力，无法对同一个类别的事物进行定义和描述。就以罗纳尔多这个知识图为例，RDF能够表达罗纳尔多和里约热内卢这两个实体具有哪些属性，以及它们之间的关系。但如果我们想定义罗纳尔多是人，里约热内卢是地点，并且人具有哪些属性，地点具有哪些属性，人和地点之间存在哪些关系，这个时候RDF就表示无能为力了。</p><p>RDFS和OWL这两种技术或者说模式语言/本体语言（schema/ontology language）解决了RDF表达能力有限的困境。</p><h3 id="RDFS"><a href="#RDFS" class="headerlink" title="RDFS"></a>RDFS</h3><p>RDFS/OWL本质上是一些预定义词汇（vocabulary）构成的集合，用于对RDF进行类似的类定义及其属性的定义。</p><p>我们这里只介绍RDFS几个比较重要，常用的词汇：</p><ol><li>rdfs:Class. 用于定义类。</li><li>rdfs:domain. 用于表示该属性属于哪个类别。</li><li>rdfs:range. 用于描述该属性的取值类型。</li><li>rdfs:subClassOf. 用于描述该类的父类。比如，我们可以定义一个运动员类，声明该类是人的子类。</li><li>rdfs:subProperty. 用于描述该属性的父属性。比如，我们可以定义一个名称属性，声明中文名称和全名是名称的子类。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F;&gt; .</span><br><span class="line"></span><br><span class="line">这里我们用词汇rdfs:Class定义了“人”和“地点”这两个类。</span><br><span class="line">:Person rdf:type rdfs:Class.</span><br><span class="line">:Place rdf:type rdfs:Class.</span><br><span class="line">rdfs当中不区分数据属性和对象属性，词汇rdf:Property定义了属性，即RDF的“边”。</span><br><span class="line">:chineseName rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br><span class="line">:career rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line">        </span><br><span class="line">:fullName rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br></pre></td></tr></table></figure><h3 id="OWL"><a href="#OWL" class="headerlink" title="OWL"></a>OWL</h3><p>上面我们提到，RDFS本质上是RDF词汇的一个扩展。后来人们发现RDFS的表达能力还是相当有限，因此提出了OWL。我们也可以把OWL当做是RDFS的一个扩展，其添加了额外的预定义词汇。OWL，即“Web Ontology Language”，语义网技术栈的核心之一。OWL有两个主要的功能：1. 提供快速、灵活的数据建模能力。2. 高效的自动推理。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F;&gt; .</span><br><span class="line">@prefix owl: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;07&#x2F;owl#&gt; .</span><br><span class="line"></span><br><span class="line">这里我们用词汇owl:Class定义了“人”和“地点”这两个类。</span><br><span class="line">:Person rdf:type owl:Class.</span><br><span class="line">:Place rdf:type owl:Class.</span><br><span class="line"></span><br><span class="line">owl区分数据属性和对象属性（对象属性表示实体和实体之间的关系）。词汇owl:DatatypeProperty定义了数据属性，owl:ObjectProperty定义了对象属性。</span><br><span class="line">:chineseName rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br><span class="line">:career rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line">        </span><br><span class="line">:fullName rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>描述属性特征的词汇</p><ol><li>owl:TransitiveProperty. 表示该属性具有传递性质。例如，我们定义“位于”是具有传递性的属性，若A位于B，B位于C，那么A肯定位于C。</li><li>owl:SymmetricProperty. 表示该属性具有对称性。例如，我们定义“认识”是具有对称性的属性，若A认识B，那么B肯定认识A。</li><li>owl:FunctionalProperty表示该属性取值的唯一性。例如，我们定义“母亲”是具有唯一性的属性，若A的母亲是B，在其他地方我们得知A的母亲是C，那么B和C指的是同一个人。</li><li>owl:inverseOf. 定义某个属性的相反关系。例如，定义“父母”的相反关系是“子女”，若A是B的父母，那么B肯定是A的子女。</li></ol><p>本体映射词汇（Ontology Mapping）</p><ol><li>owl:equivalentClass. 表示某个类和另一个类是相同的。</li><li>owl:equivalentProperty. 表示某个属性和另一个属性是相同的。</li><li>owl:sameAs. 表示两个实体是同一个实体。</li></ol><p>本体映射主要用在融合多个独立的Ontology（Schema）。举个例子，张三自己构建了一个本体结构，其中定义了Person这样一个类来表示人；李四则在自己构建的本体中定义Human这个类来表示人。当我们融合这两个本体的时候，就可以用到OWL的本体映射词汇。</p><p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/reverse.png" alt>绿色的关系表示是我们RDF数据中真实存在的，红色的关系是推理得到的。</p><h1 id="数据准备和实体建模"><a href="#数据准备和实体建模" class="headerlink" title="数据准备和实体建模"></a>数据准备和实体建模</h1><p>本实例数据获取方法：以周星驰为初始入口，获取其出演的所有电影；再获取这些电影的所有参演演员；最后获取所有参演演员所出演的全部电影。经过去重处理，我们得到了505个演员的基本信息和4518部电影的基本信息。数据保存在mysql中，其ER图如下：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/movie_data.png" alt></p><p>protege字体调大,File-Perference-Renderer-font size即可。</p><h1 id="关系数据库到RDF"><a href="#关系数据库到RDF" class="headerlink" title="关系数据库到RDF"></a>关系数据库到RDF</h1><h3 id="从关系数据库映射到RDF的两个标准"><a href="#从关系数据库映射到RDF的两个标准" class="headerlink" title="从关系数据库映射到RDF的两个标准"></a>从关系数据库映射到RDF的两个标准</h3><ul><li>direct mapping</li></ul><ol><li>数据库的表作为本体中的类（Class）。比如我们在mysql中保存的数据，一共有5张表。那么通过映射后，我们的本体就有5个类了，而不是我们自己定义的三个类。2. 表的列作为属性（Property）。3. 表的行作为实例/资源。4. 表的单元格值为字面量5. 如果单元格所在的列是外键，那么其值为IRI，或者说实体/资源。</li></ol><ul><li>R2RML<br>generate-mapping -u root -o kg_demo_movie_mapping.ttl jdbc:mysql:///kg_demo_movie<br>.\d2r-server lsy.ttl<br>生成一个mapping的ttl文件，</li></ul><p>把每个表映射成为一个类，每一行是一个资源，每一列就是资源的属性。</p><p>接下来，把默认的映射词汇改为我们本体中的词汇即可。在处理外键的时候要注意当前编辑的属性的domain和range，belongsToClassMap是domain，refersToClassMap是range。<br>1、三个类中，genre__label和genre_genre_id都去掉了<br>2、vocab:xxxx 换成了本体构建时候的术语<br>第一点：我们不需要这两个属性，对我们的系统或者后续应用没有什么帮助。第二点：vocab:xxxx是默认mapping文件定义的转换规则，就是把数据库的字段名和表名直接当成本体。因此要换成我们自己定义的本体。<br>d2rq:property vocab:person_to_movie; ——&gt;   d2rq:property :hasActedIn;<br>d2rq:property vocab:person_person_birth_place;  ——-&gt;   d2rq:property :personBirthPlace;</p><p>.\dump-rdf.bat -o kg_demo_movie.nt .\kg_demo_movie_mapping.ttl<br>讲数据转为RDF。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="RDF、RDFS、OWL"><a href="#RDF、RDFS、OWL" class="headerlink" title="RDF、RDFS、OWL"></a>RDF、RDFS、OWL</h1><h3 id="RDF"><a href="#RDF" class="headerlink" title="RDF"></a>RDF</h3><p>Example3 Turtle:</p><p>@prefix person: <a href="http://www.kg.com/person/">http://www.kg.com/person/</a> .<br>@prefix place: <a href="http://www.kg.com/place/">http://www.kg.com/place/</a> .<br>@prefix : <a href="http://www.kg.com/ontology/">http://www.kg.com/ontology/</a> .</p><p>person:1 :chineseName “罗纳尔多·路易斯·纳萨里奥·德·利马”^^string;<br>         :career “足球运动员”^^string;<br>         :fullName “Ronaldo Luís Nazário de Lima”^^string;<br>         :birthDate “1976-09-18”^^date;<br>         :height “180”^^int;<br>         :weight “98”^^int;<br>         :nationality “巴西”^^string;<br>         :hasBirthPlace place:10086.<br>place:10086 :address “里约热内卢”^^string;<br>            :coordinate “-22.908333, -43.196389”^^string.</p><p>即，将一个实体用一个句子表示（这里的句子指的是一个英文句号“.”）而不是多个句子，属性间用分号隔开。</p><p>RDF的表达能力有限，无法区分类和对象，也无法定义和描述类的关系/属性。我的理解是，RDF是对具体事物的描述，缺乏抽象能力，无法对同一个类别的事物进行定义和描述。就以罗纳尔多这个知识图为例，RDF能够表达罗纳尔多和里约热内卢这两个实体具有哪些属性，以及它们之间的关系。但如果我们想定义罗纳尔多是人，里约热内卢是地点，并且人具有哪些属性，地点具有哪些属性，人和地点之间存在哪些关系，这个时候RDF就表示无能为力了。</p><p>RDFS和OWL这两种技术或者说模式语言/本体语言（schema/ontology language）解决了RDF表达能力有限的困境。</p><h3 id="RDFS"><a href="#RDFS" class="headerlink" title="RDFS"></a>RDFS</h3><p>RDFS/OWL本质上是一些预定义词汇（vocabulary）构成的集合，用于对RDF进行类似的类定义及其属性的定义。</p><p>我们这里只介绍RDFS几个比较重要，常用的词汇：</p><ol><li>rdfs:Class. 用于定义类。</li><li>rdfs:domain. 用于表示该属性属于哪个类别。</li><li>rdfs:range. 用于描述该属性的取值类型。</li><li>rdfs:subClassOf. 用于描述该类的父类。比如，我们可以定义一个运动员类，声明该类是人的子类。</li><li>rdfs:subProperty. 用于描述该属性的父属性。比如，我们可以定义一个名称属性，声明中文名称和全名是名称的子类。</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F;&gt; .</span><br><span class="line"></span><br><span class="line">这里我们用词汇rdfs:Class定义了“人”和“地点”这两个类。</span><br><span class="line">:Person rdf:type rdfs:Class.</span><br><span class="line">:Place rdf:type rdfs:Class.</span><br><span class="line">rdfs当中不区分数据属性和对象属性，词汇rdf:Property定义了属性，即RDF的“边”。</span><br><span class="line">:chineseName rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br><span class="line">:career rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line">        </span><br><span class="line">:fullName rdf:type rdf:Property;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br></pre></td></tr></table></figure><h3 id="OWL"><a href="#OWL" class="headerlink" title="OWL"></a>OWL</h3><p>上面我们提到，RDFS本质上是RDF词汇的一个扩展。后来人们发现RDFS的表达能力还是相当有限，因此提出了OWL。我们也可以把OWL当做是RDFS的一个扩展，其添加了额外的预定义词汇。OWL，即“Web Ontology Language”，语义网技术栈的核心之一。OWL有两个主要的功能：1. 提供快速、灵活的数据建模能力。2. 高效的自动推理。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kg.com&#x2F;ontology&#x2F;&gt; .</span><br><span class="line">@prefix owl: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;07&#x2F;owl#&gt; .</span><br><span class="line"></span><br><span class="line">这里我们用词汇owl:Class定义了“人”和“地点”这两个类。</span><br><span class="line">:Person rdf:type owl:Class.</span><br><span class="line">:Place rdf:type owl:Class.</span><br><span class="line"></span><br><span class="line">owl区分数据属性和对象属性（对象属性表示实体和实体之间的关系）。词汇owl:DatatypeProperty定义了数据属性，owl:ObjectProperty定义了对象属性。</span><br><span class="line">:chineseName rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br><span class="line">:career rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line">        </span><br><span class="line">:fullName rdf:type owl:DatatypeProperty;</span><br><span class="line">        rdfs:domain :Person;</span><br><span class="line">        rdfs:range xsd:string .</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>描述属性特征的词汇</p><ol><li>owl:TransitiveProperty. 表示该属性具有传递性质。例如，我们定义“位于”是具有传递性的属性，若A位于B，B位于C，那么A肯定位于C。</li><li>owl:SymmetricProperty. 表示该属性具有对称性。例如，我们定义“认识”是具有对称性的属性，若A认识B，那么B肯定认识A。</li><li>owl:FunctionalProperty表示该属性取值的唯一性。例如，我们定义“母亲”是具有唯一性的属性，若A的母亲是B，在其他地方我们得知A的母亲是C，那么B和C指的是同一个人。</li><li>owl:inverseOf. 定义某个属性的相反关系。例如，定义“父母”的相反关系是“子女”，若A是B的父母，那么B肯定是A的子女。</li></ol><p>本体映射词汇（Ontology Mapping）</p><ol><li>owl:equivalentClass. 表示某个类和另一个类是相同的。</li><li>owl:equivalentProperty. 表示某个属性和另一个属性是相同的。</li><li>owl:sameAs. 表示两个实体是同一个实体。</li></ol><p>本体映射主要用在融合多个独立的Ontology（Schema）。举个例子，张三自己构建了一个本体结构，其中定义了Person这样一个类来表示人；李四则在自己构建的本体中定义Human这个类来表示人。当我们融合这两个本体的时候，就可以用到OWL的本体映射词汇。</p><p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/images/图谱实践/reverse.png" alt>绿色的关系表示是我们RDF数据中真实存在的，红色的关系是推理得到的。</p><h1 id="数据准备和实体建模"><a href="#数据准备和实体建模" class="headerlink" title="数据准备和实体建模"></a>数据准备和实体建模</h1><p>本实例数据获取方法：以周星驰为初始入口，获取其出演的所有电影；再获取这些电影的所有参演演员；最后获取所有参演演员所出演的全部电影。经过去重处理，我们得到了505个演员的基本信息和4518部电影的基本信息。数据保存在mysql中，其ER图如下：<br><img src="/images/图谱实践/movie_data.png" alt></p><p>protege字体调大,File-Perference-Renderer-font size即可。<br>首先填写本体资源的IRI。</p><p>然后创建三个类，分别为Genre、Movie、Person</p><p>切换到Object Properties，在此建立三个类之间的关系，”hasActedIn”表示某人参演了某电影，因此我们在右下方的3号矩形框中定义该属性的”domain”是人，4号框定义”range”是电影。这个很好理解，”domain”表示该属性是属于哪个类的，”range”表示该属性的取值范围。2号框表示该属性的逆属性是”hasActor”，即，有了推理机，尽管我们的RDF数据只保存了A出演了B，我们在查询的时候也能得到B的演员有A。</p><p>最后，我们切换到”Data properties”，我们在该界面创建类的属性，即，数据属性。其定义方法和对象属性类似，除了没有这么丰富的描述属性特性的词汇。其实不难理解，这些描述特性的词汇是传递、对称、反对称、自反等，表明其必定有指向其他资源或自身的边，而我们之前提到过，数据属性相当于树的叶子节点，只有入度，而没有出度。</p><p>然后保存成为了owl文件，内容即为之前设置的class、object property、Data property三部分。</p><h1 id="关系数据库到RDF"><a href="#关系数据库到RDF" class="headerlink" title="关系数据库到RDF"></a>关系数据库到RDF</h1><h3 id="从关系数据库映射到RDF的两个标准"><a href="#从关系数据库映射到RDF的两个标准" class="headerlink" title="从关系数据库映射到RDF的两个标准"></a>从关系数据库映射到RDF的两个标准</h3><ul><li><p>direct mapping<br>1.数据库的表作为本体中的类（Class）。比如我们在mysql中保存的数据，一共有5张表。那么通过映射后，我们的本体就有5个类了，而不是我们自己定义的三个类。2. 表的列作为属性（Property）。3. 表的行作为实例/资源。4. 表的单元格值为字面量5. 如果单元格所在的列是外键，那么其值为IRI，或者说实体/资源。</p></li><li><p>R2RML<br>generate-mapping -u root -o kg_demo_movie_mapping.ttl jdbc:mysql:///kg_demo_movie<br>.\d2r-server lsy.ttl<br>生成一个mapping的ttl文件，</p></li></ul><p>把每个表映射成为一个类，每一行是一个资源，每一列就是资源的属性。</p><p><a href="http://www.pizza.com/ontologies/pizza.owl">http://www.pizza.com/ontologies/pizza.owl</a><br>Functional Properties：一一映射，一个输入对应的输出是相同的：<br>比如A的生母是B，也是C，生母关系具有函数性，那么B和C是同一个人。<br>反函数性可以一对多。</p><p>接下来，把默认的映射词汇改为我们本体中的词汇即可。在处理外键的时候要注意当前编辑的属性的domain和range，belongsToClassMap是domain，refersToClassMap是range。<br>1、三个类中，genre__label和genre_genre_id都去掉了<br>2、vocab:xxxx 换成了本体构建时候的术语<br>第一点：我们不需要这两个属性，对我们的系统或者后续应用没有什么帮助。第二点：vocab:xxxx是默认mapping文件定义的转换规则，就是把数据库的字段名和表名直接当成本体。因此要换成我们自己定义的本体。<br>d2rq:property vocab:person_to_movie; ——&gt;   d2rq:property :hasActedIn;<br>d2rq:property vocab:person_person_birth_place;  ——-&gt;   d2rq:property :personBirthPlace;</p><p>.\dump-rdf.bat -o kg_demo_movie.nt .\kg_demo_movie_mapping.ttl<br>将数据转为RDF。</p><p>这样就利用D2RQ完成了从MySQL数据表到RDF格式数据的转换。</p><h1 id="RDF查询语言SPARQL"><a href="#RDF查询语言SPARQL" class="headerlink" title="RDF查询语言SPARQL"></a>RDF查询语言SPARQL</h1><p>查询实例：</p><blockquote><p>周星驰出演了哪些电影：<br>PREFIX : <a href="http://www.kgdemo.com#">http://www.kgdemo.com#</a><br>PREFIX rdf: <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a><br>PREFIX owl: <a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a><br>PREFIX xsd: <XML schema><br>PREFIX vocab: <a href="http://localhost:2020/resource/vocab/">http://localhost:2020/resource/vocab/</a><br>PREFIX rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a><br>PREFIX map: <a href="http://localhost:2020/resource/#">http://localhost:2020/resource/#</a><br>PREFIX db: <a href="http://localhost:2020/resource/">http://localhost:2020/resource/</a></XML></p></blockquote><p>SELECT ?n WHERE {<br>  ?s rdf:type :Person.<br>  ?s :personName ‘周星驰’.<br>  ?s :hasActedIn ?o.<br>  ?o :movieTitle ?n<br>}</p><blockquote><p>英雄这部电影有哪些演员参演？：<br>SELECT ?n WHERE {<br>  ?s rdf:type :Movie.<br>  ?s :movieTitle ‘英雄’.<br>  ?a :hasActedIn ?s.<br>  ?a :personName ?n<br>}</p></blockquote><h1 id="D2RQ来实现查询SPRAQL"><a href="#D2RQ来实现查询SPRAQL" class="headerlink" title="D2RQ来实现查询SPRAQL"></a>D2RQ来实现查询SPRAQL</h1><p>D2RQ以虚拟的RDF的方式来访问关系数据库中的数据，即我们不需要显式地把数据转为RDF形式。通过默认，或者自己定义的mapping文件，我们可以用查询RDF数据的方式来查询关系数据库中的数据。换个说法，D2RQ把SPARQL查询，按照mapping文件，翻译成SQL语句完成最终的查询，然后把结果返回给用户。</p><p>进入d2rq目录，使用下面的命令启动D2R Server:</p><blockquote><p>d2r-server.bat kg_demo_movie_mapping.ttl<br>默认端口是2020，在浏览器输入“<a href="http://localhost:2020/”，可以看到如下界面：">http://localhost:2020/”，可以看到如下界面：</a><br><img src="/images/图谱实践/2020.png" alt><br>点击红色方框2中的链接，进入endpoint.<br><img src="/images/图谱实践/查询示例.png" alt></p></blockquote><p>除了利用浏览器，也可以使用python进行交互。见代码中的MyTest文件。</p><h1 id="Apache-jena-SPARQL-endpoint及推理"><a href="#Apache-jena-SPARQL-endpoint及推理" class="headerlink" title="Apache jena SPARQL endpoint及推理"></a>Apache jena SPARQL endpoint及推理</h1><p>本次实践我们会用到的组件有：TDB、rule reasoner和Fuseki。</p><ol><li>TDB是Jena用于存储RDF的组件，是属于存储层面的技术。在单机情况下，它能够提供非常高的RDF存储性能。目前TDB的最新版本是TDB2，且与TDB1不兼容。</li><li>Jena提供了RDFS、OWL和通用规则推理机。其实Jena的RDFS和OWL推理机也是通过Jena自身的通用规则推理机实现的</li><li>Fuseki是Jena提供的SPARQL服务器，也就是SPARQL endpoint。其提供了四种运行模式：单机运行、作为系统的一个服务运行、作为web应用运行或者作为一个嵌入式服务器运行。</li></ol><p>创建一个目录（我这里命名为“tdb”）用于存放tdb数据。进入“apache-jena-X.X.X”文件夹的bat目录，可以看到很多批处理文件，我们使用“tdbloader.bat”将之前我们的RDF数据以TDB的方式存储。命令如下：</p><blockquote><p>.\tdbloader.bat —loc=”D:\apache jena\tdb” “D:\d2rq\kg_demo_movie.nt”</p></blockquote><p>“—loc”指定tdb存储的位置，即刚才我们创建的文件夹；第二个参数是由Mysql数据转换得到的RDF数据。</p><p>进入入“apache-jena-fuseki-X.X.X”文件夹，运行“fuseki-server.bat”，然后退出。程序会为我们在当前目录自动创建“run”文件夹。将我们的本体文件“ontology.owl”移动到“run”文件夹下的“databases”文件夹中，并将“owl”后缀名改为“ttl”。在“run”文件夹下的“configuration”中，我们创建名为“fuseki_conf.ttl”的文本文件（取名没有要求），加入如下内容：</p><p><strong>报错的话，进入到D:\MMKG\env\apache-jena-3.5.0\tdb目录下，将前缀为prefix的文件全部删除，再次运行即可。</strong><br>再次运行“fuseki-server.bat”，如果出现如下界面表示运行成功：</p><p>进入localhost:3030<br>PREFIX : <a href="http://www.kgdemo.com#">http://www.kgdemo.com#</a><br>PREFIX rdf: <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a><br>PREFIX rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p><p>SELECT * WHERE {<br>?x :movieTitle ‘功夫’.<br>?x ?p ?o.<br>}</p><p>进行如下查询，可以得到hasActor属性，电影的“hasActor”属性是通过OWL推理机得到的，即我们原本的RDF数据里面是没有的。</p><p>在“databases”文件夹下新建一个文本文件“rules.ttl”，填入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kgdemo.com#&gt; .</span><br><span class="line">@prefix owl: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;07&#x2F;owl#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix xsd: &lt;XML Schema&gt; .</span><br><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line"></span><br><span class="line">[ruleComedian: (?p :hasActedIn ?m) (?m :hasGenre ?g) (?g :genreName &#39;喜剧&#39;) -&gt; (?p rdf:type :Comedian)]</span><br><span class="line">[ruleInverse: (?p :hasActedIn ?m) -&gt; (?m :hasActor ?p)]</span><br></pre></td></tr></table></figure><br>我们定义了一个名为“ruleComedian”的规则，它的意思是：如果有一个演员，出演了一部喜剧电影，那么他就是一位喜剧演员。修改配置文件“fuseki_conf.ttl”：</p><h1 id="demo实例"><a href="#demo实例" class="headerlink" title="demo实例"></a>demo实例</h1><h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><p>此demo是利用正则表达式来做语义解析。我们需要第三方库来完成初步的自然语言处理（分词、实体识别），然后利用支持词级别正则匹配的库来完成后续的语义匹配。</p><p>分词和实体识别（人名和电影名）我们用jieba来完成。jieba是一个轻量级的中文分词工具，有多种语言的实现版本。对于分词，在实验环境中，jieba还是勉强能用。在我们这个demo当中，有些经常会被使用的词语并不能被正确切分。比如：“喜剧电影”、“恐怖电影”、“科幻电影”、“喜剧演员”、“出生日期”等，在分词的时候，jieba把它们当作一个词来处理，我们需要手动调整词语的频率使得“喜剧电影”能被切分为“喜剧”和“电影”。至于实体识别，jieba对于人名的识别精度尚可接受，但是电影名称的识别精度太低以至于完全不可用。因此，我们直接把数据库中的人名和电影名导出，作为外部词典；使用jieba的时候加载外部词典，这样就能解决实体识别的问题。</p><p>将自然语言转为以词为基础的基本单位后，我们使用REfO(Regular Expressions for Objects)来完成语义匹配。具体实现请参考OpenKG的demo或者本demo的代码。</p><p>匹配成功后，得到其对应的我们预先编写的SPARQL模板，再向Fuseki服务器发送查询，最后将结果打印出来。</p><ul><li>“crawler”文件夹包含的是我们从”The Movie DB”获取数据的脚本。</li><li>“KB_query”文件夹包含的是完成整个问答demo流程所需要的脚本。</li><li>“external_dict”包含的是人名和电影名两个外部词典。csv文件是从mysql-workbench导出的，按照jieba外部词典的格式，我们将csv转为对应的txt。</li><li>“word_tagging”，定义Word类的结构（即我们在REfO中使用的对象）；定义”Tagger”类来初始化词典，并实现自然语言到Word对象的方法。</li><li>“jena_sparql_endpoint”，用于完成与Fuseki的交互。</li><li>“question2sparql”，将自然语言转为对应的SPARQL查询。</li><li>“question_temp”，定义SPARQL模板和匹配规则。</li></ul><p>“query_main”，main函数。在运行”query_main”之前，读者需要启动Fuseki服务，具体方法请参考上一篇文章。</p><p>streamlit run streamlit_app.py —server.enableCORS=true<br>终端输入可在浏览器中使用。</p>]]></content>
     
     <summary type="html">
     
@@ -140,9 +208,9 @@
     <link href="https://asswei7.github.io/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://asswei7.github.io/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
     <published>2021-09-16T01:34:02.000Z</published>
-    <updated>2021-09-20T04:30:54.272Z</updated>
+    <updated>2021-09-23T11:35:22.026Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>var声明<br>20.var/    “jack”.var/    new Person().var</p></li><li><p>.nn .null<br>判空，自动添加一个if判断</p></li><li><p>for遍历<br>list.for   list.fori</p></li><li>.if .return .cast</li></ol><p>github搜索技巧：<br><img src="/images/search.jpg" alt></p>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>var声明<br>20.var/    “jack”.var/    new Person().var</p></li><li><p>.nn .null<br>判空，自动添加一个if判断</p></li><li><p>for遍历<br>list.for   list.fori</p></li><li>.if .return .cast</li></ol><p>github搜索技巧：<br><img src="/images/search.jpg" alt></p><p>在pycharm的Project下的Python Interpreter下更改环境</p><p>github中下载单个文件，点击进去，点击raw，然后ctrl+s即可。</p>]]></content>
     
     <summary type="html">
     
@@ -412,88 +480,6 @@
     
     
       <category term="技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>不来也不去</title>
-    <link href="https://asswei7.github.io/2021/01/11/%E4%B8%8D%E6%9D%A5%E4%B9%9F%E4%B8%8D%E5%8E%BB/%E4%B8%8D%E6%9D%A5%E4%B9%9F%E4%B8%8D%E5%8E%BB/"/>
-    <id>https://asswei7.github.io/2021/01/11/%E4%B8%8D%E6%9D%A5%E4%B9%9F%E4%B8%8D%E5%8E%BB/%E4%B8%8D%E6%9D%A5%E4%B9%9F%E4%B8%8D%E5%8E%BB/</id>
-    <published>2021-01-11T13:17:21.000Z</published>
-    <updated>2021-01-11T13:21:08.210Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>扬帆时 人潮没有你<br>我是我 和途人一起<br>停顿时 在你笑开的眼眉<br>望穿秋水之美</p></blockquote><p>人生的旅途中没有你了，一个人去很热闹的地方，突然看到一个美。</p><blockquote><p>回程时 浪淘尽了你<br>任背影 长睡着不起<br>留下我 在粪土当中<br>翻检背囊 直到拾回自己<br>掌心因此多出一根刺<br>没有刺痛便懒知<br>就当共你 有旧情没有往事</p></blockquote><p>如烟 因给你递过火<br>如火 却也没熔掉我<br>回望最初 当丧失是得着可不可<br>可痛若骊歌 乐如儿歌<br>像你没来过 没去过<br>谁同行 仍同样结尾<br>血液里 才遗传悲喜<br>谁亦难 避过这一身客尘<br>但刚巧出於你<br>垂头前 没缘份丧气<br>睡到醒 才站立得起<br>盲目过 便看到天机<br>反覆往来 又再做回自己<br>即使一生多出一根刺 没有刺痛别要知<br>就当共你 有剧情没有故事<br>如烟 因给你递过火<br>如火 却也没熔掉我<br>回望最初 当丧失是得着可不可<br>可痛若骊歌 乐如儿歌<br>像你没来过 没去过<br>如花 超生了没有果<br>如果 过路能重踏过<br>就当最初 是碎步湖上可不可<br>不种下甚麽 摘来甚麽<br>像我没来过 没去过</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;扬帆时 人潮没有你&lt;br&gt;我是我 和途人一起&lt;br&gt;停顿时 在你笑开的眼眉&lt;br&gt;望穿秋水之美&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;人生的旅途中没有你了，一个人去很热闹的地方，突然看到一个美。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;回程时 
-      
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="https://asswei7.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>最佳损友</title>
-    <link href="https://asswei7.github.io/2021/01/11/%E6%9C%80%E4%BD%B3%E6%8D%9F%E5%8F%8B/%E6%9C%80%E4%BD%B3%E6%8D%9F%E5%8F%8B/"/>
-    <id>https://asswei7.github.io/2021/01/11/%E6%9C%80%E4%BD%B3%E6%8D%9F%E5%8F%8B/%E6%9C%80%E4%BD%B3%E6%8D%9F%E5%8F%8B/</id>
-    <published>2021-01-11T12:33:58.000Z</published>
-    <updated>2021-01-11T13:02:54.343Z</updated>
-    
-    <content type="html"><![CDATA[<p>杨千嬅和黄伟文。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;杨千嬅和黄伟文。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="https://asswei7.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>单车</title>
-    <link href="https://asswei7.github.io/2021/01/11/%E5%8D%95%E8%BD%A6/%E5%8D%95%E8%BD%A6/"/>
-    <id>https://asswei7.github.io/2021/01/11/%E5%8D%95%E8%BD%A6/%E5%8D%95%E8%BD%A6/</id>
-    <published>2021-01-11T12:30:12.000Z</published>
-    <updated>2021-07-23T01:52:04.538Z</updated>
-    
-    <content type="html"><![CDATA[<p>不要不要假设我知道<br>一切一切也都是为我而做<br>为何这么伟大<br>如此感觉不到</p><blockquote><p>不说一句的爱有多好<br>只有一次记得实在接触到<br>骑着单车的我俩<br>怀紧贴背的拥抱</p></blockquote><p>不会表达爱意的父亲形象，</p><p>难离难舍想抱紧些<br>茫茫人生好像荒野<br>如孩儿能伏于爸爸的肩膊<br>谁要下车<br>难离难舍总有一些<br>常情如此不可推卸<br>任世间再冷酷<br>想起这单车还有幸福可借</p><blockquote><p>经已给我怎会看不到<br>虽说演你角色实在有难度<br>从来虚位以待<br>何不给个拥抱<br>想我怎去相信这一套<br>多疼惜我却不便让我知道<br>怀念单车给你我<br>唯一有过的拥抱</p><p>难离难舍想抱紧些<br>茫茫人生好像荒野<br>如孩儿能伏于爸爸的肩膊<br>哪怕遥遥长路多斜<br>你爱我爱多些<br>让我他朝走得坚壮些<br>你介意来爱护<br>又靠谁施舍</p></blockquote><p>难离难舍想抱紧些<br>茫茫人生好像荒野<br>如孩儿能伏于爸爸的肩膊<br>谁要下车<br>难离难舍总有一些<br>常情如此不可推卸<br>任世间怨我坏可知我只得你<br>承受我的狂或野</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;不要不要假设我知道&lt;br&gt;一切一切也都是为我而做&lt;br&gt;为何这么伟大&lt;br&gt;如此感觉不到&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不说一句的爱有多好&lt;br&gt;只有一次记得实在接触到&lt;br&gt;骑着单车的我俩&lt;br&gt;怀紧贴背的拥抱&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;不会表达
-      
-    
-    </summary>
-    
-    
-      <category term="音乐" scheme="https://asswei7.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
     
     
   </entry>

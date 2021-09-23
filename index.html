@@ -165,6 +165,288 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/23/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/23/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/" class="post-title-link" itemprop="url">知识图谱思路</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-23 14:48:36 / Modified: 16:25:19" itemprop="dateCreated datePublished" datetime="2021-09-23T14:48:36+08:00">2021-09-23</time>
+            </span>
+
+          
+            <span id="/2021/09/23/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%80%9D%E8%B7%AF/" class="post-meta-item leancloud_visitors" data-flag-title="知识图谱思路" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="知识图谱与预训练语言模型"><a href="#知识图谱与预训练语言模型" class="headerlink" title="知识图谱与预训练语言模型"></a>知识图谱与预训练语言模型</h1><h1 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h1><p>做机器学习分类问题，难免遇到Biased-Data-Problem, 例如</p>
+<ul>
+<li>CV的目标检测问题: 绝大多数检测框里都是 backgroud</li>
+<li>NLP的异常文本检测: 绝大多数文本都是 normal</li>
+<li>对此，以下套路可以缓解:</li>
+<li>升/降采样, 或者调整样本权重</li>
+<li>换个更鲁棒的loss函数 ，或者加正则</li>
+<li>集成模型: Bagging, RandomForest …</li>
+<li>利于外部先验知识: 预训练+微调</li>
+<li>多任务联合学习</li>
+</ul>
+<p><img src="/images/知识图谱思路/CE.png" alt><br>可以看到如果label是1，p越接近1，损失就越小。</p>
+<p>考前复习的时候，「他不会划重点，对所有知识点 “一视同仁”」。</p>
+<p>如果教科书上有100道例题，包括: 90道加减乘除 + 10道 三角函数。CE同学就会吭哧吭哧的“平均用力”反复练习这100道例题，结果可想而知——他会精通那90道个位数加减乘除题目，然后其他题目基本靠蒙。那10道他不会的题，往往还是分值高的压轴题。</p>
+<p>方法一：分科复习</p>
+<p>每个【科目】的难度是不同的；你要花 30%的精力在四则运算，70%的精力在三角函数。—- 老师告诉CE同学 第一个技巧<br><img src="/images/知识图谱思路/way1.png" alt></p>
+<p>方法二：刷题战术<br><img src="/images/知识图谱思路/way2.png" alt><br>当$p_t$越大，说明准确率越高，观察CE中的$p_t$，它反映了模型对这个样本的识别能力（即 “这个知识点掌握得有多好”）；显然，对于$p_t$越大的样本，我们越要打压它对loss的贡献。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from keras import backend as K</span><br><span class="line">def focal_loss(alpha&#x3D;0.75, gamma&#x3D;2.0):</span><br><span class="line">    &quot;&quot;&quot; 参考 https:&#x2F;&#x2F;blog.csdn.net&#x2F;u011583927&#x2F;article&#x2F;details&#x2F;90716942 &quot;&quot;&quot;</span><br><span class="line">    def focal_loss_fixed(y_true, y_pred):</span><br><span class="line">        # y_true 是个一阶向量, 下式按照加号分为左右两部分</span><br><span class="line">        # 注意到 y_true的取值只能是 0或者1 (假设二分类问题)，可以视为“掩码”</span><br><span class="line">        # 加号左边的 y_true*alpha 表示将 y_true中等于1的槽位置为标量 alpha</span><br><span class="line">        # 加号右边的 (ones-y_true)*(1-alpha) 则是将等于0的槽位置为 1-alpha</span><br><span class="line">        ones &#x3D; K.ones_like(y_true)</span><br><span class="line">        alpha_t &#x3D; y_true*alpha + (ones-y_true)*(1-alpha)</span><br><span class="line"></span><br><span class="line">        # 类似上面，y_true仍然视为 0&#x2F;1 掩码</span><br><span class="line">        # 第1部分 &#96;y_true*y_pred&#96; 表示 将 y_true中为1的槽位置为 y_pred对应槽位的值</span><br><span class="line">        # 第2部分 &#96;(ones-y_true)*(ones-y_pred)&#96; 表示 将 y_true中为0的槽位置为 (1-y_pred)对应槽位的值</span><br><span class="line">        # 第3部分 K.epsilon() 避免后面 log(0) 溢出</span><br><span class="line">        p_t &#x3D; y_true*y_pred + (ones-y_true)*(ones-y_pred) + K.epsilon()</span><br><span class="line"></span><br><span class="line">        # 就是公式的字面意思</span><br><span class="line">        focal_loss &#x3D; -alpha_t * K.pow((ones-p_t),gamma) * K.log(p_t)</span><br><span class="line">    return focal_loss_fixed</span><br><span class="line"></span><br><span class="line">model &#x3D; ...</span><br><span class="line">model.compile(..., loss&#x3D;focal_loss(gamma&#x3D;3, alpha&#x3D;0.5))</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/23/Nginx/Nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/23/Nginx/Nginx/" class="post-title-link" itemprop="url">Nginx</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-23 10:05:22 / Modified: 10:14:39" itemprop="dateCreated datePublished" datetime="2021-09-23T10:05:22+08:00">2021-09-23</time>
+            </span>
+
+          
+            <span id="/2021/09/23/Nginx/Nginx/" class="post-meta-item leancloud_visitors" data-flag-title="Nginx" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>809</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h1><p>设计模式中的代理模式：给某个对象提供一个代理对象，并由代理对象控制原对象的引用。</p>
+<p>理解为看房的中介。<br>当使用我们平台的用户越来越多了，并发量慢慢增大了，这时候一台服务器满足不了我们的需求了。于是我们横向扩展，又增加了服务器。这个时候几个项目启动在不同的服务器上，用户要访问，就需要增加一个代理服务器了，通过代理服务器来帮我们转发和处理请求。</p>
+<p>我们希望这个代理服务器可以帮助我们接收用户的请求，然后将用户的请求按照规则帮我们转发到不同的服务器节点之上。这个过程用户是无感知的，用户并不知道是哪个服务器返回的结果，我们还希望他可以按照服务器的性能提供不同的权重选择。<br><img src="/images/Nginx/代理.png" alt></p>
+<h1 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h1><p>　这里我再举一个例子：大家都知道，现在国内是访问不了 Google的，那么怎么才能访问 Google呢？我们又想，美国人不是能访问 Google吗（这不废话，Google就是美国的），如果我们电脑的对外公网 IP 地址能变成美国的 IP 地址，那不就可以访问 Google了。你很聪明，VPN 就是这样产生的。我们在访问 Google 时，先连上 VPN 服务器将我们的 IP 地址变成美国的 IP 地址，然后就可以顺利的访问了。</p>
+<p>　　这里的 VPN 就是做正向代理的。正向代理服务器位于客户端和服务器之间，为了向服务器获取数据，客户端要向代理服务器发送一个请求，并指定目标服务器，代理服务器将目标服务器返回的数据转交给客户端。这里客户端是要进行一些正向代理的设置的。</p>
+<h1 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h1><p>正向和反向的区别在于：<strong>正向代理代理的是客户端，反向代理代理的是服务器</strong>。<br>所以，反向代理对客户端是无感知的，因为客户端不需要任何配置就可以访问。只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，再返回客户端。<br><img src="/images/Nginx/正向.png" alt><br><img src="/images/Nginx/反向.png" alt></p>
+<p>理解这两种代理的关键在于代理服务器所代理的对象是什么，正向代理代理的是客户端，我们需要在客户端进行一些代理的设置。而反向代理代理的是服务器，作为客户端的我们是无法感知到服务器的真实存在的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/22/%E9%95%BF%E5%BE%81/%E9%95%BF%E5%BE%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/22/%E9%95%BF%E5%BE%81/%E9%95%BF%E5%BE%81/" class="post-title-link" itemprop="url">长征</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-22 21:11:48" itemprop="dateCreated datePublished" datetime="2021-09-22T21:11:48+08:00">2021-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-23 19:06:55" itemprop="dateModified" datetime="2021-09-23T19:06:55+08:00">2021-09-23</time>
+              </span>
+
+          
+            <span id="/2021/09/22/%E9%95%BF%E5%BE%81/%E9%95%BF%E5%BE%81/" class="post-meta-item leancloud_visitors" data-flag-title="长征" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>987</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>顾顺章叛变，上海地下党暴露，中共中央的领导转移到了苏区，王明被共产国际指定为中央的主要领导人，认为应该攻击主要城市。然后博古请来了伏龙芝军事学院毕业的李德，认为山沟沟里没有马列主义。</p>
+<p>蒋介石树立碉堡来割裂根据地，李德让红军堡垒对堡垒，引起大家的不满。因为共军的堡垒会被飞机打破。决定派项英、陈毅带领一万六千人留守，其余人进行长征。</p>
+<p>教员在政治上趋于成熟，因为原本经常一个人反对所有人，得罪了好多人。现在决定争取中间派，在路上和洛浦、王稼祥同行，达成了共识：博古不行，没能力带领红军。</p>
+<p>遵义会议：教员指出先纠正军事指挥的错误，不先追究责任。得到了周恩来的支持。</p>
+<p>一开始指挥，为了能够顺利渡过长江，建议在土城附近围歼郭勋奇部，但由于情报有误，没有打过，只能一渡赤水，向西南走。</p>
+<p><img src="/images/长征/一渡赤水.png" alt><br>蒋介石判断红军是想逃到云南，所以想在云南围歼红军。但是却出人意料地二渡赤水，占领娄山关，回到遵义。<br><img src="/images/长征/二渡赤水.png" alt><br>但此时教员的战法与大家不同。原来的方案是按照既定计划，严格执行。教员认为要保存有生力量，不能硬打。</p>
+<p> 红军在鲁班场战役损失惨重，决定经茅台镇三渡赤水。<br> <img src="/images/长征/三渡赤水.png" alt></p>
+<p> 在陈福村召开会议，因为遵义会议后，虽然解除了博古李德的指挥，但是仍有20多人参与决策。陈福村会议后，毛泽东进入领导核心。</p>
+<p> 三渡赤水后，蒋介石判断红军的目的是北上渡江，立即调集兵力于川南。<br>  <img src="/images/长征/四渡赤水.png" alt><br>  毛主席带兵原路返回，四渡赤水，直插贵阳的蒋介石。蒋介石让滇军主力迅速来救，教员看到滇军离开云南，便带红军直插昆明，打出标语“打到昆明，活捉龙云”，龙云调附近守军回到昆明。金沙江旁边的守军兵力大幅缩减，于是巧渡金沙江，摆脱了大部分的敌人追击。</p>
+<p>会理会议：林彪不满教员用兵走了很多冤枉路，因为他不知道很多情报，但是周恩来和朱德力挺教员。巩固了毛泽东在党内的地位。<br>红军要飞夺泸定桥，22名突击队员爬着铁索过桥。强渡大渡河。</p>
+<p>然后翻雪山，夹金山。 </p>
+<p>翻过雪山后与四方面军在懋功会师，总兵力达到10多万人。但是张国焘以为中央红军有30多万人，但是中央红军只有2万多人，而且 装备都不如四方面军。张国焘心里不满，公开要权。</p>
+<p>只能继续北上过草地，右路军穿过草地，等着和左路军会合继续北上。但是左路军在张国焘进入草地后，准备退回阿坝。并要求右路军的陈昌浩也向南撤。毛泽东带着中央红军偷偷北上，徐向前和陈昌浩只能抱怨。 </p>
+<p>1936年6月张国焘被迫取消第二中央，与红二、四方面军一起北上，10月到达陕北。</p>
+<p>经过六盘山后，</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/22/%E5%9F%BA%E5%87%86%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E5%87%86%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -514,7 +796,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-18 10:35:28" itemprop="dateModified" datetime="2021-09-18T10:35:28+08:00">2021-09-18</time>
+                <time title="Modified: 2021-09-23 14:52:44" itemprop="dateModified" datetime="2021-09-23T14:52:44+08:00">2021-09-23</time>
               </span>
 
           
@@ -530,14 +812,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.3k</span>
+              <span>8.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
+              <span>8 mins.</span>
             </span>
 
         </div>
@@ -581,21 +863,70 @@
 <li>owl:sameAs. 表示两个实体是同一个实体。</li>
 </ol>
 <p>本体映射主要用在融合多个独立的Ontology（Schema）。举个例子，张三自己构建了一个本体结构，其中定义了Person这样一个类来表示人；李四则在自己构建的本体中定义Human这个类来表示人。当我们融合这两个本体的时候，就可以用到OWL的本体映射词汇。</p>
-<p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/reverse.png" alt>绿色的关系表示是我们RDF数据中真实存在的，红色的关系是推理得到的。</p>
-<h1 id="数据准备和实体建模"><a href="#数据准备和实体建模" class="headerlink" title="数据准备和实体建模"></a>数据准备和实体建模</h1><p>本实例数据获取方法：以周星驰为初始入口，获取其出演的所有电影；再获取这些电影的所有参演演员；最后获取所有参演演员所出演的全部电影。经过去重处理，我们得到了505个演员的基本信息和4518部电影的基本信息。数据保存在mysql中，其ER图如下：<br><img src="/2021/09/17/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/%E5%9B%BE%E8%B0%B1%E5%AE%9E%E8%B7%B5/movie_data.png" alt></p>
-<p>protege字体调大,File-Perference-Renderer-font size即可。</p>
+<p><strong>推理方面的能力</strong>：基于本体的推理和基于规则的推理<br>如果我们用inversOf来表示hasParent和hasChild互为逆关系，上面的数据可以表示为：<br><img src="/images/图谱实践/reverse.png" alt>绿色的关系表示是我们RDF数据中真实存在的，红色的关系是推理得到的。</p>
+<h1 id="数据准备和实体建模"><a href="#数据准备和实体建模" class="headerlink" title="数据准备和实体建模"></a>数据准备和实体建模</h1><p>本实例数据获取方法：以周星驰为初始入口，获取其出演的所有电影；再获取这些电影的所有参演演员；最后获取所有参演演员所出演的全部电影。经过去重处理，我们得到了505个演员的基本信息和4518部电影的基本信息。数据保存在mysql中，其ER图如下：<br><img src="/images/图谱实践/movie_data.png" alt></p>
+<p>protege字体调大,File-Perference-Renderer-font size即可。<br>首先填写本体资源的IRI。</p>
+<p>然后创建三个类，分别为Genre、Movie、Person</p>
+<p>切换到Object Properties，在此建立三个类之间的关系，”hasActedIn”表示某人参演了某电影，因此我们在右下方的3号矩形框中定义该属性的”domain”是人，4号框定义”range”是电影。这个很好理解，”domain”表示该属性是属于哪个类的，”range”表示该属性的取值范围。2号框表示该属性的逆属性是”hasActor”，即，有了推理机，尽管我们的RDF数据只保存了A出演了B，我们在查询的时候也能得到B的演员有A。</p>
+<p>最后，我们切换到”Data properties”，我们在该界面创建类的属性，即，数据属性。其定义方法和对象属性类似，除了没有这么丰富的描述属性特性的词汇。其实不难理解，这些描述特性的词汇是传递、对称、反对称、自反等，表明其必定有指向其他资源或自身的边，而我们之前提到过，数据属性相当于树的叶子节点，只有入度，而没有出度。</p>
+<p>然后保存成为了owl文件，内容即为之前设置的class、object property、Data property三部分。</p>
 <h1 id="关系数据库到RDF"><a href="#关系数据库到RDF" class="headerlink" title="关系数据库到RDF"></a>关系数据库到RDF</h1><h3 id="从关系数据库映射到RDF的两个标准"><a href="#从关系数据库映射到RDF的两个标准" class="headerlink" title="从关系数据库映射到RDF的两个标准"></a>从关系数据库映射到RDF的两个标准</h3><ul>
-<li>direct mapping</li>
-</ul>
-<ol>
-<li>数据库的表作为本体中的类（Class）。比如我们在mysql中保存的数据，一共有5张表。那么通过映射后，我们的本体就有5个类了，而不是我们自己定义的三个类。2. 表的列作为属性（Property）。3. 表的行作为实例/资源。4. 表的单元格值为字面量5. 如果单元格所在的列是外键，那么其值为IRI，或者说实体/资源。</li>
-</ol>
-<ul>
-<li>R2RML<br>generate-mapping -u root -o kg_demo_movie_mapping.ttl jdbc:mysql:///kg_demo_movie<br>.\d2r-server lsy.ttl<br>生成一个mapping的ttl文件，</li>
+<li><p>direct mapping<br>1.数据库的表作为本体中的类（Class）。比如我们在mysql中保存的数据，一共有5张表。那么通过映射后，我们的本体就有5个类了，而不是我们自己定义的三个类。2. 表的列作为属性（Property）。3. 表的行作为实例/资源。4. 表的单元格值为字面量5. 如果单元格所在的列是外键，那么其值为IRI，或者说实体/资源。</p>
+</li>
+<li><p>R2RML<br>generate-mapping -u root -o kg_demo_movie_mapping.ttl jdbc:mysql:///kg_demo_movie<br>.\d2r-server lsy.ttl<br>生成一个mapping的ttl文件，</p>
+</li>
 </ul>
 <p>把每个表映射成为一个类，每一行是一个资源，每一列就是资源的属性。</p>
+<p><a target="_blank" rel="noopener" href="http://www.pizza.com/ontologies/pizza.owl">http://www.pizza.com/ontologies/pizza.owl</a><br>Functional Properties：一一映射，一个输入对应的输出是相同的：<br>比如A的生母是B，也是C，生母关系具有函数性，那么B和C是同一个人。<br>反函数性可以一对多。</p>
 <p>接下来，把默认的映射词汇改为我们本体中的词汇即可。在处理外键的时候要注意当前编辑的属性的domain和range，belongsToClassMap是domain，refersToClassMap是range。<br>1、三个类中，genre__label和genre_genre_id都去掉了<br>2、vocab:xxxx 换成了本体构建时候的术语<br>第一点：我们不需要这两个属性，对我们的系统或者后续应用没有什么帮助。第二点：vocab:xxxx是默认mapping文件定义的转换规则，就是把数据库的字段名和表名直接当成本体。因此要换成我们自己定义的本体。<br>d2rq:property vocab:person_to_movie; ——&gt;   d2rq:property :hasActedIn;<br>d2rq:property vocab:person_person_birth_place;  ——-&gt;   d2rq:property :personBirthPlace;</p>
-<p>.\dump-rdf.bat -o kg_demo_movie.nt .\kg_demo_movie_mapping.ttl<br>讲数据转为RDF。</p>
+<p>.\dump-rdf.bat -o kg_demo_movie.nt .\kg_demo_movie_mapping.ttl<br>将数据转为RDF。</p>
+<p>这样就利用D2RQ完成了从MySQL数据表到RDF格式数据的转换。</p>
+<h1 id="RDF查询语言SPARQL"><a href="#RDF查询语言SPARQL" class="headerlink" title="RDF查询语言SPARQL"></a>RDF查询语言SPARQL</h1><p>查询实例：</p>
+<blockquote>
+<p>周星驰出演了哪些电影：<br>PREFIX : <a target="_blank" rel="noopener" href="http://www.kgdemo.com#">http://www.kgdemo.com#</a><br>PREFIX rdf: <a target="_blank" rel="noopener" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a><br>PREFIX owl: <a target="_blank" rel="noopener" href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a><br>PREFIX xsd: <XML schema><br>PREFIX vocab: <a target="_blank" rel="noopener" href="http://localhost:2020/resource/vocab/">http://localhost:2020/resource/vocab/</a><br>PREFIX rdfs: <a target="_blank" rel="noopener" href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a><br>PREFIX map: <a target="_blank" rel="noopener" href="http://localhost:2020/resource/#">http://localhost:2020/resource/#</a><br>PREFIX db: <a target="_blank" rel="noopener" href="http://localhost:2020/resource/">http://localhost:2020/resource/</a></XML></p>
+</blockquote>
+<p>SELECT ?n WHERE {<br>  ?s rdf:type :Person.<br>  ?s :personName ‘周星驰’.<br>  ?s :hasActedIn ?o.<br>  ?o :movieTitle ?n<br>}</p>
+<blockquote>
+<p>英雄这部电影有哪些演员参演？：<br>SELECT ?n WHERE {<br>  ?s rdf:type :Movie.<br>  ?s :movieTitle ‘英雄’.<br>  ?a :hasActedIn ?s.<br>  ?a :personName ?n<br>}</p>
+</blockquote>
+<h1 id="D2RQ来实现查询SPRAQL"><a href="#D2RQ来实现查询SPRAQL" class="headerlink" title="D2RQ来实现查询SPRAQL"></a>D2RQ来实现查询SPRAQL</h1><p>D2RQ以虚拟的RDF的方式来访问关系数据库中的数据，即我们不需要显式地把数据转为RDF形式。通过默认，或者自己定义的mapping文件，我们可以用查询RDF数据的方式来查询关系数据库中的数据。换个说法，D2RQ把SPARQL查询，按照mapping文件，翻译成SQL语句完成最终的查询，然后把结果返回给用户。</p>
+<p>进入d2rq目录，使用下面的命令启动D2R Server:</p>
+<blockquote>
+<p>d2r-server.bat kg_demo_movie_mapping.ttl<br>默认端口是2020，在浏览器输入“<a target="_blank" rel="noopener" href="http://localhost:2020/”，可以看到如下界面：">http://localhost:2020/”，可以看到如下界面：</a><br><img src="/images/图谱实践/2020.png" alt><br>点击红色方框2中的链接，进入endpoint.<br><img src="/images/图谱实践/查询示例.png" alt></p>
+</blockquote>
+<p>除了利用浏览器，也可以使用python进行交互。见代码中的MyTest文件。</p>
+<h1 id="Apache-jena-SPARQL-endpoint及推理"><a href="#Apache-jena-SPARQL-endpoint及推理" class="headerlink" title="Apache jena SPARQL endpoint及推理"></a>Apache jena SPARQL endpoint及推理</h1><p>本次实践我们会用到的组件有：TDB、rule reasoner和Fuseki。</p>
+<ol>
+<li>TDB是Jena用于存储RDF的组件，是属于存储层面的技术。在单机情况下，它能够提供非常高的RDF存储性能。目前TDB的最新版本是TDB2，且与TDB1不兼容。</li>
+<li>Jena提供了RDFS、OWL和通用规则推理机。其实Jena的RDFS和OWL推理机也是通过Jena自身的通用规则推理机实现的</li>
+<li>Fuseki是Jena提供的SPARQL服务器，也就是SPARQL endpoint。其提供了四种运行模式：单机运行、作为系统的一个服务运行、作为web应用运行或者作为一个嵌入式服务器运行。</li>
+</ol>
+<p>创建一个目录（我这里命名为“tdb”）用于存放tdb数据。进入“apache-jena-X.X.X”文件夹的bat目录，可以看到很多批处理文件，我们使用“tdbloader.bat”将之前我们的RDF数据以TDB的方式存储。命令如下：</p>
+<blockquote>
+<p>.\tdbloader.bat —loc=”D:\apache jena\tdb” “D:\d2rq\kg_demo_movie.nt”</p>
+</blockquote>
+<p>“—loc”指定tdb存储的位置，即刚才我们创建的文件夹；第二个参数是由Mysql数据转换得到的RDF数据。</p>
+<p>进入入“apache-jena-fuseki-X.X.X”文件夹，运行“fuseki-server.bat”，然后退出。程序会为我们在当前目录自动创建“run”文件夹。将我们的本体文件“ontology.owl”移动到“run”文件夹下的“databases”文件夹中，并将“owl”后缀名改为“ttl”。在“run”文件夹下的“configuration”中，我们创建名为“fuseki_conf.ttl”的文本文件（取名没有要求），加入如下内容：</p>
+<p><strong>报错的话，进入到D:\MMKG\env\apache-jena-3.5.0\tdb目录下，将前缀为prefix的文件全部删除，再次运行即可。</strong><br>再次运行“fuseki-server.bat”，如果出现如下界面表示运行成功：</p>
+<p>进入localhost:3030<br>PREFIX : <a target="_blank" rel="noopener" href="http://www.kgdemo.com#">http://www.kgdemo.com#</a><br>PREFIX rdf: <a target="_blank" rel="noopener" href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a><br>PREFIX rdfs: <a target="_blank" rel="noopener" href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p>
+<p>SELECT * WHERE {<br>?x :movieTitle ‘功夫’.<br>?x ?p ?o.<br>}</p>
+<p>进行如下查询，可以得到hasActor属性，电影的“hasActor”属性是通过OWL推理机得到的，即我们原本的RDF数据里面是没有的。</p>
+<p>在“databases”文件夹下新建一个文本文件“rules.ttl”，填入如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@prefix : &lt;http:&#x2F;&#x2F;www.kgdemo.com#&gt; .</span><br><span class="line">@prefix owl: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2002&#x2F;07&#x2F;owl#&gt; .</span><br><span class="line">@prefix rdf: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;02&#x2F;22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix xsd: &lt;XML Schema&gt; .</span><br><span class="line">@prefix rdfs: &lt;http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;01&#x2F;rdf-schema#&gt; .</span><br><span class="line"></span><br><span class="line">[ruleComedian: (?p :hasActedIn ?m) (?m :hasGenre ?g) (?g :genreName &#39;喜剧&#39;) -&gt; (?p rdf:type :Comedian)]</span><br><span class="line">[ruleInverse: (?p :hasActedIn ?m) -&gt; (?m :hasActor ?p)]</span><br></pre></td></tr></table></figure><br>我们定义了一个名为“ruleComedian”的规则，它的意思是：如果有一个演员，出演了一部喜剧电影，那么他就是一位喜剧演员。修改配置文件“fuseki_conf.ttl”：</p>
+<h1 id="demo实例"><a href="#demo实例" class="headerlink" title="demo实例"></a>demo实例</h1><h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><p>此demo是利用正则表达式来做语义解析。我们需要第三方库来完成初步的自然语言处理（分词、实体识别），然后利用支持词级别正则匹配的库来完成后续的语义匹配。</p>
+<p>分词和实体识别（人名和电影名）我们用jieba来完成。jieba是一个轻量级的中文分词工具，有多种语言的实现版本。对于分词，在实验环境中，jieba还是勉强能用。在我们这个demo当中，有些经常会被使用的词语并不能被正确切分。比如：“喜剧电影”、“恐怖电影”、“科幻电影”、“喜剧演员”、“出生日期”等，在分词的时候，jieba把它们当作一个词来处理，我们需要手动调整词语的频率使得“喜剧电影”能被切分为“喜剧”和“电影”。至于实体识别，jieba对于人名的识别精度尚可接受，但是电影名称的识别精度太低以至于完全不可用。因此，我们直接把数据库中的人名和电影名导出，作为外部词典；使用jieba的时候加载外部词典，这样就能解决实体识别的问题。</p>
+<p>将自然语言转为以词为基础的基本单位后，我们使用REfO(Regular Expressions for Objects)来完成语义匹配。具体实现请参考OpenKG的demo或者本demo的代码。</p>
+<p>匹配成功后，得到其对应的我们预先编写的SPARQL模板，再向Fuseki服务器发送查询，最后将结果打印出来。</p>
+<ul>
+<li>“crawler”文件夹包含的是我们从”The Movie DB”获取数据的脚本。</li>
+<li>“KB_query”文件夹包含的是完成整个问答demo流程所需要的脚本。</li>
+<li>“external_dict”包含的是人名和电影名两个外部词典。csv文件是从mysql-workbench导出的，按照jieba外部词典的格式，我们将csv转为对应的txt。</li>
+<li>“word_tagging”，定义Word类的结构（即我们在REfO中使用的对象）；定义”Tagger”类来初始化词典，并实现自然语言到Word对象的方法。</li>
+<li>“jena_sparql_endpoint”，用于完成与Fuseki的交互。</li>
+<li>“question2sparql”，将自然语言转为对应的SPARQL查询。</li>
+<li>“question_temp”，定义SPARQL模板和匹配规则。</li>
+</ul>
+<p>“query_main”，main函数。在运行”query_main”之前，读者需要启动Fuseki服务，具体方法请参考上一篇文章。</p>
+<p>streamlit run streamlit_app.py —server.enableCORS=true<br>终端输入可在浏览器中使用。</p>
 
       
     </div>
@@ -743,7 +1074,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-20 12:30:54" itemprop="dateModified" datetime="2021-09-20T12:30:54+08:00">2021-09-20</time>
+                <time title="Modified: 2021-09-23 19:35:22" itemprop="dateModified" datetime="2021-09-23T19:35:22+08:00">2021-09-23</time>
               </span>
 
           
@@ -759,7 +1090,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>107</span>
+              <span>183</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -788,6 +1119,8 @@
 <li>.if .return .cast</li>
 </ol>
 <p>github搜索技巧：<br><img src="/images/search.jpg" alt></p>
+<p>在pycharm的Project下的Python Interpreter下更改环境</p>
+<p>github中下载单个文件，点击进去，点击raw，然后ctrl+s即可。</p>
 
       
     </div>
@@ -897,271 +1230,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-16 09:11:27" itemprop="dateCreated datePublished" datetime="2021-09-16T09:11:27+08:00">2021-09-16</time>
-            </span>
-
-          
-            <span id="/2021/09/16/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84/%E9%87%8D%E6%9E%84%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/07/16/%E4%B8%80%E6%9D%A1%E6%9C%A8%E5%92%B8%E9%B1%BC/%E7%BA%AA%E6%99%93%E5%B2%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/16/%E4%B8%80%E6%9D%A1%E6%9C%A8%E5%92%B8%E9%B1%BC/%E7%BA%AA%E6%99%93%E5%B2%9A/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-16 15:45:40" itemprop="dateCreated datePublished" datetime="2021-07-16T15:45:40+08:00">2021-07-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-21 15:07:55" itemprop="dateModified" datetime="2021-07-21T15:07:55+08:00">2021-07-21</time>
-              </span>
-
-          
-            <span id="/2021/07/16/%E4%B8%80%E6%9D%A1%E6%9C%A8%E5%92%B8%E9%B1%BC/%E7%BA%AA%E6%99%93%E5%B2%9A/" class="post-meta-item leancloud_visitors" data-flag-title="" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>51</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>“F:\Nodejs\node_global\node_modules\hexo\README.md”</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/02/27/%E6%8B%BF%E7%A0%B4%E4%BB%91/%E6%8B%BF%E7%A0%B4%E4%BB%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/27/%E6%8B%BF%E7%A0%B4%E4%BB%91/%E6%8B%BF%E7%A0%B4%E4%BB%91/" class="post-title-link" itemprop="url">拿破仑</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-27 15:25:35" itemprop="dateCreated datePublished" datetime="2021-02-27T15:25:35+08:00">2021-02-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-21 17:20:15" itemprop="dateModified" datetime="2021-09-21T17:20:15+08:00">2021-09-21</time>
-              </span>
-
-          
-            <span id="/2021/02/27/%E6%8B%BF%E7%A0%B4%E4%BB%91/%E6%8B%BF%E7%A0%B4%E4%BB%91/" class="post-meta-item leancloud_visitors" data-flag-title="拿破仑" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>出生<br><img src="/images/拿破仑/科西嘉岛.png" alt><br>科西嘉岛是地中海的要地，位于意大利西部。1769年出生，拿破仑意大利语为“荒野雄狮”。其父亲本来是意大利贵族，被法国占领后，效忠法国。路易十五也承认他们为法国贵族。其父亲在他不到十岁时，送到法国欧坦的奥顿教会学校学法语。拿破仑仅学习半年，在父亲安排下进入布里埃纳军校学习，由于个子矮小、身份原因、法语不够好，经常受欺负。拿科西嘉的战败嘲笑他。他认为是法国侵占了他的故乡。</li>
-</ol>
-<p>1784年拿破仑毕业，进入巴黎军官学校学习炮兵。这几年，他开始阅读法国名家的著作，开始热爱了法兰西。1785年父亲去世，家庭失去了收入来源。拿破仑不得不提前毕业，进入部队。1789年法国大革命，拿破仑返回家乡，保利返回科西嘉岛，想让科西嘉独立。拿破仑不同意，认为应该归顺法国。与保利闹掰，回到法国。1792年成立法兰西第一共和国，第二年将路易十六杀头。此举引发欧洲各国的恐慌，为了维护封建专制的地位和遏制法国扩张，组成反法同盟。<br><img src="/images/拿破仑/军队等级.png" alt><br>1793年，国内为了反抗雅各宾派专政，马赛、土伦等几座南方沿海城市集体叛乱，邀请英国和西班牙军队入侵。拿破仑取得土伦的军队指挥权，最终获胜。被罗伯斯比尔提升为炮兵准将。<br>1794年，雅各宾派被推翻，罗伯斯比尔被杀头，拿破仑被逮捕调查。由于证据不足，拿破仑出狱。<br>1795年，拿破仑被任命，镇压旺代的起义，但是被编入步兵，而且拿破仑不愿打自己人，拒绝出任。由于热月党统治残暴，巴黎地区落入起义军手中。拿破仑被任命镇压起义军，拿破仑成为国内防军总司令。</p>
-<p>约瑟芬受到拿破仑的追求，两人订婚。</p>
-<p>少时性格孤僻，一个人在家中看书。如果有人欺负他，一定会大打出手。父亲有贵族身份，进入好的学校学习。1789年法国大革命，将皇帝路易十六杀头，欧洲几个国家的皇帝联合反法，拿破仑从军，由于法国军队节节败退，法国出现内乱，土伦是法国南部的重要港口，一旦失守，英国可以从此登陆法国，拿破仑当上了炮兵的指挥官，收复了土伦港口。</p>
-<p>拿破仑打败了意大利、奥地利，击败了第一次反法同盟，保卫了法国的革命果实。</p>
-<ol>
-<li>称帝<br>由于法国是共和国，到处帮助别的国家革命，宣传自己的先进制度。拿破仑组建一个强大的舰队，英国试图阻止，但被狂风卷走搁浅。拿破仑去远征埃及，纳尔逊封锁港口，拿破仑写给老婆的信被英军截获，得知其老婆出轨。1799年拿破仑放弃埃及军队，一个人偷偷返回巴黎，发动雾月政变，法国从共和国变成了帝国，本来该由教皇戴皇冠，但是拿破仑厌恶教皇。<br>1805年，拿破仑把自己加冕为意大利国王，侵犯了奥地利的利益，奥地利联合俄国反法，奥斯特里茨之战，拿破仑派人求和，让沙皇膨胀最终获胜。</li>
-</ol>
-<ol>
-<li>远征俄罗斯<br>1807年，西班牙内乱，影响法国的利益，拿破仑拥立自己哥哥当西班牙国王，西班牙反对，英国联合西班牙反法，奥地利从东线攻打法国，拿破仑从西边撤退打败奥地利，签订《维也纳合约》，法国第一帝国达到了鼎盛。</li>
-</ol>
-<p>1812年拿破仑远征俄罗斯，到处都是荒芜，得不到补给，9月拿破仑到达莫斯科郊外，<br>遭遇顽强抵抗，攻入莫斯科，城市已经被火烧。</p>
-<p>俄国在拿破仑返回途中埋伏，并且被寒冬击败。此时，奥地利和普鲁士对拿破仑出兵，击败三国联军，英国人在西线攻打法国。<br>1814年各国联军进入巴黎，拿破仑被迫退位，流放厄尔巴岛，拿破仑之后逃跑，登录法国，法国皇帝派军攻打拿破仑，却倒戈，拿破仑再次称帝。</p>
-<p>再次反法同盟会战，滑铁卢会战。拿破仑流放到圣赫那拉岛，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1234,7 +1302,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">56</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1291,12 +1359,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">57k</span>
+    <span title="Symbols count total">65k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">52 mins.</span>
+    <span title="Reading time total">59 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
