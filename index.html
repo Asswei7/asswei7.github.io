@@ -188,10 +188,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-09-30 10:12:37 / Modified: 10:13:15" itemprop="dateCreated datePublished" datetime="2021-09-30T10:12:37+08:00">2021-09-30</time>
+              <time title="Created: 2021-09-30 10:12:37" itemprop="dateCreated datePublished" datetime="2021-09-30T10:12:37+08:00">2021-09-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-09 09:52:28" itemprop="dateModified" datetime="2021-10-09T09:52:28+08:00">2021-10-09</time>
+              </span>
 
           
             <span id="/2021/09/30/%E5%8F%A4%E5%B8%8C%E8%85%8A%E5%BB%BA%E7%AD%91/%E5%8F%A4%E5%B8%8C%E8%85%8A%E5%BB%BA%E7%AD%91/" class="post-meta-item leancloud_visitors" data-flag-title="古希腊建筑" title="Views">
@@ -206,7 +212,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>0</span>
+              <span>233</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -225,7 +231,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>古罗马是古希腊的继承者，从爱琴海文明转移到了地中海文明。<br><img src="/images/古希腊建筑/变迁.png" alt></p>
+<p>建筑三原则：坚固、实用、美观</p>
+<h2 id="古希腊柱式"><a href="#古希腊柱式" class="headerlink" title="古希腊柱式"></a>古希腊柱式</h2><p><img src="/images/古希腊建筑/三种柱子.png" alt><br>古希腊更多是前两种柱式：<br>经济原因：成本较低<br>思想原因：中庸克制</p>
+<p>帕台农神庙：黄金比例</p>
+<p>梁柱结构，三角眉式、柱廊</p>
+<p>斯多葛学派（廊下学派）：</p>
+<h2 id="哥特式建筑"><a href="#哥特式建筑" class="headerlink" title="哥特式建筑"></a>哥特式建筑</h2><p>哥特式建筑：尖锐高耸</p>
+<p>肋：复杂的肋<br>窗：大彩玻璃窗<br>拱：哥特尖拱<br>壁：飞扶壁<br>墙：薄墙</p>
+<p>中世纪是宗教的时代，希望教堂就是人间的天堂，所以教堂都是封闭的</p>
+<p>以前的教堂：低、胖（墙厚）、暗（窗户小）<br>哥特式教堂：高、瘦、亮</p>
+<p>以线为主体，视觉引导，显得清瘦、高</p>
+
       
     </div>
 
@@ -364,6 +381,13 @@
 
               <time title="Created: 2021-09-28 08:43:39" itemprop="dateCreated datePublished" datetime="2021-09-28T08:43:39+08:00">2021-09-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-09 09:52:32" itemprop="dateModified" datetime="2021-10-09T09:52:32+08:00">2021-10-09</time>
+              </span>
 
           
             <span id="/2021/09/28/transformer/transformer/" class="post-meta-item leancloud_visitors" data-flag-title="transformer" title="Views">
@@ -378,7 +402,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>0</span>
+              <span>310</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -397,7 +421,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h2><p>由于transformer摒弃RNN结构，需要标记各个字之间的时序和位置关系。</p>
+<p>首先的想法自然是取[0,1]之间的数分配给每个字，这样的问题是句子长度不同，在短句子中接近的两个字差值为0.1，长句子中相隔很远的两个字差值也是0.1.相同的差值，在不同的句子中含义不同，是不合适的。</p>
+<p>另一个想法是线性地给每个时间步分配一个数字，第一个单词为1，第二个为2，这样的问题是1.比字嵌入的值大，会抢了字嵌入的风头。2.最后一个字比第一个字大太多，和字嵌入合并后会出现特征在数值上的倾斜。</p>
+<p><strong>理想的情况：</strong></p>
+<ul>
+<li>为每个字输入唯一的编码，不是一个数字，而是包含句子特定信息的d维向量</li>
+<li>不同长度的句子之间，任何两个字的差值保持一致</li>
+<li>值应该是有界的</li>
+</ul>
+
       
     </div>
 
@@ -609,6 +642,13 @@
 
               <time title="Created: 2021-09-25 12:49:59" itemprop="dateCreated datePublished" datetime="2021-09-25T12:49:59+08:00">2021-09-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-09 09:52:22" itemprop="dateModified" datetime="2021-10-09T09:52:22+08:00">2021-10-09</time>
+              </span>
 
           
             <span id="/2021/09/25/%E4%B8%89%E6%95%99%E6%9E%81%E7%AE%80%E5%8F%B2/%E4%B8%89%E6%95%99%E6%9E%81%E7%AE%80%E5%8F%B2/" class="post-meta-item leancloud_visitors" data-flag-title="三教极简史" title="Views">
@@ -1151,7 +1191,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">71k</span>
+    <span title="Symbols count total">72k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
