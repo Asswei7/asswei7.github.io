@@ -165,6 +165,818 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2021/01/08/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/08/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-08 10:22:04" itemprop="dateCreated datePublished" datetime="2021-01-08T10:22:04+08:00">2021-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-23 10:26:50" itemprop="dateModified" datetime="2021-09-23T10:26:50+08:00">2021-09-23</time>
+              </span>
+
+          
+            <span id="/2021/01/08/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>954</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>hexo d -g有时回报错，fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/Asswei7/asswei7.github.io.git/">https://github.com/Asswei7/asswei7.github.io.git/</a>‘: OpenSSL SSL_read: Connection was reset, errno 10054，使用git config —global http.sslVerify “false”即可解决</p>
+<p>最好使用git bash而不是cmd</p>
+<p>首先在文件夹下，git bash，ssh检查是否安装了ssh。然后<br>ssh-keygen -t rsa -C “邮件地址”<br>在C盘下对应位置生成key,点击id)rsa.pub，将其中的内容复制。<br>在github中，settings，SSH and GPG keys，new SSH keys，将复杂的粘贴在这里。<br>然后在git bash中，ssh -T git@github.com，出现Connection reset by 140.82.112.4 port 22<br>，更改本地的host文件，再执行ssh -T git@github.com，出现成功认证即可。<br>再将config.yal的配置内容repo: ssh://git@github.com/Asswei7/asswei7.github.io.git改成这个。</p>
+<p>将图片放置在F:\Graduate\hexo\source\images下，然后导入图片格式为<img src="/images/计网网络层/46过渡.png" alt="avatar"><br>其余的图片导入方式都失败了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/16/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/16/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">电脑知识</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-16 10:27:34" itemprop="dateCreated datePublished" datetime="2020-04-16T10:27:34+08:00">2020-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-23 19:10:56" itemprop="dateModified" datetime="2021-09-23T19:10:56+08:00">2021-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/16/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="电脑知识" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="计算机视觉能干什么"><a href="#计算机视觉能干什么" class="headerlink" title="计算机视觉能干什么"></a>计算机视觉能干什么</h1><p>人们希望它能模仿人类的视觉系统，作为人工智能的基石，从视频、图像中提取信息。<br>图像分类、目标检测、超像素、风格迁移、目标追踪、图像拼接、语义分割</p>
+<h1 id="如何教计算机看懂一张图"><a href="#如何教计算机看懂一张图" class="headerlink" title="如何教计算机看懂一张图"></a>如何教计算机看懂一张图</h1><p>三个通道，灰度直方图，对比度低：灰度直方图比较集中。对比度高：直方图横轴分布很均匀。<br>也叫直方图均匀化</p>
+<h1 id="图像去噪"><a href="#图像去噪" class="headerlink" title="图像去噪"></a>图像去噪</h1><p>滤波器(核)：将周围八个点取平均(取中值)，代替噪声点。</p>
+<h1 id="全连接神经网络"><a href="#全连接神经网络" class="headerlink" title="全连接神经网络"></a>全连接神经网络</h1><h1 id="OLED与LCD"><a href="#OLED与LCD" class="headerlink" title="OLED与LCD"></a>OLED与LCD</h1><p>LCD的工作原理：每个像素点的显示，液晶层就类似百叶窗(液晶层+偏光片整体类似百叶窗)，最下面的背光层发射白光。<br>白光射穿具有颜色的彩色滤光层之后，就变成对应颜色的光线。<br>正极发送电压，穿透液晶层与负极构成回路，这个电压会驱使液晶层发生偏转，液晶层会遮挡住一部分光线。<br>这样只需要控制电压大小，就可以控制液晶层偏转角度，进而控制RGB子像素的亮度，从而混合出各种颜色。</p>
+<p>OLED(Organic Light-Emitting Diode有机自发光二极管)：<br>没有液晶层和背光层，是一种特殊的发光二极管，通电就发亮，电压越大亮度越大。<br>每个像素都可以独立控制开关，没必要像LCD一样整个背光层都要亮起。</p>
+<p>优点：</p>
+<ol>
+<li>可以做Always on display息屏提醒，手机锁屏时可以单独点亮部分像素点，以低亮度和低刷新率来显示时间和通知。<br>而LCD一开屏幕整个背光层都要打开，不可能以低功耗实现息屏提醒。</li>
+<li>近乎无限的对比度。对比度是画面黑白明暗的亮度比值，LCD要显示纯黑色，理想下是液晶层全闭合，完全挡住发出的背光。<br>但是LCD的液晶屏不能完全闭合，所以不能看到纯黑。OLED直接断电就是纯黑。</li>
+<li>没有漏光。屏幕面板需要装进手机或者显示器，屏幕和边框的衔接处，背光层的背光很容易漏出去。边框会出现光晕。</li>
+<li>屏幕响应时间。显示动态画面，会出现残影。液晶屏的偏转速度决定了LCD的灰阶响应时间。<br>而且与温度有关，温度越低偏转越慢，导致LCD在低温下会出现明显的拖影现象。</li>
+<li>厚度。OLED不需要液晶层和背光层，可以更加薄。并且可以弯折。</li>
+</ol>
+<p>手机屏幕除了屏幕本身还有控制IC和排线，COG就是直接把控制IC和排线放在屏幕正下方，导致有大下巴。<br>COF，把控制IC做到排线上，再把排线弯折到屏幕的背面。<br>COP，利用OLED把下巴弯没<br>缺点：</p>
+<ol>
+<li>寿命短。电压直接发在二极管上，有机物相对于无机物很容易老化。并且每个像素点独立，每个地方的老化程度不同，导致烧屏。<br>像素点老化不均匀导致的屏幕色差。</li>
+<li>调光方式。DC，利用电压来改变灯的亮度。 PWM，调整开关的时间占比，一开一关，频闪导致伤眼。<br>OLED在电压过低时，屏幕会出现和抹布一样不均匀效果，不能采用DC调光。</li>
+<li>实际分辨率达不到理论分辨率。RGBG排列，Pentilit排列。</li>
+</ol>
+<h1 id="机械硬盘-SMR瓦楞式堆叠硬盘"><a href="#机械硬盘-SMR瓦楞式堆叠硬盘" class="headerlink" title="机械硬盘 SMR瓦楞式堆叠硬盘"></a>机械硬盘 SMR瓦楞式堆叠硬盘</h1><p>自己不要拆机械硬盘，只要盘面落一粒灰，一转起来对盘面就是毁灭性打击。<br>结构：马达、磁盘、磁头臂、磁头<br>磁头悬浮在磁盘上几纳米，磁盘面上有很多的小格，小格内有小磁粒，磁头可以读取磁粒的极性，读出0和1.<br>写磁头可以改变磁粒的极性。 这就是最早的LMR水平式记录磁盘。<br>后来磁粒立起来，节省空间，PMR垂直式记录磁盘。(CMR)</p>
+<p>先寻道，磁头放在指定磁道，再旋转等待指定扇区的到来。<br>但是写磁头的半径需要很大，再加上磁道之间需要距离，所以空间利用率仍不是很高。<br><img src="/2020/04/16/%E7%94%B5%E8%84%91%E7%9F%A5%E8%AF%86/SMR_CMR.png" alt="avatar"><br>存储空间大了，但是改写内容时很麻烦。<br>所以缓存很大，需要用来临时存放那些改写数据会影响到的数据。</p>
+<h1 id="固态硬盘"><a href="#固态硬盘" class="headerlink" title="固态硬盘"></a>固态硬盘</h1><p>机械硬盘利用磁粒的极性来存储数据，所以机械硬盘也被称为磁盘。<br>固态硬盘存储的基本单元：浮栅晶体管。控制级、浮栅级，源级，漏级、P级。</p>
+<h1 id="驱动程序"><a href="#驱动程序" class="headerlink" title="驱动程序"></a>驱动程序</h1><p>驱使硬件动起来的程序，介于硬件和系统之间的API接口，让系统知道这个硬件的存在，并且通过接口和这个硬件交互数据。</p>
+<h1 id="CPU散片和盒装的区别"><a href="#CPU散片和盒装的区别" class="headerlink" title="CPU散片和盒装的区别"></a>CPU散片和盒装的区别</h1><p>OEM：原始设备制造商。卖给联想、戴尔、惠普的东西与零售的东西不同，不带有说明书、保修卡、包装盒，只有工包。</p>
+<ol>
+<li>来源不同。盒装作为零售商品。散装供给给OEM作为电脑原件原料的。但都是由Intel或者AMD生产的</li>
+<li>保修政策不同。买散片要看店铺</li>
+<li>每个CPU体制(性能)不完全相同。<br>但是CPU故障率低，几乎不用保修。</li>
+</ol>
+<h1 id="CPU和显卡"><a href="#CPU和显卡" class="headerlink" title="CPU和显卡"></a>CPU和显卡</h1><p>CPU主频 = 外频 × 倍频<br>电脑里所有的电气信号必须要保证频率协调统一，主板晶振XO，<br>100MHz电脑平台的基础频率BCLK。跳大绳的口号。外频。<br>在保证和其他设备通讯的100MHz外频不变的情况下，让CPU在自己工作的时候的频率在此基础上翻倍</p>
+<h1 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h1><p>显卡：绘制电脑图像。<br>关键参数：<br>-流处理器数量：画师个数，越多游戏帧数就越高<br>-显卡架构：老一代的麦克斯架构不如新的10代帕斯卡架构，最新的是图灵架构<br>-显卡频率：画画速度<br>-显存容量/位宽/显存频率：画的仓库大小/小车的运载量/小车往返速度<br>N卡：英伟达 GTX450、GTX1080TI,RTX2080TI<br>A卡：AMD RX580,RX VAGE 56</p>
+<h1 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h1><p>先看CPU与主板能否匹配，芯片组和接口类型<br>1.选择合适的芯片组<br>2.内存插槽，建议4根<br>3.PCIE扩展插槽数量，</p>
+<h1 id="各种"><a href="#各种" class="headerlink" title="各种"></a>各种</h1><p>CPU（Central Processing Unit，中央处理器）擅长调动、管理、协调能力。</p>
+<p>TPU的全称是Tensor Processing Unit，即张量处理器。随着AI智能产业的发展，这时候谷歌就在想，是否能够做一个芯片专门用于机器学习算法的芯片</p>
+<p>训练（training）和推理（inference）的概念。深度神经网络需要通过训练后才能完成对特地场景的推理，举个栗子：如果我们想找到一个苹果的照片，那我们需要先输入很多的苹果不同颜色、不同场景、不同规则等等各种图片之后，然后让机器像人的大脑一样去学习，学会了之后，它就可以推理什么是苹果了。</p>
+<p>CPU作为电脑的中央处理器调动、管理计算机的各项资源，而GPU和TPU就是给它打下手的，协助处理图像资源和机器算法学习，最终实现综合性能的加速。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/12/PAT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/PAT/" class="post-title-link" itemprop="url">OJ基础</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-12 10:07:05" itemprop="dateCreated datePublished" datetime="2020-04-12T10:07:05+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-08 15:14:24" itemprop="dateModified" datetime="2021-01-08T15:14:24+08:00">2021-01-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">编程相关</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/PAT/" class="post-meta-item leancloud_visitors" data-flag-title="OJ基础" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>466</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="常见的评测结果"><a href="#常见的评测结果" class="headerlink" title="常见的评测结果"></a>常见的评测结果</h3><p>-AC:accept<br>-CE:compile error<br>-WA:wrong answer<br>-TLE:time limit exceeded<br>-RE:runtime error:数组越界，指针乱指，<br>-MLE:memory limit exceeded<br>-PE:presentation error </p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>int:-2<em>10^9~2</em>10^9<br>long long:-9<em>10^18~9</em>10^18<br>char:-128~127<br>int占4Byte，10^9以内的数都可以int型<br>long long型赋值大于2^31的初值，需要在后面加上LL，否则编译出错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long long bignum &#x3D; 123456789012345LL;</span><br></pre></td></tr></table></figure><br>浮点型用double存储，占64位，printf(“%f”,c);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#define pi 3.14</span><br><span class="line">const double pi &#x3D; 3.14</span><br><span class="line">#define ADD(a,b) ((a)+(b))</span><br><span class="line">#define MAX(a,b) ((a)&gt;(b)?(a):(b))</span><br></pre></td></tr></table></figure><br>位运算符：<br>int型上限是2^31-1，所以INF可以设置为(1&lt;<31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高** 但是一般更常用的是2^30-1，避免相加超过int，写成二进制是0x3fffffff <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int INF &#x3D; (1&lt;&lt;30)-1</span><br><span class="line">const int INF &#x3D; 0x3fffffff</span><br></pre></td></tr></table><br>scanf(“%lld”,&amp;long);      printf(“%lld”,long);<br>scanf(“%lf”,&amp;db);           printf(“%f”,db);<br>scanf(“%s”,str);<br>scanf可以不加空格的原因，对于其他格式符的输入以空白符(空格、tab)作为结束标志<br>使用%s读入以空格和换行作为读入结束标志。</31)-1,**这里必须加括号，因为位运算符优先级没有算术运算符高**></p>
+<p>想要输出%和\在前面加上一个相应符号<br>printf(“%%”);<br>printf(“\“);<br>%md右对齐，补空格<br>%0md右对齐，补0</p>
+<p>typedef给复杂的类型起一个别名<br>typedef long long LL;<br>LL a = 12134;<br>数学函数：<br>fabs(double x)<br>floor(double x) ceil(double x)<br>pow(double r,double p)  round(double x)</p>
+<p>对数组中每一个元素赋相同的值，memset按字节赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstring&gt;</span><br><span class="line">memset(a,0,sizeof(a))  &#x2F;&#x2F;只建议赋值为0或-1，赋值为其他的建议fill</span><br></pre></td></tr></table></figure><br>strlen(str) strcmp(s1,s2)返回负数，0，正数<br>strcmp(s1,s2)  把s2的值赋值给s1<br>strcat(s1,s2)  把字符数组2接到字符1后面</p>
+<p>sscanf把字符数组str中的内容以%d形式写到n中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n; char str[10]&#x3D;&quot;233&quot;;</span><br><span class="line">sscanf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure><br>sprintf把n以%d的形式写到字符数组中（从右至左）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int n&#x3D;233; char str[10];</span><br><span class="line">sprintf(str,&quot;%d&quot;,n);</span><br></pre></td></tr></table></figure><br>如果自己重新定义了构造函数，则不能不经初始化就定义结构体变量，<br>可以手动再加上默认的构造函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct studentInfo&#123;</span><br><span class="line">    int id;</span><br><span class="line">    char gender;</span><br><span class="line">    studentInfo()&#123;&#125;</span><br><span class="line">    studentInfo(int _id,char _gender)&#123;</span><br><span class="line">        id &#x3D; _id;</span><br><span class="line">        gender &#x3D; _gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">studentInfo(int _id,char _gender):id(_id),gender(_gender)&#123;&#125;</span><br></pre></td></tr></table></figure><br>补充<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const double eps &#x3D; 1e-8;</span><br><span class="line">const double Pi &#x3D; acos(-1.0)</span><br><span class="line">#define Equ(a,b) ( (fabs((a)-(b)))&lt;(eps) )</span><br></pre></td></tr></table></figure><br>scanf函数的返回值为成功读入的参数的个数，读入失败时会返回-1，即EOF<br>while(scanf(“%s”,str) != EOF)<br>while(gets(str) != NULL)<br>当输入的a,b都为0时结束<br>while(scanf(“%d%d”,&amp;a,&amp;b),a||b)</p>
+<p>判断闰年:是4的倍速但不是100倍数，或者是400的倍数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bool isLeap(int year)&#123;</span><br><span class="line">    return (year%4&#x3D;&#x3D;0 &amp;&amp; year%100!&#x3D;0) || (year%400&#x3D;&#x3D;0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>进制转换<br>（1）将P进制数x转换为十进制数y<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int transform2ten(int P,int x)&#123;</span><br><span class="line">    int y&#x3D;0,product&#x3D;1;</span><br><span class="line">    while(x!&#x3D;0)&#123;</span><br><span class="line">        y +&#x3D; (x%10) * product;  加上这个数乘权重</span><br><span class="line">        x&#x2F;&#x3D;10;                   去掉个位</span><br><span class="line">        product *&#x3D; P;            权重数</span><br><span class="line">    &#125;</span><br><span class="line">    return y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>(2)将十进制数y转换为Q进制数z<br>除基取余法，Q即为基，余数保存到地位中，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int num&#x3D;0,z[40];</span><br><span class="line">do&#123;</span><br><span class="line">    z[num++] &#x3D; y%Q;</span><br><span class="line">    y&#x2F;&#x3D;Q;</span><br><span class="line">&#125;while(y!&#x3D;0);</span><br></pre></td></tr></table></figure><br>从z[num-1]到z[0]即转换完成。采用do-while是当y=0时，while会直接退出，<br>导致错误，应当是z[0]=0。</p>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>首先从待排序中找到最小元素A[k]，与待排序第一个元素A[i]交换<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;1;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">    int k&#x3D;i;</span><br><span class="line">    for(int j&#x3D;i;j&lt;&#x3D;n;j++)&#123;</span><br><span class="line">        if(A[j]&lt;A[k])</span><br><span class="line">            k&#x3D;j;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;交换A[k]与A[i]</span><br><span class="line">    int temp &#x3D; A[i];</span><br><span class="line">    A[i]&#x3D;A[k];</span><br><span class="line">    A[k]&#x3D;temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>将未排序的第一个元素插入到已经排序好的合适的位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int A[maxn],n;   &#x2F;&#x2F;数组下标为1~n</span><br><span class="line">void insertSort()&#123;</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        int temp&#x3D;A[i],j&#x3D;i;</span><br><span class="line">        while(j&gt;1 &amp;&amp; temp&lt;A[j-1])&#123;</span><br><span class="line">            A[j] &#x3D; A[j-1];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        A[j] &#x3D; temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>先对两个进行排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;</span><br></pre></td></tr></table></figure></p>
+<p>结构体排序，先按照分数排序，然后姓名字典序小的在前<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool cmp(Student a,Student b)&#123;</span><br><span class="line">    if(a.score!&#x3D;b.score) return a.score&gt;b.score;</span><br><span class="line">    else return strcmp(a.name,b.name)&lt;0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>结构体的排名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">stu[0].r&#x3D;1;</span><br><span class="line">for(int i&#x3D;1;i&lt;n;i++)&#123;</span><br><span class="line">    if(stu[i].score &#x3D;&#x3D; stu[i-1].score)</span><br><span class="line">        stu[i].r &#x3D; stu[i-1].r;</span><br><span class="line">    else</span><br><span class="line">        stu[i].r &#x3D; i+1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>将元素通过一个函数转换为整数，使得该整数可以尽量唯一地代表这个元素。<br>将字符串转换为一个整数，判断该整数位置是否有元素</p>
+<p>分治可以采用递归的方法实现，也可以采用非递归方法实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int F(int n)&#123;</span><br><span class="line">    if(n&#x3D;&#x3D;0 || n&#x3D;&#x3D;1) return 1;</span><br><span class="line">    else return F(n-1)+F(n-2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="全排列"><a href="#全排列" class="headerlink" title="全排列"></a>全排列</h3><h3 id="区间贪心"><a href="#区间贪心" class="headerlink" title="区间贪心"></a>区间贪心</h3><p>区间不相交问题，</p>
+<h3 id="快速幂，二分幂"><a href="#快速幂，二分幂" class="headerlink" title="快速幂，二分幂"></a>快速幂，二分幂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef long long LL;</span><br><span class="line">LL binaryPow(LL a, LL b,LL m)&#123;</span><br><span class="line">    if(b&#x3D;&#x3D;0) return 1;</span><br><span class="line">    if(b%2&#x3D;&#x3D;1) return a*binaryPow(a,b-1,m)%m;</span><br><span class="line">    else&#123;</span><br><span class="line">        LL mul &#x3D; binaryPow(a,b&#x2F;2,m);</span><br><span class="line">        return mul*mul%m;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>vector<br>(1)push_back(1)<br>(2)pop_back()<br>(3)v.size()<br>(4)v.clear()<br>(5)v.insert(v.begin()+2, 8);<br>(6)v.erase(v.begin()+3)  删除v[4]<br>v.erase(v.begin()+1,v.begin()+4) 删除v[1],v[2],v[3]<br>v.erase(v.begin(),v.end()) 删除所有元素，v.end()是尾元素地址的下一个地址<br>Set内部自动有序且不含重复元素</p>
+<p>map<br>同一个键，不同的值被后一个赋的值覆盖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mp[&#39;m&#39;] &#x3D; 20;</span><br><span class="line">mp[&#39;m&#39;] &#x3D; 30; &#x2F;&#x2F;20被覆盖 </span><br></pre></td></tr></table></figure><br>it-&gt;first输出顺序按照键的大小</p>
+<p>queue<br>q.push(i) 将i压入队列 q.pop()将队首元素弹出<br>q.front()  q.back() 获取队列队首和队尾元素<br>使用这两个操作前，先对队列判空</p>
+<p>pair<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br><span class="line">添加map时自动添加了utiliy</span><br><span class="line">(1)pair&lt;string,int&gt;p</span><br><span class="line">   p &#x3D; make_pair(&quot;xixi&quot;,5);</span><br><span class="line">(2)pair&lt;string,int&gt;p1(&quot;xixi&quot;,5);</span><br><span class="line"></span><br><span class="line">map&lt;string,int&gt;mp;</span><br><span class="line">mp.insert(make_pair(&quot;haha&quot;,5));</span><br></pre></td></tr></table></figure><br>p1\&lt;\p2先比较p-&gt;first，</p>
+<p>algorithm<br>max(),min()可以整数和浮点数，但是参数只能两个<br>abs()必须整数，浮点数取绝对值用math下的fabs()<br>swap()交换两个数的值<br>reverse()  对数组合字符串进行翻转<br>next_permutation()<br>    do{<br>        printf(“%d%d%d\n”,a[0],a[1],a[2]);<br>    }while(next_permutation(a,a+3));<br>fill()  fill(a,a+5,233);<br>lower_bound(first,last,val) 寻找第一个大于等于val值位置<br>upper_bound(first,last,val) 寻找第一个大于val值位置<br>    printf(“%d,%d\n”,lower_bound(a,a+10,3)-a,upper_bound(a,a+10,3)-a )</p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p>清空：top=-1<br>size:top+1;</p>
+<p>链表<br>1.malloc函数 stdlib.h  free(p)<br>int<em> p =(int</em>)malloc(sizeof(int));<br>node<em> p =(node</em>)malloc(sizeof(node));<br>2.new      delete(p)<br>int<em> p =new int;<br>node</em> p =new node;<br>静态链表</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/" class="post-title-link" itemprop="url">卷积</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-12 10:07:05" itemprop="dateCreated datePublished" datetime="2020-04-12T10:07:05+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-27 16:09:50" itemprop="dateModified" datetime="2021-09-27T16:09:50+08:00">2021-09-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/%E4%B8%80%E4%BA%9B%E9%9A%8F%E7%AC%94/" class="post-meta-item leancloud_visitors" data-flag-title="卷积" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="傅里叶的变换哲学"><a href="#傅里叶的变换哲学" class="headerlink" title="傅里叶的变换哲学"></a>傅里叶的变换哲学</h1><p>泊松：用三角级数的和表达一些周期的函数<br>傅里叶：用三角级数的和表达非周期的函数(极大的拓宽了三角级数的范围)<br>狄利克雷：给出了能拆的充分不必要的条件<br>采用三角级数表达是因为三角的微分和积分仍是三角函数。</p>
+<h1 id="终成精神病的数学家-康托尔"><a href="#终成精神病的数学家-康托尔" class="headerlink" title="终成精神病的数学家(康托尔)"></a>终成精神病的数学家(康托尔)</h1><p>集合论的鼻祖：康托尔<br>父母希望学工科，自己想读数学。<br>伽利略：自然数集和偶数集哪个个数多？他想了很久没想到答案，就规定以后不能如此地提问题。<br>康托尔：是等势的，个数一样多。<br>由此得出的结论：半径不同的同心圆，可以理解为包含了相等个数的点<br>他在柏林大学的导师克罗内克极力反对他的理论，最终在康托尔40岁的时候精神崩溃，得了躁郁症。</p>
+<h1 id="存在：缸中之脑"><a href="#存在：缸中之脑" class="headerlink" title="存在：缸中之脑"></a>存在：缸中之脑</h1><p>哲学关注的问题和门口的保安关注的很相似：你是谁、你从哪里来、你到哪里去？<br>罗素：一切确切的知识属于科学，一切超出于确切知识以外的教条，属于神学，介于科学和神学之间的理论就是哲学。<br>普特南：把大脑放在营养液当中，通过电脑编程给大脑不同的刺激，让大脑感觉确实正在做类似的事情。<br>哥德尔不完全性定理：人类不可能创造一个公理系统来证明世界上所有的东西，却在论证中不产生矛盾。<br>如果想论证世界上所有的结论是真还是假，一定会产生矛盾。<br>用肉体的辛苦去换取思想的自由，而思想的更加的自由才是我们在这个世界存在的理由。</p>
+<h1 id="根号2与第一次数学危机"><a href="#根号2与第一次数学危机" class="headerlink" title="根号2与第一次数学危机"></a>根号2与第一次数学危机</h1><p>实数分为有理数和无理数。<br><em>毕达哥拉斯</em>：政教合一的组织，万物皆数，通过整数和整数的比值(整数，有限小数，无限循环小数)来解释。<br><em>希帕索斯</em>： 发现了根号2，被沉入大海淹死了。 假设根号2等于a/b，a,b互质。$2=\frac{a^2}{b^2}$ $2b^2=a^2$ 所以a是偶数，且是4的倍数，所以B为偶数，与假设矛盾。<br><em>欧多克索斯</em>：他采用了一个十分巧妙的关于“两个量之比”的新说法，回避了√2是无理数的实质，而是用几何的方法处理不可公度比。这样做的结果就使几何的基础牢靠了，几何从全部数学中脱颖而出，同时欧几里得的《几何原本》也采用了这一说法，以致在以后的二千年中，几何变成了几乎是全部严密数学的基础。<br><em>戴德金</em>：怎样由已知的有理数，去定义这些无理数呢？戴德金想了一个办法：就用这个无理数前面的有理数，以及这个无理数后面的有理数。<br>这两段有理数，把我们要定义的无理数夹在中间，就形成了戴德金分割。</p>
+<h1 id="一个聪明人的悲剧"><a href="#一个聪明人的悲剧" class="headerlink" title="一个聪明人的悲剧"></a>一个聪明人的悲剧</h1><p>恪聪明尽显于外，此子非保家之主也。聪明总是拿出来显摆。</p>
+<h1 id="为密码加把盐"><a href="#为密码加把盐" class="headerlink" title="为密码加把盐"></a>为密码加把盐</h1><p>网站后台如何保存用户的密码？<br>服务器不存储明文密码，只存储密码变换后的数据，这样被盗也不知道原密码。<br>但是简单的变换，在巨量的数据下，很容易推导出变换公式。<br>算法要求：</p>
+<ol>
+<li>单向，很难通过密文来推导出明文，不可逆</li>
+<li>强碰撞性，不同的明文要对应完全不同的密文<br>李维斯特，MD5，MessageDigest数据摘要算法。<br>问题：黑客可以做一张表，当原始数据较短时，可以在彩虹表里去查，每个八位数对应的MD5是什么。<br>所以此时需要给原始的密码自动加一点盐，md5(md5(password)+salt)<h1 id="相对论"><a href="#相对论" class="headerlink" title="相对论"></a>相对论</h1><em>我想知道的，上帝是如何创造这个世界的，我对这个或者那个现象、这个或者那个元素的能谱不感兴趣，我要知道的是他的思想，其他的都是细节。</em><br>牛顿经典时空观：时间和空间是相互独立的，时间在任何一个地方是均匀流逝的。<br>光，就是可见波段的一种电磁波。<br>狭义相对论基本假设：</li>
+<li>世界上任意两个惯性系(匀速直线运动或静止系统)之间得到的物理定律是一样的。<br>但是不满足伽利略变换，在接近光速的情况下，要进行洛伦兹变换，速度不能直接相加。<br>得到的结论：时间会变慢、长度会收缩、质量会增加。<h1 id="欧拉公式在干什么"><a href="#欧拉公式在干什么" class="headerlink" title="欧拉公式在干什么"></a>欧拉公式在干什么</h1>$e^{ix}=\cos x+i\sin x$当x=\pi,$e^{i\pi}+1=0$</li>
+</ol>
+<h1 id="自动控制原理遛狗"><a href="#自动控制原理遛狗" class="headerlink" title="自动控制原理遛狗"></a>自动控制原理遛狗</h1><p>给定环节、比较器、控制器(大脑)、执行机构(绳子)、被控对象(狗)</p>
+<h1 id="PID-proportional-integral-derivative-controller"><a href="#PID-proportional-integral-derivative-controller" class="headerlink" title="PID(proportional-integral-derivative controller)"></a>PID(proportional-integral-derivative controller)</h1><p>烧水到80°，从75到85可以接受，希望烧水烧得最快，一开始火开到最大，等待70°左右减少火。<br>P:偏差越大，控制的力度就越大。(弹簧)<br>I:系统没惯性，会存在静差。对历史的偏差进行累加(惯性，锅关了火温度还会上升)<br>D:(阻尼力)</p>
+<h1 id="小波变换"><a href="#小波变换" class="headerlink" title="小波变换"></a>小波变换</h1><p>wavelet:wave表示波，let表示小。droplet水滴，leaflet小树叶，booklet小册子<br>傅里叶变换：将时间信号拆解为不同频率的正弦波相加。(需要假设时域信号的频率不随时间改变)<br>但是根据多普勒效应，大多数情况下，信号的频率会随着时间的变化而变化。<br>对于一个随时间变化而频率改变的信号做傅里叶变换，得到的波失去了时间特性。<br>这是因为正弦波的幅值与时间无关。<br>所以需要小波：一个长度比较短的波，只在一个时间范围内有值，其余时间内值为0.<br>将时域信号向不同位置、不同胖瘦的小波去表达，能反映频率和时间特性。</p>
+<h1 id="泰勒公式有何用"><a href="#泰勒公式有何用" class="headerlink" title="泰勒公式有何用"></a>泰勒公式有何用</h1><p>如何计算sin36°？</p>
+<h1 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h1><p>系统就是一个房间，输入f(t)，输出y(t)，系统的影响h(t)，系统的单位冲击响应<br>y(t)=f(t)*h(t)  Y(s) = F(s)H(s)<br>时域的卷到了复频域变成了乘积。单位冲击响应的拉普拉斯变换就是传递函数</p>
+<h1 id="冲激函数冲出了什么"><a href="#冲激函数冲出了什么" class="headerlink" title="冲激函数冲出了什么"></a>冲激函数冲出了什么</h1><p>线性时不变系统：输入增大、输出随之增大(线性)，频率不随时间变化而变化(时不变)</p>
+<h1 id="卷积："><a href="#卷积：" class="headerlink" title="卷积："></a>卷积：</h1><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}f(\tau)g(t-\tau)d\tau</script><p>傅里叶：将一个函数用无限多个正弦波的函数加和来表示<br>拉普拉斯：将一个函数部分衰减后用无限多个正弦波加和来表达<br>因为正弦波的积分和微分仍然是正弦波。<br>任意一个函数可以划得更简单一点：</p>
+<script type="math/tex; mode=display">y(t)\approx \sum_{-\infty}^{+infty}许多线段</script><script type="math/tex; mode=display">y(t) = \int_{-\infty}^{+infty}许多点</script><p>u(t)是0之前是0,0之后为1。$u(t)-u(t-t_0)$就是在0到t0的冲激<br>把f(t)拆成一段一段的，u(t)的导数就是冲激函数<br>相当于把函数敲碎。<br>那我们可以先用冲击函数δ(t)通过系统得到冲击响应h(t)。<br>然后我们把任何输入f(t)通过卷积表示为无穷多冲击函数的累加，即f(t)＝f(t)<em>δ(t)。(这里</em>表示卷积运算)<br>最后根据线性时不变系统的性质，可以得到响应y(t)＝f(t)*h(t)。<br>于是只要我们知道冲激响应，对于任何输入的响应也可以通过卷积运算得到。</p>
+<h1 id="模拟是什么意思"><a href="#模拟是什么意思" class="headerlink" title="模拟是什么意思"></a>模拟是什么意思</h1><p>将一个物理量转换为另一个物理量。<br>通过电信号来模拟大自然的物理量（比如利用运算放大器，一段输入1.2V,一段1.5V，得到的结果即为乘积）</p>
+<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p>卷积：特征提取器，滤波器<br>神经网络：分类器</p>
+<h1 id="Z变换"><a href="#Z变换" class="headerlink" title="Z变换"></a>Z变换</h1><p>Z变换分析的是离散系统，傅里叶和拉普拉斯是连续系统。<br>电脑只有高高低低的电平，是离散的。所以要将连续信号冲激成离散的冲激串。<br>即采样。  可以无损的敲碎。<br>对采样的信号进行拉普拉斯变换，得到的结果也是离散信号。</p>
+<h1 id="卡尔曼滤波"><a href="#卡尔曼滤波" class="headerlink" title="卡尔曼滤波"></a>卡尔曼滤波</h1><p>估计器，通过各种各样的测量方法来最后加权平均来估计到一个结果。</p>
+<h1 id="无功功率"><a href="#无功功率" class="headerlink" title="无功功率"></a>无功功率</h1><p>全连接：映射到高维。然后softmax进行分类。</p>
+<h1 id="对抗生成网络：GAN"><a href="#对抗生成网络：GAN" class="headerlink" title="对抗生成网络：GAN"></a>对抗生成网络：GAN</h1><p>mnist 28×28<br>生成器G：一个随机的向量，通过生成器G，得到一个图像，28×28×1，得到一个假的数据。<br>判别器D：对生成的图像判别，得到1或者0.   </p>
+<p>损失函数：一方面让判别器分辨能力更强，另一方面让生成器更真</p>
+<h1 id="高级程序员的酒后碎碎念"><a href="#高级程序员的酒后碎碎念" class="headerlink" title="高级程序员的酒后碎碎念"></a>高级程序员的酒后碎碎念</h1><ul>
+<li>好的代码是可以被初级工程师理解的；牛哔的代码是可以被计算机专业大一学生理解的；而代码的最高境界，是没有代码。（代码的目的是解决问题，而有些问题的解决不需要代码）</li>
+<li>作为一名软件工程师，最酷的事情是，你能遇到很多和你有相同思考方式的人。不一定是因为相同的兴趣爱好，或者喜欢同一种运动或者电视或者电影，而是因为在遇到问题需要解决的时候，大家有同样的思维模式。这非常酷。</li>
+<li>对所有的人保持善良。不是因为这样对你的职业发展有什么作用（虽然确实有作用），而是因为善良本身就是有价值的。</li>
+<li>做我喜欢的事情或许不是那么重要；或许更重要的是：不去做我讨厌的事情。</li>
+</ul>
+<h1 id="色不异空，空不异色"><a href="#色不异空，空不异色" class="headerlink" title="色不异空，空不异色"></a>色不异空，空不异色</h1><p>《心经》：色不异空，空不异色。《金刚经》：凡所有相，皆为虚妄。</p>
+<p>色的意思是，指所有的事物，即“相”。空的意思是无常，是运动的观点。<br>色不异空的意思是：所有的事物都是无常的，和凡所有相，皆为虚妄是一个意思。<br>所有的事物都是无常的，都处于运动之中。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/12/%E6%97%A5%E6%9C%AC%E5%8E%86%E5%8F%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/12/%E6%97%A5%E6%9C%AC%E5%8E%86%E5%8F%B2/" class="post-title-link" itemprop="url">日本历史</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-12 09:54:24" itemprop="dateCreated datePublished" datetime="2020-04-12T09:54:24+08:00">2020-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-01-27 10:27:17" itemprop="dateModified" datetime="2021-01-27T10:27:17+08:00">2021-01-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/" itemprop="url" rel="index"><span itemprop="name">思维实验室</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/12/%E6%97%A5%E6%9C%AC%E5%8E%86%E5%8F%B2/" class="post-meta-item leancloud_visitors" data-flag-title="日本历史" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>239</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="新冠下的日本"><a href="#新冠下的日本" class="headerlink" title="新冠下的日本"></a>新冠下的日本</h1><h3 id="日本的策略"><a href="#日本的策略" class="headerlink" title="日本的策略"></a>日本的策略</h3><p>每一个文明都像是在不同环境中生存的生物，将一个民族看成一个大型生命体，民族的成员也就是每一个人<br>可以看做是这个大型生物的细胞，社会的分工就像是干细胞分化出不同的体细胞，相互合作维持整个生命体的稳定。<br>不同的环境让生物向不同的形态演化，所以生物之间是不同的，有不同的生存策略。<br>不同文明的外部环境的应对机制也是不同的，这是由特定民族所存在的自然环境所决定的。</p>
+<p>织田信长-曹操，确定统一之势(尾张国大名)<br>丰臣秀吉-曹丕，完成全国统一<br>德川家康-司马懿，隐忍多年，最后爆发</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/" class="post-title-link" itemprop="url">十字军东征</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-03 18:00:08" itemprop="dateCreated datePublished" datetime="2020-04-03T18:00:08+08:00">2020-04-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-25 12:44:57" itemprop="dateModified" datetime="2021-09-25T12:44:57+08:00">2021-09-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%8E%86%E5%8F%B2/" itemprop="url" rel="index"><span itemprop="name">历史</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/03/%E5%8D%81%E5%AD%97%E5%86%9B%E4%B8%9C%E5%BE%81/" class="post-meta-item leancloud_visitors" data-flag-title="十字军东征" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1.耶路撒冷本来是西罗马的基督教徒的，后来穆斯林来了抢了过来，但没禁止基督教徒参拜，所以东罗马不在意就这样过去了<br>2.塞尔柱的突厥人忽然来抢了耶路撒冷，然后禁止基督教徒参拜（图啥呢，我不知道）<br>3.西罗马打不过去东罗马搬救兵，这时候教皇就组起来了强盗一般的十字军，东征了。<br>4.这时候还有很多一些底层的平民也去凑热闹，跟着十字军各种抢，真的是强盗本性呗。<br>5.最后耶路撒冷被屠城，烧杀抢掠。<br>6.第二第三次东征就打来打去，没啥特殊的，最后就是埃及国王萨拉丁和理查一世大的难舍难分，最后签了合约，耶路撒冷属于穆斯林，基督教徒可以朝拜（绕了一圈不都回来了吗？）.<br>7.第四次东征最搞笑，教皇英诺森三世发动的十字军去攻打埃及结果没钱坐船，威尼斯人就忽悠他们抢东罗马拜占庭，结果他们还真去了，拜占庭惨遭十字军屠城。</p>
+<p>西欧的基督教徒来到地中海地区找伊斯兰教徒打。<br>西罗马476年灭亡，分裂成若干个小国家。宗教分为了天主教和东正教，都是基督教的分支。中东地区出来个伊斯兰教，并占领了圣地耶路撒冷，但是允许基督徒前来朝圣。后来突厥人占领了耶路撒冷，禁止基督徒来朝圣，东罗马打不过突厥人，跑到西罗马搬救兵，教皇乌尔班二世动员西欧贵族们去支援，说东方有财富，一起去东征。底层农民听说东边有财富，都加入去抢财富。1096年拿下耶路撒冷，进行屠城，第一次东征结束。</p>
+<p>第三次十字军东征：规模最大<br>神圣罗马帝国皇帝——红胡子腓特烈一世带兵10万<br>法国国王——腓力二世<br>英格兰国王狮心王——查理一世，英法联军2万<br>此时，伊斯兰领袖萨拉丁防守耶路撒冷。皇帝经过小亚细亚时候不幸落水淹死了，<br>他的部队也纷纷返回。12万军队变成了2万，狮心王成为领袖，十字军拿下阿卡，<br>十字军的唯一目的就是耶路撒冷，一直进军。<br>狮王弟弟有可能背叛他，理查德无奈回国。</p>
+<p>萨拉丁死后260年，即1453年，拜占庭帝国已经衰落，它的强敌奥斯曼土耳其帝国打不下君士坦丁堡。<br>拜占庭国王立刻向西方世界求援，想让拜占庭的东正教和西方的天主教达成和解，<br>企图团结基督教的力量，让马霍梅特知难而退。<br>吗霍梅特让乌尔班制造大炮，10万人攻打君士坦丁堡，守军只有7千。<br>此时2千人的援军到达，鼓舞了士气。后来失败了，东罗马帝国覆灭。帕里奥洛格斯末代皇帝。</p>
+<p>第四次东征：<br>本来是打算攻打埃及，方便以后打耶路撒冷。但威尼斯人不支持十字军打穆斯林，因为和他们做生意。便给十字军说，可以打东罗马帝国去抢钱，于是攻打东罗马的拜占庭。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/03/%E8%89%BA%E6%9C%AF%E5%8E%86%E5%8F%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/Champion_ka.png">
+      <meta itemprop="name" content="孙书玮">
+      <meta itemprop="description" content="篮球，计算机">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Asswei's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/03/%E8%89%BA%E6%9C%AF%E5%8E%86%E5%8F%B2/" class="post-title-link" itemprop="url">艺术历史</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-03 18:00:08" itemprop="dateCreated datePublished" datetime="2020-04-03T18:00:08+08:00">2020-04-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-24 22:00:20" itemprop="dateModified" datetime="2021-09-24T22:00:20+08:00">2021-09-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/04/03/%E8%89%BA%E6%9C%AF%E5%8E%86%E5%8F%B2/" class="post-meta-item leancloud_visitors" data-flag-title="艺术历史" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="艺术史"><a href="#艺术史" class="headerlink" title="艺术史"></a>艺术史</h2><p><img src="/images/艺术史/总览.png" alt><br>古希腊-&gt;中世纪-&gt;文艺复兴-&gt;巴洛克-&gt;新古典主义-&gt;浪漫主义-&gt;印象派-&gt;后印象派<br>-&gt;立体主义-&gt;野兽派-&gt;超现实主义-&gt;当代艺术</p>
+<p>下面可以理解为正轨，上方为偏离。</p>
+<p>作品的<strong>形式</strong>（画法）、<strong>内容</strong>（画什么）</p>
+<h3 id="古希腊艺术"><a href="#古希腊艺术" class="headerlink" title="古希腊艺术"></a>古希腊艺术</h3><p>陶器、建筑、雕塑。</p>
+<p>几乎没有绘画，主要是雕塑。<strong>高贵、肃穆。</strong></p>
+<h3 id="中世纪艺术与文艺复兴"><a href="#中世纪艺术与文艺复兴" class="headerlink" title="中世纪艺术与文艺复兴"></a>中世纪艺术与文艺复兴</h3><p>两个时代的作品如何区分？</p>
+<p><strong>形式</strong>：有无<strong>透视法</strong><br><img src="/images/艺术史/中世纪.png" alt="无透视法"><br><img src="/images/艺术史/文艺复兴.png" alt="透视法"></p>
+<p>空气透视：背景虚化，更突出人物。</p>
+<p><strong>思想：人文主义。</strong></p>
+<p>典型：<strong>拉斐尔，雅典学院</strong>。拉斐尔同时学习了达芬奇和米开朗琪罗的技巧，融于一身。<br>文艺复兴集大成者。</p>
+<p>乔托-&gt;马萨乔-&gt;达芬奇-&gt;米开朗琪罗-&gt;拉斐尔</p>
+<p>雅典学院：文艺复兴，基督教时代，只能描绘基督的事情。而这幅图画了阿波罗和雅典娜，都是古希腊时代的神。<br><img src="/images/艺术史/雅典学院.png" alt></p>
+<h3 id="文艺复兴到巴洛克艺术"><a href="#文艺复兴到巴洛克艺术" class="headerlink" title="文艺复兴到巴洛克艺术"></a>文艺复兴到巴洛克艺术</h3><p>古典美：均衡、理性、秩序<br><br>文艺复兴风格：静态、理性、秩序<br><br>巴洛克风格：动态、感性、节奏<br><br>代表人物：贝尼尼、卡瓦乔<br><br><strong>绘画</strong><br>构图：对角线构图（文艺复兴：三角形构图）<br><br>光影：明暗对比很强，像是舞台剧的一瞬间，比较夸张<br><img src="/images/艺术史/圣马太.png" alt><br>大多是斜线构图，而且强暗对比很强烈。<br><img src="/images/艺术史/圣彼得受难.png" alt></p>
+<p><strong>雕塑</strong><br>动态<br><img src="/images/艺术史/大卫.png" alt><br>左边是米开朗基罗，文艺复兴时期的大卫。右边是帕尼尼，巴洛克风格的大卫。</p>
+<p>伦勃朗：光影大师。三角光斑</p>
+<h3 id="洛可可艺术"><a href="#洛可可艺术" class="headerlink" title="洛可可艺术"></a>洛可可艺术</h3><p>绘画内容更加开放，少儿不宜，香艳。<br><br>享乐。放纵、混乱</p>
+<h3 id="新古典主义"><a href="#新古典主义" class="headerlink" title="新古典主义"></a>新古典主义</h3><p><strong>特点：</strong><br>向往古希腊艺术，哀而不伤、<br><br>克制、理性、秩序<br><br><strong>线条细、轮廓清晰、构图稳定平衡</strong></p>
+<p><strong>与文艺复兴区别：</strong><br>文艺复兴多宗教，新古典主义多政治。<br><br><strong>典型画家及作品：</strong><br>路易大卫：苏格拉底之死、拿破仑加冕<br><br><img src="/images/艺术史/苏格拉底之死.png" alt><br>表达当时的政治，苏格拉底为了真理而死。<br><img src="/images/艺术史/拿破仑加冕.png" alt><br>主旋律作品。</p>
+<p>安格尔：大卫的弟子，把新古典主义推向顶峰。</p>
+<p><strong>站姿：</strong><br>对偶倒立：一个支撑、一个松弛</p>
+<h3 id="浪漫主义"><a href="#浪漫主义" class="headerlink" title="浪漫主义"></a>浪漫主义</h3><p>画得比较糙<br><strong>与古典主义区别：</strong></p>
+<ul>
+<li>新古典主义：重写实，重基本功，多线条</li>
+<li>浪漫主义：要好看，多色彩<br><strong>代表画家：</strong><br>德拉克罗瓦：自由引导人民</li>
+</ul>
+<h3 id="印象派"><a href="#印象派" class="headerlink" title="印象派"></a>印象派</h3><p>画得不像但很美，写意。神似<br><img src="/images/艺术史/印象派.png" alt><br>莫奈：日出印象<br><img src="/images/艺术史/池塘.png" alt><br><strong>代表：</strong>雷诺阿，马奈</p>
+<h3 id="后印象派"><a href="#后印象派" class="headerlink" title="后印象派"></a>后印象派</h3><p><strong>代表画家</strong>：梵高、高更、塞尚</p>
+<ul>
+<li>梵高：模仿米勒、日本浮世绘。表现主义，</li>
+<li>高更：原始主义（月亮与六便士）</li>
+<li>塞尚：现代主义之父，谁理解塞尚就理解立体主义。几何元素、双眼视觉。<br>将世界几何图形化。将两个角度看到的东西拼到一张画中。<br><img src="/images/艺术史/塞尚.png" alt><br><img src="/images/艺术史/比较.png" alt></li>
+</ul>
+<p>毕加索：</p>
+<ul>
+<li>蓝色时期</li>
+<li>粉红色时期</li>
+<li>非洲时期</li>
+<li>立体主义时期</li>
+</ul>
+<h3 id="野兽派"><a href="#野兽派" class="headerlink" title="野兽派"></a>野兽派</h3><p>马蒂斯：色彩要鲜艳<br><img src="/images/艺术史/自画像.png" alt><br>从左到右：安格尔（新古典主义），德拉维多瓦（浪漫主义），马蒂斯（野兽派）</p>
+<h3 id="现代与当代"><a href="#现代与当代" class="headerlink" title="现代与当代"></a>现代与当代</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>中世纪艺术：画的不像</li>
+<li>文艺复兴：透视法，画的像</li>
+<li>巴洛克艺术：画得像+更丰富的光影与构图</li>
+<li>新古典主义：画得像极了</li>
+<li>浪漫主义：画得像但很糙<br><br>之前是古典艺术，之后是现代艺术。因为照相机被发明了，画画的功能性失去了。<br><br>从浪漫主义开始，注重色彩和光影</li>
+<li>印象派：画得不像但很美</li>
+<li>后印象派：画得不像，但有味道</li>
+<li>立体主义：这是画？</li>
+<li>野兽派：这是画？</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/04/03/%E4%BB%A5%E8%89%B2%E5%88%97%E5%8E%86%E5%8F%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -498,372 +1310,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/03/31/%E4%BA%BA%E7%B1%BB%E7%9A%84%E8%BF%9B%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/31/%E4%BA%BA%E7%B1%BB%E7%9A%84%E8%BF%9B%E5%8C%96/" class="post-title-link" itemprop="url">人类的进化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-31 22:14:49" itemprop="dateCreated datePublished" datetime="2020-03-31T22:14:49+08:00">2020-03-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-22 17:09:25" itemprop="dateModified" datetime="2021-09-22T17:09:25+08:00">2021-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/" itemprop="url" rel="index"><span itemprop="name">思维实验室</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/03/31/%E4%BA%BA%E7%B1%BB%E7%9A%84%E8%BF%9B%E5%8C%96/" class="post-meta-item leancloud_visitors" data-flag-title="人类的进化" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="自私的基因"><a href="#自私的基因" class="headerlink" title="自私的基因"></a>自私的基因</h2><h3 id="导言"><a href="#导言" class="headerlink" title="导言"></a>导言</h3><p>想象未来的冬眠舱，如果被人关闭电源，会威胁到舱内人的生命安全。所以需要冬眠舱更加智能来守卫内部人的生命安全。<br>甚至发展成一个人工智能的看护程序，但当冬眠者结束冬眠需要废除该人工智能，或者维持冬眠者生命和<br>维持人工智能自我意识之间只能选其一。<br>人类就是一个冬眠舱，基因就是宿主。</p>
-<h3 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h3><p>一个会自发地通过加速周围环境熵增来维持自己低熵的个体，由于抗拒自身的低熵并不能维持多久，所以生命还是会死亡。<br>但是生命还是会将自己所有的构造信息记录在以核苷酸构成的DNA分子之上。</p>
-<h3 id="核心思想：基因是物种延续自己的工具"><a href="#核心思想：基因是物种延续自己的工具" class="headerlink" title="核心思想：基因是物种延续自己的工具"></a>核心思想：基因是物种延续自己的工具</h3><h3 id="难以解释的问题"><a href="#难以解释的问题" class="headerlink" title="难以解释的问题"></a>难以解释的问题</h3><p>DNA序列中有遗传效应的区域只占总量的10%，<br><em>说法一</em>：无效的DNA序列是进化过程中被淘汰的，不再编译的部分<br><em>支撑</em>：生物进化越大，无效的DNA占比就越大</p>
-<h2 id="矛盾：最原始的单细胞生物同样拥有相当比例的无效DNA片段"><a href="#矛盾：最原始的单细胞生物同样拥有相当比例的无效DNA片段" class="headerlink" title="矛盾：最原始的单细胞生物同样拥有相当比例的无效DNA片段"></a><em>矛盾</em>：最原始的单细胞生物同样拥有相当比例的无效DNA片段</h2><p><em>说法二</em>：鸡是蛋繁衍自己的工具<br>人只是体内DNA为了复制自己所操纵的工具。<br>所以为什么DNA有那么多无效的片段？<br>因为它不是工具，而是使用工具的主人，生命才是工具。<br>就像对扳手而言，觉得人类有手能握住自己就行，不需要有腿。<br><em>支撑</em>：大多数生物在失去生育能力之后就会死掉，为了保护后代愿意牺牲自己的生命<br>都是以基因稳定复制为目的的进化结果</p>
-<h3 id="控制的强约束和弱约束"><a href="#控制的强约束和弱约束" class="headerlink" title="控制的强约束和弱约束"></a>控制的强约束和弱约束</h3><p>基因为了能让自己更好的延续，需要人有一定的自主能力，自主意识。并引导人们去繁殖。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>哪种说法都不能说是对是错。就像地心说和日心说，只是选择的参考系不同而已。<br><strong>生命的意义就是为了基因复制而存在的工具？？？</strong></p>
-<h2 id="被遗忘的牙齿"><a href="#被遗忘的牙齿" class="headerlink" title="被遗忘的牙齿"></a>被遗忘的牙齿</h2><p>大多数的哺乳动物最前端都是嘴，方便吃东西，方便防御和进攻。<br>人类的脸比较短平化。<br>原因：</p>
-<ol>
-<li>在地面比树上，要处理的信息的增多，支持直立行走的协调，脑容量需要增大，所以头是圆形</li>
-<li>由于直立行走，颈椎力矩过长，不堪重负。<br>导致结果：</li>
-<li>口腔的拥挤，智齿没有生长空间</li>
-<li>牙齿之间拥挤，导致细菌容易滋生</li>
-</ol>
-<h2 id="———"><a href="#———" class="headerlink" title="———-"></a>———-</h2><h2 id="直立行走"><a href="#直立行走" class="headerlink" title="直立行走"></a>直立行走</h2><h3 id="导言-1"><a href="#导言-1" class="headerlink" title="导言"></a>导言</h3><p>最早的人类在非洲，最大的特征——直立行走。<br>化石中足弓的出现证明了人类直立行走，足弓可以缓震，否则百米短跑就会脑震荡。<br>同时，足弓的出现也使脚不适合抓握，不再灵活，不适合树上的生活。</p>
-<h3 id="直立行走为了解放双手？"><a href="#直立行走为了解放双手？" class="headerlink" title="直立行走为了解放双手？"></a>直立行走为了解放双手？</h3><p>原因一：解放双手来使用工具？   ——人类直立行走比出现最原始的工具早了至少100万年。<br>也可以说是人类直立行走，解放了双手，才学会了使用工具。</p>
-<h3 id="直立行走的地理因素"><a href="#直立行走的地理因素" class="headerlink" title="直立行走的地理因素"></a>直立行走的地理因素</h3><p>原因二：地理（东非大裂谷）<br>东部气候干燥，森林变成了草原，导致古人类没有树爬了，只能来到地上。<br>需要视线超过草丛才能提前逃跑，辨认方向。</p>
-<h3 id="直立行走优势："><a href="#直立行走优势：" class="headerlink" title="直立行走优势："></a>直立行走优势：</h3><ol>
-<li>视线超过草丛，提前做出行动</li>
-<li>比爬着走节省能源，只是爬着的大约1/4<h3 id="直立行走的结果："><a href="#直立行走的结果：" class="headerlink" title="直立行走的结果："></a>直立行走的结果：</h3></li>
-<li>足弓出现，缓震</li>
-<li>下肢变得粗壮，骨盆变大以支撑上半身的重量</li>
-<li>平衡感的需要促进了大脑的进化</li>
-<li>没有皮毛？长途跋涉导致热量产生过多，毛发影响散热，并进化出了汗腺，方便散热</li>
-<li>头顶的毛发，避免太阳直射<h3 id="关于进化："><a href="#关于进化：" class="headerlink" title="关于进化："></a>关于进化：</h3>进化来源于基因突变，99.9%对个体有害，变异的个体会侵害别的个体的生存机会，使其灭亡。<br>所以有记载的历史中人类几乎没有进化。<h3 id="为什么只有人类？"><a href="#为什么只有人类？" class="headerlink" title="为什么只有人类？"></a>为什么只有人类？</h3>人类拥有的长跑能力为什么没迫使食草猎物也往这方向进化？<br>基因频率：食草动物面对的主要威胁还是来自于短跑的动物，人类的威胁只是很小的一部分。<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3>树上时：为了采摘食物方便，古猿有了站立能力<br>地上时：为了身高优势，直立行走。<br>直立行走：额外获得了能量优势，使人们可以走得更远。形成了长跑能力。<br>不是用进废退：而是DNA序列中基因突变到这个方向的个体获得了生存繁衍的优势，得以在种群中壮大这个基因频率。</li>
-</ol>
-<h2 id="——"><a href="#——" class="headerlink" title="——"></a>——</h2><h2 id="大脑进化"><a href="#大脑进化" class="headerlink" title="大脑进化"></a>大脑进化</h2><h3 id="导言-2"><a href="#导言-2" class="headerlink" title="导言"></a>导言</h3><p>脑袋并非越大越好，大脑只是工具，超出标准的工具就是累赘。对能力消耗极大，消耗能量占25%，体积只占3%。<br>猎食者大多通过听觉和嗅觉配合视觉进行捕猎，而人类的听觉和嗅觉不够灵敏。只能直立行走。</p>
-<h3 id="进化是一种被动的过程"><a href="#进化是一种被动的过程" class="headerlink" title="进化是一种被动的过程"></a>进化是一种被动的过程</h3><p>大脑容量小的不能适应生活而死亡，容量大的获得更多的生存空间和物质资料，从而壮大该基因频率。</p>
-<h3 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h3><p>关于大脑变化，直立行走是根源，信息增加(视觉，直立行走的平衡)是压力，营养的改善是物质基础。<br>结果：</p>
-<ol>
-<li>头部逐渐变圆(体积更大)，肠道缩小</li>
-<li>面部缩小以减轻颈椎压力</li>
-<li>颈部变长且更加灵活、更加复杂，方便面部转向来接收信息</li>
-</ol>
-<h2 id="生育困境"><a href="#生育困境" class="headerlink" title="生育困境"></a>生育困境</h2><h3 id="隐患："><a href="#隐患：" class="headerlink" title="隐患："></a>隐患：</h3><ol>
-<li>大腿压缩了女性的产道，大腿分开又会影响平衡和稳定</li>
-<li>硕大的脑袋也是灾难<h3 id="策略："><a href="#策略：" class="headerlink" title="策略："></a>策略：</h3></li>
-<li>产道演化出更强劲的收缩能力</li>
-<li>把胎儿头骨可塑，一开始软一点</li>
-<li>在胎儿脑袋还没太大就生出来（生出来再进行发育）<br>基因回报率：数量和质量。男人重数量，女人重质量。</li>
-</ol>
-<h2 id="致命生物"><a href="#致命生物" class="headerlink" title="致命生物"></a>致命生物</h2><h3 id="导言-3"><a href="#导言-3" class="headerlink" title="导言"></a>导言</h3><p>人有感情，有利他行为？？？<br>所有因基因突变而生，并能很快散布到种群中的生物性状，首先得有利于个体的生存与繁衍，<br>从而通过竞争在种群中扩大自己的基因频率。当然，如果一个种群中所有人都有利他基因，大家一同合作分工，<br>自然有利于种群的扩大和发展，但倘若有一个自私基因，必然能占据更多的生存资料，抢占他人生存资源，<br>利他基因必然被自私基因所取代。 <strong>演化的表象在种群，根源在个体。</strong></p>
-<h3 id="如何理解人类的利他行为"><a href="#如何理解人类的利他行为" class="headerlink" title="如何理解人类的利他行为"></a>如何理解人类的利他行为</h3><p>由于基因回报率的关系，在亲属关系里利他行为如母爱孝敬，有利于基因的延续。<br>在家庭成员外，自私的行为可能被大家所共同反对。<br>利他也是为了让他人对自己表示感谢，否则不会开心。一味地付出或者一味地索取，都有违基因的生物学基础。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/03/30/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/30/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/" class="post-title-link" itemprop="url">傅里叶级数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-30 15:29:35" itemprop="dateCreated datePublished" datetime="2020-03-30T15:29:35+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-22 17:03:53" itemprop="dateModified" datetime="2021-09-22T17:03:53+08:00">2021-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A4%BE%E7%A7%91%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">社科知识</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/03/30/%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="傅里叶级数" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>549</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="李永乐老师讲傅里叶"><a href="#李永乐老师讲傅里叶" class="headerlink" title="李永乐老师讲傅里叶"></a>李永乐老师讲傅里叶</h1><h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2><p>一个二维图像可以变成二维坐标</p>
-<script type="math/tex; mode=display">e_i \cdot e_i = 1</script><script type="math/tex; mode=display">e_i \cdot e_j = 0</script><h2 id="傅里叶级数（周期性函数）"><a href="#傅里叶级数（周期性函数）" class="headerlink" title="傅里叶级数（周期性函数）"></a>傅里叶级数（周期性函数）</h2><p>周期性函数f(t)=正(余)弦 函数之和<br>把不同的函数当成不同的基函数<br>获得不同的信号的 <em>频率</em>、<em>振幅</em>、<em>相位</em></p>
-<script type="math/tex; mode=display">f(t) = \frac{a_0}{2}+\sum a_n\sin(n\omega t+\varphi_n)</script><script type="math/tex; mode=display">f(t) = \frac{a_0}{2}+\sum a_n\sin(n\omega t) +\sum b_n\cos(n\omega t)</script><p>将正弦看作一个正交基，余弦看作一个正交基，常数项看作一个正交基，是三个正交基的线性组合。</p>
-<h2 id="傅里叶变换（针对非周期函数）"><a href="#傅里叶变换（针对非周期函数）" class="headerlink" title="傅里叶变换（针对非周期函数）"></a>傅里叶变换（针对非周期函数）</h2><p>想象一个二维 直角坐标系，横轴是1，纵轴是i</p>
-<script type="math/tex; mode=display">\cos\theta+i\sin\theta=e^{i\theta}</script><p>$\theta = wt$<br>$e^{iwt}$为逆时针旋转<br>将一个非周期的信号</p>
-<script type="math/tex; mode=display">F_T = \int_{-\infty}^{+infty}f(t)e^{-jwt}dt = 0 或者非0</script><p>得到一个复数，实数代表相应频率的强度，虚数代表相位。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ol>
-<li>声音：大脑可以进行傅里叶变换，得到不同频率的强度，低频强度高的是男声，高的是女生。<br>人脑还能滤波，只听一个人的声音。</li>
-<li>图像：对人脸傅里叶变换，低频成分表示轮廓，高频表示细节部分。过滤到细节，可以去除斑点皱纹。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://asswei7.github.io/2020/03/30/%E6%AC%A7%E6%B4%B2%E5%8E%86%E5%8F%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/Champion_ka.png">
-      <meta itemprop="name" content="孙书玮">
-      <meta itemprop="description" content="篮球，计算机">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Asswei's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/30/%E6%AC%A7%E6%B4%B2%E5%8E%86%E5%8F%B2/" class="post-title-link" itemprop="url">欧洲历史</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-03-30 11:17:15" itemprop="dateCreated datePublished" datetime="2020-03-30T11:17:15+08:00">2020-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-22 17:15:27" itemprop="dateModified" datetime="2021-09-22T17:15:27+08:00">2021-09-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/" itemprop="url" rel="index"><span itemprop="name">思维实验室</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2020/03/30/%E6%AC%A7%E6%B4%B2%E5%8E%86%E5%8F%B2/" class="post-meta-item leancloud_visitors" data-flag-title="欧洲历史" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>3 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="罗马共和国"><a href="#罗马共和国" class="headerlink" title="罗马共和国"></a>罗马共和国</h1><h2 id="关于每个月份多少天"><a href="#关于每个月份多少天" class="headerlink" title="关于每个月份多少天"></a>关于每个月份多少天</h2><p>二月是处决犯人以及悔过的月份，所以尽量减少。凯撒出生于七月，所以以他的名字命名七月。<br>屋大维出生于八月，成为罗马帝国第一位皇帝，被元老院授予奥古斯都Augustus的称号。<br>为了和凯撒齐名，他把二月的一天抽到八月。</p>
-<h2 id="罗马共和国权利机构"><a href="#罗马共和国权利机构" class="headerlink" title="罗马共和国权利机构"></a>罗马共和国权利机构</h2><p>-执政官<br>-公民大会<br>-元老院(主要是贵族，上层平民也可，具有一票否决权)</p>
-<h2 id="马略改革"><a href="#马略改革" class="headerlink" title="马略改革"></a>马略改革</h2><p>长期的对外征战获得了大量的奴隶，导致劳动力价格极低，许多平民失去工作。<br>改革前：战争中武器自备，只在战争需要时才成为军人。<br>募兵制：无业游民去参军，服役至少16年。训练以及武器由国家供给。</p>
-<h4 id="改革结果"><a href="#改革结果" class="headerlink" title="改革结果"></a>改革结果</h4><p>损害了共和体制。军人只知道将军，不知道有皇帝。战争获得的奴隶就是极大的财富。<br>(年羹尧，安禄山)</p>
-<h2 id="凯撒的开始"><a href="#凯撒的开始" class="headerlink" title="凯撒的开始"></a>凯撒的开始</h2><p>凯撒占领了法国以及不列颠，导致元老院的不安，元老院拉拢庞培于BD49年，召唤凯撒，要求其放弃军队指挥权，回到罗马。<br>凯撒拒绝。并带领军队返回罗马，庞培与元老院没想到凯撒如此大胆，元老院被凯撒占领。</p>
-<h2 id="凯撒与庞培的战斗"><a href="#凯撒与庞培的战斗" class="headerlink" title="凯撒与庞培的战斗"></a>凯撒与庞培的战斗</h2><p>两千长矛重骑兵，法萨罗斯之役。<br>胜利，凯撒成为独裁者。</p>
-<h2 id="凯撒的一系列改革"><a href="#凯撒的一系列改革" class="headerlink" title="凯撒的一系列改革"></a>凯撒的一系列改革</h2><p>增加100名罗马以外的人加入元老院，农场主使用奴隶时也必须雇佣平民。<br>以平民阶层的利益为主(这在原来的共和体制下是不可能实现的)。这触犯了原来的贵族的权利。<br>凯撒被元老院贵族刺杀。</p>
-<hr>
-<h1 id="罗马帝国"><a href="#罗马帝国" class="headerlink" title="罗马帝国"></a>罗马帝国</h1><h2 id="屋大维人生经历"><a href="#屋大维人生经历" class="headerlink" title="屋大维人生经历"></a>屋大维人生经历</h2><p>凯撒的养子，并指定他为自己的继承人。<br>小时候学习演说术和人文科学，了解历史。性情较为孤僻。在与庞培内战中担任骑兵队长。<br>然后在马其顿接受教育和军事训练。</p>
-<h2 id="凯撒遇刺后"><a href="#凯撒遇刺后" class="headerlink" title="凯撒遇刺后"></a>凯撒遇刺后</h2><p>当时屋大维在马其顿接受军事训练，收到消息后离开启程返回罗马。年仅18岁。<br>当贵族刺杀后，在大街小巷呼喊独裁已死，罗马自由，平民并没有兴奋，而是变得恐惧。<br>稳定罗马的力量没有了。凯撒势力的二把手安东尼逃出罗马。</p>
-<h2 id="屋大维来到罗马"><a href="#屋大维来到罗马" class="headerlink" title="屋大维来到罗马"></a>屋大维来到罗马</h2><p>安东尼雄辩术，利用民意来扳倒元老院。罗马已经被安东尼所控制。屋大维到处演讲，宣传自己的继承人身份，并将自己家族的财产拿出来<br>分给穷人。并制造舆论，说安东尼霸占了凯撒的财产。屋大维花钱买了军队，并且加入元老院的共和派。<br>元老院共和派认为安东尼是最大威胁，联合屋大维限制安东尼。安东尼此时在高卢打仗。屋大维带领元老院的军队夹击安东尼。<br>并且打败他，屋大维控制了元老院的军队，并带领军队回到罗马，控制了元老院，成为执政官。</p>
-<h2 id="面临危机及三头同盟"><a href="#面临危机及三头同盟" class="headerlink" title="面临危机及三头同盟"></a>面临危机及三头同盟</h2><p>杀死凯撒的主导者(共和国贵族)逃到了土耳其(被安东尼打跑)，并发展壮大，来讨伐屋大维。<br>安东尼在阿尔比斯山与凯撒旧部雷必达合兵一处，也准备打屋大维。<br>屋大维北上与安东尼雷必达求和(三头同盟)，共同面对东部的共和派。<br>打败了共和派，意大利以西包括罗马归屋大维，东方以及埃及归安东尼，北非归雷必达。<br>然后雷必达归降屋大维，罗马东西分立。然后屋大维打败安东尼，罗马统一。</p>
-<h2 id="结局"><a href="#结局" class="headerlink" title="结局"></a>结局</h2><p>前27年，罗马十分繁荣。然后罗马帝国对地中海的统治延续了四百年，然后分裂为东西两个帝国。<br>476年，西罗马帝国被灭，东罗马帝国在1453年被奥斯曼帝国灭。</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>在普通人眼里，永远有贫困人口，永远有吃不饱的人，高端的东西就没有必要去做。</p>
-<hr>
-<h1 id="二战"><a href="#二战" class="headerlink" title="二战"></a>二战</h1><h2 id="柏林之战"><a href="#柏林之战" class="headerlink" title="柏林之战"></a>柏林之战</h2><p>蒙哥马利、巴顿、艾森豪威尔。隆美尔，诺曼底登陆</p>
-<h2 id="诺门坎战役"><a href="#诺门坎战役" class="headerlink" title="诺门坎战役"></a>诺门坎战役</h2><p>日本和苏联。日军从中国东北出兵，入侵苏联，1939年5月，诺门坎草原。苏联东西受敌，<br>朱可夫出任总指挥。日本关东军，皇军之花最强战力。<br>1.拿出了第一装甲师团，唯一地坦克师团。朱可夫坦克战专家，轻松击溃日军。<br>2.炮战。两军阵地有高度差，苏联阵地高，方便炮火攻击。<br>3.细菌战。苏军注重军队的后勤保障，并接到情报有细菌，日军保密，许多日军染病。<br>结果：日军放弃进攻苏联，开始进攻东南亚，把美国拉入了战场，加速了二战进程。</p>
-<h2 id="阿拉曼战役"><a href="#阿拉曼战役" class="headerlink" title="阿拉曼战役"></a>阿拉曼战役</h2><p>墨索里尼一开始是欧洲法西斯大哥，希特勒向他学习，成为了大哥，墨索里尼想翻盘。<br>只能进攻阿尔巴尼亚和希腊，打不过。<br>只能去攻击北非，利比亚和埃及属于英军。意大利40万被8万英军打败，墨索里尼求救希特勒，<br>希特勒凑出两个师，由隆美尔带领。击溃英军。<br>蒙哥马利，发现德军兵力较少，缺乏补给，英军有地中海的制海权和制空权，拖时间。<br>后来，隆美尔染病，回德国治疗，蒙哥马利发起进攻，打败德军。<br>结果：阻止了德意联军占领埃及，保卫了苏伊士运河，否则到亚洲需要绕道好望角。</p>
-<h2 id="斯大林格勒保卫战"><a href="#斯大林格勒保卫战" class="headerlink" title="斯大林格勒保卫战"></a>斯大林格勒保卫战</h2><p>位于伏尔加河和顿河的交界口，是苏联物资的传输枢纽，南部是石油资源<br>德军强渡顿河，来到斯大林格勒城下，下令攻城，装甲军团在街道上无法展开，<br>只能步军。苏军化整为零，展开巷战。巴甫洛夫中士坚守大楼58天，崔可夫将军带大量狙击手，<br>击毙3000多名德军军官，扎伊采夫狙击手。朱可夫在斯大林格勒外反包围，切断补给，<br>俘虏9万多人。<br>结果：德军损失80万人，3000辆坦克。德军元气大伤，转入守势。</p>
-<h2 id="中途岛海战"><a href="#中途岛海战" class="headerlink" title="中途岛海战"></a>中途岛海战</h2><p>中途岛距离美国和日本横滨都是2800海里，位于中央。日军飞机轰炸时，美军早已截获情报，<br>三艘航母埋伏不出击，等日军舰载机起飞进攻中途岛，再发动飞机去轰炸军舰，<br>南云以为飞机是从岛上飞出，接着要轰炸中途岛。<br>鱼雷机：进攻舰队、航母<br>轰炸机：轰炸地面</p>
-<h2 id="诺曼底登陆"><a href="#诺曼底登陆" class="headerlink" title="诺曼底登陆"></a>诺曼底登陆</h2><p>盟军打算从英国登陆法国，德国从挪威到法国修筑起了大西洋壁垒，由隆美尔指挥。<br>登陆地点：<br>1.加莱：最近且海面平静<br>2.诺曼底：远且海面不平<br>盟军总指挥：艾森豪威尔。找来像蒙哥马利的演员，在北非频繁亮相，让德军以为只有巴顿来指挥登陆。<br>巴顿在加莱视察、演讲吸引注意，真正的蒙哥马利在诺曼底指挥。并捏造美军第一集团军群。<br>让德军加紧了在加莱的防守，巴顿带着300名电报员发电报。德军只剩6个师防诺曼底</p>
-<p>在一阵狂风暴雨后，发动进攻，德军松懈防守，以为坏天气无法进攻。德军还以为是佯攻，<br>没有增兵。</p>
-<h2 id="闪击波兰"><a href="#闪击波兰" class="headerlink" title="闪击波兰"></a>闪击波兰</h2><p>古德里安提议坦克，<br>波兰当时三大优势：<br>1.军队数量大 2.和英法关系好 3.与苏联离得近 以为德国不敢入侵<br>闪电战：<br>1.火炮摧毁防线，用空军摧毁防御、指挥系统和交通网<br>2.装甲部队对波军进行贯穿突破，分割包围<br>3.摩托化和步兵在空军、火炮和装甲部队的配合下解决包围圈内军队</p>
-<h2 id="莫斯科保卫战"><a href="#莫斯科保卫战" class="headerlink" title="莫斯科保卫战"></a>莫斯科保卫战</h2><p>巴巴罗萨计划：<br>斯摩棱斯克战役：打开了莫斯科的大门<br>基辅会战：夺取了战略补给点<br>莫斯科：巴巴罗萨计划最后一步<br>1941年在莫斯科周围，朱可夫保卫，德军三面包夹。<br>闪电战：1.时间差 2.震慑力<br>苏联：地理位置大，土路居多，坦克难以前进。<br>苏军T-34坦克战斗力强，苏军打伏击战。斯大林在莫斯科坚决不撤，在莫斯科进行阅兵。<br>阅兵结束后直接走上战场，莫斯科民众也一起挖战壕。冬天来了，德军武器全冻住，<br>苏军反击。</p>
-<h2 id="敦刻尔克撤退"><a href="#敦刻尔克撤退" class="headerlink" title="敦刻尔克撤退"></a>敦刻尔克撤退</h2><p>阿登森林：法国、比利时、卢森堡交界处，看作是阻挡装甲军队进攻的屏障。马奇诺防线<br>就修到了阿登森林，认为没必要。<br>德军假装要从比利时进攻法国，实际从阿登森林进攻。<br>40万英法联军被打到敦刻尔克，准备撤退。</p>
-<p>1944年，希特勒打算从阿登森林进攻，盟军伤亡重大，</p>
-<h2 id="基辅会战"><a href="#基辅会战" class="headerlink" title="基辅会战"></a>基辅会战</h2><p>苏联在芬兰遇挫，德国认为苏联很弱。<br>德国上路：列宁格勒<br>中路：莫斯科<br>下路：基辅<br>希特勒选择：先推莫斯科还是先打基辅，将领建议莫斯科，希特勒决定基辅，因为基辅<br>面包篮子、煤炭，</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -931,7 +1382,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -988,12 +1439,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">65k</span>
+    <span title="Symbols count total">71k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">59 mins.</span>
+    <span title="Reading time total">1:05</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

@@ -27,10 +27,12 @@
 <meta property="og:site_name" content="Asswei&#39;s blog">
 <meta property="og:description" content="重载和重写分布式事务什么是分布式事务指事务的参与者、支持事务的服务器、资源服务器、事务管理器分别位于不同的分布式系统的不同节点之上。简单说，就是分布式系统中的事务，它的存在是为了保证不同的数据库节点的数据一致性。 CAP理论 Consistency:数据在多个副本之间保持一致性。例如一个数据在某个分区节点更新后，在其他分区节点读出来的数据也是更新之后的数据。 Availability:系统提供的服">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://asswei7.github.io/images/面试题/运行时数据区">
 <meta property="article:published_time" content="2021-09-16T01:53:16.000Z">
-<meta property="article:modified_time" content="2021-09-22T02:25:03.966Z">
+<meta property="article:modified_time" content="2021-09-29T07:45:42.019Z">
 <meta property="article:author" content="孙书玮">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://asswei7.github.io/images/面试题/运行时数据区">
 
 <link rel="canonical" href="https://asswei7.github.io/2021/09/16/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/">
                      
@@ -197,7 +199,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-22 10:25:03" itemprop="dateModified" datetime="2021-09-22T10:25:03+08:00">2021-09-22</time>
+                <time title="Modified: 2021-09-29 15:45:42" itemprop="dateModified" datetime="2021-09-29T15:45:42+08:00">2021-09-29</time>
               </span>
 
           
@@ -213,14 +215,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>455</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -244,6 +246,39 @@
 <li>soft state表示状态可以有一段时间不同步</li>
 <li>最终一致，不要求实时保持强一致</li>
 </ul>
+<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>redis登录<br>auth “password”<br>密码可以在安装目录下的redis.windows.conf里搜索foo得到</p>
+<h3 id="redis类型"><a href="#redis类型" class="headerlink" title="redis类型"></a>redis类型</h3><p>string类型的常用命令，<br>set,get,strlen,exists,dect,incr,setex<br>应用场景：用在需要计数的场景，比如用户的访问次数，热点文章的点赞转发数</p>
+<p>list常⽤命令: rpush,lpop,lpush,rpop,lrangellen 等。<br>应⽤场景: 发布与订阅或者说消息队列、慢查询。</p>
+<h3 id="redis为什么采用单线程"><a href="#redis为什么采用单线程" class="headerlink" title="redis为什么采用单线程"></a>redis为什么采用单线程</h3><p>一开始使用单线程，在4.0版本后抛弃了单线程，其中的原因是什么。<br>因为它是一个内存服务器，处理很多来自外部的网络请求，使用I/O多路复用机制同时监听多个文件描述符的可读和可写状态。一旦收到网络请求就会在内存当中快速处理，由于操作是纯内存的，所以处理速度很快。</p>
+<ul>
+<li>为什么redis服务使用单线程模型处理绝大多数的网络请求</li>
+<li>为什么redis服务增加多个非阻塞的删除操作，例如UNLINK,FLUSHALL ASYNC,FLUSHDB ASYNC。</li>
+</ul>
+<p>使用单线程的好处：</p>
+<ol>
+<li>更好的可维护性，方便开发和调试（多线程需要加锁、同步等很麻烦）</li>
+<li>即使单线程，也能并发地处理客户端的请求（使用I/O多路复用，并发处理来自客户端的多个连接）</li>
+<li>redis服务绝大多数操作的瓶颈不是CPU（多线程的优点是充分利用CPU的计算资源来并发地执行不同的任务，但是redis不是CPU密集型的服务，服务的瓶颈在于网络传输的延时和等待客户端的数据传输，即网络I/O）</li>
+</ol>
+<p>为什么又引用多线程：<br>对于 Redis 中的一些超大键值对，几十 MB 或者几百 MB 的数据并不能在几毫秒的时间内处理完，Redis 可能会需要在释放内存空间上消耗较多的时间，这些操作就会阻塞待处理的任务。然而释放内存空间的工作其实可以由后台线程异步进行处理，这也就是 UNLINK 命令的实现原理，它只会将键从元数据中删除，真正的删除操作会在后台异步执行。</p>
+<h3 id="redis给缓存数据设置过期时间"><a href="#redis给缓存数据设置过期时间" class="headerlink" title="redis给缓存数据设置过期时间"></a>redis给缓存数据设置过期时间</h3><p>因为内存是有限的，如果缓存中的所有数据一直存在，分分钟out of memory。redis自带了给缓存数据设置过期时间的功能。<br>exp key 60 #60s后过期<br>setex key 60 value  #设置数据60s之后过期<br>ttl key  #查看数据还有多久过期</p>
+<p>除了字符串有独有的设置过期的命令:setex，其余要依靠expire命令来设置过期时间，persist可以移除一个键的过期时间。</p>
+<p>而且很多时候业务场景要求某个数据只在某一个时间段内存在，比如短信验证码只在1分钟内生效，用户登录的token只在1天内有效。</p>
+<h3 id="过期的数据如何删除"><a href="#过期的数据如何删除" class="headerlink" title="过期的数据如何删除"></a>过期的数据如何删除</h3><ol>
+<li>惰性删除：只有在取出key的时候才检查，对CPU友好，但是会造成太多过期key没有被删除</li>
+<li>定期删除：每隔一段时间，抽取一批key执行删除过期key操作。并且，redis底层会通过限定删除操作执行的时长和频率来减少删除操作对CPU的影响。</li>
+</ol>
+<p>定期删除对内存更加友好，惰性删除对CPU友好，redis采用的是定期+惰性。<br>即使如此，还是会有大量key过期堆积在内存，导致out of memory。还要内存淘汰机制。<br>将最近不常使用的key删除</p>
+<h3 id="redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）"><a href="#redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）" class="headerlink" title="redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）"></a>redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）</h3><p>一种方式是快照，（snapshotting ,RDB）,另一种方式的只追加文件，(append-only file AOF)</p>
+<p>创建快照获得存储在内容中数据在某个时间点的副本，对快照备份可以复制到其他服务器，也可以保存本地，下次重启时使用。</p>
+<p>save 900 1 #在900秒(15分钟)之后，如果⾄少有1个key发⽣变化，Redis就会⾃动触发<br>BGSAVE命令创建快照。</p>
+<p>与快照持久化相⽐，AOF 持久化 的实时性更好，因此已成为主流的持久化⽅案。默认情况下<br>Redis 没有开启 AOF（append only file）⽅式的持久化，可以通过 appendonly 参数开启</p>
+<p>开启 AOF 持久化后每执⾏⼀条会更改 Redis 中的数据的命令，Redis 就会将该命令写⼊硬盘中<br>的 AOF ⽂件。AOF ⽂件的保存位置和 RDB ⽂件的位置相同，都是通过 dir 参数设置的，默认的<br>⽂件名是 appendonly.aof。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>同类的多个线程共享进程的<strong>堆和方法区资源</strong>，但每个线程有自己的<strong>程序计数器、虚拟机栈和本地方法栈</strong>。<br>Java程序天生是多线程的，一个Java程序的运行是main线程和多个其他线程同时运行。</p>
+<p>[5] Attach Listener //添加事件<br>[4] Signal Dispatcher // 分发处理给 JVM 信号的线程<br>[3] Finalizer //调⽤对象 finalize ⽅法的线程<br>[2] Reference Handler //清除 reference 线程<br>[1] main //main 线程,程序⼊⼝<br><img src="/images/面试题/运行时数据区" alt></p>
+<p>程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时通过改变计数器的值来选取下一条要执行的字节码指令。生命周期随着线程的创建而创建，结束而结束。</p>
+<p>虚拟机栈：主要是局部变量表，</p>
+<h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><p>和线程同步是一个东西，当一个程序对一个线程安全的方法或者语句进行访问的时候，其他的线程不能再对他进行操作了，必须等到这次访问结束以后才能对这个线程安全的方法进行访问。<br>代码所在的进程中有多个线程同时运行，如果每次运行的结果和单线程运行的结果是一致的，就是线程安全。多个线程之间的切换不会导致程序运行结果的二义性，即不需要考虑同步的问题。<br>同步：线程A更改了变量，更改后的结果要同步给线程B才行。</p>
 
     </div>
 
@@ -325,7 +360,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99"><span class="nav-number">1.</span> <span class="nav-text">重载和重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">分布式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.1.</span> <span class="nav-text">什么是分布式事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAP%E7%90%86%E8%AE%BA"><span class="nav-number">2.2.</span> <span class="nav-text">CAP理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BASE%E7%90%86%E8%AE%BA"><span class="nav-number">2.3.</span> <span class="nav-text">BASE理论</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99"><span class="nav-number">1.</span> <span class="nav-text">重载和重写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">分布式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.1.</span> <span class="nav-text">什么是分布式事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAP%E7%90%86%E8%AE%BA"><span class="nav-number">2.2.</span> <span class="nav-text">CAP理论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BASE%E7%90%86%E8%AE%BA"><span class="nav-number">2.3.</span> <span class="nav-text">BASE理论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis"><span class="nav-number">3.</span> <span class="nav-text">redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">redis类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.2.</span> <span class="nav-text">redis为什么采用单线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E7%BB%99%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="nav-number">3.3.</span> <span class="nav-text">redis给缓存数据设置过期时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4"><span class="nav-number">3.4.</span> <span class="nav-text">过期的数据如何删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%88%E6%80%8E%E4%B9%88%E4%BF%9D%E8%AF%81redis%E6%8C%82%E6%8E%89%E4%B9%8B%E5%90%8E%E5%86%8D%E9%87%8D%E5%90%AF%EF%BC%8C%E6%95%B0%E6%8D%AE%E8%83%BD%E5%A4%9F%E6%81%A2%E5%A4%8D%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">4.1.</span> <span class="nav-text">线程安全</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -341,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-count">63</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -398,12 +433,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">65k</span>
+    <span title="Symbols count total">71k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">59 mins.</span>
+    <span title="Reading time total">1:05</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

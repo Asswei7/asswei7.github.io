@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://asswei7.github.io/"/>
-  <updated>2021-09-23T08:25:19.705Z</updated>
+  <updated>2021-09-30T02:13:15.490Z</updated>
   <id>https://asswei7.github.io/</id>
   
   <author>
@@ -15,6 +15,132 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>古希腊建筑</title>
+    <link href="https://asswei7.github.io/2021/09/30/%E5%8F%A4%E5%B8%8C%E8%85%8A%E5%BB%BA%E7%AD%91/%E5%8F%A4%E5%B8%8C%E8%85%8A%E5%BB%BA%E7%AD%91/"/>
+    <id>https://asswei7.github.io/2021/09/30/%E5%8F%A4%E5%B8%8C%E8%85%8A%E5%BB%BA%E7%AD%91/%E5%8F%A4%E5%B8%8C%E8%85%8A%E5%BB%BA%E7%AD%91/</id>
+    <published>2021-09-30T02:12:37.000Z</published>
+    <updated>2021-09-30T02:13:15.490Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux学习</title>
+    <link href="https://asswei7.github.io/2021/09/29/Linux%E5%AD%A6%E4%B9%A0/Linux%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://asswei7.github.io/2021/09/29/Linux%E5%AD%A6%E4%B9%A0/Linux%E5%AD%A6%E4%B9%A0/</id>
+    <published>2021-09-29T01:02:57.000Z</published>
+    <updated>2021-09-29T01:04:18.750Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="vi的使用"><a href="#vi的使用" class="headerlink" title="vi的使用"></a>vi的使用</h2><p><strong>命令模式：</strong><br>输入i进入编辑模式，输入:进入底线命令模式，输入x类似于[del]删除光标处的字符<br>退出的话，如果没有改动需要:q!退出，改动了:wq退出。<br><strong>输入模式：</strong><br>G：移动到文件的最后一行<br>gg：移动到文件的第一行，相当于1G<br>n&lt;\Enter&gt;: 光标向下移动n行</p><p>/word：向光标之下</p><p>常用的复制粘贴：<br>复制光标这一行：yy</p><p>重复上一个动作：.（小数点）<br>撤销上一个动作：u</p><p>ESC切换到命令模式</p><p><strong>底线命令模式：</strong><br>q退出程序<br>w保存文件<br>按esc进入命令模式</p><p>Swap file “.test927.txt.swp” already exists!<br>使用vim编辑，先复制一份临时文件并映射到内存来编辑，编辑的是临时文件，当执行了:w是保存临时文件到原文件，执行:q后删除临时文件。</p><p>每次启动时会检索是否有临时文件。<br>使用ll -a会显示全部文件，包括一些隐藏文件，以及文件的详细信息。例如.test.txt.swp<br>rm-f删除文件</p><h2 id="服务器报错"><a href="#服务器报错" class="headerlink" title="服务器报错"></a>服务器报错</h2><p>CUDA Version: 11.2<br>pip install torch==1.5.0</p><p>RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED<br>运行报错，原因是cuda和pytorch版本不匹配，服务器上的cuda版本是11.2，而pytorch版本是1.5.0,<br>通过网站<a href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a><br>可以看到cuda和pytorch对应的版本，对应cuda 9.2/10.1/10.2三个。</p><p>但是import torch, torch.version.cuda，输入版本为10.2</p><p>Traceback (most recent call last):<br>  File “main.py”, line 365, in &lt;\module&gt;<br>    train_gat(args)<br>  File “main.py”, line 194, in train_gat<br>    torch.LongTensor(current_batch_2hop_indices)).cuda()<br>TypeError: expected torch.LongTensor (got torch.FloatTensor)</p><p>修改了对应文件的代码<br>current_batch_2hop_indices = torch.tensor<br>current_batch_2hop_indices = torch.LongTensor([])<br>tensor默认是float，改成Long应该可以</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Socket error Event: 32 Error: 10053.</span><br><span class="line">Connection closing...Socket close.</span><br><span class="line"></span><br><span class="line">Connection closed by foreign host.</span><br><span class="line"></span><br><span class="line">Disconnected from remote host(3090) at 01:30:17.</span><br><span class="line"></span><br><span class="line">Type help to learn how to use Xshell prompt.</span><br></pre></td></tr></table></figure><p>cuda:Compute Unified Device Architecture统一计算架构，是nvidia推出的编程环境，包括</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;vi的使用&quot;&gt;&lt;a href=&quot;#vi的使用&quot; class=&quot;headerlink&quot; title=&quot;vi的使用&quot;&gt;&lt;/a&gt;vi的使用&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;命令模式：&lt;/strong&gt;&lt;br&gt;输入i进入编辑模式，输入:进入底线命令模式，输入x类似于[del
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>transformer</title>
+    <link href="https://asswei7.github.io/2021/09/28/transformer/transformer/"/>
+    <id>https://asswei7.github.io/2021/09/28/transformer/transformer/</id>
+    <published>2021-09-28T00:43:39.000Z</published>
+    <updated>2021-09-28T00:43:39.096Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>参观党史展览馆</title>
+    <link href="https://asswei7.github.io/2021/09/27/%E5%8F%82%E8%A7%82%E5%85%9A%E5%8F%B2%E5%B1%95%E8%A7%88%E9%A6%86/"/>
+    <id>https://asswei7.github.io/2021/09/27/%E5%8F%82%E8%A7%82%E5%85%9A%E5%8F%B2%E5%B1%95%E8%A7%88%E9%A6%86/</id>
+    <published>2021-09-27T06:45:26.000Z</published>
+    <updated>2021-09-28T06:44:30.145Z</updated>
+    
+    <content type="html"><![CDATA[<p>9月26日，跟着学校一起去参观了中国共产党历史展览馆，一点钟展览馆开门。我们一行是12.45左右到的，但是已经排起了很长的队伍。排的队分成背包的和没背包的两个队伍，没背包的队伍安检速度会快一点。很快一点钟了，安检的速度很快，虽然排队人很多，但是很快就进去了。<br>里面有公益讲解，内容也是涵盖的很广很全面，从1840年开始，一直到最近的脱贫攻坚。这个展馆最大的特点是，里面的东西我们多多少少地都了解过，都学习过。所以看到一些场面时会有所感触，这或许才是展览馆的意义。</p><p>我们对于一些历史背景或者说艺术流派有了一定的了解，但是没有那种亲眼见证的体会，这时展览馆才能发挥出它最大的价值。我回想起前几天去的故宫，由于每个宫殿都不让进去，从外面看每个宫殿的造型也是大同小异，很快就失去了游玩的兴趣，只看看这个殿是皇上休息的，那个宫是皇上睡觉的，根本体会不到其中的意义。反而是军机处让我留有印象。因为我很喜欢看《雍正王朝》，而中学历史书对雍正的介绍少之又少，夹在了最有名的康乾盛世中间，历史的考点只有一个，他创办了军机处，皇权达到了顶峰。而在雍正王朝中的军机处特别小，让人很难想象，最高级别的几个人讨论最重要的时期，和珅也是军机大臣，却挤在这么小的一间屋子。</p><p>又想到之前去卢浮宫参观，像什么断臂的维纳斯，蒙娜丽莎，一堆人围着，连走近观看都做不到。根本无法理解其中好在哪里。只有课本上的《自由领导人民》是我见过的，而且旁边没啥人，还能看一看，也没看出什么东西来。但看完了西方艺术史，了解了德拉克洛瓦的重要地位，了解了浪漫主义的前因后果，才能理解其的重要意义。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;9月26日，跟着学校一起去参观了中国共产党历史展览馆，一点钟展览馆开门。我们一行是12.45左右到的，但是已经排起了很长的队伍。排的队分成背包的和没背包的两个队伍，没背包的队伍安检速度会快一点。很快一点钟了，安检的速度很快，虽然排队人很多，但是很快就进去了。&lt;br&gt;里面有公
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>参观党史展览馆</title>
+    <link href="https://asswei7.github.io/2021/09/27/%E5%8F%82%E8%A7%82%E5%85%9A%E5%8F%B2%E5%B1%95%E8%A7%88%E9%A6%86/%E5%8F%82%E8%A7%82%E5%85%9A%E5%8F%B2%E5%B1%95%E8%A7%88%E9%A6%86/"/>
+    <id>https://asswei7.github.io/2021/09/27/%E5%8F%82%E8%A7%82%E5%85%9A%E5%8F%B2%E5%B1%95%E8%A7%88%E9%A6%86/%E5%8F%82%E8%A7%82%E5%85%9A%E5%8F%B2%E5%B1%95%E8%A7%88%E9%A6%86/</id>
+    <published>2021-09-27T06:45:26.000Z</published>
+    <updated>2021-09-27T06:45:27.003Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>三教极简史</title>
+    <link href="https://asswei7.github.io/2021/09/25/%E4%B8%89%E6%95%99%E6%9E%81%E7%AE%80%E5%8F%B2/%E4%B8%89%E6%95%99%E6%9E%81%E7%AE%80%E5%8F%B2/"/>
+    <id>https://asswei7.github.io/2021/09/25/%E4%B8%89%E6%95%99%E6%9E%81%E7%AE%80%E5%8F%B2/%E4%B8%89%E6%95%99%E6%9E%81%E7%AE%80%E5%8F%B2/</id>
+    <published>2021-09-25T04:49:59.000Z</published>
+    <updated>2021-09-25T04:49:59.159Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>类库推荐项目</title>
+    <link href="https://asswei7.github.io/2021/09/24/%E7%B1%BB%E5%BA%93%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/%E7%B1%BB%E5%BA%93%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://asswei7.github.io/2021/09/24/%E7%B1%BB%E5%BA%93%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/%E7%B1%BB%E5%BA%93%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/</id>
+    <published>2021-09-24T01:27:11.000Z</published>
+    <updated>2021-09-24T02:31:55.736Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>python对GitHub的爬虫特别不稳定，因为自己本地访问GitHub就不稳定，爬虫自然也难以稳定。想到了挂梯子，但是挂梯子后会报错：ValueError: check_hostname requires server_hostname</p><p>解决方法：要么取消梯子，要么可以降低requests库版本到2.7.0。<br>用conda命令行，python -m pip install —upgrade requests==2.7.0，但是pip之前还是得取消梯子。<br>成功解决这个问题。</p><h2 id="将表格中的元素变成链接"><a href="#将表格中的元素变成链接" class="headerlink" title="将表格中的元素变成链接"></a>将表格中的元素变成链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table-column</span><br><span class="line">prop&#x3D;&quot;url&quot;</span><br><span class="line">label&#x3D;&quot;Url&quot;&gt;</span><br><span class="line">&lt;&#x2F;el-table-column&gt;</span><br></pre></td></tr></table></figure><p>上面是原来的表格形式，改成如下格式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-table-column</span><br><span class="line">    prop&#x3D;&quot;url&quot;</span><br><span class="line">    label&#x3D;&quot;Url&quot;&gt;</span><br><span class="line">    &lt;template slot-scope&#x3D;&quot;scope&quot;&gt;</span><br><span class="line">      &lt;a :href&#x3D;&quot;scope.row.url&quot; target&#x3D;&quot;_blank&quot; &gt;&#123;&#123;scope.row.url&#125;&#125;&lt;&#x2F;a&gt;</span><br><span class="line">    &lt;&#x2F;template&gt;</span><br><span class="line">&lt;&#x2F;el-table-column&gt;</span><br></pre></td></tr></table></figure></p><h2 id="子组件无法修改父组件传进来的值"><a href="#子组件无法修改父组件传进来的值" class="headerlink" title="子组件无法修改父组件传进来的值"></a>子组件无法修改父组件传进来的值</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h2&gt;&lt;p&gt;python对GitHub的爬虫特别不稳定，因为自己本地访问GitHub就不稳定，爬虫自然也难以稳定。想到了挂梯子，
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>知识图谱思路</title>
@@ -186,9 +312,9 @@
     <link href="https://asswei7.github.io/2021/09/16/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     <id>https://asswei7.github.io/2021/09/16/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/</id>
     <published>2021-09-16T01:53:16.000Z</published>
-    <updated>2021-09-22T02:25:03.966Z</updated>
+    <updated>2021-09-29T07:45:42.019Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h2><h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><h3 id="什么是分布式事务"><a href="#什么是分布式事务" class="headerlink" title="什么是分布式事务"></a>什么是分布式事务</h3><p>指事务的参与者、支持事务的服务器、资源服务器、事务管理器分别位于不同的分布式系统的不同节点之上。简单说，就是分布式系统中的事务，它的存在是为了保证不同的数据库节点的数据一致性。</p><h3 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h3><ul><li>Consistency:数据在多个副本之间保持一致性。例如一个数据在某个分区节点更新后，在其他分区节点读出来的数据也是更新之后的数据。</li><li>Availability:系统提供的服务必须一直处于可用的状态。对于用户的操作请求总是能在有限的时间内返回结果。</li><li>Partition tolerance分布式系统在遇到任何网络分区故障时，仍然能保证对外提供满足一致性和可用性的服务。</li></ul><h3 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h3><p>是对于AP的一个扩展，牺牲一致性换取系统的<strong>可用性</strong>和<strong>分区容错性</strong>。BASE是Basically Available、soft state、eventually consistent三个短语的缩写。</p><ul><li>基本可用指，通过支持局部故障而不是系统全局故障来实现</li><li>soft state表示状态可以有一段时间不同步</li><li>最终一致，不要求实时保持强一致</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h2><h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><h3 id="什么是分布式事务"><a href="#什么是分布式事务" class="headerlink" title="什么是分布式事务"></a>什么是分布式事务</h3><p>指事务的参与者、支持事务的服务器、资源服务器、事务管理器分别位于不同的分布式系统的不同节点之上。简单说，就是分布式系统中的事务，它的存在是为了保证不同的数据库节点的数据一致性。</p><h3 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h3><ul><li>Consistency:数据在多个副本之间保持一致性。例如一个数据在某个分区节点更新后，在其他分区节点读出来的数据也是更新之后的数据。</li><li>Availability:系统提供的服务必须一直处于可用的状态。对于用户的操作请求总是能在有限的时间内返回结果。</li><li>Partition tolerance分布式系统在遇到任何网络分区故障时，仍然能保证对外提供满足一致性和可用性的服务。</li></ul><h3 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h3><p>是对于AP的一个扩展，牺牲一致性换取系统的<strong>可用性</strong>和<strong>分区容错性</strong>。BASE是Basically Available、soft state、eventually consistent三个短语的缩写。</p><ul><li>基本可用指，通过支持局部故障而不是系统全局故障来实现</li><li>soft state表示状态可以有一段时间不同步</li><li>最终一致，不要求实时保持强一致</li></ul><h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>redis登录<br>auth “password”<br>密码可以在安装目录下的redis.windows.conf里搜索foo得到</p><h3 id="redis类型"><a href="#redis类型" class="headerlink" title="redis类型"></a>redis类型</h3><p>string类型的常用命令，<br>set,get,strlen,exists,dect,incr,setex<br>应用场景：用在需要计数的场景，比如用户的访问次数，热点文章的点赞转发数</p><p>list常⽤命令: rpush,lpop,lpush,rpop,lrangellen 等。<br>应⽤场景: 发布与订阅或者说消息队列、慢查询。</p><h3 id="redis为什么采用单线程"><a href="#redis为什么采用单线程" class="headerlink" title="redis为什么采用单线程"></a>redis为什么采用单线程</h3><p>一开始使用单线程，在4.0版本后抛弃了单线程，其中的原因是什么。<br>因为它是一个内存服务器，处理很多来自外部的网络请求，使用I/O多路复用机制同时监听多个文件描述符的可读和可写状态。一旦收到网络请求就会在内存当中快速处理，由于操作是纯内存的，所以处理速度很快。</p><ul><li>为什么redis服务使用单线程模型处理绝大多数的网络请求</li><li>为什么redis服务增加多个非阻塞的删除操作，例如UNLINK,FLUSHALL ASYNC,FLUSHDB ASYNC。</li></ul><p>使用单线程的好处：</p><ol><li>更好的可维护性，方便开发和调试（多线程需要加锁、同步等很麻烦）</li><li>即使单线程，也能并发地处理客户端的请求（使用I/O多路复用，并发处理来自客户端的多个连接）</li><li>redis服务绝大多数操作的瓶颈不是CPU（多线程的优点是充分利用CPU的计算资源来并发地执行不同的任务，但是redis不是CPU密集型的服务，服务的瓶颈在于网络传输的延时和等待客户端的数据传输，即网络I/O）</li></ol><p>为什么又引用多线程：<br>对于 Redis 中的一些超大键值对，几十 MB 或者几百 MB 的数据并不能在几毫秒的时间内处理完，Redis 可能会需要在释放内存空间上消耗较多的时间，这些操作就会阻塞待处理的任务。然而释放内存空间的工作其实可以由后台线程异步进行处理，这也就是 UNLINK 命令的实现原理，它只会将键从元数据中删除，真正的删除操作会在后台异步执行。</p><h3 id="redis给缓存数据设置过期时间"><a href="#redis给缓存数据设置过期时间" class="headerlink" title="redis给缓存数据设置过期时间"></a>redis给缓存数据设置过期时间</h3><p>因为内存是有限的，如果缓存中的所有数据一直存在，分分钟out of memory。redis自带了给缓存数据设置过期时间的功能。<br>exp key 60 #60s后过期<br>setex key 60 value  #设置数据60s之后过期<br>ttl key  #查看数据还有多久过期</p><p>除了字符串有独有的设置过期的命令:setex，其余要依靠expire命令来设置过期时间，persist可以移除一个键的过期时间。</p><p>而且很多时候业务场景要求某个数据只在某一个时间段内存在，比如短信验证码只在1分钟内生效，用户登录的token只在1天内有效。</p><h3 id="过期的数据如何删除"><a href="#过期的数据如何删除" class="headerlink" title="过期的数据如何删除"></a>过期的数据如何删除</h3><ol><li>惰性删除：只有在取出key的时候才检查，对CPU友好，但是会造成太多过期key没有被删除</li><li>定期删除：每隔一段时间，抽取一批key执行删除过期key操作。并且，redis底层会通过限定删除操作执行的时长和频率来减少删除操作对CPU的影响。</li></ol><p>定期删除对内存更加友好，惰性删除对CPU友好，redis采用的是定期+惰性。<br>即使如此，还是会有大量key过期堆积在内存，导致out of memory。还要内存淘汰机制。<br>将最近不常使用的key删除</p><h3 id="redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）"><a href="#redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）" class="headerlink" title="redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）"></a>redis持久化（怎么保证redis挂掉之后再重启，数据能够恢复）</h3><p>一种方式是快照，（snapshotting ,RDB）,另一种方式的只追加文件，(append-only file AOF)</p><p>创建快照获得存储在内容中数据在某个时间点的副本，对快照备份可以复制到其他服务器，也可以保存本地，下次重启时使用。</p><p>save 900 1 #在900秒(15分钟)之后，如果⾄少有1个key发⽣变化，Redis就会⾃动触发<br>BGSAVE命令创建快照。</p><p>与快照持久化相⽐，AOF 持久化 的实时性更好，因此已成为主流的持久化⽅案。默认情况下<br>Redis 没有开启 AOF（append only file）⽅式的持久化，可以通过 appendonly 参数开启</p><p>开启 AOF 持久化后每执⾏⼀条会更改 Redis 中的数据的命令，Redis 就会将该命令写⼊硬盘中<br>的 AOF ⽂件。AOF ⽂件的保存位置和 RDB ⽂件的位置相同，都是通过 dir 参数设置的，默认的<br>⽂件名是 appendonly.aof。</p><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>同类的多个线程共享进程的<strong>堆和方法区资源</strong>，但每个线程有自己的<strong>程序计数器、虚拟机栈和本地方法栈</strong>。<br>Java程序天生是多线程的，一个Java程序的运行是main线程和多个其他线程同时运行。</p><p>[5] Attach Listener //添加事件<br>[4] Signal Dispatcher // 分发处理给 JVM 信号的线程<br>[3] Finalizer //调⽤对象 finalize ⽅法的线程<br>[2] Reference Handler //清除 reference 线程<br>[1] main //main 线程,程序⼊⼝<br><img src="/images/面试题/运行时数据区" alt></p><p>程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时通过改变计数器的值来选取下一条要执行的字节码指令。生命周期随着线程的创建而创建，结束而结束。</p><p>虚拟机栈：主要是局部变量表，</p><h3 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h3><p>和线程同步是一个东西，当一个程序对一个线程安全的方法或者语句进行访问的时候，其他的线程不能再对他进行操作了，必须等到这次访问结束以后才能对这个线程安全的方法进行访问。<br>代码所在的进程中有多个线程同时运行，如果每次运行的结果和单线程运行的结果是一致的，就是线程安全。多个线程之间的切换不会导致程序运行结果的二义性，即不需要考虑同步的问题。<br>同步：线程A更改了变量，更改后的结果要同步给线程B才行。</p>]]></content>
     
     <summary type="html">
     
@@ -208,20 +334,16 @@
     <link href="https://asswei7.github.io/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://asswei7.github.io/2021/09/16/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/idea%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
     <published>2021-09-16T01:34:02.000Z</published>
-    <updated>2021-09-23T11:35:22.026Z</updated>
+    <updated>2021-09-29T02:40:53.680Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>var声明<br>20.var/    “jack”.var/    new Person().var</p></li><li><p>.nn .null<br>判空，自动添加一个if判断</p></li><li><p>for遍历<br>list.for   list.fori</p></li><li>.if .return .cast</li></ol><p>github搜索技巧：<br><img src="/images/search.jpg" alt></p><p>在pycharm的Project下的Python Interpreter下更改环境</p><p>github中下载单个文件，点击进去，点击raw，然后ctrl+s即可。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="idea快捷键"><a href="#idea快捷键" class="headerlink" title="idea快捷键"></a>idea快捷键</h2><ol><li><p>var声明<br>20.var/    “jack”.var/    new Person().var</p></li><li><p>.nn .null<br>判空，自动添加一个if判断</p></li><li><p>for遍历<br>list.for   list.fori</p></li><li>.if .return .cast</li></ol><p>Ctrl+Y:删除光标所在行或选中内容<br>Ctrl+D:复制光标所在行或选中内容，插入到光标下面<br>Ctrl+N：查找类或者文件</p><h2 id="github搜索技巧"><a href="#github搜索技巧" class="headerlink" title="github搜索技巧"></a>github搜索技巧</h2><p><img src="/images/search.jpg" alt></p><p>在pycharm的Project下的Python Interpreter下更改环境</p><p>github中下载单个文件，点击进去，点击raw，然后ctrl+s即可。</p><p>chorm安装插件GitZip for github可以下载单个文件夹或文件。</p><h2 id="jupyter快捷键"><a href="#jupyter快捷键" class="headerlink" title="jupyter快捷键"></a>jupyter快捷键</h2>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;var声明&lt;br&gt;20.var/    “jack”.var/    new Person().var&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;.nn .null&lt;br&gt;判空，自动添加一个if判断&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;for遍历&lt;br&gt;list.f
+        &lt;h2 id=&quot;idea快捷键&quot;&gt;&lt;a href=&quot;#idea快捷键&quot; class=&quot;headerlink&quot; title=&quot;idea快捷键&quot;&gt;&lt;/a&gt;idea快捷键&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;var声明&lt;br&gt;20.var/    “jack”.var/    new Pe
       
     
     </summary>
@@ -312,175 +434,6 @@
     
     
       <category term="历史" scheme="https://asswei7.github.io/tags/%E5%8E%86%E5%8F%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>极简英语史</title>
-    <link href="https://asswei7.github.io/2021/01/29/%E6%9E%81%E7%AE%80%E8%8B%B1%E8%AF%AD%E5%8F%B2/%E6%9E%81%E7%AE%80%E8%8B%B1%E8%AF%AD%E5%8F%B2/"/>
-    <id>https://asswei7.github.io/2021/01/29/%E6%9E%81%E7%AE%80%E8%8B%B1%E8%AF%AD%E5%8F%B2/%E6%9E%81%E7%AE%80%E8%8B%B1%E8%AF%AD%E5%8F%B2/</id>
-    <published>2021-01-29T13:56:41.000Z</published>
-    <updated>2021-02-27T07:26:21.313Z</updated>
-    
-    <content type="html"><![CDATA[<p>汉朝时匈奴西迁，</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;汉朝时匈奴西迁，&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式</title>
-    <link href="https://asswei7.github.io/2021/01/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://asswei7.github.io/2021/01/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</id>
-    <published>2021-01-29T01:25:11.000Z</published>
-    <updated>2021-01-29T14:06:02.305Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p><strong>定义：</strong><br>确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p><p><strong>类的实例成员和静态成员：</strong><br>类的静态成员每个类只有一个，非静态成员每个对象一个。</p><p>静态成员属于这个类，非静态成员属于这个类的实例对象。</p><p><strong>分析：</strong><br>由于只有一个实例，其构造方法一定不能为public，即不能被外界进行实例化。</p><p>并且该实例是这个类的静态成员变量，属于这个类。并且要提供一个静态方法，向外界提供这个实例。</p><p><strong>应用：</strong><br>确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。</p><p>比如：序列号生成器，Web页面计数器。或者创建一个对象需要消耗很多的资源，比如访问IO，数据库资源，也可以使用。</p><p>饿汉式：在类加载时就进行类的实例化。<br>懒汉式：在类的第一次使用（调用其静态方法）时进行实例化。</p><h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p><strong>定义：</strong><br>属于类创建型模式。根据参数的不同返回不同类的实例。专门定义一个类负责创建其他类的实例，被创建的实例通常具有共同的父类。</p><p><strong>分析：</strong><br>工厂类知道每一个产品，知道哪一个产品应该被实例化。</p><p><strong>缺点：</strong><br>不够灵活，产品很多时，需要修改工厂的判断逻辑。</p><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><p>工厂不再负责所有产品的创建，而是交给子工厂，子工厂负责生成具体的产品对象。新增一个产品，不需要修改工厂的逻辑，但是需要新增一个子工厂。</p><p>开闭原则：对于扩展是开放的，对于修改是封闭的。就像原来是生产拖拉机的生产线，是将其修改为生产口罩还是新增一个生产口罩的生产线好？扩展优于修改。</p><p><strong>定义：</strong><br>定义一个用于创建对象的接口，让子类决定实例化哪个类。工厂方法使一个类的实例化延迟到其子类。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;定义：&lt;/strong&gt;&lt;br&gt;确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。&lt;/p&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前端</title>
-    <link href="https://asswei7.github.io/2021/01/29/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/"/>
-    <id>https://asswei7.github.io/2021/01/29/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/</id>
-    <published>2021-01-29T01:19:01.000Z</published>
-    <updated>2021-02-27T07:26:24.405Z</updated>
-    
-    <content type="html"><![CDATA[<p>侵入式和非侵入式：<br>假设大家都想要把用户代码塞到一个框架里。侵入式的做法就是要求用户代码“知道”框架的代码，表现为用户代码需要继承框架提供的类。非侵入式则不需要用户代码引入框架代码的信息，从类的编写者角度来看，察觉不到框架的存在。<br>例如：<br>使用struts的时候，我需要继承一些struts的类，这时struts侵入到了我的代码里。<br>使用spring，编写一些业务类的时候不需要继承spring特定的类，通过配置完成依赖注入后就可以使用，此时，spring就没有侵入到我业务类的代码里。</p><p>侵入式让用户代码产生对框架的依赖，这些代码不能在框架外使用，不利于代码的复用。但侵入式可以使用户跟框架更好的结合，更容易更充分的利用框架提供的功能。<br>非侵入式的代码则没有过多的依赖，可以很方便的迁移到其他地方。但是与用户代码互动的方式可能就比较复杂。</p><p>反射的作用：<br>1）在运行时判断任意一个对象所属的类。<br>2）在运行时构造任意一个类的对象。<br>3）在运行时判断任意一个类所具有的成员变量和方法。<br>4）在运行时调用任意一个对象的方法</p><p>反射就是把Java类中的各个部分，映射成一个个的Java对象，拿到这些对象后可以做一些事情。</p><p>既然说反射是反射Java类中的各个组成部分，所以说咱们得知道一个类中有哪儿些部分？</p><p>例如，一个类有：成员变量，方法，构造方法，等信息，利用反射技术咱们可以把这些组成部分映射成一个个对象。<br><a href="https://blog.csdn.net/Appleyk/article/details/77879073?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control">https://blog.csdn.net/Appleyk/article/details/77879073?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.control</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;侵入式和非侵入式：&lt;br&gt;假设大家都想要把用户代码塞到一个框架里。侵入式的做法就是要求用户代码“知道”框架的代码，表现为用户代码需要继承框架提供的类。非侵入式则不需要用户代码引入框架代码的信息，从类的编写者角度来看，察觉不到框架的存在。&lt;br&gt;例如：&lt;br&gt;使用struts
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>经济危机</title>
-    <link href="https://asswei7.github.io/2021/01/27/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/"/>
-    <id>https://asswei7.github.io/2021/01/27/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/</id>
-    <published>2021-01-27T04:00:23.000Z</published>
-    <updated>2021-01-29T01:19:21.222Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先大量债务违约，房贷无法偿还，随后银行倒闭，金融市场恐慌，资本逃离，制造业银根断裂，失业紧跟而至。</p><p>经济危机：消费者的购买力过剩，根本原因是生产的社会化和生产资料私人占有之间的矛盾。</p><p>资本家没有需求去消费那么多商品，而真正有需求的普通大众日渐支付不起属于资本家的商品，市场的失调就此产生，</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;首先大量债务违约，房贷无法偿还，随后银行倒闭，金融市场恐慌，资本逃离，制造业银根断裂，失业紧跟而至。&lt;/p&gt;
-&lt;p&gt;经济危机：消费者的购买力过剩，根本原因是生产的社会化和生产资料私人占有之间的矛盾。&lt;/p&gt;
-&lt;p&gt;资本家没有需求去消费那么多商品，而真正有需求的普通大众日渐支
-      
-    
-    </summary>
-    
-    
-      <category term="经济危机" scheme="https://asswei7.github.io/categories/%E7%BB%8F%E6%B5%8E%E5%8D%B1%E6%9C%BA/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>安史之乱</title>
-    <link href="https://asswei7.github.io/2021/01/27/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/"/>
-    <id>https://asswei7.github.io/2021/01/27/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/%E5%AE%89%E5%8F%B2%E4%B9%8B%E4%B9%B1/</id>
-    <published>2021-01-27T02:51:06.000Z</published>
-    <updated>2021-01-27T03:37:09.307Z</updated>
-    
-    <content type="html"><![CDATA[<p>唐朝历史的转折点，也是中国历史的转折点。<br>公元618年李渊建立唐朝，安史之乱前总人口大约8000万，而且人均粮食占有量极高。<br>唐玄宗李隆基唐代第七位皇帝，初期勤政，提倡节俭，开元之治。<br>执政中期，不再专心政务，潜心钻研声乐歌舞，</p><p>节度使：是唐朝为了维持对外用兵或者镇守边关设置的官职，后期由于土地兼并，许多农民失去土地变成流民，只能变为募兵制，军队的开销就大幅增加，中央无法供给。就让边境的军队自给自足，节度使就掌管了军事、行政、民政、财政以及生产和税收。导致边境士兵“唯知其将之恩威而不知有天子”。怛罗斯战役，唐朝碰到了阿拉伯帝国，停止向西扩张。</p><p>唐朝宰相张九龄被李林甫代替，任人唯亲，导致中央的实力逐渐消弱。安禄山通过贿赂官员洗脱罪责，并表演胡旋舞得到了唐玄宗的注意，李林甫投其所好，推举安禄山为东北三镇节度使。李林甫死后，杨国忠为新的宰相，安禄山作为李林甫的党羽，与杨国忠交恶。</p><p>安禄山意识到中央实力削弱，并且自身受到威胁，下定决心发动兵变。安禄山以忧国之危奉密诏讨伐杨国忠为借口，在范阳（北京）起兵。皇帝令儿子李琬为元帅，高仙芝为副帅东征，保卫洛阳。<br>然后洛阳失守，坚守潼关，等待边关节度使调回大军。然而朝中文官忌惮武将立功，进谗言，皇帝以避战不出的罪名处斩高仙芝，哥舒翰继任。皇帝又逼迫他出城决战，安禄山设伏剿灭守军。玄宗逃出长安，向蜀地而去。</p><p>由于安禄山是湖人，中央逐渐排外，从包容变得保守，开始封闭自我，减少交流。</p><p>由于逃亡路上保卫皇帝的士兵没有食物，怨声载道，将怒气发向杨国忠，将其杀死，皇帝为了保护自己杀死杨玉环。太子李亨和李隆基关系不好，率兵向北逃亡。逃到宁夏，与各地节度使接洽，自称唐肃宗，说李隆基为太上皇，而玄宗在四川控制兵力不足两千，只得接受现实。肃宗在灵武封郭子仪为兵部尚书，李光弼为户部尚书，反击。 安禄山被儿子安庆绪灭掉，安庆绪想控制江南，睢阳是运河上的关键节点，若被攻陷，中央和江南的联系就会被掐断，但是张巡兵力仅有六千。坚守了一年，是转折点。</p><p>之后，肃宗收复长安，收复洛阳，</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;唐朝历史的转折点，也是中国历史的转折点。&lt;br&gt;公元618年李渊建立唐朝，安史之乱前总人口大约8000万，而且人均粮食占有量极高。&lt;br&gt;唐玄宗李隆基唐代第七位皇帝，初期勤政，提倡节俭，开元之治。&lt;br&gt;执政中期，不再专心政务，潜心钻研声乐歌舞，&lt;/p&gt;
-&lt;p&gt;节度使：是唐
-      
-    
-    </summary>
-    
-    
-      <category term="思维实验室" scheme="https://asswei7.github.io/categories/%E6%80%9D%E7%BB%B4%E5%AE%9E%E9%AA%8C%E5%AE%A4/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>战国四大名将</title>
-    <link href="https://asswei7.github.io/2021/01/25/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/"/>
-    <id>https://asswei7.github.io/2021/01/25/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/%E6%88%98%E5%9B%BD%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%B0%86/</id>
-    <published>2021-01-25T06:53:04.000Z</published>
-    <updated>2021-09-15T13:46:14.968Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="李牧-赵"><a href="#李牧-赵" class="headerlink" title="李牧(赵)"></a>李牧(赵)</h3><ol><li><p>坚壁清野<br>开始在北方抵御匈奴，采取坚壁清野(加固城墙的同时，把城外的植物水源统统破坏)的策略，但赵孝成王不满，去和匈奴硬打，战败，重新启用李牧。李牧大败匈奴。</p></li><li><p>防卫秦国<br>秦国派<strong>桓齮</strong>攻打赵国，一路高歌猛进，被李牧坚守不出打不过，被李牧打败。<br>嬴政启用<strong>王翦</strong>，收买了赵国重臣<strong>郭开</strong>，赵王杀害了李牧。王翦攻破赵国。</p></li></ol><h3 id="廉颇（赵）"><a href="#廉颇（赵）" class="headerlink" title="廉颇（赵）"></a>廉颇（赵）</h3><p>先打齐，又打魏，后打秦。<br>因为上党郡，和秦国僵持，一守就是三年。<br>廉颇攻打魏国，郭开进谗言，将廉颇革职，廉颇投奔魏国。后来赵王去请廉颇回来，使者被郭开拦下，最后在楚国郁郁而终。</p><h3 id="王翦（秦）"><a href="#王翦（秦）" class="headerlink" title="王翦（秦）"></a>王翦（秦）</h3><ol><li><p>早期比较低调，帮助宰相范雎干掉他的仇人。然后帮助嬴政解决他弟弟的叛乱。又帮助嬴政收拾吕不韦和嫪毐。</p></li><li><p>嬴政即位后<br>第一场灭赵国。然后荆轲刺秦，王翦灭燕国，燕王逃到辽东，最后被其儿子王贲灭掉。第三场王贲放水灭了魏国。第四场灭楚国，李信先去灭楚，被项燕打败。王翦带60万打楚国。第五场打齐国。</p></li></ol><h3 id="白起（秦）"><a href="#白起（秦）" class="headerlink" title="白起（秦）"></a>白起（秦）</h3><ol><li>战必全歼，战国死亡人数两百多万，一半死在他的手上。<br>包围魏韩联军主力，斩杀24万人，伊阙之战。<br>攻打楚国，放水淹死数十万人，鄢郢之战。<br>攻打赵魏进攻韩国的联军，斩杀13万，华阳之战。<br>攻打韩国，占领野王，切断韩国和上党郡的联系，引发长平之战。<br>韩赵两国联手贿赂范雎，把白起撤下，救了赵国。后来秦国一直打败仗，白起依旧称病不带兵，引起秦王暴怒。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;李牧-赵&quot;&gt;&lt;a href=&quot;#李牧-赵&quot; class=&quot;headerlink&quot; title=&quot;李牧(赵)&quot;&gt;&lt;/a&gt;李牧(赵)&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;坚壁清野&lt;br&gt;开始在北方抵御匈奴，采取坚壁清野(加固城墙的同时，把城外的植物水源统统破坏)的策略，但
-      
-    
-    </summary>
-    
-    
-      <category term="历史" scheme="https://asswei7.github.io/categories/%E5%8E%86%E5%8F%B2/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>屠龙之术</title>
-    <link href="https://asswei7.github.io/2021/01/14/%E5%B1%A0%E9%BE%99%E4%B9%8B%E6%9C%AF/%E5%B1%A0%E9%BE%99%E4%B9%8B%E6%9C%AF/"/>
-    <id>https://asswei7.github.io/2021/01/14/%E5%B1%A0%E9%BE%99%E4%B9%8B%E6%9C%AF/%E5%B1%A0%E9%BE%99%E4%B9%8B%E6%9C%AF/</id>
-    <published>2021-01-14T11:23:09.000Z</published>
-    <updated>2021-01-14T11:34:13.613Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="故事背景与作者的反思"><a href="#故事背景与作者的反思" class="headerlink" title="故事背景与作者的反思"></a>故事背景与作者的反思</h3><p>屠龙术的故事源于庄子的《列御寇》，它只有简单的一句话：</p><blockquote><p>朱泙漫学屠龙于支离益，单千金之家，三年技成而无所用其巧。</p></blockquote><p>作者的反思：</p><blockquote><p>朱泙漫到底是谁？支离益又是谁？他们的名字为什么这么奇怪？<br><br>如果这世上本无龙，支离益为什么能教屠龙术？是因为这世上原本是有龙的，支离益曾是一名屠龙的勇士？亦或者支离益就是个骗子？<br><br>而朱泙漫又为什么肯耗尽千金家产，要学习屠龙术？他背后有怎样的故事？是不是他知道，这世界还有恶龙隐藏？<br><br>朱泙漫是怎么用三年时间学成屠龙术的？他是怎么练习的？又怎么在三年后认为自己已经学成了？<br>当朱泙漫学成了屠龙术，去做了什么？他游历了哪里，遇到了谁？庄子的世界里，真的没有龙吗？会不会像所有的童话故事一样，朱泙漫经历了一场恶战，杀掉了这世上的最后一条恶龙，从此归隐山林，不为人知？<br><br>这世界上真正的英雄不为人知，反被耻笑。直到突然有一天，又一只恶龙不知从哪里冒了出来。这似乎是很多英雄故事的套路。朱泙漫的故事是否也是如此？<br><br>后来呢？后来呢？</p></blockquote><h3 id="堂吉诃德"><a href="#堂吉诃德" class="headerlink" title="堂吉诃德"></a>堂吉诃德</h3><h3 id="没有龙就是最大的恶龙"><a href="#没有龙就是最大的恶龙" class="headerlink" title="没有龙就是最大的恶龙"></a>没有龙就是最大的恶龙</h3><p>想到了墨菲定律，即你觉得最困难的事情一定会发生。可以从博弈论的角度来看，对手会想尽办法让你难受，所以最困难的事情一定会发生。</p><p><br>想到了毛主席，居安思危，很有前瞻性地将义勇军进行曲作为国歌，认为我们永远处于危机之中，永远不能放松警惕。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;故事背景与作者的反思&quot;&gt;&lt;a href=&quot;#故事背景与作者的反思&quot; class=&quot;headerlink&quot; title=&quot;故事背景与作者的反思&quot;&gt;&lt;/a&gt;故事背景与作者的反思&lt;/h3&gt;&lt;p&gt;屠龙术的故事源于庄子的《列御寇》，它只有简单的一句话：&lt;/p&gt;
-&lt;block
-      
-    
-    </summary>
-    
-    
-      <category term="技术类随笔" scheme="https://asswei7.github.io/categories/%E6%8A%80%E6%9C%AF%E7%B1%BB%E9%9A%8F%E7%AC%94/"/>
-    
     
   </entry>
   
